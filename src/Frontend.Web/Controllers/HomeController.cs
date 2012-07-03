@@ -19,5 +19,10 @@ namespace Frontend.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult dasfdas()
+        {
+            return View();
+        }
     }
 }
