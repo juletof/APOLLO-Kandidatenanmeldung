@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frontend.Web", "Frontend.Web\Frontend.Web.csproj", "{156DA007-5D3F-46A6-8AA5-0108B428E5B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{408B8D41-BB53-4E2A-9B2D-BDFB62EEF8DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{B102BBE8-6848-4B58-8F22-8B728EA01E38}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{156DA007-5D3F-46A6-8AA5-0108B428E5B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{156DA007-5D3F-46A6-8AA5-0108B428E5B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{156DA007-5D3F-46A6-8AA5-0108B428E5B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{156DA007-5D3F-46A6-8AA5-0108B428E5B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{408B8D41-BB53-4E2A-9B2D-BDFB62EEF8DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{408B8D41-BB53-4E2A-9B2D-BDFB62EEF8DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{408B8D41-BB53-4E2A-9B2D-BDFB62EEF8DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{408B8D41-BB53-4E2A-9B2D-BDFB62EEF8DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B102BBE8-6848-4B58-8F22-8B728EA01E38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B102BBE8-6848-4B58-8F22-8B728EA01E38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B102BBE8-6848-4B58-8F22-8B728EA01E38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B102BBE8-6848-4B58-8F22-8B728EA01E38}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
