@@ -8,5 +8,7 @@ APOLLO beige dunkler Seitenumrandung: #EDE4C3
 
 
 eigene Farben:
+APOLLO mittelgrün (mittlerer Ton aus hell und dunkel): #7CB036
 Schrift dunkelgrün: #253D19
 APOLLO beige noch dunkler für Trennlinien: #c9c2a6
+ganz helles grün als Tabellenhintergrund: #F0ECCD

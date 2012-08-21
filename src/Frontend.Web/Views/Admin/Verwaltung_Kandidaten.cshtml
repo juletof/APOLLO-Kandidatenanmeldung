@@ -24,42 +24,10 @@
 			<input type="checkbox">ausgeschiedene Kandidaten</input>
 			</label>
 			<label class="checkbox inline">
-			<input type="checkbox">frühere Jahrgänge</input>
+			<input type="checkbox">registrierte Nutzer ohne Zulassung</input>
 			</label>
 		</div>
 	</div>
-	<!--alte Version ohne Tabs:
-	<div style="float: left; margin-right: 10px; padding-top: 5px">
-		<h4>Datensätze filtern:</h4>
-	</div>
-					
-	<div class="control-group" style="float: left">
-		<div class="controls">
-			<select>
-				<option>alle Universitäten</option>
-				<option>Brjansk</option>
-				<option>Saratov</option>
-				<option>Ufa</option>
-				<option>...</option>
-			</select>
-		</div>
-	</div>
-	<div style="margin-left: 15px; padding-top:5px; float: left">
-		<p>
-			<b><u>oder</u></b>
-		</p>
-	</div>
-					
-	<div class="control-group" style="margin-bottom: 0px">
-		<div class="controls">
-			<input placeholder="Freitextsuche" style="margin-left:20px">
-			</input>
-			<button class="btn" style="vertical-align: top">
-			<i class="icon-search"></i>
-			</button>
-		</div>
-	</div>
-	-->
 </div>
 <hr style="margin-top: 0px; margin-bottom: 0px;border-bottom-color: #c9c2a6"/>
 </div>
@@ -124,144 +92,92 @@
 	<li><a href="#">...</a></li>
 </ul>
 </div>
+
+<table width="100%" class="tabelle-kandidaten table table-striped">
+      <thead style="background-color: #7CB036">
+        <tr>
+            <th width="5%"></th>
+            <th width="25%">Kandidat</th>
+            <th width="10%">Stadt</th>
+            <th width="15%">Studium</th>
+            <th width="10%">Anmelde- <br />datum</th>
+            <th width="15%">Daten</th>
+            <th width="20%">Status</th>
+       </tr>
+      </thead>
+      <tbody style="background-color: #CFE69E">
+        <tr>
+            <td class="checkbox">
+               <input type="checkbox">
+            </td>
+            <td>
+            <p>Ivanov, Ivan
+            <br>
+            (Иванов, Иван Иванович)</p>
+            Geb. 25.06.1991 (22 Jahre)
+            </td>
+
+            <td>Stavropol</td>
+            <td>Mechanisierung
+            <br />
+            4. Kurs (Diplom)
+            </td>
+
+             <td>26.09.2012</td>
+
+             <td>
+            
+             Registrierung
+             <br />
+             <i class="icon-align-justify"></i>
+             
+             </td>
+             <td>nicht gesetzt</td>
+        </tr>
+        <tr>
+            <td class="checkbox">
+               <input type="checkbox">
+            </td>
+            <td>
+            <p>Ivanov, Ivan
+            <br>
+            (Иванов, Иван Иванович)</p>
+            Geb. 25.06.1991 (22 Jahre)
+            </td>
+
+            <td>Stavropol</td>
+            <td>Mechanisierung
+            <br />
+            4. Kurs (Diplom)
+            </td>
+
+             <td>26.09.2012</td>
+
+             <td>Zulassung: vollständig</td>
+             <td>nicht gesetzt</td>
+        </tr>
+        <tr>
+            <td class="checkbox">
+               <input type="checkbox">
+            </td>
+            <td>
+            <p>Ivanov, Ivan
+            <br>
+            (Иванов, Иван Иванович)</p>
+            Geb. 25.06.1991 (22 Jahre)
+            </td>
+
+            <td>Stavropol</td>
+            <td>Landwirtschaftliche Betriebswirtschaft
+            <br />
+            4. Kurs (Diplom)
+            </td>
+
+             <td>26.09.2012</td>
+
+             <td></td>
+             <td>nicht gesetzt</td>
+        </tr>
+      </tbody>
+</table>
 			
-<div class="kandidatenliste" style="background-color: white; margin-bottom: 0px">
-<div class="kandidat" style="background-color: white">
-	<hr style="margin-top: 0px; margin-bottom: 5px"/>
-	<div class="kandidat_links" style="float: left; padding: 5px">
-		<p><b>Kandidat 007</b></p>
-		<p><b>Anrede Name Vorname lat</b></p>
-		<p><b>Anrede Name Vorname kyr</b></p>
-		<p>Geb.-Datum</p>
-		<p>Universität</p>
-	</div>
-					
-	<div class="kandidat_rechts">
-		<p><b>Ergebnis 1. Auswahl</b></p>
-	</div>
-					
-</div>
-				
-<div class="kandidat erweitert" style="margin-bottom: 0px; background-color: white; padding: 5px">
-	<div class="kandidat_links" style="float: left">
-		<p>Studienziel</p>
-		<p>Studienfach</p>
-		<p>Kurs ... von ....</p>
-	</div>
-					
-	<div class="kandidat_rechts">
-		<p><b>Ergebnis 1. Auswahl</b></p>
-	</div>
-					
-</div>
-<div class="toggle">
-	<a href="#" class="toggle"><i class="icon-chevron-up"></i><i class="icon-chevron-down"></i></a>
-</div>
-				
-<div class="kandidat">
-	<hr style="margin-top: 0px; margin-bottom: 5px"/>
-	<div class="kandidat_links" style="float: left; padding:5px">
-		<p><b>Kandidat Nr. 007</b></p>
-		<p><b>Herr Ivan Ivanov</b></p>
-		<p><b>г-н Иванов Иван Иванович</b></p>
-		<p>geb. 01.02.1993, Alter: 19 Jahre</p>
-		<p>Brjansk</p>
-	</div>
-	<div style="float: left"> 
-		<div class="tabbable">
-			<ul class="nav nav-tabs">
-				<li class="active"><a href="#tab4" data-toggle="tab">Zulassung </br>1. Auswahl</a></li>
-				<li class=""><a href="#tab5" data-toggle="tab">Ergebnis </br>1. Auswahl</a></li>
-				<li class=""><a href="#tab6" data-toggle="tab">Zulassung </br>2. Auswahl</a></li>
-				<li class=""><a href="#tab7" data-toggle="tab">Ergebnis </br>2. Auswahl</a></li>
-				<li class=""><a href="#tab8" data-toggle="tab">Zulassung </br>zum Praktikum</a></li>
-			</ul>
-			<div class="tab-content">
-				<div class="tab-pane active" id="tab4">
-				<div class="control-group" style="margin-bottom: 0px">
-					<div class="controls">
-						<select>
-							<option>nicht zugelassen</option>
-							<option>zugelassen</option>
-						</select>
-					</div>
-				</div>
-				</div>
-				<div class="tab-pane" id="tab5">
-					<div class="control-group" style="margin-bottom: 0px">
-						<div class="controls">
-							<select>
-								<option>online registriert</option>
-								<option>zur Vorauswahl zugelassen</option>
-								<option>Vorauswahl nicht bestanden</option>
-								<option>Vorauswahl bestanden</option>
-								<option>zur Endauswahl zugelassen</option>
-								<option>...</option>
-							</select>
-						</div>
-					</div>
-				</div>
-				<div class="tab-pane" id="tab6">
-					<div class="control-group" style="margin-bottom: 0px">
-						<div class="controls">
-							<input placeholder="Freitextsuche">
-							</input>
-							<button class="btn" style="vertical-align: top">
-							<i class="icon-search"></i>
-							</button>
-						</div>
-					</div>
-				</div>
-				<div class="tab-pane" id="tab7">
-					<div class="control-group" style="margin-bottom: 0px">
-						<div class="controls">
-							<select>
-								<option>online registriert</option>
-								<option>zur Vorauswahl zugelassen</option>
-								<option>Vorauswahl nicht bestanden</option>
-								<option>Vorauswahl bestanden</option>
-								<option>zur Endauswahl zugelassen</option>
-								<option>...</option>
-							</select>
-						</div>
-					</div>
-				</div>
-				<div class="tab-pane" id="tab8">
-					<div class="control-group" style="margin-bottom: 0px">
-						<div class="controls">
-							<select>
-								<option>online registriert</option>
-								<option>zur Vorauswahl zugelassen</option>
-								<option>Vorauswahl nicht bestanden</option>
-								<option>Vorauswahl bestanden</option>
-								<option>zur Endauswahl zugelassen</option>
-								<option>...</option>
-							</select>
-						</div>
-					</div>
-				</div>
-							  
-			</div>
-		</div>
-	</div>
-</div>
-				
-<div class="kandidat erweitert" style="margin-bottom: 0px">
-	<div class="kandidat_links" style="float: left">
-		<p>Studienziel</p>
-		<p>Studienfach</p>
-		<p>Kurs ... von ....</p>
-	</div>
-					
-	<div class="kandidat_rechts">
-		<p><b>Ergebnis 1. Auswahl</b></p>
-	</div>
-					
-</div>
-<div class="toggle">
-	<a href="#" class="toggle"><i class="icon-chevron-up"></i><i class="icon-chevron-down"></i></a>
-</div>
-				
-<div class="kandidat">
-<hr style="margin-top: 0px; margin-bottom: 0px"/>
-</div>

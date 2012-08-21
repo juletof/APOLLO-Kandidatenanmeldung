@@ -751,7 +751,7 @@ table {
 }
 .table-striped tbody tr:nth-child(odd) td,
 .table-striped tbody tr:nth-child(odd) th {
-  background-color: #f9f9f9;
+  background-color: #F0ECCD;
 }
 .table tbody tr:hover td,
 .table tbody tr:hover th {
@@ -5528,18 +5528,27 @@ padding-top: 0px;
 
 /*Verwaltung*/
 
-.kandidat hr {
-border-bottom-color: #c9c2a6;
+table.tabelle-kandidaten td {
+vertical-align:top;
 }
 
-div.kandidat_links {
-width: 250px;
+table.tabelle-kandidaten {
+border: 2px solid #7CB036;
+}   
+   
+table.tabelle-kandidaten td, th {
+border: none;
+} 
+
+table.tabelle-kandidaten td.checkbox {
+text-align: center;
+vertical-align: middle;
 }
 
-.kandidat p {
-line-height: 1em;
-margin-bottom: 2px;
+table.tabelle-kandidaten td.checkbox input {
+margin-left: 5px;
 }
+
 
 /*Breite Textfeld*/
 
