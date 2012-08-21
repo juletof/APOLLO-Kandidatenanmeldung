@@ -16,5 +16,10 @@ namespace Frontend.Web.Controllers
             return View();
         }
 
+        public ActionResult Verwaltung_Kandidaten()
+        {
+            return View();
+        }
+
     }
 }

@@ -1,0 +1,397 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Verwaltung Allgemein</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <!-- <link href="css/bootstrap.css" rel="stylesheet"> Originalstyles von twitter bootstrap -->
+	<link href="css/apollo.css" rel="stylesheet"> <!--enthält vorn die Original-styles von twitter bootstrap und hinten die angepassten styles der Kandidatenanmeldung-->
+	<link href="css/layout3_setup.css" rel="stylesheet"> <!--stylesheet der Apollo-Homepage-->
+	<link href="css/test.css" rel="stylesheet">  <!-- Nur zum Ausprobieren von Dingen-->
+	
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script src="js/bootstrap.js"></script>
+   
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+	
+	<!-- Roberts jquery
+	
+	<script language="javascript">
+	
+	
+	$(function(){
+		$("a").click(function(){
+			$(this).fadeOut(5000);
+			return false;
+		});
+	});
+		
+	</script>
+	
+	-->
+	
+	<script type="text/javascript" language="javascript">
+	
+	$(document).ready(function(){
+		$("i.icon-chevron-up, i.icon-chevron-down").click(function(){
+		    console.log("hakki");
+			console.log($(this));
+			$(this).closest("div").prev("div.erweitert").toggle("fast");
+		});
+	});
+	
+	</script>
+	
+  </head>
+
+  <body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+ 
+<!-- -->
+
+ <!-- Main Page Container -->
+
+ <div class="page-container">
+  
+	<!-- A. HEADER -->      
+
+    <div class="header">
+		
+		<!-- A.1 HEADER TOP -->
+		
+		<div class="header-top">
+			
+			<!-- Sitelogo and sitename -->
+			
+			<a class="sitelogo" href="http://www.apollo-online.de" title="Go to Start page"></a>
+			
+			<div class="sitename">
+			
+			<h1><a href="http://www.apollo-online.de" title="Go to Start page">Apollo e.V.</a></h1>
+			
+			<h2 style="line-height:1.2em">Arbeitsgemeinschaft für Projekte in Oekologie, Landwirtschaft </br>
+			
+			und Landesentwicklung in Osteuropa e.V.</h2>
+		</div>
+		
+	</div>
+	
+	
+	<div class="main-content" style="color:#253D19">
+		<div style="margin-bottom:30px">
+			
+			<div style="margin-right: 20px; float: left">
+				<h2>Verwaltung</h2>
+			</div>
+			<div>
+				<ul class="nav nav-pills">
+					<li  class="active">
+						<a href="#">allgemein</a>
+					</li>
+					
+					<li>
+						<a href="verwaltung_kandidaten_ru.html">Kandidaten</a>
+					</li>
+				</ul>
+			</div>
+			
+			<div style="margin-top: 20px; margin-bottom: 20px">
+				<h3>Aktuelle Bewerbungsrunde</h3>
+			</div>
+			
+			<div>
+				<p>Bewerbung für das Praktikum im Jahr <b>[aktuelles Kalenderjahr] läuft/ ist abgeschlossen.</b></p>
+			</div>
+			<div style="margin-top: 20px; margin-bottom: 20px">
+				<p>Bewerbung für das Praktikum im Jahr <b>[folgendes Kalenderjahr] läuft (noch nicht).</b></p>
+				<p>Jetzt das Bewerbungsverfahren für das Jahr [aktuelles Kalenderjahr] beenden und für das Jahr [folgendes Kalenderjahr] eröffnen:</p>
+				<button class="btn btn-small btn-warning">Bewerbung für [folgendes Kalenderjahr] starten</button>
+			</div>
+			
+			<div style="margin-top: 20px; margin-bottom: 20px">
+				<h3>Termine festlegen</h3>
+			</div>
+			<div class="control-group">
+				<div style="float: left; margin-right: 10px; margin-top:5px;width: 400px">
+					Beginn der Anmeldung zur ersten Auswahl:
+				</div>
+				<div class="controls">
+					<select style="width: auto; float: left; margin-right: 10px">
+						<option>Tag</option>
+						<option>01</option>
+						<option>02</option>
+						<option>03</option>
+						<option>04</option>
+						<option>05</option>
+						<option>06</option>
+						<option>07</option>
+						<option>08</option>
+						<option>09</option>
+						<option>10</option>
+						<option>11</option>
+						<option>12</option>
+						<option>13</option>
+						<option>14</option>
+						<option>15</option>
+						<option>16</option>
+						<option>17</option>
+						<option>18</option>
+						<option>19</option>
+						<option>20</option>
+						<option>21</option>
+						<option>22</option>
+						<option>23</option>
+						<option>24</option>
+						<option>25</option>
+						<option>26</option>
+						<option>27</option>
+						<option>28</option>
+						<option>29</option>
+						<option>30</option>
+						<option>31</option>
+					</select>
+					<select style="width: auto; float: left; margin-right: 10px">
+						<option>Monat</option>
+						<option>Januar</option>
+						<option>Februar</option>
+						<option>März</option>
+						<option>April</option>
+						<option>Mai</option>
+						<option>Juni</option>
+						<option>Juli</option>
+						<option>August</option>
+						<option>September</option>
+						<option>Oktober</option>
+						<option>November</option>
+						<option>Dezember</option>
+					</select>
+					<select style="width: auto; float: left; margin-right: 10px">
+						<option>Jahr</option>
+					</select>
+				</div>
+			</div>
+			<div class="control-group">
+				<div style="float: left; margin-right: 10px; margin-top:5px; width: 400px">
+				Ende der Anmeldung zur ersten Auswahl:
+				</div>
+				<div class="controls">
+					<select style="width: auto; float: left; margin-right: 10px">
+						<option>Tag</option>
+						<option>01</option>
+						<option>02</option>
+						<option>03</option>
+						<option>04</option>
+						<option>05</option>
+						<option>06</option>
+						<option>07</option>
+						<option>08</option>
+						<option>09</option>
+						<option>10</option>
+						<option>11</option>
+						<option>12</option>
+						<option>13</option>
+						<option>14</option>
+						<option>15</option>
+						<option>16</option>
+						<option>17</option>
+						<option>18</option>
+						<option>19</option>
+						<option>20</option>
+						<option>21</option>
+						<option>22</option>
+						<option>23</option>
+						<option>24</option>
+						<option>25</option>
+						<option>26</option>
+						<option>27</option>
+						<option>28</option>
+						<option>29</option>
+						<option>30</option>
+						<option>31</option>
+					</select>
+					<select style="width: auto; float: left; margin-right: 10px">
+						<option>Monat</option>
+						<option>Januar</option>
+						<option>Februar</option>
+						<option>März</option>
+						<option>April</option>
+						<option>Mai</option>
+						<option>Juni</option>
+						<option>Juli</option>
+						<option>August</option>
+						<option>September</option>
+						<option>Oktober</option>
+						<option>November</option>
+						<option>Dezember</option>
+					</select>
+					<select style="width: auto; float: left; margin-right: 10px">
+						<option>Jahr</option>
+					</select>
+				</div>
+			</div>
+			<div class="control-group">
+				<div style="float: left; margin-right: 10px; margin-top:5px; width: 400px">
+				Termin für Dateneingabe zweite Auswahl:
+				</div>
+				<div class="controls">
+					<select style="width: auto; float: left; margin-right: 10px">
+						<option>Tag</option>
+						<option>01</option>
+						<option>02</option>
+						<option>03</option>
+						<option>04</option>
+						<option>05</option>
+						<option>06</option>
+						<option>07</option>
+						<option>08</option>
+						<option>09</option>
+						<option>10</option>
+						<option>11</option>
+						<option>12</option>
+						<option>13</option>
+						<option>14</option>
+						<option>15</option>
+						<option>16</option>
+						<option>17</option>
+						<option>18</option>
+						<option>19</option>
+						<option>20</option>
+						<option>21</option>
+						<option>22</option>
+						<option>23</option>
+						<option>24</option>
+						<option>25</option>
+						<option>26</option>
+						<option>27</option>
+						<option>28</option>
+						<option>29</option>
+						<option>30</option>
+						<option>31</option>
+					</select>
+					<select style="width: auto; float: left; margin-right: 10px">
+						<option>Monat</option>
+						<option>Januar</option>
+						<option>Februar</option>
+						<option>März</option>
+						<option>April</option>
+						<option>Mai</option>
+						<option>Juni</option>
+						<option>Juli</option>
+						<option>August</option>
+						<option>September</option>
+						<option>Oktober</option>
+						<option>November</option>
+						<option>Dezember</option>
+					</select>
+					<select style="width: auto; float: left; margin-right: 10px">
+						<option>Jahr</option>
+					</select>
+				</div>
+			</div>
+			<div class="control-group">
+				<div style="float: left; margin-right: 10px; margin-top:5px; width: 400px">
+				Termin für Vervollständigung der Dokumente nach zweiter Auswahl:
+				</div>
+				<div class="controls">
+					<select style="width: auto; float: left; margin-right: 10px">
+						<option>Tag</option>
+						<option>01</option>
+						<option>02</option>
+						<option>03</option>
+						<option>04</option>
+						<option>05</option>
+						<option>06</option>
+						<option>07</option>
+						<option>08</option>
+						<option>09</option>
+						<option>10</option>
+						<option>11</option>
+						<option>12</option>
+						<option>13</option>
+						<option>14</option>
+						<option>15</option>
+						<option>16</option>
+						<option>17</option>
+						<option>18</option>
+						<option>19</option>
+						<option>20</option>
+						<option>21</option>
+						<option>22</option>
+						<option>23</option>
+						<option>24</option>
+						<option>25</option>
+						<option>26</option>
+						<option>27</option>
+						<option>28</option>
+						<option>29</option>
+						<option>30</option>
+						<option>31</option>
+					</select>
+					<select style="width: auto; float: left; margin-right: 10px">
+						<option>Monat</option>
+						<option>Januar</option>
+						<option>Februar</option>
+						<option>März</option>
+						<option>April</option>
+						<option>Mai</option>
+						<option>Juni</option>
+						<option>Juli</option>
+						<option>August</option>
+						<option>September</option>
+						<option>Oktober</option>
+						<option>November</option>
+						<option>Dezember</option>
+					</select>
+					<select style="width: auto; float: left; margin-right: 10px">
+						<option>Jahr</option>
+					</select>
+				</div>
+			</div>
+			
+			<div style="margin-top: 20px; margin-bottom: 20px">
+				<h3>Übersicht</h3>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<select style="width:300px">
+					 <option>gesamt</option>
+					 <option>Uni1</option>
+					 <option>Uni2</option>
+					 <option>Uni3</option>
+					 <option>...</option>
+					</select>
+				</div>
+			</div>
+			<div style="margin-top: 20px; margin-bottom: 20px">
+				<p>Anzahl-Online-Registrierungen:</p>
+				<p>Anzahl gültige Anmeldungen zur ersten Auswahl:</p>
+				<p>Anzahl zur zweiten Auswahl zugelassener Kandidaten:</p>
+				<p>Anzahl gültiger Rückmeldungen zur zweiten Auswahl:</p>
+				<p>Anzahl fest ausgewählter Kandidaten:</p>
+				<p>Anzahl Reservekandidaten:</p>
+				
+			</div>
+		</div>
+	</div>
+
+</div>
+	
+	
+
+
+  </body>
+</html>

@@ -1,0 +1,4 @@
+registrierung.html
+
+	Es besteht bereits ein Benutzeraccount mit dieser Emailadresse.
+	Email-Adresse

@@ -1,0 +1,387 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Verwaltung Kandidaten</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <!-- <link href="css/bootstrap.css" rel="stylesheet"> Originalstyles von twitter bootstrap -->
+	<link href="css/apollo.css" rel="stylesheet"> <!--enthält vorn die Original-styles von twitter bootstrap und hinten die angepassten styles der Kandidatenanmeldung-->
+	<link href="css/layout3_setup.css" rel="stylesheet"> <!--stylesheet der Apollo-Homepage-->
+	<link href="css/test.css" rel="stylesheet">  <!-- Nur zum Ausprobieren von Dingen-->
+	
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script src="js/bootstrap.js"></script>
+   
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+	
+	<!-- Roberts jquery
+	
+	<script language="javascript">
+	
+	
+	$(function(){
+		$("a").click(function(){
+			$(this).fadeOut(5000);
+			return false;
+		});
+	});
+		
+	</script>
+	
+	-->
+	
+	<script type="text/javascript" language="javascript">
+	
+	<!--Zu Beginn alle Erweiterungen ausblenden:-->
+	
+	$(document).ready(function(){
+		$("div.erweitert").hide()
+	});
+	
+	<!--Togglen der Erweiterungen:-->
+	
+	$(document).ready(function(){
+		$("i.icon-chevron-up, i.icon-chevron-down").click(function(){
+		    console.log("hakki");
+			console.log($(this));
+			$(this).closest("div").prev("div.erweitert").toggle("fast");
+		});
+	});
+	
+	</script>
+	
+  </head>
+
+  <body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+ 
+<!-- -->
+
+ <!-- Main Page Container -->
+
+ <div class="page-container">
+  
+	<!-- A. HEADER -->      
+
+    <div class="header">
+		
+		<!-- A.1 HEADER TOP -->
+		
+		<div class="header-top">
+			
+			<!-- Sitelogo and sitename -->
+			
+			<a class="sitelogo" href="http://www.apollo-online.de" title="Go to Start page"></a>
+			
+			<div class="sitename">
+			
+			<h1><a href="http://www.apollo-online.de" title="Go to Start page">Apollo e.V.</a></h1>
+			
+			<h2 style="line-height:1.2em">Arbeitsgemeinschaft für Projekte in Oekologie, Landwirtschaft </br>
+			
+			und Landesentwicklung in Osteuropa e.V.</h2>
+		</div>
+		
+	</div>
+	
+	
+	<div class="main-content" style="padding-top: 20px; color:#253D19">
+		<div style="margin-bottom:30px">
+			
+			<div style="margin-right: 20px; float: left">
+				<h2>Verwaltung</h2>
+			</div>
+			<div>
+				<ul class="nav nav-pills">
+					<li>
+						<a href="verwaltung_allgemein_ru.html">allgemein</a>
+					</li>
+					
+					<li class="active">
+						<a href="#">Kandidaten</a>
+					</li>
+				</ul>
+			</div>
+			<hr style="margin-top: 0px; margin-bottom: 0px;border-bottom-color: #c9c2a6"/>
+			<div class="inhalt_ebene2">
+				
+				<div>
+					<div style="float: left; margin-right: 10px; padding-top: 5px; width: 180px;">
+						<h4>Anzeige einschließlich:</h4>
+					</div>
+					
+					<div class="control-group" style="margin-bottom: 5px">
+						<div class="controls">
+							<label class="checkbox inline">
+							<input type="checkbox">Reservekandidaten</i></input>
+							</label>
+							<label class="checkbox inline">
+							<input type="checkbox">ausgeschiedene Kandidaten</input>
+							</label>
+							<label class="checkbox inline">
+							<input type="checkbox">frühere Jahrgänge</input>
+							</label>
+						</div>
+					</div>
+					<!--alte Version ohne Tabs:
+					<div style="float: left; margin-right: 10px; padding-top: 5px">
+						<h4>Datensätze filtern:</h4>
+					</div>
+					
+					<div class="control-group" style="float: left">
+						<div class="controls">
+							<select>
+								<option>alle Universitäten</option>
+								<option>Brjansk</option>
+								<option>Saratov</option>
+								<option>Ufa</option>
+								<option>...</option>
+							</select>
+						</div>
+					</div>
+					<div style="margin-left: 15px; padding-top:5px; float: left">
+						<p>
+							<b><u>oder</u></b>
+						</p>
+					</div>
+					
+					<div class="control-group" style="margin-bottom: 0px">
+						<div class="controls">
+							<input placeholder="Freitextsuche" style="margin-left:20px">
+							</input>
+							<button class="btn" style="vertical-align: top">
+							<i class="icon-search"></i>
+							</button>
+						</div>
+					</div>
+					-->
+				</div>
+				<hr style="margin-top: 0px; margin-bottom: 0px;border-bottom-color: #c9c2a6"/>
+			</div>
+			
+			<div style="float: left; padding-top: 8px; width: 180px;">
+				<h4>Datensätze filtern nach:</h4>
+			</div>
+			<div class="tabbable" style="margin-left: 180px; margin-top: 3px;">
+				<ul class="nav nav-tabs" style="margin-bottom: 0px;">
+				  <li class=""><a href="#tab1" data-toggle="tab">Universität</a></li>
+				  <li class=""><a href="#tab2" data-toggle="tab">Status</a></li>
+				  <li class="active"><a href="#tab3" data-toggle="tab">Freitextsuche</a></li>
+				</ul>
+				<div class="tab-content" style="padding-top: 5px;">
+				  <div class="tab-pane" id="tab1">
+					<div class="control-group" style="margin-bottom: 0px">
+						<div class="controls">
+							<select  style="margin-bottom: 5px">
+								<option>alle Universitäten</option>
+								<option>Brjansk</option>
+								<option>Saratov</option>
+								<option>Ufa</option>
+								<option>...</option>
+							</select>
+						</div>
+					</div>
+				  </div>
+				  <div class="tab-pane" id="tab2">
+					<div class="control-group" style="margin-bottom: 0px">
+						<div class="controls">
+							<select style="margin-bottom: 5px;">
+								<option>online registriert</option>
+								<option>zur Vorauswahl zugelassen</option>
+								<option>Vorauswahl nicht bestanden</option>
+								<option>Vorauswahl bestanden</option>
+								<option>zur Endauswahl zugelassen</option>
+								<option>...</option>
+							</select>
+						</div>
+					</div>
+				  </div>
+				  <div class="tab-pane active" id="tab3">
+					<div class="control-group" style="margin-bottom: 0px">
+						<div class="controls">
+							<input placeholder="Freitextsuche" style="margin-bottom: 5px;">
+							</input>
+							<button class="btn" style="vertical-align: top">
+							<i class="icon-search"></i>
+							</button>
+						</div>
+					</div>
+				  </div>
+				</div>
+			</div>
+			<hr style="margin-top: 0px; margin-bottom: 0px;border-bottom-color: #c9c2a6"/>
+			<div class="btn-group" style="margin-top:5px; margin-bottom: 5px">
+				<a class="btn btn-apollogruen" href="#">x ausgewählte Datensätze</a>
+				<a class="btn btn-apollogruen dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="#">alle Daten exportieren</a></li>
+					<li><a href="#">Email-Adressen exportieren</a></li>
+					<li><a href="#">...</a></li>
+				</ul>
+			</div>
+			
+			<div class="kandidatenliste" style="background-color: white; margin-bottom: 0px">
+				<div class="kandidat" style="background-color: white">
+					<hr style="margin-top: 0px; margin-bottom: 5px"/>
+					<div class="kandidat_links" style="float: left; padding: 5px">
+						<p><b>Kandidat 007</b></p>
+						<p><b>Anrede Name Vorname lat</b></p>
+						<p><b>Anrede Name Vorname kyr</b></p>
+						<p>Geb.-Datum</p>
+						<p>Universität</p>
+					</div>
+					
+					<div class="kandidat_rechts">
+						<p><b>Ergebnis 1. Auswahl</b></p>
+					</div>
+					
+				</div>
+				
+				<div class="kandidat erweitert" style="margin-bottom: 0px; background-color: white; padding: 5px">
+					<div class="kandidat_links" style="float: left">
+						<p>Studienziel</p>
+						<p>Studienfach</p>
+						<p>Kurs ... von ....</p>
+					</div>
+					
+					<div class="kandidat_rechts">
+						<p><b>Ergebnis 1. Auswahl</b></p>
+					</div>
+					
+				</div>
+				<div class="toggle">
+					<a href="#" class="toggle"><i class="icon-chevron-up"></i><i class="icon-chevron-down"></i></a>
+				</div>
+				
+				<div class="kandidat">
+					<hr style="margin-top: 0px; margin-bottom: 5px"/>
+					<div class="kandidat_links" style="float: left; padding:5px">
+						<p><b>Kandidat 007</b></p>
+						<p><b>Anrede Name Vorname lat</b></p>
+						<p><b>Anrede Name Vorname kyr</b></p>
+						<p>Geb.-Datum</p>
+						<p>Universität</p>
+					</div>
+					<div style="float: left"> 
+						<div class="tabbable">
+							<ul class="nav nav-tabs">
+							  <li class="active"><a href="#tab4" data-toggle="tab">Zulassung </br>1. Auswahl</a></li>
+							  <li class=""><a href="#tab5" data-toggle="tab">Ergebnis </br>1. Auswahl</a></li>
+							  <li class=""><a href="#tab6" data-toggle="tab">Zulassung </br>2. Auswahl</a></li>
+							  <li class=""><a href="#tab7" data-toggle="tab">Ergebnis </br>2. Auswahl</a></li>
+							  <li class=""><a href="#tab8" data-toggle="tab">Zulassung </br>zum Praktikum</a></li>
+							</ul>
+							<div class="tab-content">
+							  <div class="tab-pane active" id="tab4">
+								<div class="control-group" style="margin-bottom: 0px">
+									<div class="controls">
+										<select>
+											<option>nicht zugelassen</option>
+											<option>zugelassen</option>
+										</select>
+									</div>
+								</div>
+							  </div>
+							  <div class="tab-pane" id="tab5">
+									<div class="control-group" style="margin-bottom: 0px">
+										<div class="controls">
+											<select>
+												<option>online registriert</option>
+												<option>zur Vorauswahl zugelassen</option>
+												<option>Vorauswahl nicht bestanden</option>
+												<option>Vorauswahl bestanden</option>
+												<option>zur Endauswahl zugelassen</option>
+												<option>...</option>
+											</select>
+										</div>
+									</div>
+							  </div>
+							  <div class="tab-pane" id="tab6">
+									<div class="control-group" style="margin-bottom: 0px">
+										<div class="controls">
+											<input placeholder="Freitextsuche">
+											</input>
+											<button class="btn" style="vertical-align: top">
+											<i class="icon-search"></i>
+											</button>
+										</div>
+									</div>
+							  </div>
+							  <div class="tab-pane" id="tab7">
+									<div class="control-group" style="margin-bottom: 0px">
+										<div class="controls">
+											<select>
+												<option>online registriert</option>
+												<option>zur Vorauswahl zugelassen</option>
+												<option>Vorauswahl nicht bestanden</option>
+												<option>Vorauswahl bestanden</option>
+												<option>zur Endauswahl zugelassen</option>
+												<option>...</option>
+											</select>
+										</div>
+									</div>
+							  </div>
+							  <div class="tab-pane" id="tab8">
+									<div class="control-group" style="margin-bottom: 0px">
+										<div class="controls">
+											<select>
+												<option>online registriert</option>
+												<option>zur Vorauswahl zugelassen</option>
+												<option>Vorauswahl nicht bestanden</option>
+												<option>Vorauswahl bestanden</option>
+												<option>zur Endauswahl zugelassen</option>
+												<option>...</option>
+											</select>
+										</div>
+									</div>
+							  </div>
+							  
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="kandidat erweitert" style="margin-bottom: 0px">
+					<div class="kandidat_links" style="float: left">
+						<p>Studienziel</p>
+						<p>Studienfach</p>
+						<p>Kurs ... von ....</p>
+					</div>
+					
+					<div class="kandidat_rechts">
+						<p><b>Ergebnis 1. Auswahl</b></p>
+					</div>
+					
+				</div>
+				<div class="toggle">
+					<a href="#" class="toggle"><i class="icon-chevron-up"></i><i class="icon-chevron-down"></i></a>
+				</div>
+				
+				<div class="kandidat">
+				<hr style="margin-top: 0px; margin-bottom: 0px"/>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+	
+	
+
+
+  </body>
+</html>

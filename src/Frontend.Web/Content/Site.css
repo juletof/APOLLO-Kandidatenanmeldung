@@ -5131,7 +5131,6 @@ a.thumbnail:hover {
 /*************************************************************************************/
 
 
-
 /*************************************************************************************/
 /*************************************************************************************/
 /*                                  Eigene Styles                                    */
@@ -5579,4 +5578,32 @@ div.toggle {
 text-align:center;
 margin-top: -10px;
 margin-bottom: -5px;
+}
+
+
+/*Visual Studio*/
+
+#logindisplay {
+    font-size: 1.1em;
+    display: block;
+    text-align: right;
+    margin: 10px;
+    margin-top: 0px;
+    padding-top: 10px;
+    color: White;
+}
+
+#logindisplay a:link {
+    color: white;
+    text-decoration: underline;
+}
+
+#logindisplay a:visited {
+    color: white;
+    text-decoration: underline;
+}
+
+#logindisplay a:hover {
+    color: white;
+    text-decoration: none;
 }

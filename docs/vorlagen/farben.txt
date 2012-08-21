@@ -1,0 +1,12 @@
+
+Homepage:
+APOLLO Dunkelgrün #568B3B rgb (86, 139, 59)
+APOLLO hellgrün #99CC33 rgb (153, 204, 51)
+APOLLO orange Hover #FFCC00
+APOLLO beige Hintergrund #F2F3D8
+APOLLO beige dunkler Seitenumrandung: #EDE4C3
+
+
+eigene Farben:
+Schrift dunkelgrün: #253D19
+APOLLO beige noch dunkler für Trennlinien: #c9c2a6

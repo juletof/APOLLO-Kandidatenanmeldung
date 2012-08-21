@@ -1,0 +1,14 @@
+<mockup version="1.0" skin="sketch" measuredW="1884" measuredH="1720" mockupW="1717" mockupH="1715">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="167" y="5" w="1717" h="1715" measuredW="450" measuredH="400" zOrder="0" locked="true" isInGroup="-1">
+      <controlProperties>
+        <text>APOLLO%20Kandidatenanmeldung%0Ahttp%3A//www.apollo-online.de/kandidatenanmeldung</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Canvas" x="469" y="101" w="1073" h="104" measuredW="100" measuredH="70" zOrder="1" locked="true" isInGroup="-1">
+      <controlProperties>
+        <color>3700253</color>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
