@@ -1,38 +1,29 @@
 ﻿@{
     ViewBag.Title = "Registrierung";
 }
+@model RegistrierungModel
 
 <table class="textlinksrechts"> 
 	<tr>
-	<td class="links">
-	<p>
-		Um sich für das Auswahlverfahren anzumelden, registrieren Sie sich bitte zunächst:
-	</p>
-	</td>
-	<td class="rechts">
-	<p>
-		<i>Übersetzung</i>, продлить платформу об, улице сейчас действия уже ну:
-	</p>
-	</td>
+	    <td class="links">
+	        <p>Um sich für das Auswahlverfahren anzumelden, registrieren Sie sich bitte zunächst:</p>
+	    </td>
+	    <td class="rechts">
+	        <p>
+		        <i>Übersetzung</i>, продлить платформу об, улице сейчас действия уже ну:
+	        </p>
+	    </td>
 	</tr>
 </table>
-				
-<form class="form-horizontal">
-	<fieldset>
+
+@using (Html.BeginForm()) 
+{				
+    <div class="form-horizontal">
 		<table class="textlinksrechts"> 
-		<tr>
-		<td class="links">
-		<p class="ueberschrift">
-			Registrierung
-		</p>
-		</p>
-		</td>
-		<td class="rechts">
-		<p  class="ueberschrift">
-			<i>Übersetzung</i>
-		</p>
-		</td>
-		</tr>
+		    <tr>
+		        <td class="links"><p class="ueberschrift">Registrierung</p></td>
+		        <td class="rechts"><p class="ueberschrift"><i>Übersetzung</i></p></td>
+		    </tr>
 		</table>
 						
 		<div class="control-group">
@@ -46,45 +37,48 @@
 		</div>
 		<div class="control-group">
 			<label class="control-label">Familienname/<i>Übersetzung</i>:</label>
-			<div class="controls">
-				<input type="text" placeholder="KYRILLISCH [nur Übersetzung]">
-			</div>
+            <div class="controls">
+                @Html.TextBoxFor(x => x.FamiliennameKY, new { @placeholder = "KYRILLISCH [nur Übersetzung]"})
+            </div>
 		</div>
 		<div class="control-group">
 			<label class="control-label">Vorname/<i>Übersetzung</i>:</label>
-			<div class="controls">
-				<input type="text" placeholder="KYRILLISCH [nur Übersetzung]">
-			</div>
+            <div class="controls">
+                @Html.TextBoxFor(x => x.VornameKY, new { @placeholder = "KYRILLISCH [nur Übersetzung]"})
+            </div>
 		</div>
 		<div class="control-group">
 			<label class="control-label">Vatersname/<i>Übersetzung</i>:</label>
-			<div class="controls">
-				<input type="text" placeholder="KYRILLISCH [nur Übersetzung]">
-			</div>
+            <div class="controls">
+                @Html.TextBoxFor(x => x.VatersnameKY, new { @placeholder = "KYRILLISCH [nur Übersetzung]"})
+            </div>
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="password">Email-Adresse/<i>Übersetzung</i>:</label>
+			<label class="control-label">Email-Adresse/<i>Übersetzung</i>:</label>
 			<div class="controls">
-				<input type="password" id="passwort_wiederholung" placeholder="LATEINISCH [nur Übersetzung]">								
-			</div>
+                @Html.PasswordFor(x => x.Emailadresse, new { @placeholder = "LATEINISCH [nur Übersetzung]" })
+            </div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="password">Passwort/<i>Übersetzung</i>:</label>
-			<div class="controls">
-				<input type="password" id="passwort" placeholder="LATEINISCH [nur Übersetzung]">								
-			</div>
+            <div class="controls">
+                @Html.PasswordFor(x => x.Passwort, new { @placeholder = "KYRILLISCH [nur Übersetzung]"})
+            </div>
 		</div>
 		<div class="control-group">
 			<div class="controls">
-				<label class="checkbox">
-				<input type="checkbox">Hiermit nehme ich zur Kenntnis, dass alle relevanten Informationen zum Anmeldeverfahren an die von mir angegebene Email-Adresse versendet werden.</br><i>Übersetzung</br>Übersetzung</i><!--temp Beginn--></br><span class="temp">Mit dem Häkchen wird der Anmelde-Button freigegeben</span><!--temp Ende-->
-				</label>
+				<label class="checkbox"></label>
+                    <input type="checkbox">
+                    Hiermit nehme ich zur Kenntnis, dass alle relevanten Informationen 
+                    zum Anmeldeverfahren an die von mir angegebene Email-Adresse versendet werden.<br>
+                    <i>Übersetzung<br>Übersetzung</i><!--temp Beginn--></br>
+                    <span class="temp">Mit dem Häkchen wird der Anmelde-Button freigegeben</span><!--temp Ende-->
 			</div>
 		</div>
-		<div class="form-actions">
-			<button type="submit" class="btn btn-primary btn-apollogruen disabled">Anmelden | <i>Übersetzung</i></button>
-			<button class="btn btn-standard">Eingaben löschen | <i>Übersetzung</i></button>
-			<p style="margin-top: 5px">Sie sind bereits registriert? Hier geht es zum <a href="login.html">Login</a>.</br>Übersetzung <a href="login.html">Übersetzung</a></p>
-		</div>
-	</fieldset>	
-</form>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary btn-apollogruen disabled">Anmelden | <i>Übersetzung</i></button>
+            <p style="margin-top: 5px">Sie sind bereits registriert? Hier geht es zum <a href="login.html">Login</a>.<br>
+                                                                                                                     Übersetzung <a href="login.html">Übersetzung</a></p>
+        </div>
+    </div>
+}
