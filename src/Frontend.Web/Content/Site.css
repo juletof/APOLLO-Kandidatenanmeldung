@@ -5923,7 +5923,7 @@ text-align: justify;
 
 table.textlinksrechts p,
 table.textlinksrechts div,
-table.textlinksrechts legend, {
+table.textlinksrechts legend {
 margin-bottom: 0px;
 }
 
