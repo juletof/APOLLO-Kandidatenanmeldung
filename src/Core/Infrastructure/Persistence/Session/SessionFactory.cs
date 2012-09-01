@@ -18,7 +18,7 @@ namespace ApolloDb
         {
             return Fluently.Configure()
               .Database(
-                MySQLConfiguration.Standard
+                MsSqlConfiguration.MsSql2008
                   .ConnectionString(GetConnectionString.Run())
               )
               .Mappings(m =>

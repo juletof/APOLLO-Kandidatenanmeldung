@@ -4,6 +4,6 @@ namespace ApolloDb
 {
     public class Praktikant : DomainEntity
     {
-        public virtual int Name{ get; set; }   
+        public virtual string Name{ get; set; }   
     }
 }

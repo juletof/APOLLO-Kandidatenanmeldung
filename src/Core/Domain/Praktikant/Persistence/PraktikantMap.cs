@@ -15,6 +15,5 @@ namespace ApolloDb
             Map(x => x.DateModified);
             Map(x => x.DateCreated);
         }
-
     }
 }
