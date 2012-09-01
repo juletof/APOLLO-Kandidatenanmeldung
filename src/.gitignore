@@ -1,6 +1,18 @@
-# Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
-bin
-obj
+_svn/
+.svn/
+obj/
+*.eml
+[Bb]in/
+[Dd]ebug/   
+[Rr]elease/   
+_Re[Ss]harper.*
+*.[Rr]e[Ss]harper
+*.[Rr]e[Ss]harper.user
+*.suo
+*.cache
+*~
+*.swp
+*.user
 
 # mstest test results
 TestResults
