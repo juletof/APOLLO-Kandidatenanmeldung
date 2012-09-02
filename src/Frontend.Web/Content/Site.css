@@ -6232,3 +6232,7 @@ span.aktion
     color: #568B3B;
 }
 
+/*error*/
+.input-validation-error {
+    background-color: #F2DEDE;
+}

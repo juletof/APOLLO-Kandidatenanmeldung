@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using ApolloDb;
+using Autofac;
+using Autofac.Integration.Mvc;
+using HibernatingRhinos.Profiler.Appender.NHibernate;
 
 namespace Frontend.Web
 {
@@ -26,15 +30,28 @@ namespace Frontend.Web
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
-
         }
 
         protected void Application_Start()
         {
+            InitializeAutofac();
             AreaRegistration.RegisterAllAreas();
+
+#if DEBUG
+            NHibernateProfiler.Initialize();
+#endif
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+        }
+
+        private static void InitializeAutofac()
+        {
+            var builder = new ContainerBuilder();
+            builder.RegisterControllers(typeof(MvcApplication).Assembly);
+            builder.RegisterModule(new AutofacCoreModule());
+            var container = builder.Build();
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
     }
 }

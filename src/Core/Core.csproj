@@ -83,13 +83,20 @@
     <Compile Include="Infrastructure\Persistence\Session\EnumConvention.cs" />
     <Compile Include="Infrastructure\Persistence\Session\SessionFactory.cs" />
     <Compile Include="Infrastructure\Persistence\Session\SessionManager.cs" />
+    <Compile Include="Infrastructure\Regexes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Infrastructure\Settings\GetConnectionString.cs" />
     <Compile Include="Infrastructure\Settings\GetOverwrittenConnectionString.cs" />
     <Compile Include="Infrastructure\Settings\GetOverwrittenConnectionStringResult.cs" />
+    <Compile Include="Web\Message\Message.cs" />
+    <Compile Include="Web\Message\MessageHtml.cs" />
+    <Compile Include="Web\Message\MessageType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domain\Praktikant\Ops\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
