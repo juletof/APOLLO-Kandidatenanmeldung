@@ -74,9 +74,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Praktikant\Lists\AnredeWerte.cs" />
+    <Compile Include="Domain\Praktikant\Lists\Model\ListBase.cs" />
+    <Compile Include="Domain\Praktikant\Lists\Model\ListItem.cs" />
+    <Compile Include="Domain\Praktikant\Ops\Registrieren.cs" />
     <Compile Include="Domain\Praktikant\Persistence\PraktikantMap.cs" />
     <Compile Include="Domain\Praktikant\Persistence\PraktikantRepository.cs" />
     <Compile Include="Domain\Praktikant\Praktikant.cs" />
+    <Compile Include="Domain\Praktikant\PraktikantStatus.cs" />
     <Compile Include="Infrastructure\IoC\AutofacCoreModule.cs" />
     <Compile Include="Infrastructure\IoC\IRegisterAsInstancePerLifetime.cs" />
     <Compile Include="Infrastructure\IoC\ServiceLocator.cs" />
@@ -95,9 +100,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Domain\Praktikant\Ops\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

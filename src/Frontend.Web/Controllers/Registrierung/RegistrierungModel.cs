@@ -5,11 +5,15 @@ using ApolloDb;
 
 public class RegistrierungModel
 {
-    public RegistrierungModel(){}
+    public RegistrierungModel()
+    {
+        AnredeOpts = AnredeWerte.ToSelectItems();
+    }
 
     public Message Message;
 
-    public IList<SelectListItem> Anrede;
+    public string AnredeVal;
+    public IList<SelectListItem> AnredeOpts;
 
     [Required(ErrorMessage = "Pflichtfeld")]
     public string FamiliennameKY { get; set; }

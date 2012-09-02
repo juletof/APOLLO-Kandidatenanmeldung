@@ -5,11 +5,10 @@ namespace Frontend.Web.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly PraktikantRepository _praktikantRepository;
+        private readonly Registrieren _registrieren;
 
-        public AccountController(PraktikantRepository praktikantRepository)
-        {
-            _praktikantRepository = praktikantRepository;
+        public AccountController(Registrieren registrieren){
+            _registrieren = registrieren;
         }
 
         public ActionResult Registrierung()
@@ -25,6 +24,8 @@ namespace Frontend.Web.Controllers
                 model.Message = new ErrorMessage("Bitte korrigere Deine Daten");
                 return View(model);
             }
+
+            _registrieren.Run(RegistrierungModel2Entity.Run(model));
 
             return View("RegistrierungErfolgreich", new RegistrierungErfolgreichModel());
         }

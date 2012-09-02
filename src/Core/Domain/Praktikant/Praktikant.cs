@@ -6,7 +6,7 @@ namespace ApolloDb
     public class Praktikant : DomainEntity
     {
         public virtual int BewerbungFuer { get; set; }
-        public virtual string Anrede { get; set; }
+        public virtual int Anrede { get; set; }
 
         public virtual string Familienname { get; set; }
         public virtual string FamiliennameKY { get; set; }
@@ -35,6 +35,8 @@ namespace ApolloDb
         public virtual bool BereitsAufenthalt { get; set; }
         public virtual string BereitsAufenthaltProgramm { get; set; }
         public virtual string BereitsAufenthaltKommentar { get; set; }
+
+        public virtual PraktikantStatus Status { get; set; }
         
     }
 }

@@ -93,6 +93,7 @@
     <Compile Include="Controllers\BewerbungController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Registrierung\RegistrierungErfolgreichModel.cs" />
+    <Compile Include="Controllers\Registrierung\RegistrierungModel2Entity.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -199,9 +200,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Admin\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Bewerbung\Zulassung.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -211,7 +209,7 @@
     <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Admin\Verwaltung_Kandidaten.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj">

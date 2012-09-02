@@ -42,6 +42,8 @@ namespace ApolloDb
             Map(x => x.BereitsAufenthaltProgramm);
             Map(x => x.BereitsAufenthaltKommentar);
 
+            Map(x => x.Status);
+
             Map(x => x.DateModified);
             Map(x => x.DateCreated);
         }
