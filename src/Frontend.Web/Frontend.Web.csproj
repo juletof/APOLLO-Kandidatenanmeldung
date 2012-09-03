@@ -88,8 +88,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Admin\PraktikantenModel.cs" />
+    <Compile Include="Controllers\Admin\PraktikantItemModel.cs" />
     <Compile Include="Controllers\Registrierung\AccountController.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\Admin\AdminController.cs" />
     <Compile Include="Controllers\BewerbungController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Registrierung\RegistrierungErfolgreichModel.cs" />
@@ -194,7 +196,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

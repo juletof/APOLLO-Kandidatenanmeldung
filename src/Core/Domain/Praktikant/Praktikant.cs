@@ -37,6 +37,23 @@ namespace ApolloDb
         public virtual string BereitsAufenthaltKommentar { get; set; }
 
         public virtual PraktikantStatus Status { get; set; }
-        
+
+        public virtual string GetVollerName()
+        {
+            return Vorname + " " + Vatersname + " " + Familienname;
+        }
+
+        public virtual string GetVollerNameKY()
+        {
+            return VornameKY + " " + VatersnameKY + " " + FamiliennameKY;
+        }
+
+        public virtual string GetAlter()
+        {
+            if (Geburtsdatum == null)
+                return "";
+
+            return Math.Round((DateTime.Now - ((DateTime) Geburtsdatum)).TotalDays/365,0).ToString();
+        }
     }
 }
