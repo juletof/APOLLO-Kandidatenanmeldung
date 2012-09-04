@@ -892,7 +892,7 @@ margin-bottom: 5px;
 
 /*Formular*/
 
-input.formular {
+input.formular, span.formular {
 width: 290px;
 }
 
@@ -973,7 +973,7 @@ text-decoration: underline;
 
 table.tabelle-kandidaten a span {
 padding-left: 18px;
-font-size: 70%;
+font-size: 80%;
 font-style: normal;
 vertical-align: middle;
 }
