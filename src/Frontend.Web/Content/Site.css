@@ -857,6 +857,13 @@ text-align:left;
 
 /*Nav-pills*/
 
+.nav-pills > li > a {
+padding: 4px;    
+text-align: center;
+margin-top: -15px;
+}
+
+
 
 .nav-pills > .active > a,
 .nav-pills > .active > a:hover {
