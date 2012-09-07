@@ -1,1 +1,6 @@
 ﻿src/APOLLO-Kandidatenanmeldung.suo
+src/Backup/*
+src/_UpgradeReport_Files/*
+
+UpgradeLog.htm
+UpgradeLog.XML

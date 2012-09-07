@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frontend.Web", "Frontend.Web\Frontend.Web.csproj", "{156DA007-5D3F-46A6-8AA5-0108B428E5B6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{408B8D41-BB53-4E2A-9B2D-BDFB62EEF8DF}"
