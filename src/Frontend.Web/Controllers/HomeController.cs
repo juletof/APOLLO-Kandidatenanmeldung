@@ -15,6 +15,9 @@ namespace Frontend.Web.Controllers
             return View();
         }
 
-       
+        public ActionResult Navigation()
+        {
+            return View();
+        }
     }
 }
