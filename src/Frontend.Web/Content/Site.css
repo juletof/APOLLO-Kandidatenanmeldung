@@ -1077,8 +1077,9 @@ span.aktion
 }
 
 /*error*/
-.input-validation-error {
+input.input-validation-error {
     background-color: #F2DEDE;
+    border-color: red;
 }
 
 /*Korrektur Speicherort Glyphicons*/
