@@ -7,9 +7,9 @@ namespace ApolloDb
 {
     public class RegistrierungModel2Entity
     {
-        public static Praktikant Run(RegistrierungModel model)
+        public static Kandidat Run(RegistrierungModel model)
         {
-            var praktikant = new Praktikant();
+            var praktikant = new Kandidat();
             praktikant.Anrede = Convert.ToInt32(model.AnredeVal);
             praktikant.FamiliennameKY = model.FamiliennameKY;
             praktikant.VornameKY = model.VornameKY;

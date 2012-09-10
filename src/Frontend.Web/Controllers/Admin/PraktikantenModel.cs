@@ -7,7 +7,7 @@ public class PraktikantenModel
 {
     public IList<PraktikantItemModel> Items;
 
-    public PraktikantenModel(IList<Praktikant> praktikanten)
+    public PraktikantenModel(IList<Kandidat> praktikanten)
     {
         Items = praktikanten.Select(item => new PraktikantItemModel
             {

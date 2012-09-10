@@ -98,18 +98,18 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Account\AnmeldungModel.cs" />
+    <Compile Include="Controllers\Account\DashboardModel.cs" />
     <Compile Include="Controllers\Admin\PraktikantenModel.cs" />
     <Compile Include="Controllers\Admin\PraktikantItemModel.cs" />
-    <Compile Include="Controllers\Registrierung\AccountController.cs" />
+    <Compile Include="Controllers\Account\AccountController.cs" />
     <Compile Include="Controllers\Admin\AdminController.cs" />
-    <Compile Include="Controllers\BewerbungController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Registrierung\RegistrierungErfolgreichModel.cs" />
-    <Compile Include="Controllers\Registrierung\RegistrierungModel2Entity.cs" />
+    <Compile Include="Controllers\Account\RegistrierungModel2Entity.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\Registrierung\RegistrierungModel.cs" />
+    <Compile Include="Controllers\Account\RegistrierungModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -228,7 +228,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Bewerbung\Zulassung.cshtml" />
+    <Content Include="Views\Account\Anmeldung.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Account\Login.cshtml" />
@@ -241,9 +241,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_UserMessage.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Account\RegistrierungErfolgreich.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Account\Dashboard.cshtml" />

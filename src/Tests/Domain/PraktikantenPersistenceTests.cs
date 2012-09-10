@@ -11,14 +11,18 @@ namespace ApolloDb.Tests
         [Test]
         public void Should_CRUD_Praktikant()
         {
-            var praktikant = new Praktikant();
-            praktikant.Familienname = "Familienname";
-            praktikant.FamiliennameKY = "Кирилица";
-            praktikant.Deutschkentnisse = false;
+            var kandidat = new Kandidat();
+            kandidat.Familienname = "Familienname";
+            kandidat.FamiliennameKY = "Кирилица";
+            kandidat.Deutschkentnisse = false;
+            kandidat.EmailAdresse = "test@test.de";
+            kandidat.VornameKY = "VornameKY";
+            kandidat.VatersnameKY = "VatersnameKY";
+            kandidat.Status = KandidatStatus.Registriert;
 
-            Resolve<PraktikantRepository>().Create(praktikant);
+            Resolve<KandidatRepository>().Create(kandidat);
 
-            var fromDb = Resolve<PraktikantRepository>().GetById(praktikant.Id);
+            var fromDb = Resolve<KandidatRepository>().GetById(kandidat.Id);
             Assert.That(fromDb.Familienname, Is.EqualTo("Familienname"));
             Assert.That(fromDb.FamiliennameKY, Is.EqualTo("Кирилица"));
             Assert.That(fromDb.Deutschkentnisse, Is.EqualTo(false));

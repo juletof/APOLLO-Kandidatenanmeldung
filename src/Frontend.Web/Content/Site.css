@@ -1082,6 +1082,10 @@ input.input-validation-error {
     border-color: red;
 }
 
+.errorAnotation {
+    color: red;
+}
+
 /*Korrektur Speicherort Glyphicons*/
 
 [class^="icon-"],

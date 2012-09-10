@@ -6,9 +6,13 @@ namespace Frontend.Web.Controllers
     public class AccountController : Controller
     {
         private readonly Registrieren _registrieren;
+        private readonly KandidatRepository _praktikanteRepo;
 
-        public AccountController(Registrieren registrieren){
+        public AccountController(Registrieren registrieren, 
+                                 KandidatRepository praktikanteRepo)
+        {
             _registrieren = registrieren;
+            _praktikanteRepo = praktikanteRepo;
         }
 
         public ActionResult Registrierung()
@@ -19,21 +23,15 @@ namespace Frontend.Web.Controllers
         [HttpPost]
         public ActionResult Registrierung(RegistrierungModel model)
         {
-            if(!ModelState.IsValid)
-            {
-                model.Message = new ErrorMessage("Bitte korrigere Deine Daten");
+            if(!ModelState.IsValid){
                 return View(model);
             }
 
             _registrieren.Run(RegistrierungModel2Entity.Run(model));
 
-            return View("RegistrierungErfolgreich", new RegistrierungErfolgreichModel());
+            return View("Dashboard");
         }
 
-        public ActionResult RegistrierungErfolgreich()
-        {
-            return View(new RegistrierungErfolgreichModel());
-        }
 
         public ActionResult Login()
         {
@@ -41,6 +39,11 @@ namespace Frontend.Web.Controllers
         }
 
         public ActionResult Dashboard()
+        {
+            return View(new DashboardModel(_praktikanteRepo.GetById(1)));
+        }
+
+        public ActionResult Anmeldung()
         {
             return View();
         }

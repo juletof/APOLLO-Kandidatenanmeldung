@@ -5,10 +5,10 @@ using System.Text;
 
 namespace ApolloDb
 {
-    public enum PraktikantStatus
+    public enum KandidatStatus
     {
-        ErsteRegistrierung = 1,
-        DatenAktualisiert = 2,
-        DatenVollstaendig = 3
+        Registriert = 1,
+        AnmeldungVollstaendig = 2,
+        Zugelassen = 3
     }
 }

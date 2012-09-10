@@ -23,7 +23,7 @@ namespace ApolloDb
               )
               .Mappings(m =>
                 m.FluentMappings.Conventions.Add<EnumConvention>()
-                    .AddFromAssemblyOf<Praktikant>())
+                    .AddFromAssemblyOf<Kandidat>())
               .ExposeConfiguration(SetConfig)
               .BuildSessionFactory();
         }

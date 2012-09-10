@@ -5,16 +5,16 @@ namespace Frontend.Web.Controllers
 {
     public class AdminController : Controller
     {
-        private readonly PraktikantRepository _praktikantRepo;
+        private readonly KandidatRepository _kandidatRepo;
 
-        public AdminController(PraktikantRepository praktikantRepo){
-            _praktikantRepo = praktikantRepo;
+        public AdminController(KandidatRepository kandidatRepo){
+            _kandidatRepo = kandidatRepo;
         }
 
         public ActionResult Index()
         {
             
-            return View(new PraktikantenModel(_praktikantRepo.GetAll()));
+            return View(new PraktikantenModel(_kandidatRepo.GetAll()));
         }
     }
 }

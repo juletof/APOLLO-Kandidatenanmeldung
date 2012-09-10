@@ -6,9 +6,9 @@ using FluentNHibernate.Mapping;
 
 namespace ApolloDb
 {
-    public class PraktikantMap : ClassMap<Praktikant>
+    public class KandidatMap : ClassMap<Kandidat>
     {
-        public PraktikantMap()
+        public KandidatMap()
         {
             Id(x => x.Id);
 

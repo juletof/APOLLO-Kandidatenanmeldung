@@ -7,8 +7,8 @@ using Seedworks.Lib.Persistence;
 
 namespace ApolloDb
 {
-    public class PraktikantRepository : RepositoryDb<Praktikant>
+    public class KandidatRepository : RepositoryDb<Kandidat>
     {
-        public PraktikantRepository(ISession session) : base(session) { }
+        public KandidatRepository(ISession session) : base(session) { }
     }
 }

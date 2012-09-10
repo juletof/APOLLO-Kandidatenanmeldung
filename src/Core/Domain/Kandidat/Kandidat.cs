@@ -3,7 +3,7 @@ using Seedworks.Lib.Persistence;
 
 namespace ApolloDb
 {
-    public class Praktikant : DomainEntity
+    public class Kandidat : DomainEntity
     {
         public virtual int BewerbungFuer { get; set; }
         public virtual int Anrede { get; set; }
@@ -36,7 +36,7 @@ namespace ApolloDb
         public virtual string BereitsAufenthaltProgramm { get; set; }
         public virtual string BereitsAufenthaltKommentar { get; set; }
 
-        public virtual PraktikantStatus Status { get; set; }
+        public virtual KandidatStatus Status { get; set; }
 
         public virtual string GetVollerName()
         {
@@ -45,9 +45,8 @@ namespace ApolloDb
 
         public virtual string GetVollerNameKY()
         {
-            return VornameKY + " " + VatersnameKY + " " + FamiliennameKY;
+            return FamiliennameKY + "  " + VornameKY + " " + VatersnameKY;
         }
-
         public virtual string GetAlter()
         {
             if (Geburtsdatum == null)
