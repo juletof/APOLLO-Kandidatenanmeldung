@@ -1098,3 +1098,10 @@ input.input-validation-error {
 .dropdown-menu > .active > a > [class*=" icon-"] {
   background-image: url("themes/base/images/glyphicons-halflings-white.png");
 }
+
+/*Dashboard*/
+
+span.ohne_feld {
+padding-top: 4px;
+padding-bottom: 4px;
+}
