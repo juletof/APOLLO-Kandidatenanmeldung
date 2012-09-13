@@ -47,5 +47,11 @@ namespace Frontend.Web.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Anmeldung(AnmeldungModel model)
+        {
+            return View(model);
+        }
     }
 }
