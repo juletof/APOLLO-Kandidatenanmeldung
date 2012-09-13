@@ -246,7 +246,7 @@
     <Content Include="Views\Account\Dashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Navigation.cshtml" />
+    <Content Include="Views\Home\Navigation_und_buttons.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
