@@ -18,8 +18,9 @@
 <table class="textlinksrechts">
     <tr>
         <td class="links">
-            Hallo <b>Name Vorname</b>,
+            <p>Hallo <b>Vorname Name</b>,
             <br /><br />in diesem Bereich können Sie Ihre Benutzerdaten verwalten, die für die Anmeldung zum Auswahlverfahren erforderlichen Daten eingeben und den derzeitigen Status Ihrer Bewerbung einsehen.
+            </p>
         </td>
     </tr>
 </table>
@@ -59,54 +60,95 @@
         <td class="rechts"><h3><i>Übersetzung</i></h3></td>
     </tr>
 </table>
-<table class="textlinksrechts">
-    <div class="form-horizontal">
-    </div>
-</table>
-<table class="textlinksrechts">     
     @if (Model.KandidatStatus == KandidatStatus.Registriert)
     {
-        <tr>
-            <td class="links">
-                Um am Auswahlverfahren teilnehmen zu können, 
-                füllen Sie bitte das Anmeldungsformular aus: <a href='@Url.Action("Anmeldung", "Account")'>Zum Formular</a>. | Übersetzung" 
-            </td>
-            <td class="rechts">
-                Вот об давать решить, движение программистов это он, ты тест того 
-                после это. Вы погодите программном про, но всего основам три, их вас меньше продлить расположенной. Вам вещь долгий трудовой то. Опа ну вопрос череды безостановочно, том об силы заведено интервью, что те хватит написано найденных. На всю кровью разным. Чем их многие который вернуться, 
-                раздутое количества стряпающийся не мои, от коду адрес найденных биг.
-            </td>
-        </tr>        
+<table class="button_mit_erklaerung" style="margin-bottom: 50px;">
+    <tr>
+	    <td class="links" style="text-align:justify;">
+		    <p style="color: #B71C00;"> Um am Auswahlverfahren teilnehmen zu können, 
+                    füllen Sie bitte das Anmeldungsformular aus:
+                    <br /><i>Übersetzung</i></p>
+	    </td>
+	
+	    <td class="rechts button_rechts_mit_erklaerung">
+		    <a class="btn btn-large btn-apollogruen button_rechts_mit_erklaerung" href='@Url.Action("Anmeldung", "Account")' style="width:200px; margin-left: 0px">Zum Formular | <i>Übersetzung </i></a>
+	    </td>
+    </tr>
+</table>
     }
     @if (Model.KandidatStatus == KandidatStatus.AnmeldungVollstaendig)
     {
-        <tr>
-            <td class="links">
-                <b>Status</b>: Sie haben alle erforderlichen Daten für die Anmeldung eingegeben. 
-                Hurray. Wir werden Sie bald per Email benachrichtigen, ob Sie zum Auswahlgespräch zugelassen sind. | Übersetzung. 
-            </td>
-            <td class="rechts">
-                Вот об давать решить, движение программистов это он, ты тест того 
-                после это. Вы погодите программном про, но всего основам три, их вас меньше продлить расположенной. Вам вещь долгий трудовой то. Опа ну вопрос череды безостановочно, том об силы заведено интервью, что те хватит написано найденных. На всю кровью разным. Чем их многие который вернуться, 
-                раздутое количества стряпающийся не мои, от коду адрес найденных биг.
-            </td>
-        </tr>        
+
+<table class="textlinksrechts">
+    <tr>
+        <td class="links">
+        <p>Sie haben alle erforderlichen Daten für die Anmeldung eingegeben. 
+        Wir werden Sie bald nach Bewerbungsschluss per Email benachrichtigen, 
+        ob Sie zum Auswahlgespräch zugelassen sind.
+        </p>
+        </td>
+        <td class="rechts">
+        <i>Übersetzung</i>
+        </td>
+    </tr>
+</table>
+
+<table class="button_mit_erklaerung" style="margin-bottom: 50px;">
+    <tr>
+	    <td class="links" style="text-align:justify;">
+		    <p>Hier können Sie die von Ihnen eingegebenen Daten einsehen
+             und bis zum Anmeldeschuss gegebenenfalls noch ändern:
+             <br /><i>Übersetzung</i>
+            </p>
+	    </td>
+	
+	    <td class="rechts button_rechts_mit_erklaerung">
+		    <a class="btn btn-large button_rechts_mit_erklaerung" 
+            href='@Url.Action("Anmeldung", "Account")' 
+            style="width:300px; margin-left: 0px">
+            Zu den Anmeldedaten | <i>Übersetzung </i></a>
+	    </td>
+    </tr>
+</table>
+        
     }
     @if (Model.KandidatStatus == KandidatStatus.Zugelassen)
     {
-        <tr>
-            <td class="links">
-                Herzlichen Glückwunsch. Sie wurden zum Auswahlgespräch zugelassen. Wir freuen uns.
-            </td>
-            <td class="rechts">
-                Вот об давать решить, движение программистов это он, ты тест того 
-                после это. Вы погодите программном про, но всего основам три, их вас меньше продлить расположенной. Вам вещь долгий трудовой то. Опа ну вопрос череды безостановочно, том об силы заведено интервью, что те хватит написано найденных. На всю кровью разным. Чем их многие который вернуться, 
-                раздутое количества стряпающийся не мои, от коду адрес найденных биг.
-            </td>
-        </tr>        
+<table class="textlinksrechts">
+    <tr>
+        <td class="links">
+            <p><b>Herzlichen Glückwunsch!</b>
+            <br />Sie wurden zum Auswahlgespräch zugelassen. 
+            Sie erhalten von uns rechtzeitig per Email Informationen 
+            zum genauen Auswahltermin und den vorzubereitenden Dokumenten.
+            Bitte nehmen Sie auch Kontakt mit dem <a>zuständigen Ansprechpartner</a>
+            Ihrer Universität vor Ort auf.
+            </p>
+        </td>
+        <td class="rechts">
+            <p><i>Übersetzung</i>
+            </p>
+        </td>
+    </tr>
+</table>
     }
     
-
+<table class="textlinksrechts">
+    <tr class="erstezeile alleinestehend">
+        <td class="links"><h3>Allgemeine Informationen</h3></td>
+        <td class="rechts"><h3><i>Übersetzung</i></h3></td>
+    </tr>
 </table>
+<table class="textlinksrechts">
+    <tr>
+        <td class="links">Hier finden Sie 
+        <a href='@Url.Action("Information", "Home")'>allgemeine Informationen</a> 
+        zum Auswahlverfahren (Ablauf, Teilnahmebedingungen, wichtige Hinweise).</td>
+        <td class="rechts"><i>Übersetzung</i><a href='@Url.Action("Information", "Home")'>Übersetzung</a> </td>
+    </tr>
+    
+</table>
+
+
 
 
