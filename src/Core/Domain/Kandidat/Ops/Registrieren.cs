@@ -8,10 +8,11 @@
             _kandidatRepository = kandidatRepository;
         }
 
-        public void Run(Kandidat kandidat)
+        public Kandidat Run(Kandidat kandidat)
         {
             kandidat.Status = KandidatStatus.Registriert;
             _kandidatRepository.Create(kandidat);
+            return kandidat;
         }
     }
 }
