@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\Account\AnmeldungModel.cs" />
+    <Compile Include="Controllers\Account\BenutzerDatenModel.cs" />
     <Compile Include="Controllers\Account\DashboardModel.cs" />
     <Compile Include="Controllers\Admin\PraktikantenModel.cs" />
     <Compile Include="Controllers\Admin\PraktikantItemModel.cs" />
@@ -193,6 +194,9 @@
     <Content Include="Views\Admin\Index.cshtml">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Views\Home\Index.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Views\Shared\_Layout.cshtml">
       <SubType>Code</SubType>
     </Content>
@@ -216,7 +220,6 @@
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Web.config" />
@@ -246,7 +249,19 @@
     <Content Include="Views\Account\Dashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Navigation.cshtml" />
+    <Content Include="Views\Home\Navigation_und_buttons.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Information.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Benutzerdaten.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Passwort_vergessen.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Passwort_aendern.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

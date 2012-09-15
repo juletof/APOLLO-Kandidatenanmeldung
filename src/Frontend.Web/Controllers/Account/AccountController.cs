@@ -53,5 +53,20 @@ namespace Frontend.Web.Controllers
         {
             return View(model);
         }
+
+        public ActionResult Benutzerdaten()
+        {
+            return View();
+        }
+
+        public ActionResult Passwort_vergessen()
+        {
+            return View();
+        }
+
+        public ActionResult Passwort_aendern()
+        {
+            return View();
+        }
     }
 }

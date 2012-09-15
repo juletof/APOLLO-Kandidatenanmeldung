@@ -651,6 +651,10 @@ padding-top:5px;
     padding-left:10px;
     padding-right:10px;
     }
+    
+a.btn {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
 /*Hintergrund für Submit-Button entfernen:*/
 
@@ -714,7 +718,7 @@ a:hover {
 /*Tabelle für zweisprachigen Text links/rechts:*/
 
 table.textlinksrechts {
-margin-bottom: 40px;
+margin-bottom: 20px;
 }
 
 table.textlinksrechts td.links {
@@ -838,6 +842,11 @@ table.button_mit_erklaerung .btn-group {
 padding-left: 0px;
 padding-right: 0px;
 margin-left: 50px;
+}
+
+.button_rechts_mit_erklaerung {
+margin-left: 0px;
+vertical-align:middle;
 }
 
 table.button_mit_erklaerung div.btn-group {

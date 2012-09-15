@@ -10,24 +10,66 @@
         <a class="close" data-dismiss="alert" href="#">×</a>
         Vielen Dank für Ihre Registrierung. Sie erhalten eine Bestätigungsemails an <b>.....</b> .  | Übersetzung
     </div>
-     
-    <tr>
-        <td class="links"><h2>Benutzerkonto</h2></td>
+    <tr class="erstezeile alleinestehend">
+        <td class="links"><h2>Persönlicher Bereich</h2></td>
         <td class="rechts"><h2><i>Übersetzung</i></h2></td>
     </tr>
+</table>
+<table class="textlinksrechts">
     <tr>
         <td class="links">
-            <b>Deine Daten:</b> @Model.VollerNameKY 
-            @Model.Email... <a href="">mehr</a>
+            Hallo <b>Name Vorname</b>,
+            <br /><br />in diesem Bereich können Sie Ihre Benutzerdaten verwalten, die für die Anmeldung zum Auswahlverfahren erforderlichen Daten eingeben und den derzeitigen Status Ihrer Bewerbung einsehen.
         </td>
-        <td class="rechts"></td>
-    </tr>    
+    </tr>
+</table>
+<table class="textlinksrechts">
+    <tr class="erstezeile alleinestehend">
+        <td class="links"><h3>Benutzerdaten</h3></td>
+        <td class="rechts"><h3><i>Übersetzung</i></h3></td>
+    </tr>
+</table>
+<table class="textlinksrechts">
+    <div class="form-horizontal">
+         <div class="control-group" style="margin-bottom:0px;">
+            <label class="control-label">Name | <i>Übersetzung</i>:</label>
+            <div class="controls">
+                <span class="help-inline" style="padding-top: 4px;">VollerNameKY</span>
+            </div>
+        </div>
+        <div class="control-group" style="margin-bottom:0px;">
+            <label class="control-label">Registrierte Email-Adresse | <i>Übersetzung</i>:</label>
+            <div class="controls">
+                <span class="help-inline" style="padding-top: 4px;">@Model.Email</span>
+            </div>
+        </div>
+        <div class="control-group" style="margin-bottom:0px;">
+            <div class="controls">
+                <span class="help-inline" style="padding-top: 4px;"><a href="@Url.Action("Benutzerdaten", "Account")">Benutzerdaten ändern | <i>Übersetzung</i></a></span>
+            </div>
+            <div class="controls">
+                <span class="help-inline" style="padding-top: 4px;"><a href="@Url.Action("Passwort_aendern", "Account")">Passwort ändern | <i>Übersetzung</i></a></span>
+            </div>
+        </div>
+    </div>
+</table>
+<table class="textlinksrechts">
+    <tr class="erstezeile alleinestehend">
+        <td class="links"><h3>Status der Bewerbung</h3></td>
+        <td class="rechts"><h3><i>Übersetzung</i></h3></td>
+    </tr>
+</table>
+<table class="textlinksrechts">
+    <div class="form-horizontal">
+    </div>
+</table>
+<table class="textlinksrechts">     
     @if (Model.KandidatStatus == KandidatStatus.Registriert)
     {
         <tr>
             <td class="links">
-                <b>Status</b>: Um am Auswahlverfahren teilnehmen zu können, 
-                füllen Sie bitte das Anmeldungsformular aus: <a href='@Html.Action("Anmeldung","Account")'>Zum Formular</a>. | Übersetzung" 
+                Um am Auswahlverfahren teilnehmen zu können, 
+                füllen Sie bitte das Anmeldungsformular aus: <a href='@Url.Action("Anmeldung", "Account")'>Zum Formular</a>. | Übersetzung" 
             </td>
             <td class="rechts">
                 Вот об давать решить, движение программистов это он, ты тест того 

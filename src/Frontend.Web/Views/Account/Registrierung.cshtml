@@ -26,6 +26,13 @@
 
 </script>
 
+ <table class="textlinksrechts"> 
+            <tr>
+                <td class="links"><p class="ueberschrift">Registrierung</p></td>
+                <td class="rechts"><p class="ueberschrift"><i>Übersetzung</i></p></td>
+            </tr>
+ </table>
+
 <table class="textlinksrechts"> 
 	<tr>
 	    <td class="links">
@@ -42,17 +49,24 @@
 @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" })) 
 {				
     <div class="form-horizontal">
-        <table class="textlinksrechts"> 
-            <tr>
-                <td class="links"><p class="ueberschrift">Registrierung</p></td>
-                <td class="rechts"><p class="ueberschrift"><i>Übersetzung</i></p></td>
-            </tr>
-        </table>
+       
         
         <div class="alert alert-error fade in hide" id="invalidInputMsg">
               <a class="close" data-dismiss="alert" href="#">×</a>
                 Bitte die Eingaben vervollständigen/korrigieren. | Übersetzung
         </div>
+        
+        <div class="control-group">
+			<div class="controls">
+                @Html.CheckBoxFor(x => x.AcceptTerms, new {@class = "checkbox mehrzeilig"})
+                <span class="errorAnotation">@Html.ValidationMessageFor(x => x.AcceptTerms)</span>
+                <label class="checkbox mehrzeilig">
+                    Hiermit bestätige ich, die <a href="@Url.Action("Information", "Home")">Informationen zum Anmeldeverfahren</a> gelesen und zur Kenntnis genommen zu haben.
+                    <br>
+                        <i>Übersetzung<br><a href="@Url.Action("Information", "Home")">Übersetzung</a></i>
+                </label>
+			</div>
+		</div>
         						
         <div class="control-group">
 			<label class="control-label">Anrede/<i>Übersetzung</i>:</label>
@@ -97,7 +111,7 @@
                 <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Passwort)</span>
             </div>
 		</div>
-		<div class="control-group">
+		<div class="control-group" style="margin-bottom: 0px;">
 			<div class="controls">
                 @Html.CheckBoxFor(x => x.AcceptTerms, new {@class = "checkbox mehrzeilig"})
                 <span class="errorAnotation">@Html.ValidationMessageFor(x => x.AcceptTerms)</span>
@@ -105,13 +119,12 @@
                     Hiermit nehme ich zur Kenntnis, dass alle relevanten Informationen 
                     zum Anmeldeverfahren an die von mir angegebene Email-Adresse versendet werden.
                     <br>
-                        <i>Übersetzung<br>Übersetzung</i><!--temp Beginn--></br>
-                    <span class="temp">Mit dem Häkchen wird der Anmelde-Button freigegeben</span><!--temp Ende-->
+                        <i>Übersetzung<br>Übersetzung</i><!--temp Beginn-->
+                    <span class="temp"><br>Mit dem Häkchen wird der Anmelde-Button freigegeben</span><!--temp Ende-->
                 </label>
-                
 			</div>
 		</div>
-        <div class="form-actions">
+        <div class="form-actions" style="margin: 0px;">
             <button type="submit" class="btn btn-primary btn-apollogruen">Anmelden | <i>Übersetzung</i></button>
             <p style="margin-top: 5px">Sie sind bereits registriert? Hier geht es zum <a href="@Url.Action("Login", "Account")">Login</a>.<br>
                 Übersetzung <a href="login.html">Übersetzung</a></p>

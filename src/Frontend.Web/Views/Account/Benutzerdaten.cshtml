@@ -1,0 +1,65 @@
+﻿@model BenutzerDatenModel
+@{
+    ViewBag.Title = "Benutzerdaten";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="textlinksrechts">
+    <tr class="erstezeile alleinestehend">
+        <td class="links"><h2>Ihre Benutzerdaten</h2></td>
+        <td class="rechts"><h2><i>Übersetzung</i></h2></td>
+    </tr>
+</table>
+<table class="textlinksrechts">
+    <div class="form-horizontal">
+        <span class="temp">Hier müssen die Benutzerdaten als Placeholder rein.</span>
+        <div class="control-group">
+		    <label class="control-label">Anrede/<i>Übersetzung</i>:</label>
+		    <div class="controls">
+			    <select>
+				    <option>Frau | Übersetzung</option>
+				    <option>Herr | Übersetzung</option>
+			    </select>
+		    </div>
+	    </div>
+	    <div class="control-group">
+		    <label class="control-label">Familienname/<i>Übersetzung</i>:</label>
+            <div class="controls">
+                @Html.TextBoxFor(x => x.FamiliennameKY, new { @placeholder = "KYRILLISCH [nur Übersetzung]"})
+            </div>
+	    </div>
+	    <div class="control-group">
+		    <label class="control-label">Vorname/<i>Übersetzung</i>:</label>
+            <div class="controls">
+                @Html.TextBoxFor(x => x.VornameKY, new { @placeholder = "KYRILLISCH [nur Übersetzung]"})
+                <span class="errorAnotation">@Html.ValidationMessageFor(x => x.VornameKY)</span>
+            </div>
+	    </div>
+	    <div class="control-group">
+		    <label class="control-label">Vatersname/<i>Übersetzung</i>:</label>
+            <div class="controls">
+                @Html.TextBoxFor(x => x.VatersnameKY, new { @placeholder = "KYRILLISCH [nur Übersetzung]"})
+                <span class="errorAnotation">@Html.ValidationMessageFor(x => x.VatersnameKY)</span>
+            </div>
+	    </div>
+	    <div class="control-group">
+		    <label class="control-label">Email-Adresse/<i>Übersetzung</i>:</label>
+		    <div class="controls">
+                @Html.TextBoxFor(x => x.Emailadresse, new { @placeholder = "LATEINISCH [nur Übersetzung]" })
+                <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Emailadresse)</span>
+            </div>
+	    </div>
+	    <div class="control-group">
+		    <label class="control-label">Passwort/<i>Übersetzung</i>:</label>
+            <div class="controls">
+               <span class="help-inline" style="padding-top: 3px;"><a href="">ändern</a></span>
+            </div>
+            <div class="controls">
+                    <button class="btn btn-apollogruen button_rechts_mit_erklaerung" style="margin-left:0px; margin-top:20px;">Benutzerdaten ändern | <i>Übersetzung</i></button>
+            </div>
+            <div class="controls">
+                    <a class="btn btn-apollogruen button_rechts_mit_erklaerung" style="margin-left:0px; margin-top:10px;">Zurück zur Übersicht | <i>Übersetzung</i></a>
+            </div>
+        </div>
+	</div>
+</table>
