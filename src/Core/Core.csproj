@@ -95,9 +95,11 @@
     <Compile Include="Infrastructure\Settings\GetConnectionString.cs" />
     <Compile Include="Infrastructure\Settings\GetOverwrittenConnectionString.cs" />
     <Compile Include="Infrastructure\Settings\GetOverwrittenConnectionStringResult.cs" />
+    <Compile Include="Web\Email\SendMailMessage.cs" />
     <Compile Include="Web\Message\Message.cs" />
     <Compile Include="Web\Message\MessageHtml.cs" />
     <Compile Include="Web\Message\MessageType.cs" />
+    <Compile Include="Web\Settings\WebConfigSettings.cs" />
     <Compile Include="Web\Validation\CheckboxTrueRequired.cs" />
   </ItemGroup>
   <ItemGroup>
