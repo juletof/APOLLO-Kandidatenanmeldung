@@ -13,7 +13,7 @@ namespace Frontend.Web.Controllers
             return View();
         }
 
-        public ActionResult Informationen()
+        public ActionResult Information()
         {
             return View();
         }
