@@ -840,6 +840,11 @@ padding-right: 0px;
 margin-left: 50px;
 }
 
+.button_rechts_mit_erklaerung {
+margin-left: 0px;
+vertical-align:middle;
+}
+
 table.button_mit_erklaerung div.btn-group {
 float: right;
 }

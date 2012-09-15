@@ -13,6 +13,11 @@ namespace Frontend.Web.Controllers
             return View();
         }
 
+        public ActionResult Informationen()
+        {
+            return View();
+        }
+
         public ActionResult Navigation_und_buttons()
         {
             return View();

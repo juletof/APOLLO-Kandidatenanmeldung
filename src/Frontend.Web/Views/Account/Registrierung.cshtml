@@ -21,6 +21,13 @@
 
 </script>
 
+ <table class="textlinksrechts"> 
+            <tr>
+                <td class="links"><p class="ueberschrift">Registrierung</p></td>
+                <td class="rechts"><p class="ueberschrift"><i>Übersetzung</i></p></td>
+            </tr>
+ </table>
+
 <table class="textlinksrechts"> 
 	<tr>
 	    <td class="links">
@@ -37,12 +44,7 @@
 @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" })) 
 {				
     <div class="form-horizontal">
-        <table class="textlinksrechts"> 
-            <tr>
-                <td class="links"><p class="ueberschrift">Registrierung</p></td>
-                <td class="rechts"><p class="ueberschrift"><i>Übersetzung</i></p></td>
-            </tr>
-        </table>
+       
         
         <div class="alert alert-error fade in hide" id="invalidInputMsg">
               <a class="close" data-dismiss="alert" href="#">×</a>
@@ -92,7 +94,7 @@
                 <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Passwort)</span>
             </div>
 		</div>
-		<div class="control-group">
+		<div class="control-group" style="margin-bottom: 0px;">
 			<div class="controls">
                 @Html.CheckBoxFor(x => x.AcceptTerms, new {@class = "checkbox mehrzeilig"})
                 <span class="errorAnotation">@Html.ValidationMessageFor(x => x.AcceptTerms)</span>
@@ -106,7 +108,7 @@
                 
 			</div>
 		</div>
-        <div class="form-actions">
+        <div class="form-actions" style="margin: 0px;">
             <button type="submit" class="btn btn-primary btn-apollogruen">Anmelden | <i>Übersetzung</i></button>
             <p style="margin-top: 5px">Sie sind bereits registriert? Hier geht es zum <a href="@Url.Action("Login", "Account")">Login</a>.<br>
                 Übersetzung <a href="login.html">Übersetzung</a></p>
