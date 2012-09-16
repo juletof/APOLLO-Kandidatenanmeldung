@@ -14,70 +14,76 @@
     <table class="textlinksrechts">
         <tr class="erstezeile alleinestehend">
             <td class="links"><h2>Anmeldung zum Auswahlverfahren für das Praktikum Sommer 2013</h2></td>
-            <td class="rechts"><h2><i>Übersetzung</i></h2></td>
+            <td class="rechts"><h2>Заявление на участие в отборе летней практики APOLLO 2013</h2></td>
         </tr>
     </table>
 	<table class="textlinksrechts">
         <tr>
             <td class="links">
                 <p>
-                    Bitte füllen Sie das untenstehende Formular ...<br>
-                    <b>Bitte beachten Sie die jeweils geforderte Eingabesprache.</b></br>
+                    Bitte füllen Sie das untenstehende Formular aus. 
+                    <b>Beachten Sie dabei die jeweils geforderte Eingabesprache.</b><br>
                 </p>
                 <p>
                     Hinweis: Bitte halten Sie zum Ausfüllen dieses Formulars die Nummer Ihres Inlandspasses bereit.
                     Sicherheitshinweis
                 </p>
             </td>
-            <td class="rechts"><p><i>Übersetzung</i></p></td>
+            <td class="rechts">
+                <p>
+                    Пожалйста заполните ниже расположенный формуляр. Обратите внимание 
+                    в каждом поле, какой язык требуется для заполнения. Замечание: для заполнения формуляра 
+                    необходим номер вашего российского пасспорта.
+                </p>
+            </td>
         </tr>
     </table>
 
     <table class="textlinksrechts">
         <tr class="erstezeile alleinestehend">
             <td class="links"><h3>Persönliche Angaben</h3></td>
-            <td class="rechts"><h3><i>Übersetzung</i></h3></td>
+            <td class="rechts"><h3>Личные данные</h3></td>
         </tr>
     </table>
 
     <table class="textlinksrechts">
         <div class="form-horizontal">
             <div class="control-group">
-                <label class="control-label">Familienname (lat.) | <i>Übersetzung</i>:</label>
+                <label class="control-label">Familienname | Фамилия:</label>
                 <div class="controls">
                     @Html.TextBoxFor(x => x.Familienname, new {@placeholder = "LATEINISCH [nur Übersetzung]", @class = "formular"})
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Familienname)</span>
-                    <span class="help-inline">Аbc</span>
+                     <span class="help-inline alphabet">LAT Übersetzung</span>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">Vorname  (lat.) | <i>Übersetzung</i>:</label>
+                <label class="control-label">Vorname | Имя:</label>
                 <div class="controls">
                     @Html.TextBoxFor(x => x.Vorname, new {@placeholder = "LATEINISCH [nur Übersetzung]", @class = "formular"})
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Vorname)</span>
-                    <span class="help-inline">Аbc</span>
+                    <span class="help-inline alphabet">LAT Übersetzung</span>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">Geburtsdatum | <i>Übersetzung</i>:</label>
+                <label class="control-label">Geburtsdatum | Дата рождения:</label>
                 <div class="controls">
-                    @Html.TextBoxFor(x => x.Geburtsdatum, new {@placeholder = "LATEINISCH [nur Übersetzung]"})
+                    @Html.TextBoxFor(x => x.Geburtsdatum, new {@placeholder = ""})
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Geburtsdatum)</span>
-                    <span class="help-inline">yyyy-dd-mm</span>
+                    <span class="help-block">Format: dd-mm-yyyy</span>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">Nummer des Inlandspasses | <i>Übersetzung</i> <br /> Beispiel: yyyy--y---y-yyy- :</label>
+                <label class="control-label">Nummer des Inlandspasses | Номер российского пасспорта</label>
                 <div class="controls zweisprachig">
                     @Html.TextBoxFor(x => x.Inlandspass, new {@class = "formular"})
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Inlandspass)</span>
+                    <span class="help-block">Beispiel: yyyy--y---y-yyy</span>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">Mobilnummer (freiwillige Angabe)| <i>Übersetzung</i>:</label>
+                <label class="control-label">Mobilfunknummer (freiwillige Angabe)| Номер мобильного телефона (по желанию):</label>
                 <div class="controls">
                     @Html.TextBoxFor(x => x.Mobilfunknummer, new {@class = "formular"})
-                    <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Mobilfunknummer)</span>
                 </div>
             </div>
         </div>
@@ -88,7 +94,7 @@
                 <h3>Hochschulstudium</h3>
             </td>
             <td class="rechts">
-                <h3><i>Übersetzung</i></h3>
+                <h3>Учеба</h3>
             </td>
         </tr>
     </table>
@@ -96,51 +102,53 @@
     <table class="textlinksrechts">
         <div class="form-horizontal">
             <div class="control-group">
-                <label class="control-label">Hochschule | <i>Übersetzung</i>:</label>
+                <label class="control-label">Hochschule | ВУЗ:</label>
                 <div class="controls">
                     @Html.DropDownListFor(x => Model.UniVal, Model.UniOps, new { @style = "width: 300px" })
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">Fakultät | <i>Übersetzung</i>:</label>
+                <label class="control-label">Fakultät | Факультет:</label>
                 <div class="controls zweisprachig">
                     @Html.TextBoxFor(x => x.Fakultaet, new {@class = "formular", @placeholder = "KYRILLISCH [nur Übersetzung]"})
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Fakultaet)</span>
+                    <span class="help-inline alphabet">KY Übersetzung</span>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">Spezialisierung | <i>Übersetzung</i>:</label>
+                <label class="control-label">Spezialisierung | Специальность:</label>
                 <div class="controls zweisprachig">
                     @Html.TextBoxFor(x => x.Studienfach, new {@class = "formular", @placeholder = "KYRILLISCH [nur Übersetzung]"})
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Studienfach)</span>
+                    <span class="help-inline alphabet">KY Übersetzung</span>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">Welche der folgenden Bezeichnungen beschreibt Ihr Studienfach am besten? | <i>Übersetzung</i>:</label>
+                <label class="control-label">Welche der folgenden Bezeichnungen beschreibt Ihr Studienfach am besten? | Какое из предложенных обозначений подходит больше всего для вашей специальности?</label>
                 <div class="controls mehrzeilig">
                     @Html.DropDownListFor(x => Model.StudienfachVal, Model.StudienfachOps, new { @style = "width: 300px" })
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">Am Ende welchen Studienjahrs befinden Sie sich zum Zeitpunkt des angestrebten Praktikums? | <i>Übersetzung</i>:</label>
+                <label class="control-label">Am Ende welchen Studienjahrs befinden Sie sich zum Zeitpunkt des angestrebten Praktikums? | На каком курсе вы учитесь?:</label>
                 <div class="controls mehrzeilig">
                     @Html.DropDownListFor(x => Model.StudienJahrVal, Model.StudienJahrOps)
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">Handelt es sich um einen verkürzten Studiengang (z.B. nach Technikum)? | <i>Übersetzung</i>:</label>
+                <label class="control-label">Handelt es sich um einen verkürzten Studiengang (z.B. nach Technikum)? | Вы учитесь по сокращенной форме (например после техникума)?<i>Übersetzung</i>:</label>
                 <div class="controls">
                     <label class="radio inline">
-                        @Html.RadioButton("rdoVerkürzterStudiengang", Model.VerkürzterStudiengang, true)
+                        @Html.RadioButton("rdoVerkürzterStudiengang", Model.VerkürzterStudiengang)
                         Ja | <i>Übersetzung</i>
                     </label>
                     <label class="radio inline">
-                        @Html.RadioButton("rdoVerkürzterStudiengang", Model.VerkürzterStudiengang)
+                        @Html.RadioButton("rdoVerkürzterStudiengang", Model.VerkürzterStudiengang, true)
                         Nein | <i>Übersetzung</i></label>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">Welchen Abschluss streben Sie derzeit an? | <i>Übersetzung</i>:</label>
+                <label class="control-label">Welchen Abschluss streben Sie derzeit an? | Какой академический титул вы получите по окончанию обучения?:</label>
                 <div class="controls">
                     @Html.DropDownListFor(x => Model.AngestrebterAbschlussVal, Model.AngestrebterAbschlussOps)
                 </div>
@@ -163,10 +171,10 @@
                 <label class="control-label">Verfügen Sie bereits über Deutschkenntnisse? | <i>Übersetzung</i>:</label>
                 <div class="controls">
                     <label class="radio inline">
-                        @Html.RadioButton("rdoBereitsDeutschkentnisse", Model.Deutschkentnisse, true)
+                        @Html.RadioButton("rdoBereitsDeutschkentnisse", Model.Deutschkentnisse)
                         Ja | <i>Übersetzung</i></label>
                     <label class="radio inline">
-                        @Html.RadioButton("rdoBereitsDeutschkentnisse", Model.Deutschkentnisse)
+                        @Html.RadioButton("rdoBereitsDeutschkentnisse", Model.Deutschkentnisse, true)
                         Nein | <i>Übersetzung</i></label>
                 </div>
             </div>
@@ -205,12 +213,12 @@
                 <label class="control-label">Haben Sie sich bereits im Rahmen eines Austauschprogramms in einem deutschsprachigen Land aufgehalten? | <i>Übersetzung</i>:</label>
                 <div class="controls">
                     <label class="radio inline">
-                        @Html.RadioButton("rdoBereitsAufenthalt", Model.BereitsAufenthalt, true)
+                        @Html.RadioButton("rdoBereitsAufenthalt", Model.BereitsAufenthalt)
                         <input type="radio" name="temp1">
                         Ja | <i>Übersetzung</i>
                     </label>
                     <label class="radio inline">
-                        @Html.RadioButton("rdoBereitsAufenthalt", Model.BereitsAufenthalt)
+                        @Html.RadioButton("rdoBereitsAufenthalt", Model.BereitsAufenthalt, true)
                         Nein | <i>Übersetzung</i></label>
                 </div>
             </div>
@@ -218,6 +226,7 @@
                 <label class="control-label">Wenn ja, mit welchem Programm? | <i>Übersetzung</i>:</label>
                 <div class="controls zweisprachig">
                     @Html.TextBoxFor(x => x.BereitsAufenthaltProgramm, new {@class = "formular", @placeholder = "KYRILLISCH [nur Übersetzung]"})
+                    <span class="help-inline alphabet">KY Übersetzung</span>
                 </div>
             </div>
             <div class="control-group">
@@ -229,6 +238,7 @@
                                                     @placeholder = "KYRILLISCH [nur Übersetzung]", 
                                                     @style = "height: 180px; height:100px;"
                                                 })
+                    <span class="help-inline alphabet">KY Übersetzung</span>
                 </div>
             </div>
             <div class="control-group">
@@ -240,7 +250,8 @@
             </div>
             <div class="control-group">
                 <div class="form-actions">
-                    <button type="submit" class="btn btn-primary btn-apollogruen">Eingaben absenden | <i>Übersetzung</i></button>
+                    <button type="submit" class="btn btn-apollogruen">Eingaben absenden | <i>Übersetzung</i></button>
+                    <br /><a class="btn" href='@Url.Action("Dashboard","Account")'>abbrechen (ohne speichern) | Übersetzung</a>
                 </div>
             </div>
         </div>

@@ -925,11 +925,24 @@ padding-left: 18px;
 padding-top: 2px;
 }
 
+.form-actions {
+margin-top: 10px;
+margin-bottom: 10px;
+padding-top: 0px;
+padding-bottom: 0px;
+    }
+
+/*Hilfe Formular*/
+
 .help-block, .help-inline {
 color: #253D19;   
 }
+
+.form-horizontal .help-block {
+margin-top: 0px;   
+}
     
-/*Hilfe zum Zeichensatz*/
+
 span.alphabet {
 font-size: 10px;
     }

@@ -27,7 +27,6 @@ public class AnmeldungModel
     [Required(ErrorMessage = "* Pflichtfeld")]
     public string Inlandspass { get; set; }
 
-    [Required(ErrorMessage = "* Pflichtfeld")]
     public string Mobilfunknummer { get; set; }
 
     public string UniVal { get; set; }

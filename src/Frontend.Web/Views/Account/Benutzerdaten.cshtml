@@ -7,62 +7,62 @@
 <table class="textlinksrechts">
     <tr class="erstezeile alleinestehend">
         <td class="links"><h2>Ihre Benutzerdaten</h2></td>
-        <td class="rechts"><h2><i>Übersetzung</i></h2></td>
+        <td class="rechts"><h2>Данные пользователя</h2></td>
     </tr>
 </table>
 <table class="textlinksrechts">
     <div class="form-horizontal">
         <span class="temp">Hier müssen die Benutzerdaten als Placeholder rein.</span>
         <div class="control-group">
-		    <label class="control-label">Anrede/<i>Übersetzung</i>:</label>
+		    <label class="control-label">Anrede | Пол:</label>
 		    <div class="controls">
 			    <select>
-				    <option>Frau | Übersetzung</option>
-				    <option>Herr | Übersetzung</option>
+				    <option>Frau | Женский</option>
+				    <option>Herr | Мужской</option>
 			    </select>
 		    </div>
 	    </div>
 	    <div class="control-group">
-		    <label class="control-label">Familienname/<i>Übersetzung</i>:</label>
+		    <label class="control-label">Familienname | Фамилия:</label>
             <div class="controls">
-                @Html.TextBoxFor(x => x.FamiliennameKY, new { @placeholder = "KYRILLISCH [nur Übersetzung]"})
-                <span class="help-inline alphabet">KY Übersetzung</span>
+                @Html.TextBoxFor(x => x.FamiliennameKY, new { @placeholder = "по-русски"})
+                <span class="help-inline alphabet">по-русски</span>
             </div>
 	    </div>
 	    <div class="control-group">
-		    <label class="control-label">Vorname/<i>Übersetzung</i>:</label>
+		    <label class="control-label">Vorname | Имя:</label>
             <div class="controls">
-                @Html.TextBoxFor(x => x.VornameKY, new { @placeholder = "KYRILLISCH [nur Übersetzung]"})
+                @Html.TextBoxFor(x => x.VornameKY, new { @placeholder = "по-русски"})
                 <span class="errorAnotation">@Html.ValidationMessageFor(x => x.VornameKY)</span>
-                <span class="help-inline alphabet">KY Übersetzung</span>
+                <span class="help-inline alphabet">по-русски</span>
             </div>
 	    </div>
 	    <div class="control-group">
-		    <label class="control-label">Vatersname/<i>Übersetzung</i>:</label>
+		    <label class="control-label">Vatersname | Отчество:</label>
             <div class="controls">
-                @Html.TextBoxFor(x => x.VatersnameKY, new { @placeholder = "KYRILLISCH [nur Übersetzung]"})
+                @Html.TextBoxFor(x => x.VatersnameKY, new { @placeholder = "по-русски"})
                 <span class="errorAnotation">@Html.ValidationMessageFor(x => x.VatersnameKY)</span>
-                <span class="help-inline alphabet">KY Übersetzung</span>
+                <span class="help-inline alphabet">по-русски</span>
             </div>
 	    </div>
 	    <div class="control-group">
-		    <label class="control-label">Email-Adresse/<i>Übersetzung</i>:</label>
+		    <label class="control-label">Email-Adresse | Емайл адрес:</label>
 		    <div class="controls">
-                @Html.TextBoxFor(x => x.Emailadresse, new { @placeholder = "LATEINISCH [nur Übersetzung]" })
+                @Html.TextBoxFor(x => x.Emailadresse, new { @placeholder = "латинскими буквами" })
                 <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Emailadresse)</span>
-                <span class="help-inline alphabet">LAT Übersetzung</span>
+                <span class="help-inline alphabet">латинскими буквами</span>
             </div>
 	    </div>
 	    <div class="control-group">
-		    <label class="control-label">Passwort/<i>Übersetzung</i>:</label>
+		    <label class="control-label">Passwort | Пароль:</label>
             <div class="controls">
-               <span class="help-inline" style="padding-top: 3px;"><a href="">ändern | Übersetzung</a></span>
+               <span class="help-inline" style="padding-top: 3px;"><a href="">ändern | изменить</a></span>
             </div>
             <div class="controls">
-                    <button class="btn btn-apollogruen button_rechts_mit_erklaerung" style="margin-left:0px; margin-top:20px;">Benutzerdaten ändern | <i>Übersetzung</i></button>
+                    <button class="btn btn-apollogruen button_rechts_mit_erklaerung" style="margin-left:0px; margin-top:20px;">Benutzerdaten ändern | Изменить персональные данные</button>
             </div>
             <div class="controls">
-                    <a class="btn btn-apollogruen button_rechts_mit_erklaerung" style="margin-left:0px; margin-top:10px;">Zurück zur Übersicht | <i>Übersetzung</i></a>
+                    <a class="btn btn-apollogruen button_rechts_mit_erklaerung" style="margin-left:0px; margin-top:10px;">Zurück zur Übersicht | Назад</a>
             </div>
         </div>
 	</div>

@@ -8,11 +8,12 @@
 <table class="textlinksrechts">
     <div class="alert alert-success fade in" id="invalidInputMsg">
         <a class="close" data-dismiss="alert" href="#">×</a>
-        Vielen Dank für Ihre Registrierung. Sie erhalten eine Bestätigungsemails an <b>.....</b> .  | Übersetzung
+        Vielen Dank für Ihre Registrierung. Sie erhalten eine Bestätigungsemails an <b>.....</b>
+        <br /> Большое спасибо за регистрацию. Подтверждение регистрации вы получите на емайл адрес...
     </div>
     <tr class="erstezeile alleinestehend">
         <td class="links"><h2>Persönlicher Bereich</h2></td>
-        <td class="rechts"><h2><i>Übersetzung</i></h2></td>
+        <td class="rechts"><h2>Персональная страница</h2></td>
     </tr>
 </table>
 <table class="textlinksrechts">
@@ -22,34 +23,39 @@
             <br /><br />in diesem Bereich können Sie Ihre Benutzerdaten verwalten, die für die Anmeldung zum Auswahlverfahren erforderlichen Daten eingeben und den derzeitigen Status Ihrer Bewerbung einsehen.
             </p>
         </td>
+        <td class="rechts">
+            <p>Привет <b>Name Vorname</b>,
+            <br /><br />Здесь вы можете управлять своими личными данными, заполнить заявление на участие в отборе, а также узнать статус вашего заявления на участие.
+            </p>
+        </td>
     </tr>
 </table>
 <table class="textlinksrechts">
     <tr class="erstezeile alleinestehend">
         <td class="links"><h3>Benutzerdaten</h3></td>
-        <td class="rechts"><h3><i>Übersetzung</i></h3></td>
+        <td class="rechts"><h3>Данные пользователя</h3></td>
     </tr>
 </table>
 <table class="textlinksrechts">
     <div class="form-horizontal">
          <div class="control-group" style="margin-bottom:0px;">
-            <label class="control-label"><b>Name </b>| <b><i>Übersetzung</i></b>:</label>
+            <label class="control-label"><b>Name </b>| <b>Имя</b>:</label>
             <div class="controls">
                 <span class="help-inline" style="padding-top: 4px;">VollerNameKY</span>
             </div>
         </div>
         <div class="control-group" style="margin-bottom:0px;">
-            <label class="control-label"><b>Registrierte Email-Adresse </b>| <b><i>Übersetzung</i></b>:</label>
+            <label class="control-label"><b>Registrierte Email-Adresse </b>| <b>Заданный емайл адрес</b>:</label>
             <div class="controls">
                 <span class="help-inline" style="padding-top: 4px;">@Model.Email</span>
             </div>
         </div>
         <div class="control-group" style="margin-bottom:0px;">
             <div class="controls">
-                <span class="help-inline" style="padding-top: 4px;"><a href="@Url.Action("Benutzerdaten", "Account")">Benutzerdaten ändern | <i>Übersetzung</i></a></span>
+                <span class="help-inline" style="padding-top: 4px;"><a href="@Url.Action("Benutzerdaten", "Account")">Benutzerdaten ändern | Изменить данные пользователя</a></span>
             </div>
             <div class="controls">
-                <span class="help-inline" style="padding-top: 4px;"><a href="@Url.Action("Passwort_aendern", "Account")">Passwort ändern | <i>Übersetzung</i></a></span>
+                <span class="help-inline" style="padding-top: 4px;"><a href="@Url.Action("Passwort_aendern", "Account")">Passwort ändern | Изменить пароль</a></span>
             </div>
         </div>
     </div>
@@ -57,7 +63,7 @@
 <table class="textlinksrechts">
     <tr class="erstezeile alleinestehend">
         <td class="links"><h3>Status der Bewerbung</h3></td>
-        <td class="rechts"><h3><i>Übersetzung</i></h3></td>
+        <td class="rechts"><h3>Статус заявления</h3></td>
     </tr>
 </table>
     @if (Model.KandidatStatus == KandidatStatus.Registriert)
@@ -67,11 +73,11 @@
 	    <td class="links" style="text-align:justify;">
 		    <p style="color: #B71C00;"> Um am Auswahlverfahren teilnehmen zu können, 
                     füllen Sie bitte das Anmeldungsformular aus:
-                    <br /><i>Übersetzung</i></p>
+                    <br />Для регистрации участия необходимо заполнить формуляр:</p>
 	    </td>
 	
 	    <td class="rechts button_rechts_mit_erklaerung">
-		    <a class="btn btn-large btn-apollogruen button_rechts_mit_erklaerung" href='@Url.Action("Anmeldung", "Account")' style="width:200px; margin-left: 0px">Zum Formular | <i>Übersetzung </i></a>
+		    <a class="btn btn-large btn-apollogruen button_rechts_mit_erklaerung" href='@Url.Action("Anmeldung", "Account")' style="width:200px; margin-left: 0px">Zum Formular | К заявлению</a>
 	    </td>
     </tr>
 </table>
@@ -88,7 +94,9 @@
         </p>
         </td>
         <td class="rechts">
-        <i>Übersetzung</i>
+        Вы задали все неодходимые данные для регистрации. 
+        Вскоре после окончания срока подачи заявлений мы сообщим вам, 
+        по емайлу допущены ли вы к участию в первом собеседовании.
         </td>
     </tr>
 </table>
@@ -98,7 +106,8 @@
 	    <td class="links" style="text-align:justify;">
 		    <p>Hier können Sie die von Ihnen eingegebenen Daten einsehen
              und bis zum Anmeldeschuss gegebenenfalls noch ändern:
-             <br /><i>Übersetzung</i>
+             <br />Здесь вы можете просмотреть введенные 
+             данные, которые возможно изменитьи до окончания срока регистрации: 
             </p>
 	    </td>
 	
@@ -106,7 +115,7 @@
 		    <a class="btn btn-large button_rechts_mit_erklaerung" 
             href='@Url.Action("Anmeldung", "Account")' 
             style="width:300px; margin-left: 0px">
-            Zu den Anmeldedaten | <i>Übersetzung </i></a>
+            Zu den Anmeldedaten | К введенным данным</a>
 	    </td>
     </tr>
 </table>
@@ -126,7 +135,9 @@
             </p>
         </td>
         <td class="rechts">
-            <p><i>Übersetzung</i>
+            <p>Поздравляем! Вы допущены к участию в собеседовании. Вы получите своевременно 
+            по емайлу информацию о дате собеседования и документах
+             которые необходимо подготовить. Пожалуйста свяжитесь с ответсвенным лицом в вашем ВУЗе.
             </p>
         </td>
     </tr>
@@ -136,7 +147,7 @@
 <table class="textlinksrechts">
     <tr class="erstezeile alleinestehend">
         <td class="links"><h3>Allgemeine Informationen</h3></td>
-        <td class="rechts"><h3><i>Übersetzung</i></h3></td>
+        <td class="rechts"><h3>Общая информация</h3></td>
     </tr>
 </table>
 <table class="textlinksrechts">
@@ -144,7 +155,7 @@
         <td class="links">Hier finden Sie 
         <a href='@Url.Action("Information", "Home")'>allgemeine Informationen</a> 
         zum Auswahlverfahren (Ablauf, Teilnahmebedingungen, wichtige Hinweise).</td>
-        <td class="rechts"><i>Übersetzung</i><a href='@Url.Action("Information", "Home")'>Übersetzung</a> </td>
+        <td class="rechts">Здесь вы найдете <a href='@Url.Action("Information", "Home")'>общую информацию</a> по отбору (план, условия участия, важные указания).</td>
     </tr>
     
 </table>
