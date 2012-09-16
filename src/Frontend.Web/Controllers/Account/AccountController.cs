@@ -38,10 +38,10 @@ namespace Frontend.Web.Controllers
                 model.Message = new ErrorMessage("Die Emailadresse ist bereits in Verwendung | Uebersetzung");
                 return View(model);
             }
-                
 
             var kandidat = _registrieren.Run(RegistrierungModel2Entity.Run(model));
 
+            _sessionUser.Login(kandidat);
             return View("Dashboard", new DashboardModel(kandidat));
         }
 
@@ -79,7 +79,7 @@ namespace Frontend.Web.Controllers
         [AuthorizedOnly]
         public ActionResult Anmeldung()
         {
-            return View();
+            return View(new AnmeldungModel());
         }
 
         [HttpPost]

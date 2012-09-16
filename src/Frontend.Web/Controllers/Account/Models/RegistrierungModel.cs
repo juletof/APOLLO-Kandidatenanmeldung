@@ -7,12 +7,12 @@ public class RegistrierungModel
 {
     public RegistrierungModel()
     {
-        AnredeOpts = AnredeWerte.ToSelectItems();
+        AnredeOpts = new AnredeWerte().ToSelectItems();
     }
 
     public Message Message;
 
-    public string AnredeVal;
+    public string AnredeVal { get; set;  }
     public IList<SelectListItem> AnredeOpts;
 
     [Required(ErrorMessage = "* Pflichtfeld")]
