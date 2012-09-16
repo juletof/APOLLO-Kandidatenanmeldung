@@ -5,8 +5,8 @@ namespace ApolloDb
 {
     public class Kandidat : DomainEntity
     {
-        public virtual int BewerbungFuer { get; set; }
-        public virtual int Anrede { get; set; }
+        public virtual int PraktikumsJahr { get; set; }
+        public virtual int Geschlecht { get; set; }
 
         public virtual string Familienname { get; set; }
         public virtual string FamiliennameKY { get; set; }
@@ -25,7 +25,8 @@ namespace ApolloDb
         public virtual string Fakultät { get; set; }
         public virtual int Studienfach { get; set; }
         public virtual string Spezialisierung { get; set; }
-        public virtual int PraktikumAbStudienjahr { get; set; }
+        /// <summary>Studienjahr</summary>
+        public virtual int Kurs { get; set; }
         public virtual bool VerkürzterStudiengang { get; set; }
         public virtual int AngestrebterAbschluss { get; set; }
 
@@ -34,11 +35,17 @@ namespace ApolloDb
         public virtual bool DeutschkentnisseDurchUni { get; set; }
         public virtual bool DeutschkentnisseDurchSonstige { get; set; }
 
-        public virtual bool BereitsAufenthalt { get; set; }
-        public virtual string BereitsAufenthaltProgramm { get; set; }
-        public virtual string BereitsAufenthaltKommentar { get; set; }
+        public virtual bool FruehererAufenthalt { get; set; }
+        public virtual string FruehererAufenthaltProgramm { get; set; }
+
+        public virtual string Kommentar { get; set; }
 
         public virtual KandidatStatus Status { get; set; }
+
+        public Kandidat()
+        {
+            PraktikumsJahr = 2013;
+        }
 
         public virtual string GetVollerName()
         {

@@ -7,7 +7,7 @@ namespace ApolloDb
         public static Kandidat Run(RegistrierungModel model)
         {
             var praktikant = new Kandidat();
-            praktikant.Anrede = Convert.ToInt32(model.AnredeVal);
+            praktikant.Geschlecht = Convert.ToInt32(model.AnredeVal);
             praktikant.FamiliennameKY = model.FamiliennameKY;
             praktikant.VornameKY = model.VornameKY;
             praktikant.VatersnameKY = model.VatersnameKY;

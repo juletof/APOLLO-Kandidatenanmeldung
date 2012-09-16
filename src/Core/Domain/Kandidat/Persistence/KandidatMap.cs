@@ -12,8 +12,8 @@ namespace ApolloDb
         {
             Id(x => x.Id);
 
-            Map(x => x.BewerbungFuer);
-            Map(x => x.Anrede);
+            Map(x => x.PraktikumsJahr);
+            Map(x => x.Geschlecht);
             Map(x => x.Familienname);
             Map(x => x.FamiliennameKY);
             Map(x => x.Vorname);
@@ -31,7 +31,7 @@ namespace ApolloDb
             Map(x => x.Fakultät);
             Map(x => x.Studienfach);
             Map(x => x.Spezialisierung);
-            Map(x => x.PraktikumAbStudienjahr);
+            Map(x => x.Kurs);
             Map(x => x.VerkürzterStudiengang);
             Map(x => x.AngestrebterAbschluss);
             
@@ -40,9 +40,9 @@ namespace ApolloDb
             Map(x => x.DeutschkentnisseDurchUni);
             Map(x => x.DeutschkentnisseDurchSonstige);
             
-            Map(x => x.BereitsAufenthalt);
-            Map(x => x.BereitsAufenthaltProgramm);
-            Map(x => x.BereitsAufenthaltKommentar);
+            Map(x => x.FruehererAufenthalt);
+            Map(x => x.FruehererAufenthaltProgramm);
+            Map(x => x.Kommentar).CustomSqlType("NVARCHAR(max)");
 
             Map(x => x.Status);
 
