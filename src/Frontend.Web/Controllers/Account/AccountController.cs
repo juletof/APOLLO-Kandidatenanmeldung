@@ -42,6 +42,7 @@ namespace Frontend.Web.Controllers
 
             var kandidat = _registrieren.Run(RegistrierungModel2Entity.Run(model));
 
+            _sessionUser.Login(kandidat);
             return View("Dashboard", new DashboardModel(kandidat));
         }
 
