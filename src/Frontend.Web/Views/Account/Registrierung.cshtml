@@ -27,9 +27,9 @@
 </script>
 
 <table class="textlinksrechts"> 
-    <tr>
-        <td class="links"><p class="ueberschrift">Registrierung</p></td>
-        <td class="rechts"><p class="ueberschrift"><i>Übersetzung</i></p></td>
+    <tr class="erstezeile alleinestehend">
+        <td class="links"><h2>Registrierung</h2></td>
+        <td class="rechts"><h2><i>Übersetzung</i><h2></td>
     </tr>
 </table>
 
@@ -61,7 +61,7 @@
 			<div class="controls">
                 @Html.CheckBoxFor(x => x.ReadInformation, new {@class = "checkbox mehrzeilig"})
                 <span class="errorAnotation">@Html.ValidationMessageFor(x => x.ReadInformation)</span>
-                <label class="checkbox mehrzeilig">
+                <label class="checkbox mehrzeilig" style="text-align:justify;">
                     Hiermit bestätige ich, die <a href="@Url.Action("Information", "Home")">Informationen zum Anmeldeverfahren</a> gelesen und zur Kenntnis genommen zu haben.
                     <br>
                         <i>Übersetzung<br><a href="@Url.Action("Information", "Home")">Übersetzung</a></i>
@@ -82,6 +82,7 @@
 			<label class="control-label">Familienname/<i>Übersetzung</i>:</label>
             <div class="controls">
                 @Html.TextBoxFor(x => x.FamiliennameKY, new { @placeholder = "KYRILLISCH [nur Übersetzung]"})
+                <span class="help-inline alphabet">KY Übersetzung</span>
             </div>
 		</div>
 		<div class="control-group">
@@ -89,6 +90,7 @@
             <div class="controls">
                 @Html.TextBoxFor(x => x.VornameKY, new { @placeholder = "KYRILLISCH [nur Übersetzung]"})
                 <span class="errorAnotation">@Html.ValidationMessageFor(x => x.VornameKY)</span>
+                <span class="help-inline alphabet">KY Übersetzung</span>
             </div>
 		</div>
 		<div class="control-group">
@@ -96,6 +98,7 @@
             <div class="controls">
                 @Html.TextBoxFor(x => x.VatersnameKY, new { @placeholder = "KYRILLISCH [nur Übersetzung]"})
                 <span class="errorAnotation">@Html.ValidationMessageFor(x => x.VatersnameKY)</span>
+                <span class="help-inline alphabet">KY Übersetzung</span>
             </div>
 		</div>
 		<div class="control-group">
@@ -103,12 +106,13 @@
 			<div class="controls">
                 @Html.TextBoxFor(x => x.Emailadresse, new { @placeholder = "LATEINISCH [nur Übersetzung]" })
                 <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Emailadresse)</span>
+                <span class="help-inline alphabet">LAT Übersetzung</span>
             </div>
 		</div>
 		<div class="control-group">
 			<label class="control-label">Passwort/<i>Übersetzung</i>:</label>
             <div class="controls">
-                @Html.PasswordFor(x => x.Passwort, new { @placeholder = "KYRILLISCH [nur Übersetzung]"})
+                @Html.PasswordFor(x => x.Passwort, new { @placeholder = ""})
                 <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Passwort)</span>
             </div>
 		</div>
@@ -116,7 +120,7 @@
 			<div class="controls">
                 @Html.CheckBoxFor(x => x.AcceptTerms, new {@class = "checkbox mehrzeilig"})
                 <span class="errorAnotation">@Html.ValidationMessageFor(x => x.AcceptTerms)</span>
-                <label class="checkbox mehrzeilig">
+                <label class="checkbox mehrzeilig"  style="text-align:justify;">
                     Hiermit nehme ich zur Kenntnis, dass alle relevanten Informationen 
                     zum Anmeldeverfahren an die von mir angegebene Email-Adresse versendet werden.
                     <br>

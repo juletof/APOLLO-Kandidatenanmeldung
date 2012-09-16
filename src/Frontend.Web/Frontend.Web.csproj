@@ -255,9 +255,6 @@
     <Content Include="Views\Account\Dashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Navigation_und_buttons.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Home\Information.cshtml" />
   </ItemGroup>
   <ItemGroup>

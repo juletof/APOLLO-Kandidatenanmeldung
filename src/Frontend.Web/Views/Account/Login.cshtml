@@ -23,11 +23,13 @@
 @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form", @class="form-horizontal" })) {
 	<fieldset>
         <table class="textlinksrechts"> 
-            <tr>
-                <td class="links"><p class="ueberschrift">Login</p></td>
-                <td class="rechts"><p  class="ueberschrift"><i>Übersetzung</i></p></td>
+            <tr class="erstezeile alleinestehend">
+                <td class="links"><h2>Login</h2></td>
+                <td class="rechts"><h2><i>Übersetzung</i></h2></td>
             </tr>
         </table>
+
+        
         <div class="alert alert-error fade in hide" id="invalidInputMsg" style="margin-left:430px; width: 255px;">
             <a class="close" data-dismiss="alert" href="#">×</a>
             Bitte Eingaben vervollständigen. | Übersetzung
@@ -35,24 +37,28 @@
         
         @Html.Message(Model.Message, "margin-left:430px; width:255px;")
 
-        <div class="control-group">
-			<label class="control-label" for="benutzername">Emailadresse | <i>Übersetzung</i>:</label>
-            <div class="controls">
-                <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Emailadresse)</span>
-                @Html.TextBoxFor(x => x.Emailadresse, new {@style = "width:290px"})
+        <table class="textlinksrechts"> 
+            <div class="form-hoizontal"  style="margin-top:40px;">
+                <div class="control-group">
+			        <label class="control-label" for="benutzername">Emailadresse | <i>Übersetzung</i>:</label>
+                    <div class="controls">
+                        <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Emailadresse)</span>
+                        @Html.TextBoxFor(x => x.Emailadresse, new {@style = "width:290px"})
+                    </div>
+		        </div>
+		        <div class="control-group" style="margin-bottom:0px;">
+			        <label class="control-label" for="password">Passwort | <i>Übersetzung</i>:</label>
+                    <div class="controls">
+                        <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Password)</span>
+                        @Html.PasswordFor(x => x.Password, new {@style = "width:290px"})<br />
+                        <a href="@Url.Action("Passwort_vergessen", "Account")">Passwort vergessen? | <i>Übersetzung</i></a>
+                    </div>
+		        </div>
+		        <div class="form-actions" style="margin-bottom:0px;">
+			            <button type="submit" class="btn btn-primary btn-apollogruen" style="width:304px; margin-bottom:0px;">Anmelden | <i>Übersetzung</i></button>
+                        <p><a href="@Url.Action("Registrierung", "Account")">Noch nicht registriert? | Übersetzung</a></p>
+		        </div>
             </div>
-		</div>
-		<div class="control-group" style="margin-bottom:0px;">
-			<label class="control-label" for="password">Passwort | <i>Übersetzung</i>:</label>
-            <div class="controls">
-                <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Password)</span>
-                @Html.PasswordFor(x => x.Password, new {@style = "width:290px"})<br />
-                <a href="@Url.Action("Passwort_vergessen", "Account")">Passwort vergessen? | <i>Übersetzung</i></a>
-            </div>
-		</div>
-		<div class="form-actions">
-			    <button type="submit" class="btn btn-primary btn-apollogruen" style="width:304px; margin-bottom:0px;">Anmelden | <i>Übersetzung</i></button>
-                <p><a href="@Url.Action("Registrierung", "Account")">Noch nicht registriert? | Übersetzung</a></p>
-		</div>
+        </table>
 	</fieldset>	
 }

@@ -29,15 +29,25 @@
     <div class="page-container">
         <div class="header">
 		    <div class="header-top">
-			    <a class="sitelogo" href="http://www.apollo-online.de" title="Go to Start page"></a>
-			    <div class="sitename">
-			        <h1 style="font-size:24px; margin: 0px;"><a href="http://www.apollo-online.de" title="Go to Start page">Apollo e.V.</a></h1>
-			        <h2 style="line-height:1.2em; font-size: 12px;">Arbeitsgemeinschaft für Projekte in Oekologie, Landwirtschaft <br>
+			    <a class="sitelogo" href='@Url.Action("Index", "Home")' title="Go to Start page"></a>
+			    <div class="sitename" style="margin-top:10px;">
+			        <h1 style="font-size:24px; margin: 0px;"><a href='@Url.Action("Index", "Home")' title="Go to Start page">Apollo e.V.</a></h1>
+			        <h2 style="line-height:1.2em; font-size: 10px;">
+                    Arbeitsgemeinschaft für Projekte in Oekologie, Landwirtschaft <br>
 			        und Landesentwicklung in Osteuropa e.V.</h2>
+                    <h2 style="font-size:18px;"><a href='@Url.Action("Index", "Home")'>
+                    Online-Bewerbung | Übersetzung</a></h2>
 		        </div>
                 <div class="nav1">
                     <ul>
-                        <li><a href="http://www.apollo-online.de/index.php?id=203">Impressum</a></li>																		
+                        <li>
+                            <a href="http://www.apollo-online.de/" 
+                            style="font-size: 12px; line-height:120%;" title="APOLLO-Homepage">APOLLO-Homepage<br />Übersetzung</a>
+                        </li>																		
+                        <li>
+                            <a href="http://www.apollo-online.de/index.php?id=203" 
+                            style="font-size: 12px; line-height:120%;">Impressum<br />Übersetzung</a>
+                        </li>																		
                      </ul>
                  </div>
                  <div id="logindisplay">
@@ -47,7 +57,7 @@
         </div>
 	
 	    <div class="main-content" style="color:#253D19">
-		    <div style="margin-bottom:30px">
+		    <div>
 		        @RenderBody()
 		    </div>   
 	    </div>

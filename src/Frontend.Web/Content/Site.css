@@ -925,6 +925,15 @@ padding-left: 18px;
 padding-top: 2px;
 }
 
+.help-block, .help-inline {
+color: #253D19;   
+}
+    
+/*Hilfe zum Zeichensatz*/
+span.alphabet {
+font-size: 10px;
+    }
+
 /*Felder für den Fall von Mehrzeiligkeit (links) nach unten ausrichten:*/
 
 div.mehrzeilig {

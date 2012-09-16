@@ -6,8 +6,8 @@
 
 @if(userSession.IsLoggedIn) {
     <text>Hallo <strong>@userSession.Kandidat.GetVollerNameKY()</strong>!
-    [ @Html.ActionLink("Abmelden", "LogOff", "Account") ]</text>
+    [ @Html.ActionLink("Abmelden | Übersetzen", "LogOff", "Account") ]</text>
 }
 else {
-    @:[ @Html.ActionLink("Anmelden", "Login", "Account") ]
+    @:[ @Html.ActionLink("Anmelden | Übersetzung", "Login", "Account") ]
 }

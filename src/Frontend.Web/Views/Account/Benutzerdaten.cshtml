@@ -26,6 +26,7 @@
 		    <label class="control-label">Familienname/<i>Übersetzung</i>:</label>
             <div class="controls">
                 @Html.TextBoxFor(x => x.FamiliennameKY, new { @placeholder = "KYRILLISCH [nur Übersetzung]"})
+                <span class="help-inline alphabet">KY Übersetzung</span>
             </div>
 	    </div>
 	    <div class="control-group">
@@ -33,6 +34,7 @@
             <div class="controls">
                 @Html.TextBoxFor(x => x.VornameKY, new { @placeholder = "KYRILLISCH [nur Übersetzung]"})
                 <span class="errorAnotation">@Html.ValidationMessageFor(x => x.VornameKY)</span>
+                <span class="help-inline alphabet">KY Übersetzung</span>
             </div>
 	    </div>
 	    <div class="control-group">
@@ -40,6 +42,7 @@
             <div class="controls">
                 @Html.TextBoxFor(x => x.VatersnameKY, new { @placeholder = "KYRILLISCH [nur Übersetzung]"})
                 <span class="errorAnotation">@Html.ValidationMessageFor(x => x.VatersnameKY)</span>
+                <span class="help-inline alphabet">KY Übersetzung</span>
             </div>
 	    </div>
 	    <div class="control-group">
@@ -47,12 +50,13 @@
 		    <div class="controls">
                 @Html.TextBoxFor(x => x.Emailadresse, new { @placeholder = "LATEINISCH [nur Übersetzung]" })
                 <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Emailadresse)</span>
+                <span class="help-inline alphabet">LAT Übersetzung</span>
             </div>
 	    </div>
 	    <div class="control-group">
 		    <label class="control-label">Passwort/<i>Übersetzung</i>:</label>
             <div class="controls">
-               <span class="help-inline" style="padding-top: 3px;"><a href="">ändern</a></span>
+               <span class="help-inline" style="padding-top: 3px;"><a href="">ändern | Übersetzung</a></span>
             </div>
             <div class="controls">
                     <button class="btn btn-apollogruen button_rechts_mit_erklaerung" style="margin-left:0px; margin-top:20px;">Benutzerdaten ändern | <i>Übersetzung</i></button>
