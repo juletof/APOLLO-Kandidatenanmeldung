@@ -1,7 +1,13 @@
-﻿@if(Request.IsAuthenticated) {
-    <text>Welcome <strong>@User.Identity.Name</strong>!
-    [ @Html.ActionLink("Log Off", "LogOff", "Account") ]</text>
+﻿@using ApolloDb
+
+@{
+    var userSession = new SessionUser();
+}
+
+@if(userSession.IsLoggedIn) {
+    <text>Hallo <strong>@userSession.Kandidat.GetVollerNameKY()</strong>!
+    [ @Html.ActionLink("Abmelden", "LogOff", "Account") ]</text>
 }
 else {
-    @:[ @Html.ActionLink("Log On", "LogOn", "Account") ]
+    @:[ @Html.ActionLink("Anmelden", "Login", "Account") ]
 }

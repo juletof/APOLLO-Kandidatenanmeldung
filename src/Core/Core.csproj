@@ -99,6 +99,7 @@
     <Compile Include="Infrastructure\Settings\GetConnectionString.cs" />
     <Compile Include="Infrastructure\Settings\GetOverwrittenConnectionString.cs" />
     <Compile Include="Infrastructure\Settings\GetOverwrittenConnectionStringResult.cs" />
+    <Compile Include="Web\Context\SessionUser.cs" />
     <Compile Include="Web\Email\SendMailMessage.cs" />
     <Compile Include="Web\Message\Message.cs" />
     <Compile Include="Web\Message\MessageHtml.cs" />

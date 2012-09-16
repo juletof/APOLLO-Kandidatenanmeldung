@@ -8,14 +8,17 @@ namespace Frontend.Web.Controllers
         private readonly Registrieren _registrieren;
         private readonly KandidatRepository _praktikanteRepo;
         private readonly IsEmailAddressInUse _emailAddressInUse;
+        private readonly SessionUser _sessionUser;
 
         public AccountController(Registrieren registrieren, 
                                  KandidatRepository praktikanteRepo, 
-                                 IsEmailAddressInUse emailAddressInUse)
+                                 IsEmailAddressInUse emailAddressInUse, 
+                                 SessionUser sessionUser)
         {
             _registrieren = registrieren;
             _praktikanteRepo = praktikanteRepo;
             _emailAddressInUse = emailAddressInUse;
+            _sessionUser = sessionUser;
         }
 
         public ActionResult Registrierung()
@@ -52,20 +55,24 @@ namespace Frontend.Web.Controllers
 
             var loginResult = Sl.Resolve<Login>().Run(loginModel.Emailadresse, loginModel.Password);
             if (loginResult.Success)
-                return View("Dashboard");
-            else
             {
-                loginModel.Message = new ErrorMessage("Die Anmeldedaten sind nicht korrekt");
-                return View(loginModel);
+                _sessionUser.Login(loginResult.Kandidat);
+                return RedirectToAction("Dashboard");
             }
-                
-
+            
+            loginModel.Message = new ErrorMessage("Die Anmeldedaten sind nicht korrekt");
             return View(loginModel);
+        }
+
+        public ActionResult LogOff()
+        {
+            _sessionUser.Logout();
+            return View();
         }
 
         public ActionResult Dashboard()
         {
-            return View(new DashboardModel(_praktikanteRepo.GetById(1)));
+            return View(new DashboardModel(_sessionUser.Kandidat));
         }
 
         public ActionResult Anmeldung()

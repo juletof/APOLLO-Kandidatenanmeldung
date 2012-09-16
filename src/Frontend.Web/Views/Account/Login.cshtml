@@ -46,7 +46,7 @@
 			<label class="control-label" for="password">Passwort | <i>Übersetzung</i>:</label>
             <div class="controls">
                 <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Password)</span>
-                @Html.TextBoxFor(x => x.Password, new {@style = "width:290px"})<br />
+                @Html.PasswordFor(x => x.Password, new {@style = "width:290px"})<br />
                 <a href="@Url.Action("Passwort_vergessen", "Account")">Passwort vergessen? | <i>Übersetzung</i></a>
             </div>
 		</div>
