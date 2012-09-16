@@ -38,7 +38,6 @@ namespace Frontend.Web.Controllers
                 model.Message = new ErrorMessage("Die Emailadresse ist bereits in Verwendung | Uebersetzung");
                 return View(model);
             }
-                
 
             var kandidat = _registrieren.Run(RegistrierungModel2Entity.Run(model));
 

@@ -72,10 +72,7 @@
         <div class="control-group">
 			<label class="control-label">Anrede/<i>Übersetzung</i>:</label>
 			<div class="controls">
-				<select>
-					<option>Frau | Übersetzung</option>
-					<option>Herr | Übersetzung</option>
-				</select>
+                @Html.DropDownListFor(m => Model.AnredeVal, Model.AnredeOpts)
 			</div>
 		</div>
 		<div class="control-group">

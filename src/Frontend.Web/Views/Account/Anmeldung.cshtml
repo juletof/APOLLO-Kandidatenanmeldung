@@ -62,14 +62,12 @@
                 <label class="control-label">Nummer des Inlandspasses | <i>Übersetzung</i> <br /> Beispiel: yyyy--y---y-yyy- :</label>
                 <div class="controls zweisprachig">
                     @Html.TextBoxFor(x => x.Geburtsdatum, new {@class = "formular"})
-                    @Html.EditorFor(x => x.Geburtsdatum, new {@class = "formular"})
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Mobilnummer (freiwillige Angabe)| <i>Übersetzung</i>:</label>
                 <div class="controls">
                     @Html.TextBoxFor(x => x.Mobilfunknummer, new {@class = "formular"})
-                    @Html.EditorFor(x => x.Mobilfunknummer, new {@class = "formular"})
                 </div>
             </div>
         </div>

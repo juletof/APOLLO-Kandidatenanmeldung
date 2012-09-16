@@ -9,7 +9,7 @@ namespace ApolloDb
         protected static IList<ListItem> _items = new List<ListItem>();
         protected const int _defaultKey = -1;
 
-        public static IList<SelectListItem> ToSelectItems()
+        public IList<SelectListItem> ToSelectItems()
         {
             return 
                 _items.Select(x => new SelectListItem

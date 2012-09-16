@@ -8,7 +8,7 @@ public class AnmeldungModel
 {
     public AnmeldungModel()
     {
-        UniOps = Universitaeten.ToSelectItems();
+        UniOps = new Universitaeten().ToSelectItems();
     }
 
     [Required(ErrorMessage = "* Pflichtfeld")]
