@@ -70,22 +70,26 @@ namespace Frontend.Web.Controllers
             return View();
         }
 
+        [AuthorizedOnly]
         public ActionResult Dashboard()
         {
             return View(new DashboardModel(_sessionUser.Kandidat));
         }
 
+        [AuthorizedOnly]
         public ActionResult Anmeldung()
         {
             return View();
         }
 
         [HttpPost]
+        [AuthorizedOnly]
         public ActionResult Anmeldung(AnmeldungModel model)
         {
             return View(model);
         }
 
+        [AuthorizedOnly]
         public ActionResult Benutzerdaten()
         {
             return View();
@@ -96,6 +100,7 @@ namespace Frontend.Web.Controllers
             return View();
         }
 
+        [AuthorizedOnly]
         public ActionResult Passwort_aendern()
         {
             return View();

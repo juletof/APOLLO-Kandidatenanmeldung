@@ -13,7 +13,6 @@ namespace Frontend.Web.Controllers
 
         public ActionResult Index()
         {
-            
             return View(new PraktikantenModel(_kandidatRepo.GetAll()));
         }
     }
