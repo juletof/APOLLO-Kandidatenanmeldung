@@ -106,6 +106,7 @@
     <Compile Include="Controllers\Account\Models\BenutzerDatenModel.cs" />
     <Compile Include="Controllers\Account\Models\DashboardModel.cs" />
     <Compile Include="Controllers\Account\Models\LoginModel.cs" />
+    <Compile Include="Controllers\Account\Models\PasswortAendernModel.cs" />
     <Compile Include="Controllers\Admin\PraktikantenModel.cs" />
     <Compile Include="Controllers\Admin\PraktikantItemModel.cs" />
     <Compile Include="Controllers\Account\AccountController.cs" />

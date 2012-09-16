@@ -105,5 +105,14 @@ namespace Frontend.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult AutoLogin()
+        {
+            if (!Request.IsLocal)
+                return Redirect("/");
+
+            _sessionUser.Login(_praktikanteRepo.GetById(1));
+            return RedirectToAction("Dashboard");
+        }
     }
 }
