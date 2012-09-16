@@ -79,7 +79,11 @@
     <Compile Include="Domain\Kandidat\Lists\Model\ListBase.cs" />
     <Compile Include="Domain\Kandidat\Lists\Model\ListItem.cs" />
     <Compile Include="Domain\Kandidat\Lists\Universitaeten.cs" />
-    <Compile Include="Domain\Kandidat\Ops\Registrieren.cs" />
+    <Compile Include="Domain\Kandidat\Ops\IsEmailAddressInUse.cs" />
+    <Compile Include="Domain\Kandidat\Registrieren\HashPassword.cs" />
+    <Compile Include="Domain\Kandidat\Registrieren\Login.cs" />
+    <Compile Include="Domain\Kandidat\Registrieren\LoginResult.cs" />
+    <Compile Include="Domain\Kandidat\Registrieren\Registrieren.cs" />
     <Compile Include="Domain\Kandidat\Persistence\KandidatMap.cs" />
     <Compile Include="Domain\Kandidat\Persistence\KandidatRepository.cs" />
     <Compile Include="Domain\Kandidat\Kandidat.cs" />

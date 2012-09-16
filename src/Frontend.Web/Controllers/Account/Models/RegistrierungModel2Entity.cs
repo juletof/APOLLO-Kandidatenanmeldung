@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace ApolloDb
 {
@@ -15,7 +12,7 @@ namespace ApolloDb
             praktikant.VornameKY = model.VornameKY;
             praktikant.VatersnameKY = model.VatersnameKY;
             praktikant.EmailAdresse = model.Emailadresse;
-            praktikant.Passwort = model.Passwort;
+            praktikant.Passwort = HashPassword.Run(model.Passwort);
 
             return praktikant;
         }

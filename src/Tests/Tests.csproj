@@ -78,6 +78,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\IsEmailAddressInUseTest.cs" />
     <Compile Include="Domain\PraktikantenPersistenceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_code\BaseTest.cs" />

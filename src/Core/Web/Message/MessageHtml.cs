@@ -7,10 +7,12 @@ namespace ApolloDb
 {
     public static class MessageHtml
     {
-        public static HtmlString Message(this HtmlHelper html, Message message)
+        public static HtmlString Message(this HtmlHelper html, Message message, string style = "")
         {
             if (message == null)
                 return new MvcHtmlString("");
+
+            message.Style = style;
 
             var newViewContext =
                 new ViewContext(html.ViewContext,

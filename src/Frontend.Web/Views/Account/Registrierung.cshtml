@@ -26,12 +26,12 @@
 
 </script>
 
- <table class="textlinksrechts"> 
-            <tr>
-                <td class="links"><p class="ueberschrift">Registrierung</p></td>
-                <td class="rechts"><p class="ueberschrift"><i>Übersetzung</i></p></td>
-            </tr>
- </table>
+<table class="textlinksrechts"> 
+    <tr>
+        <td class="links"><p class="ueberschrift">Registrierung</p></td>
+        <td class="rechts"><p class="ueberschrift"><i>Übersetzung</i></p></td>
+    </tr>
+</table>
 
 <table class="textlinksrechts"> 
 	<tr>
@@ -50,16 +50,17 @@
 {				
     <div class="form-horizontal">
        
-        
         <div class="alert alert-error fade in hide" id="invalidInputMsg">
-              <a class="close" data-dismiss="alert" href="#">×</a>
-                Bitte die Eingaben vervollständigen/korrigieren. | Übersetzung
+            <a class="close" data-dismiss="alert" href="#">×</a>
+            Bitte die Eingaben vervollständigen/korrigieren. | Übersetzung
         </div>
+        
+        @Html.Message(Model.Message)
         
         <div class="control-group">
 			<div class="controls">
-                @Html.CheckBoxFor(x => x.AcceptTerms, new {@class = "checkbox mehrzeilig"})
-                <span class="errorAnotation">@Html.ValidationMessageFor(x => x.AcceptTerms)</span>
+                @Html.CheckBoxFor(x => x.ReadInformation, new {@class = "checkbox mehrzeilig"})
+                <span class="errorAnotation">@Html.ValidationMessageFor(x => x.ReadInformation)</span>
                 <label class="checkbox mehrzeilig">
                     Hiermit bestätige ich, die <a href="@Url.Action("Information", "Home")">Informationen zum Anmeldeverfahren</a> gelesen und zur Kenntnis genommen zu haben.
                     <br>

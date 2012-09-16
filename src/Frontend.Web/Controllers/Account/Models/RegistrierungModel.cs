@@ -33,4 +33,7 @@ public class RegistrierungModel
 
     [BooleanRequiredToBeTrueAttribute(ErrorMessage = "* Pflichtfeld")]
     public bool AcceptTerms { get; set; }
+
+    [BooleanRequiredToBeTrueAttribute(ErrorMessage = "* Pflichtfeld")]
+    public bool ReadInformation { get; set; }
 }

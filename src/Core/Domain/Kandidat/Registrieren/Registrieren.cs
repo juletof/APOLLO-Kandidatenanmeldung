@@ -34,6 +34,5 @@ Als nächstes geht es hier weiter: http://bewerbung.apollo-verein.de";
 
             return mailMessage;
         }
-
     }
 }

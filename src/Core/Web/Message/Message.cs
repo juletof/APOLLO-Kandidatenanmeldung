@@ -26,6 +26,8 @@
             }
         }
 
+        public string Style;
+
         public Message() { }
 
         public Message(MessageType messageType, string message)
