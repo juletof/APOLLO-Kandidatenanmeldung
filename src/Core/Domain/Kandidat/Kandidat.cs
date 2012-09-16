@@ -30,7 +30,9 @@ namespace ApolloDb
         public virtual int AngestrebterAbschluss { get; set; }
 
         public virtual bool Deutschkentnisse { get; set; }
-        public virtual int DeutschkentnisseWoGelernt { get; set; }
+        public virtual bool DeutschkentnisseDurchSchule { get; set; }
+        public virtual bool DeutschkentnisseDurchUni { get; set; }
+        public virtual bool DeutschkentnisseDurchSonstige { get; set; }
 
         public virtual bool BereitsAufenthalt { get; set; }
         public virtual string BereitsAufenthaltProgramm { get; set; }

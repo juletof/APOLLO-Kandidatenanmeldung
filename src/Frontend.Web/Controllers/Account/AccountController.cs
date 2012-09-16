@@ -79,7 +79,7 @@ namespace Frontend.Web.Controllers
         [AuthorizedOnly]
         public ActionResult Anmeldung()
         {
-            return View();
+            return View(new AnmeldungModel());
         }
 
         [HttpPost]

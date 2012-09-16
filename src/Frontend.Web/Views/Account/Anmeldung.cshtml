@@ -1,11 +1,16 @@
 ﻿@model AnmeldungModel
 @{
-    ViewBag.Title = "Zulassung";
+    ViewBag.Title = "Anmeldung";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
-{
+{    
+    <div class="alert alert-error fade in hide" id="invalidInputMsg">
+        <a class="close" data-dismiss="alert" href="#">×</a>
+        Bitte die Eingaben vervollständigen/korrigieren. | Übersetzung
+    </div>
+    
     <table class="textlinksrechts">
         <tr class="erstezeile alleinestehend">
             <td class="links"><h2>Anmeldung zum Auswahlverfahren für das Praktikum Sommer 2013</h2></td>
@@ -17,7 +22,7 @@
             <td class="links">
                 <p>
                     Bitte füllen Sie das untenstehende Formular ...<br>
-                                                                       <b>Bitte beachten Sie die jeweils geforderte Eingabesprache.</b></br>
+                    <b>Bitte beachten Sie die jeweils geforderte Eingabesprache.</b></br>
                 </p>
                 <p>
                     Hinweis: Bitte halten Sie zum Ausfüllen dieses Formulars die Nummer Ihres Inlandspasses bereit.
@@ -41,6 +46,7 @@
                 <label class="control-label">Familienname (lat.) | <i>Übersetzung</i>:</label>
                 <div class="controls">
                     @Html.TextBoxFor(x => x.Familienname, new {@placeholder = "LATEINISCH [nur Übersetzung]", @class = "formular"})
+                    <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Familienname)</span>
                     <span class="help-inline">Аbc</span>
                 </div>
             </div>
@@ -48,6 +54,7 @@
                 <label class="control-label">Vorname  (lat.) | <i>Übersetzung</i>:</label>
                 <div class="controls">
                     @Html.TextBoxFor(x => x.Vorname, new {@placeholder = "LATEINISCH [nur Übersetzung]", @class = "formular"})
+                    <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Vorname)</span>
                     <span class="help-inline">Аbc</span>
                 </div>
             </div>
@@ -55,19 +62,22 @@
                 <label class="control-label">Geburtsdatum | <i>Übersetzung</i>:</label>
                 <div class="controls">
                     @Html.TextBoxFor(x => x.Geburtsdatum, new {@placeholder = "LATEINISCH [nur Übersetzung]"})
+                    <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Geburtsdatum)</span>
                     <span class="help-inline">yyyy-dd-mm</span>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Nummer des Inlandspasses | <i>Übersetzung</i> <br /> Beispiel: yyyy--y---y-yyy- :</label>
                 <div class="controls zweisprachig">
-                    @Html.TextBoxFor(x => x.Geburtsdatum, new {@class = "formular"})
+                    @Html.TextBoxFor(x => x.Inlandspass, new {@class = "formular"})
+                    <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Inlandspass)</span>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Mobilnummer (freiwillige Angabe)| <i>Übersetzung</i>:</label>
                 <div class="controls">
                     @Html.TextBoxFor(x => x.Mobilfunknummer, new {@class = "formular"})
+                    <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Mobilfunknummer)</span>
                 </div>
             </div>
         </div>
@@ -88,61 +98,51 @@
             <div class="control-group">
                 <label class="control-label">Hochschule | <i>Übersetzung</i>:</label>
                 <div class="controls">
-                    <select style="width: 300px">
-                        <option>Liste Hochschulen</option>
-                    </select>
+                    @Html.DropDownListFor(x => Model.UniVal, Model.UniOps, new { @style = "width: 300px" })
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Fakultät | <i>Übersetzung</i>:</label>
                 <div class="controls zweisprachig">
-                    <input type="text" class="formular" placeholder="KYRILLISCH [nur Übersetzung]">
+                    @Html.TextBoxFor(x => x.Fakultaet, new {@class = "formular", @placeholder = "KYRILLISCH [nur Übersetzung]"})
+                    <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Fakultaet)</span>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Spezialisierung | <i>Übersetzung</i>:</label>
                 <div class="controls zweisprachig">
-                    <input type="text" class="formular" placeholder="KYRILLISCH [nur Übersetzung]">
+                    @Html.TextBoxFor(x => x.Studienfach, new {@class = "formular", @placeholder = "KYRILLISCH [nur Übersetzung]"})
+                    <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Studienfach)</span>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Welche der folgenden Bezeichnungen beschreibt Ihr Studienfach am besten? | <i>Übersetzung</i>:</label>
                 <div class="controls mehrzeilig">
-                    <select style="width: 300px">
-                        <option>Liste Studienfächer</option>
-                    </select>
+                    @Html.DropDownListFor(x => Model.StudienfachVal, Model.StudienfachOps, new { @style = "width: 300px" })
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Am Ende welchen Studienjahrs befinden Sie sich zum Zeitpunkt des angestrebten Praktikums? | <i>Übersetzung</i>:</label>
                 <div class="controls mehrzeilig">
-                    <select>
-                        <option>3./verkürzt Übersetzung</option>
-                        <option>4.verkürzt Übersetzung</option>
-                    </select>
+                    @Html.DropDownListFor(x => Model.StudienJahrVal, Model.StudienJahrOps)
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Handelt es sich um einen verkürzten Studiengang (z.B. nach Technikum)? | <i>Übersetzung</i>:</label>
                 <div class="controls">
                     <label class="radio inline">
-                        <input type="radio" name="temp1">
-                        Ja | <i>Übersetzung</i></label>
+                        @Html.RadioButton("rdoVerkürzterStudiengang", Model.VerkürzterStudiengang, true)
+                        Ja | <i>Übersetzung</i>
+                    </label>
                     <label class="radio inline">
-                        <input type="radio" name="temp1">
+                        @Html.RadioButton("rdoVerkürzterStudiengang", Model.VerkürzterStudiengang)
                         Nein | <i>Übersetzung</i></label>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Welchen Abschluss streben Sie derzeit an? | <i>Übersetzung</i>:</label>
                 <div class="controls">
-                    <select>
-                        <option>Diplom | Übersetzung</option>
-                        <option>Bachelor | Übersetzung</option>
-                        <option>Magister | Übersetzung</option>
-                        <option>Aspirantur | Übersetzung</option>
-                        <option>Sonstiges | Übersetzung</option>
-                    </select>
+                    @Html.DropDownListFor(x => Model.AngestrebterAbschlussVal, Model.AngestrebterAbschlussOps)
                 </div>
             </div>
         </div>
@@ -163,10 +163,10 @@
                 <label class="control-label">Verfügen Sie bereits über Deutschkenntnisse? | <i>Übersetzung</i>:</label>
                 <div class="controls">
                     <label class="radio inline">
-                        <input type="radio" name="temp1">
+                        @Html.RadioButton("rdoBereitsDeutschkentnisse", Model.Deutschkentnisse, true)
                         Ja | <i>Übersetzung</i></label>
                     <label class="radio inline">
-                        <input type="radio" name="temp1">
+                        @Html.RadioButton("rdoBereitsDeutschkentnisse", Model.Deutschkentnisse)
                         Nein | <i>Übersetzung</i></label>
                 </div>
             </div>
@@ -174,13 +174,16 @@
                 <label class="control-label">Wenn ja: wo haben Sie diese Kenntnisse erworben? (mehrere Antworten möglich) | <i>Übersetzung</i>:</label>
                 <div class="controls">
                     <label class="checkbox">
-                        <input type="checkbox">In der Schule | <i>Übersetzung</i></input>
+                        @Html.CheckBoxFor(x => x.DeutschkentnisseDurchSchule)
+                        In der Schule | <i>Übersetzung</i>
                     </label>
                     <label class="checkbox">
-                        <input type="checkbox">In der Hochschule | <i>Übersetzung</i></input>
+                        @Html.CheckBoxFor(x => x.DeutschkentnisseDurchUni)
+                        In der Hochschule | <i>Übersetzung</i>
                     </label>
                     <label class="checkbox">
-                        <input type="checkbox">Sonstiges | <i>Übersetzung</i></input>
+                        @Html.CheckBoxFor(x => x.DeutschkentnisseDurchSonstige)
+                        Sonstiges | <i>Übersetzung</i>
                     </label>
                 </div>
             </div>
@@ -202,23 +205,30 @@
                 <label class="control-label">Haben Sie sich bereits im Rahmen eines Austauschprogramms in einem deutschsprachigen Land aufgehalten? | <i>Übersetzung</i>:</label>
                 <div class="controls">
                     <label class="radio inline">
+                        @Html.RadioButton("rdoBereitsAufenthalt", Model.BereitsAufenthalt, true)
                         <input type="radio" name="temp1">
-                        Ja | <i>Übersetzung</i></label>
+                        Ja | <i>Übersetzung</i>
+                    </label>
                     <label class="radio inline">
-                        <input type="radio" name="temp1">
+                        @Html.RadioButton("rdoBereitsAufenthalt", Model.BereitsAufenthalt)
                         Nein | <i>Übersetzung</i></label>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Wenn ja, mit welchem Programm? | <i>Übersetzung</i>:</label>
                 <div class="controls zweisprachig">
-                    <input type="text" class="formular" placeholder="KYRILLISCH [nur Übersetzung]">
+                    @Html.TextBoxFor(x => x.BereitsAufenthaltProgramm, new {@class = "formular", @placeholder = "KYRILLISCH [nur Übersetzung]"})
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Kommentare (optional)| <i>Übersetzung</i>:</label>
                 <div class="controls">
-                    <textarea class="input-xlarge" rows="4" placeholder="KYRILLISCH [nur Übersetzung]"></textarea>
+                    @Html.TextAreaFor(x => x.BereitsAufenthaltKommentar, 
+                                             new{
+                                                    @class = "input-xlarge", 
+                                                    @placeholder = "KYRILLISCH [nur Übersetzung]", 
+                                                    @style = "height: 180px; height:100px;"
+                                                })
                 </div>
             </div>
             <div class="control-group">

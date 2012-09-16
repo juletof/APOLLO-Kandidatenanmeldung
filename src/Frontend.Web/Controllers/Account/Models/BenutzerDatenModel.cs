@@ -7,7 +7,7 @@ public class BenutzerDatenModel
 {
     public BenutzerDatenModel()
     {
-        //AnredeOpts = AnredeWerte.ToSelectItems();
+        AnredeOpts = new AnredeWerte().ToSelectItems();
     }
 
     public Message Message;

@@ -36,8 +36,10 @@ namespace ApolloDb
             Map(x => x.AngestrebterAbschluss);
             
             Map(x => x.Deutschkentnisse);
-            Map(x => x.DeutschkentnisseWoGelernt);
-
+            Map(x => x.DeutschkentnisseDurchSchule);
+            Map(x => x.DeutschkentnisseDurchUni);
+            Map(x => x.DeutschkentnisseDurchSonstige);
+            
             Map(x => x.BereitsAufenthalt);
             Map(x => x.BereitsAufenthaltProgramm);
             Map(x => x.BereitsAufenthaltKommentar);
