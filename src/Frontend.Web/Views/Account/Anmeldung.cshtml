@@ -31,7 +31,7 @@
             </td>
             <td class="rechts">
                 <p>
-                    Пожалйста заполните ниже расположенный формуляр. Обратите внимание 
+                    Пожалуйста заполните ниже расположенный формуляр. Обратите внимание 
                     в каждом поле, какой язык требуется для заполнения. Замечание: для заполнения формуляра 
                     необходим номер вашего российского пасспорта.
                 </p>
@@ -69,7 +69,7 @@
                 <div class="controls">
                     @Html.TextBoxFor(x => x.Geburtsdatum, new {@placeholder = ""})
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Geburtsdatum)</span>
-                    <span class="help-block">Format: dd-mm-yyyy</span>
+                    <span class="help-block">Format: dd-mm-yyyy | Формат: дд-мм-гггг</span>
                 </div>
             </div>
             <div class="control-group">
@@ -77,7 +77,7 @@
                 <div class="controls zweisprachig">
                     @Html.TextBoxFor(x => x.Inlandspass, new {@class = "formular"})
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Inlandspass)</span>
-                    <span class="help-block">Beispiel: yyyy--y---y-yyy</span>
+                    <span class="help-block">Beispiel: 12 34 567890 | Пример: 12 34 567890</span>
                 </div>
             </div>
             <div class="control-group">
@@ -140,11 +140,11 @@
                 <div class="controls">
                     <label class="radio inline">
                         @Html.RadioButton("rdoVerkürzterStudiengang", Model.VerkürzterStudiengang)
-                        Ja | <i>Übersetzung</i>
+                        Ja | Да
                     </label>
                     <label class="radio inline">
                         @Html.RadioButton("rdoVerkürzterStudiengang", Model.VerkürzterStudiengang, true)
-                        Nein | <i>Übersetzung</i></label>
+                        Nein | Нет</label>
                 </div>
             </div>
             <div class="control-group">
@@ -161,37 +161,37 @@
                 <h3>Deutschkenntnisse</h3>
             </td>
             <td class="rechts">
-                <h3><i>Übersetzung</i></h3>
+                <h3>Знания немецкого языка</h3>
             </td>
         </tr>
     </table>
     <table class="textlinksrechts">
         <div class="form-horizontal">
             <div class="control-group">
-                <label class="control-label">Verfügen Sie bereits über Deutschkenntnisse? | <i>Übersetzung</i>:</label>
+                <label class="control-label">Verfügen Sie bereits über Deutschkenntnisse? | Обладаете ли вы знаниями немецкого языка?:</label>
                 <div class="controls">
                     <label class="radio inline">
                         @Html.RadioButton("rdoBereitsDeutschkentnisse", Model.Deutschkentnisse)
-                        Ja | <i>Übersetzung</i></label>
+                        Ja | Да</label>
                     <label class="radio inline">
                         @Html.RadioButton("rdoBereitsDeutschkentnisse", Model.Deutschkentnisse, true)
-                        Nein | <i>Übersetzung</i></label>
+                        Nein | Нет</label>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">Wenn ja: wo haben Sie diese Kenntnisse erworben? (mehrere Antworten möglich) | <i>Übersetzung</i>:</label>
+                <label class="control-label">Wenn ja: wo haben Sie diese Kenntnisse erworben? (mehrere Antworten möglich) | Если да, то где вы учили язык? (возможно несколько ответов)</label>
                 <div class="controls">
                     <label class="checkbox">
                         @Html.CheckBoxFor(x => x.DeutschkentnisseDurchSchule)
-                        In der Schule | <i>Übersetzung</i>
+                        In der Schule | В школе
                     </label>
                     <label class="checkbox">
                         @Html.CheckBoxFor(x => x.DeutschkentnisseDurchUni)
-                        In der Hochschule | <i>Übersetzung</i>
+                        In der Hochschule | В ВУЗе
                     </label>
                     <label class="checkbox">
                         @Html.CheckBoxFor(x => x.DeutschkentnisseDurchSonstige)
-                        Sonstiges | <i>Übersetzung</i>
+                        Sonstiges | Другое
                     </label>
                 </div>
             </div>
@@ -203,34 +203,34 @@
                 <h3>Sonstiges</h3>
             </td>
             <td class="rechts">
-                <h3><i>Übersetzung</i></h3>
+                <h3>Другое</h3>
             </td>
         </tr>
     </table>
     <table class="textlinksrechts">
         <div class="form-horizontal">
             <div class="control-group">
-                <label class="control-label">Haben Sie sich bereits im Rahmen eines Austauschprogramms in einem deutschsprachigen Land aufgehalten? | <i>Übersetzung</i>:</label>
+                <label class="control-label">Haben Sie sich bereits im Rahmen eines Austauschprogramms in einem deutschsprachigen Land aufgehalten? | Принимали ли вы участие в программах обмена практикантами в немецкоговорящих странах?:</label>
                 <div class="controls">
                     <label class="radio inline">
                         @Html.RadioButton("rdoBereitsAufenthalt", Model.BereitsAufenthalt)
                         <input type="radio" name="temp1">
-                        Ja | <i>Übersetzung</i>
+                        Ja | Да
                     </label>
                     <label class="radio inline">
                         @Html.RadioButton("rdoBereitsAufenthalt", Model.BereitsAufenthalt, true)
-                        Nein | <i>Übersetzung</i></label>
+                        Nein | Нет</label>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">Wenn ja, mit welchem Programm? | <i>Übersetzung</i>:</label>
+                <label class="control-label">Wenn ja, mit welchem Programm? | Если да, то в какой программе?:</label>
                 <div class="controls zweisprachig">
                     @Html.TextBoxFor(x => x.BereitsAufenthaltProgramm, new {@class = "formular", @placeholder = "KYRILLISCH [nur Übersetzung]"})
                     <span class="help-inline alphabet">KY Übersetzung</span>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">Kommentare (optional)| <i>Übersetzung</i>:</label>
+                <label class="control-label">Kommentare (optional)| Замечания, если есть (по всем разделам):</label>
                 <div class="controls">
                     @Html.TextAreaFor(x => x.BereitsAufenthaltKommentar, 
                                              new{
@@ -244,14 +244,14 @@
             <div class="control-group">
                 <div class="controls">
                     <label class="checkbox">
-                        <input type="checkbox">Hiermit bewerbe ich mich für das Auswahlverfahren der APOLLO e.V. Ich versichere, dass ich alle Angaben wahrheitsgemäß gemacht habe.<br><i>Übersetzung<br>Übersetzung</i><!--temp Beginn--></br><span class="temp">Mit dem Häkchen wird der Anmelde-Button freigegeben</span><!--temp Ende-->
+                        <input type="checkbox">Hiermit bewerbe ich mich für das Auswahlverfahren der APOLLO e.V. Ich versichere, dass ich alle Angaben wahrheitsgemäß gemacht habe.<br>Я подаю заявление на участие в собеседовании программы APOLLO e.V. Я подтверждаю что все данные заполненны мною честно и добросовестно.<!--temp Beginn--></br><span class="temp">Mit dem Häkchen wird der Anmelde-Button freigegeben</span><!--temp Ende-->
                     </label>
                 </div>
             </div>
             <div class="control-group">
                 <div class="form-actions">
-                    <button type="submit" class="btn btn-apollogruen">Eingaben absenden | <i>Übersetzung</i></button>
-                    <br /><a class="btn" href='@Url.Action("Dashboard","Account")'>abbrechen (ohne speichern) | Übersetzung</a>
+                    <button type="submit" class="btn btn-apollogruen">Eingaben absenden | Отправить</button>
+                    <br /><a class="btn" href='@Url.Action("Dashboard","Account")'>abbrechen (ohne speichern) | сбросить (без сохранения)</a>
                 </div>
             </div>
         </div>

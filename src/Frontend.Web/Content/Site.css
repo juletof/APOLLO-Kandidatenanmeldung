@@ -123,7 +123,7 @@
 	background-repeat: no-repeat;
 }
 .sitename {
-	width:400px;
+	width:600px;
 	height:45px;
 	position:absolute;
 	z-index:1;
@@ -735,6 +735,10 @@ table.textlinksrechts td.rechts {
 padding-left: 10px;
 }
 
+table.textlinksrechts td.stichpunkt {
+padding-left: 0px;
+}
+
 table.textlinksrechts td.links {
 padding-right: 10px;
 }
@@ -1140,3 +1144,14 @@ span.ohne_feld {
 padding-top: 4px;
 padding-bottom: 4px;
 }
+
+
+
+div.impressum a {
+    font-weight: bold;
+    color: #99CC33;
+    text-decoration: none;
+    font-size:120%;
+    margin-top:-30px;
+}
+  
