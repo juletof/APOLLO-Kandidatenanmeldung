@@ -18,6 +18,11 @@ namespace Frontend.Web.Controllers
             return View();
         }
 
+        public ActionResult Information_Praktikum()
+        {
+            return View();
+        }
+
         public ActionResult Navigation_und_buttons()
         {
             return View();
