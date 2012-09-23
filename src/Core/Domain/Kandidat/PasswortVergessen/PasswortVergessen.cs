@@ -24,7 +24,7 @@ namespace ApolloDb
                 return new PasswortVergessenResult {DieEmailExisitertNicht = true, Success = false};
 
             var token = Guid.NewGuid().ToString().Replace("-", "").Substring(0, 15);
-            var passwortResetUrl = "http://http://bewerbung.apollo-online.de/passwort_reset/" + token;
+            var passwortResetUrl = "http://bewerbung.apollo-online.de/home/passwort_reset/" + token;
 
             _tokenRepository.Create(new PasswortVergessenToken{Email = email, Token = token});
             _sendMailMessage.Run(GetMailMessage(email, passwortResetUrl));
