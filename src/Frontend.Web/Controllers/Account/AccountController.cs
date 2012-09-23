@@ -7,19 +7,19 @@ namespace Frontend.Web.Controllers
     {
         private readonly Registrieren _registrieren;
         private readonly Anmelden _anmelden;
-        private readonly KandidatRepository _praktikanteRepo;
+        private readonly KandidatRepository _kandidatRepository;
         private readonly IsEmailAddressInUse _emailAddressInUse;
         private readonly SessionUser _sessionUser;
 
         public AccountController(Registrieren registrieren, 
                                  Anmelden anmelden,
-                                 KandidatRepository praktikanteRepo, 
+                                 KandidatRepository kandidatRepository, 
                                  IsEmailAddressInUse emailAddressInUse, 
                                  SessionUser sessionUser)
         {
             _registrieren = registrieren;
             _anmelden = anmelden;
-            _praktikanteRepo = praktikanteRepo;
+            _kandidatRepository = kandidatRepository;
             _emailAddressInUse = emailAddressInUse;
             _sessionUser = sessionUser;
         }
@@ -96,12 +96,14 @@ namespace Frontend.Web.Controllers
             return View(new AnmeldungModel(_sessionUser.Kandidat));
         }
 
-        [HttpPost]
-        [AuthorizedOnly]
+
+        [AuthorizedOnly] [HttpPost]
         public ActionResult Anmeldung(AnmeldungModel model)
         {
-            var kandidat = AnmeldungModelFillFromUi.Run(model, _sessionUser.Kandidat);
-            _anmelden.Run(kandidat);
+            if (!ModelState.IsValid)
+                return View(model);
+
+            _anmelden.Run(AnmeldungModelFillFromUi.Run(model, _sessionUser.Kandidat));
 
             return View(model);
         }
@@ -109,7 +111,19 @@ namespace Frontend.Web.Controllers
         [AuthorizedOnly]
         public ActionResult Benutzerdaten()
         {
-            return View();
+            return View(new BenutzerDatenModel(_sessionUser.Kandidat));
+        }
+
+        [AuthorizedOnly] [HttpPost]
+        public ActionResult Benutzerdaten(BenutzerDatenModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            _kandidatRepository.Update(BenutzerDatenModellFillFromUi.Run(model, _sessionUser.Kandidat));
+            model.Message = new SuccessMessage("Die Daten wurden gespeichert | Uebersetzung");
+
+            return View(model);
         }
 
         public ActionResult Passwort_vergessen()
@@ -128,7 +142,7 @@ namespace Frontend.Web.Controllers
             if (!Request.IsLocal)
                 return Redirect("/");
 
-            _sessionUser.Login(_praktikanteRepo.GetById(1));
+            _sessionUser.Login(_kandidatRepository.GetById(1));
             return RedirectToAction("Dashboard");
         }
     }

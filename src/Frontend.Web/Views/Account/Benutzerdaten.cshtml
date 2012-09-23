@@ -1,69 +1,101 @@
-﻿@model BenutzerDatenModel
+﻿@using ApolloDb
+@model BenutzerDatenModel
 @{
     ViewBag.Title = "Benutzerdaten";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<table class="textlinksrechts">
-    <tr class="erstezeile alleinestehend">
-        <td class="links"><h2>Ihre Benutzerdaten</h2></td>
-        <td class="rechts"><h2>Данные пользователя</h2></td>
-    </tr>
-</table>
-<table class="textlinksrechts">
-    <div class="form-horizontal">
-        <span class="temp">Hier müssen die Benutzerdaten als Placeholder rein.</span>
-        <div class="control-group">
-		    <label class="control-label">Anrede | Обращение:</label>
-		    <div class="controls">
-			    <select>
-				    <option>Frau | Госпожа</option>
-				    <option>Herr | Господин</option>
-			    </select>
+<script type="text/javascript">
+    
+    $(function () {
+        $("#form").submit(function () {
+
+            if (!$(this).valid()) {
+                $("#invalidInputMsg").show(400);
+            }
+            else {
+                $("#invalidInputMsg").hide(300);
+            }
+        });
+    });
+    
+    jQuery.validator.addMethod("checkrequired", function (value, element, param) {
+        return element.checked;
+    });
+    jQuery.validator.unobtrusive.adapters.addBool("checkrequired");
+
+</script>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
+{
+    <table class="textlinksrechts">
+        <tr class="erstezeile alleinestehend">
+            <td class="links"><h2>Ihre Benutzerdaten</h2></td>
+            <td class="rechts"><h2>Данные пользователя</h2></td>
+        </tr>
+    </table>
+    
+    <div class="alert alert-error fade in hide" id="invalidInputMsg">
+        <a class="close" data-dismiss="alert" href="#">×</a>
+        Bitte die Eingaben vervollständigen/korrigieren. | Пожалуйста дополните/измените данные.
+    </div>
+        
+    @Html.Message(Model.Message)    
+    
+    <table class="textlinksrechts">
+        <div class="form-horizontal">
+            <div class="control-group">
+			    <label class="control-label">Anrede | Обращение:</label>
+			    <div class="controls">
+                    @Html.DropDownListFor(m => Model.AnredeVal, Model.AnredeOpts)
+			    </div>
 		    </div>
-	    </div>
-	    <div class="control-group">
-		    <label class="control-label">Familienname | Фамилия:</label>
-            <div class="controls">
-                @Html.TextBoxFor(x => x.FamiliennameKY, new { @placeholder = "по-русски"})
-                <span class="help-inline alphabet">по-русски</span>
+
+            <div class="control-group">
+                <label class="control-label">Familienname | Фамилия:</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.FamiliennameKY, new {@placeholder = "по-русски"})
+                    <span class="help-inline alphabet">по-русски</span>
+                </div>
             </div>
-	    </div>
-	    <div class="control-group">
-		    <label class="control-label">Vorname | Имя:</label>
-            <div class="controls">
-                @Html.TextBoxFor(x => x.VornameKY, new { @placeholder = "по-русски"})
-                <span class="errorAnotation">@Html.ValidationMessageFor(x => x.VornameKY)</span>
-                <span class="help-inline alphabet">по-русски</span>
+            <div class="control-group">
+                <label class="control-label">Vorname | Имя:</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.VornameKY, new {@placeholder = "по-русски"})
+                    <span class="errorAnotation">@Html.ValidationMessageFor(x => x.VornameKY)</span>
+                    <span class="help-inline alphabet">по-русски</span>
+                </div>
             </div>
-	    </div>
-	    <div class="control-group">
-		    <label class="control-label">Vatersname | Отчество:</label>
-            <div class="controls">
-                @Html.TextBoxFor(x => x.VatersnameKY, new { @placeholder = "по-русски"})
-                <span class="errorAnotation">@Html.ValidationMessageFor(x => x.VatersnameKY)</span>
-                <span class="help-inline alphabet">по-русски</span>
+            <div class="control-group">
+                <label class="control-label">Vatersname | Отчество:</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.VatersnameKY, new {@placeholder = "по-русски"})
+                    <span class="errorAnotation">@Html.ValidationMessageFor(x => x.VatersnameKY)</span>
+                    <span class="help-inline alphabet">по-русски</span>
+                </div>
             </div>
-	    </div>
-	    <div class="control-group">
-		    <label class="control-label">Email-Adresse | Емайл адрес:</label>
-		    <div class="controls">
-                @Html.TextBoxFor(x => x.Emailadresse, new { @placeholder = "латинскими буквами" })
-                <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Emailadresse)</span>
-                <span class="help-inline alphabet">латинскими буквами</span>
+            <div class="control-group">
+                <label class="control-label">Email-Adresse | Емайл адрес:</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.Emailadresse, new {@placeholder = "латинскими буквами"})
+                    <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Emailadresse)</span>
+                    <span class="help-inline alphabet">латинскими буквами</span>
+                </div>
             </div>
-	    </div>
-	    <div class="control-group">
-		    <label class="control-label">Passwort | Пароль:</label>
-            <div class="controls">
-               <span class="help-inline" style="padding-top: 3px;"><a href="">ändern | изменить</a></span>
-            </div>
-            <div class="controls">
-                    <button class="btn btn-apollogruen button_rechts_mit_erklaerung" style="margin-left:0px; margin-top:20px;">Benutzerdaten ändern | Изменить персональные данные</button>
-            </div>
-            <div class="controls">
-                    <a class="btn btn-apollogruen button_rechts_mit_erklaerung" style="margin-left:0px; margin-top:10px;">Zurück zur Übersicht | Назад</a>
+            <div class="control-group">
+                <label class="control-label">
+                    Passwort | Пароль:
+                </label>
+                <div class="controls">
+                    <span class="help-inline" style="padding-top: 3px;"><a href="@Url.Action("Passwort_aendern", "Account")">ändern | изменить</a></span>
+                </div>
+                <div class="controls">
+                    <button class="btn btn-apollogruen button_rechts_mit_erklaerung" style="margin-left: 0px; margin-top: 20px;">Benutzerdaten ändern | Изменить персональные данные</button>
+                </div>
+                <div class="controls">
+                    <a href="@Url.Action("Dashboard", "Account")" class="btn button_rechts_mit_erklaerung" style="margin-left: 0px; margin-top: 10px;">Zurück zur Übersicht | Назад</a>
+                </div>
             </div>
         </div>
-	</div>
-</table>
+    </table>
+}

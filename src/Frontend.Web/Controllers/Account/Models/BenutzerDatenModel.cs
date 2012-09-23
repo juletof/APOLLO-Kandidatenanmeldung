@@ -10,27 +10,30 @@ public class BenutzerDatenModel
         AnredeOpts = new AnredeWerte().ToSelectItems();
     }
 
+    public BenutzerDatenModel(Kandidat kandidat)
+    {
+        AnredeOpts = new AnredeWerte().ToSelectItems(kandidat.Geschlecht);
+        FamiliennameKY = kandidat.FamiliennameKY;
+        VornameKY = kandidat.VornameKY;
+        VatersnameKY = kandidat.VatersnameKY;
+        Emailadresse = kandidat.EmailAdresse;
+    }
+
     public Message Message;
 
-    public string AnredeVal;
+    public string AnredeVal { get; set; }
     public IList<SelectListItem> AnredeOpts;
 
-    [Required(ErrorMessage = "* Pflichtfeld")]
+    [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     public string FamiliennameKY { get; set; }
 
-    [Required(ErrorMessage = "* Pflichtfeld")]
+    [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     public string VornameKY { get; set; }
 
-    [Required(ErrorMessage = "* Pflichtfeld")]
+    [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     public string VatersnameKY { get; set; }
 
-    [Required(ErrorMessage = "* Pflichtfeld")]
+    [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     [RegularExpression(Regexes.Email, ErrorMessage = "Bitte geben Sie eine gültige Emailadresse an.")]
     public string Emailadresse { get; set; }
-
-    [Required(ErrorMessage = "* Pflichtfeld")]
-    public string Passwort { get; set; }
-
-    [BooleanRequiredToBeTrueAttribute(ErrorMessage = "* Pflichtfeld")]
-    public bool AcceptTerms { get; set; }
 }
