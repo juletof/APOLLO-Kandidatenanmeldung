@@ -4,20 +4,36 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
-{    
-    <div class="alert alert-error fade in hide" id="invalidInputMsg">
-        <a class="close" data-dismiss="alert" href="#">×</a>
-        Bitte die Eingaben vervollständigen/korrigieren. | Пожалуйста дополните/измените данные.
-    </div>
+<script type="text/javascript">
     
+    $(function () {
+        $("#form").submit(function () {
+
+            if (!$(this).valid()) {
+                $("#invalidInputMsg").show(400);
+            }
+            else {
+                $("#invalidInputMsg").hide(300);
+            }
+        });
+    });
+    
+    jQuery.validator.addMethod("checkrequired", function (value, element, param) {
+        return element.checked;
+    });
+    jQuery.validator.unobtrusive.adapters.addBool("checkrequired");
+
+</script>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
+{        
     <table class="textlinksrechts">
         <tr class="erstezeile alleinestehend">
             <td class="links"><h2>Anmeldung zum Auswahlverfahren für das Praktikum Sommer 2013</h2></td>
             <td class="rechts"><h2>Заявление на участие в отборе летней практики APOLLO 2013</h2></td>
         </tr>
     </table>
-	<table class="textlinksrechts">
+    <table class="textlinksrechts">
         <tr>
             <td class="links">
                 <p>
@@ -38,6 +54,11 @@
             </td>
         </tr>
     </table>
+    
+    <div class="alert alert-error fade in hide" id="invalidInputMsg">
+        <a class="close" data-dismiss="alert" href="#">×</a>
+        Bitte die Eingaben vervollständigen/korrigieren. | Пожалуйста дополните/измените данные.
+    </div>    
 
     <table class="textlinksrechts">
         <tr class="erstezeile alleinestehend">
@@ -243,7 +264,12 @@
             <div class="control-group">
                 <div class="controls">
                     <label class="checkbox">
-                        <input type="checkbox">Hiermit bewerbe ich mich für das Auswahlverfahren der APOLLO e.V. Ich versichere, dass ich alle Angaben wahrheitsgemäß gemacht habe.<br>Я подаю заявление на участие в собеседовании программы APOLLO e.V. Я подтверждаю что все данные заполненны мною честно и добросовестно.<!--temp Beginn--></br><span class="temp">Mit dem Häkchen wird der Anmelde-Button freigegeben</span><!--temp Ende-->
+                        @Html.CheckBoxFor(x => x.AcceptTerms, new {@class = "checkbox mehrzeilig"})
+                        <span class="errorAnotation">@Html.ValidationMessageFor(x => x.AcceptTerms)</span>
+                        Hiermit bewerbe ich mich für das Auswahlverfahren der APOLLO e.V. 
+                        Ich versichere, dass ich alle Angaben wahrheitsgemäß gemacht habe.
+                        <br>Я подаю заявление на участие в собеседовании программы APOLLO e.V. Я 
+                        подтверждаю что все данные заполненны мною честно и добросовестно.
                     </label>
                 </div>
             </div>

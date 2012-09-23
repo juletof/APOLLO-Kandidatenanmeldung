@@ -89,4 +89,7 @@ public class AnmeldungModel
 
     public string BereitsAufenthaltProgramm { get; set; }
     public string Kommentar { get; set; }
+
+    [BooleanRequiredToBeTrueAttribute(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
+    public bool AcceptTerms { get; set; }
 }
