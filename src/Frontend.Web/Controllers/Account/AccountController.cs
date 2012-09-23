@@ -131,7 +131,19 @@ namespace Frontend.Web.Controllers
 
         public ActionResult Passwort_vergessen()
         {
-            return View();
+            return View(new PasswortVergessenModel());
+        }
+
+        [HttpPost]
+        public ActionResult Passwort_vergessen(PasswortVergessenModel model)
+        {
+            var result = Sl.Resolve<PasswortVergessen>().Run(model.Emailadresse);
+            if(result.DieEmailExisitertNicht)
+                model.Message = new ErrorMessage("Die Email exisistert nicht");
+            else if(result.Success)
+                model.Message = new SuccessMessage("Eine Benachrichtigung wird verschickt.");
+
+            return View(model);
         }
 
         [AuthorizedOnly]

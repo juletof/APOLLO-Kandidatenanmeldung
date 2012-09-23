@@ -15,5 +15,4 @@ public class PasswortAendernModel
     public string NeuesPasswort1 { get; set; }
     [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     public string NeuesPasswort2 { get; set; }
-
 }

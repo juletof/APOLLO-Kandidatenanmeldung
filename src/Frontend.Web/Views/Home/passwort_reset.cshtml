@@ -1,0 +1,80 @@
+﻿@using ApolloDb
+@model ApolloDb.PasswortResetModel
+@{
+    ViewBag.Title = "Passwort vergessen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    
+    $(function () {
+        $("#form").submit(function () {
+
+            if (!$(this).valid()) {
+                $("#invalidInputMsg").show(400);
+            }
+            else {
+                $("#invalidInputMsg").hide(300);
+            }
+        });
+    });
+    
+    jQuery.validator.addMethod("checkrequired", function (value, element, param) {
+        return element.checked;
+    });
+    jQuery.validator.unobtrusive.adapters.addBool("checkrequired");
+
+</script>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
+{
+
+    <table class="textlinksrechts">
+        <tr class="erstezeile alleinestehend">
+            <td class="links"><h2>Passwort Reset</h2></td>
+            <td class="rechts"><h2>пароль</h2></td>
+        </tr>
+    </table>
+    <table class="textlinksrechts">
+        <tr>
+            <td class="links"></td>
+            <td class="rechts"></td>
+        </tr>
+    </table>
+    
+    <div class="alert alert-error fade in hide" id="invalidInputMsg">
+        <a class="close" data-dismiss="alert" href="#">×</a>
+        Bitte die Eingaben vervollständigen/korrigieren. | Пожалуйста дополните/измените данные.
+    </div>
+        
+    @Html.Message(Model.Message)      
+    
+    if (Model.TokenFound)
+    {
+        @Html.HiddenFor(x => x.Token)
+        
+         <table class="textlinksrechts">
+             <div class="form-horizontal">
+                 <div class="control-group" style="margin-bottom: 0px;">
+                     <div class="control-group">
+                         <label class="control-label">Altes Passwort | Старый пароль:</label>
+                         <div class="controls">
+                             @Html.PasswordFor(x => x.NeuesPasswort1)
+                             <span class="errorAnotation">@Html.ValidationMessageFor(x => x.NeuesPasswort1)</span>
+                         </div>
+                     </div>
+                     <div class="control-group">
+                         <label class="control-label">Neues Passwort | Новый пароль:</label>
+                         <div class="controls">
+                             @Html.PasswordFor(x => x.NeuesPasswort2)
+                             <span class="errorAnotation">@Html.ValidationMessageFor(x => x.NeuesPasswort2)</span>
+                         </div>
+                     </div>
+		            <div class="form-actions" style="margin-bottom:0px;">
+			            <button type="submit" class="btn btn-primary btn-apollogruen" style="width:225px; margin-bottom:0px;">Speichern | </button>
+		            </div>
+                 </div>
+             </div>
+         </table>
+    }
+}

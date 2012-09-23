@@ -1,33 +1,61 @@
-﻿@{
+﻿@using ApolloDb
+@model PasswortVergessenModel
+@{
     ViewBag.Title = "Passwort vergessen";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<table class="textlinksrechts">
-    <tr class="erstezeile alleinestehend">
-        <td class="links"><h2>Passwort vergessen?</h2></td>
-        <td class="rechts"><h2>Забыли пароль?</h2></td>
-    </tr>
-</table>
-<table class="textlinksrechts">
-    <tr>
-        <td class="links">Falls Sie Ihr Passwort vergessen haben, können Sie sich ein neues an die von Ihnen angegebene Email-Adresse schicken lassen. Danach können Sie Ihr temporäres Passwort ändern.</td>
-        <td class="rechts">Если вы забыли пароль, вы можете получить новый на емайл адрес заданный при регистрации. Потом вы можете изменить пароль.</td>
-    </tr>
-</table>
-<table class="textlinksrechts">
-    <div class="form-horizontal">
-        <div class="control-group" style="margin-bottom:0px;">
-            <label class="control-label">Ihre Emailadresse | Ваш емайл адрес:</label>
-            <div class="controls">
-                <input type="text" />
-            </div>
-            <div class="controls">
-                    <button class="btn btn-apollogruen button_rechts_mit_erklaerung" style="margin-left:0px; margin-top:20px;">Jetzt neues Passwort anfordern | Запросить новый пароль</button>
-            </div>
-            <div class="controls">
-                    <a href="@Url.Action("Login", "Account")" class="btn button_rechts_mit_erklaerung" style="margin-left:0px; margin-top:10px;">abbrechen | Отменить</a>
+<script type="text/javascript">
+    
+    $(function () {
+        $("#form").submit(function () {
+
+            if (!$(this).valid()) {
+                $("#invalidInputMsg").show(400);
+            }
+            else {
+                $("#invalidInputMsg").hide(300);
+            }
+        });
+    });
+    
+    jQuery.validator.addMethod("checkrequired", function (value, element, param) {
+        return element.checked;
+    });
+    jQuery.validator.unobtrusive.adapters.addBool("checkrequired");
+
+</script>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
+{
+    <table class="textlinksrechts">
+        <tr class="erstezeile alleinestehend">
+            <td class="links"><h2>Passwort vergessen?</h2></td>
+            <td class="rechts"><h2>Забыли пароль?</h2></td>
+        </tr>
+    </table>
+    <table class="textlinksrechts">
+        <tr>
+            <td class="links">Falls Sie Ihr Passwort vergessen haben, können Sie sich ein neues an die von Ihnen angegebene Email-Adresse schicken lassen. Danach können Sie Ihr temporäres Passwort ändern.</td>
+            <td class="rechts">Если вы забыли пароль, вы можете получить новый на емайл адрес заданный при регистрации. Потом вы можете изменить пароль.</td>
+        </tr>
+    </table>
+    @Html.Message(Model.Message)
+    <table class="textlinksrechts">
+        <div class="form-horizontal">
+            <div class="control-group" style="margin-bottom: 0px;">
+                <label class="control-label">Ihre Emailadresse | Ваш емайл адрес:</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.Emailadresse)
+                    <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Emailadresse)</span>
+                </div>
+                <div class="controls">
+                    <button class="btn btn-apollogruen button_rechts_mit_erklaerung" style="margin-left: 0px; margin-top: 20px;">Jetzt neues Passwort anfordern | Запросить новый пароль</button>
+                </div>
+                <div class="controls">
+                    <a href="@Url.Action("Login", "Account")" class="btn button_rechts_mit_erklaerung" style="margin-left: 0px; margin-top: 10px;">abbrechen | Отменить</a>
+                </div>
             </div>
         </div>
-    </div>
-</table>
+    </table>
+}

@@ -7,6 +7,7 @@ namespace ApolloDb
     {
         public void Run(MailMessage mailMessage)
         {
+            mailMessage.From = new MailAddress("otobr@apollo-online.de");
             var smtp = new SmtpClient();
             smtp.Send(mailMessage);
         }

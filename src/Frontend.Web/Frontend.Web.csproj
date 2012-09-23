@@ -109,13 +109,15 @@
     <Compile Include="Controllers\Account\Models\DashboardModel.cs" />
     <Compile Include="Controllers\Account\Models\LoginModel.cs" />
     <Compile Include="Controllers\Account\Models\PasswortAendernModel.cs" />
+    <Compile Include="Controllers\Account\Models\PasswortVergessenModel.cs" />
     <Compile Include="Controllers\Admin\PraktikantenModel.cs" />
     <Compile Include="Controllers\Admin\PraktikantItemModel.cs" />
     <Compile Include="Controllers\Account\AccountController.cs" />
     <Compile Include="Controllers\Admin\AdminController.cs" />
     <Compile Include="Controllers\Public\HomeController.cs" />
     <Compile Include="Controllers\Account\Models\RegistrierungModel2Entity.cs" />
-    <Compile Include="Controllers\Public\InformationModel.cs" />
+    <Compile Include="Controllers\Public\Models\InformationModel.cs" />
+    <Compile Include="Controllers\Public\Models\PasswortResetModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -215,6 +217,7 @@
     <Content Include="Views\Home\Navigation_und_buttons.cshtml">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Views\Home\passwort_reset.cshtml" />
     <None Include="Web.config">
       <SubType>Designer</SubType>
     </None>

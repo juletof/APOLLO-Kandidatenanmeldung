@@ -27,7 +27,6 @@ namespace ApolloDb
         {
             var mailMessage = new MailMessage();
             mailMessage.To.Add(new MailAddress(emailAdresse));
-            mailMessage.From = new MailAddress("bewerbung@apollo-verein.de"); 
             mailMessage.Subject = "Registrierung für die APOLLO-Online-Bewerbung Регистрация для APOLLO электронной подачи заявлений";
             mailMessage.Body = @"Guten Tag,
 Здравствуйте,
