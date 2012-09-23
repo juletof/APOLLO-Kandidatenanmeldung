@@ -8,7 +8,7 @@ namespace ApolloDb
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            var sessionUser = new SessionUser();
+            var sessionUser = Sl.Resolve<SessionUser>();
             if (!sessionUser.IsLoggedIn)
                 HttpContext.Current.Response.Redirect("/Account/LogOff", true);
 

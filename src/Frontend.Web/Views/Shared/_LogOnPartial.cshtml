@@ -1,12 +1,12 @@
 ﻿@using ApolloDb
 
 @{
-    var userSession = new SessionUser();
+    var userSession = Sl.Resolve<SessionUser>();
 }
 
 @if(userSession.IsLoggedIn) {
     <text>
-        <a href="/Account/Dashboard" style="z-index: 1000">Привет <strong>@userSession.Kandidat.GetVollerNameKY()</strong></a>!
+        <a href="/Account/Dashboard" style="z-index: 1000">Привет <strong>@userSession.GetKandidat().GetVollerNameKY()</strong></a>!
         [ @Html.ActionLink("Abmelden | Выйти", "LogOff", "Account") ]
     </text>
 }

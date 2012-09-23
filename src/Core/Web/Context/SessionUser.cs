@@ -1,31 +1,44 @@
-﻿using Seedworks.Web.State;
+﻿using System;
+using Seedworks.Web.State;
 
 namespace ApolloDb
 {
     public class SessionUser : SessionBase, IRegisterAsInstancePerLifetime
     {
+        private readonly KandidatRepository _kandidatRepository;
+
+        public SessionUser(KandidatRepository kandidatRepository)
+        {
+            _kandidatRepository = kandidatRepository;
+        }
+
         public bool IsLoggedIn
         {
-            get { return Data.Get<bool>("isLoggedIn", false); }
+            get { return Data.Get("isLoggedIn", false); }
             private set { Data["isLoggedIn"] = value; }
         }
 
-        public Kandidat Kandidat
+        public int KandidatId
         {
-            get { return Data.Get<Kandidat>("kandidat"); }
-            private set { Data["kandidat"] = value; }
+            get { return (int) Data.Get("kandidatId"); }
+            private set { Data["kandidatId"] = value; }
+        }
+
+        public Kandidat GetKandidat()
+        {
+            return _kandidatRepository.GetById(KandidatId);
         }
 
         public void Login(Kandidat kandidat)
         {
             IsLoggedIn = true;
-            Kandidat = kandidat;
+            KandidatId = kandidat.Id;
         }
 
         public void Logout()
         {
             IsLoggedIn = false;
-            Kandidat = null;
+            KandidatId = -1;
         }
     }
 }

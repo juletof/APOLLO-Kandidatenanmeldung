@@ -42,6 +42,8 @@ public class AnmeldungModel
         BereitsAufenthaltProgramm = kandidat.FruehererAufenthaltProgramm;
         Kommentar = kandidat.Kommentar;
     }
+
+    public Message Message;
     
     [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     public string Familienname { get; set; }

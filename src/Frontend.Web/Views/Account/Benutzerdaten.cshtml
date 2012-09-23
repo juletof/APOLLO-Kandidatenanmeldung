@@ -55,6 +55,7 @@
                 <label class="control-label">Familienname | Фамилия:</label>
                 <div class="controls">
                     @Html.TextBoxFor(x => x.FamiliennameKY, new {@placeholder = "по-русски"})
+                    <span class="errorAnotation">@Html.ValidationMessageFor(x => x.FamiliennameKY)</span>
                     <span class="help-inline alphabet">по-русски</span>
                 </div>
             </div>

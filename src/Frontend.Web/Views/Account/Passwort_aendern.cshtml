@@ -1,40 +1,76 @@
-﻿@model PasswortAendernModel 
+﻿@using ApolloDb
+@model PasswortAendernModel 
 @{
     ViewBag.Title = "Passwort ändern";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<table class="textlinksrechts">
-    <tr class="erstezeile alleinestehend">
-        <td class="links"><h2>Passwort ändern</h2></td>
-        <td class="rechts"><h2>Изменить пароль</h2></td>
-    </tr>
-</table>
-<table class="textlinksrechts">
-    <div class="form-horizontal" style="margin-top:40px;">
-        <div class="control-group">
-            <label class="control-label">Altes Passwort | Старый пароль:</label>
-            <div class="controls">
-                @Html.PasswordFor(x => x.AltesPasswort)
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label">Neues Passwort | Новый пароль:</label>
-            <div class="controls">
-                @Html.PasswordFor(x => x.NeuesPasswort1)
-            </div>
-        </div>
-        <div class="control-group" style="margin-bottom:0px;">
-            <label class="control-label">Neues Passwort Wiederholung | Повторить новый пароль:</label>
-            <div class="controls">
-                @Html.PasswordFor(x => x.NeuesPasswort2)
-            </div>
-            <div class="controls">
-                <button class="btn btn-apollogruen button_rechts_mit_erklaerung" style="margin-left:0px; margin-top:20px;">Passwort ändern | изменить пароль</button>
-            </div>
-            <div class="controls">
-                <button class="btn button_rechts_mit_erklaerung" style="margin-left:0px; margin-top:10px;">abbrechen | отменить</button>
-            </div>
-        </div>
+<script type="text/javascript">
+    
+    $(function () {
+        $("#form").submit(function () {
+
+            if (!$(this).valid()) {
+                $("#invalidInputMsg").show(400);
+            }
+            else {
+                $("#invalidInputMsg").hide(300);
+            }
+        });
+    });
+    
+    jQuery.validator.addMethod("checkrequired", function (value, element, param) {
+        return element.checked;
+    });
+    jQuery.validator.unobtrusive.adapters.addBool("checkrequired");
+
+</script>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
+{
+    <table class="textlinksrechts">
+        <tr class="erstezeile alleinestehend">
+            <td class="links"><h2>Passwort ändern</h2></td>
+            <td class="rechts"><h2>Изменить пароль</h2></td>
+        </tr>
+    </table>
+   
+    <div class="alert alert-error fade in hide" id="invalidInputMsg">
+        <a class="close" data-dismiss="alert" href="#">×</a>
+        Bitte die Eingaben vervollständigen/korrigieren. | Пожалуйста дополните/измените данные.
     </div>
-</table>
+        
+    @Html.Message(Model.Message)         
+    
+    <table class="textlinksrechts">
+        <div class="form-horizontal" style="margin-top: 40px;">
+            <div class="control-group">
+                <label class="control-label">Altes Passwort | Старый пароль:</label>
+                <div class="controls">
+                    @Html.PasswordFor(x => x.AltesPasswort)
+                    <span class="errorAnotation">@Html.ValidationMessageFor(x => x.AltesPasswort)</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Neues Passwort | Новый пароль:</label>
+                <div class="controls">
+                    @Html.PasswordFor(x => x.NeuesPasswort1)
+                    <span class="errorAnotation">@Html.ValidationMessageFor(x => x.NeuesPasswort1)</span>
+                </div>
+            </div>
+            <div class="control-group" style="margin-bottom: 0px;">
+                <label class="control-label">Neues Passwort Wiederholung | Повторить новый пароль:</label>
+                <div class="controls">
+                    @Html.PasswordFor(x => x.NeuesPasswort2)
+                    <span class="errorAnotation">@Html.ValidationMessageFor(x => x.NeuesPasswort2)</span>
+                </div>
+                <div class="controls">
+                    <button class="btn btn-apollogruen button_rechts_mit_erklaerung" style="margin-left: 0px; margin-top: 20px;">Passwort ändern | изменить пароль</button>
+                </div>
+                <div class="controls">
+                    <a href="@Url.Action("Dashboard","Account")" class="btn button_rechts_mit_erklaerung" style="margin-left: 0px; margin-top: 10px;">abbrechen | отменить</a>
+                </div>
+            </div>
+        </div>
+    </table>
+}

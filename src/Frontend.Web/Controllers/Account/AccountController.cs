@@ -76,13 +76,13 @@ namespace Frontend.Web.Controllers
         [AuthorizedOnly]
         public ActionResult Dashboard()
         {
-            return View(new DashboardModel(_sessionUser.Kandidat));
+            return View(new DashboardModel(_sessionUser.GetKandidat()));
         }
 
         [AuthorizedOnly][HttpGet]
         public ActionResult Dashboard(string id)
         {
-            var dashboardModel = new DashboardModel(_sessionUser.Kandidat);
+            var dashboardModel = new DashboardModel(_sessionUser.GetKandidat());
             if (id == "anmeldungErfolgreich"){
                 dashboardModel.ZeigeRegistrierungErfolgreich = true;
             }
@@ -93,7 +93,7 @@ namespace Frontend.Web.Controllers
         [AuthorizedOnly]
         public ActionResult Anmeldung()
         {
-            return View(new AnmeldungModel(_sessionUser.Kandidat));
+            return View(new AnmeldungModel(_sessionUser.GetKandidat()));
         }
 
 
@@ -103,7 +103,10 @@ namespace Frontend.Web.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            _anmelden.Run(AnmeldungModelFillFromUi.Run(model, _sessionUser.Kandidat));
+            _anmelden.Run(AnmeldungModelFillFromUi.Run(model, _sessionUser.GetKandidat()));
+
+            model.Message = new SuccessMessage("Danke, Sie haben alle erforderlichen Daten für die Anmeldung eingegeben. Wir werden Sie bald nach Bewerbungsschluss per Email benachrichtigen, ob Sie zum Auswahlgespräch zugelassen sind. <br><br>" + 
+                                               "Спасибо, вы задали все неодходимые данные для регистрации. Вскоре после окончания срока подачи заявлений мы сообщим вам, по емайлу допущены ли вы к участию в первом собеседовании.");
 
             return View(model);
         }
@@ -111,7 +114,7 @@ namespace Frontend.Web.Controllers
         [AuthorizedOnly]
         public ActionResult Benutzerdaten()
         {
-            return View(new BenutzerDatenModel(_sessionUser.Kandidat));
+            return View(new BenutzerDatenModel(_sessionUser.GetKandidat()));
         }
 
         [AuthorizedOnly] [HttpPost]
@@ -120,7 +123,7 @@ namespace Frontend.Web.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            _kandidatRepository.Update(BenutzerDatenModellFillFromUi.Run(model, _sessionUser.Kandidat));
+            _kandidatRepository.Update(BenutzerDatenModellFillFromUi.Run(model, _sessionUser.GetKandidat()));
             model.Message = new SuccessMessage("Die Daten wurden gespeichert | Uebersetzung");
 
             return View(model);
@@ -134,7 +137,27 @@ namespace Frontend.Web.Controllers
         [AuthorizedOnly]
         public ActionResult Passwort_aendern()
         {
-            return View();
+            return View(new PasswortAendernModel());
+        }
+
+        [AuthorizedOnly] [HttpPost]
+        public ActionResult Passwort_aendern(PasswortAendernModel passwortAendernModel)
+        {
+            var kandidat = _sessionUser.GetKandidat();
+            var loginResult = Sl.Resolve<Login>().Run(kandidat.EmailAdresse, passwortAendernModel.AltesPasswort);
+
+            if(loginResult.Success)
+            {
+                kandidat.Passwort = HashPassword.Run(passwortAendernModel.NeuesPasswort1);
+                _kandidatRepository.Update(kandidat);
+                passwortAendernModel.Message =
+                    new SuccessMessage("Sie haben Ihr Passwort erfolgreich geändert. | " +
+                                       "Вы успешно изменили пароль");
+            }
+            else
+                passwortAendernModel.Message = new ErrorMessage("Das alte Passwort ist nicht korrekt.");
+
+            return View(passwortAendernModel);
         }
 
         public ActionResult AutoLogin()
