@@ -62,9 +62,9 @@
                 @Html.CheckBoxFor(x => x.ReadInformation, new {@class = "checkbox mehrzeilig"})
                 <span class="errorAnotation">@Html.ValidationMessageFor(x => x.ReadInformation)</span>
                 <label class="checkbox mehrzeilig" style="text-align:justify;">
-                    Hiermit bestätige ich, die <a href="@Url.Action("Information", "Home")">Informationen zum Auswahlverfahren</a> gelesen und zur Kenntnis genommen zu haben.
+                    Hiermit bestätige ich, die <a href="@Url.Action("Information/vonRegistrierung", "Home")">Informationen zum Auswahlverfahren</a> gelesen und zur Kenntnis genommen zu haben.
                     <br>
-                        Я подтверждаю, что прочел/ла и ознакомился/лась с <a href="@Url.Action("Information", "Home")">информацией о процессе отбора</a>.
+                        Я подтверждаю, что прочел/ла и ознакомился/лась с <a href="@Url.Action("Information/vonRegistrierung", "Home")">информацией о процессе отбора</a>.
                 </label>
 			</div>
 		</div>
@@ -121,8 +121,7 @@
                     Hiermit nehme ich zur Kenntnis, dass alle relevanten Informationen 
                     zum Anmeldeverfahren an die von mir angegebene Email-Adresse versendet werden.
                     <br>
-                        Я ознакомлен/а, что вся необходимая информация по процессу отбора будет отправлена на мой емайл адрес.<!--temp Beginn-->
-                    <span class="temp"><br>Mit dem Häkchen wird der Anmelde-Button freigegeben</span><!--temp Ende-->
+                    Я ознакомлен/а, что вся необходимая информация по процессу отбора будет отправлена на мой емайл адрес.
                 </label>
 			</div>
 		</div>

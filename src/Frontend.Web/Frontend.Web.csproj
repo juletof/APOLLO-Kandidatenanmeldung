@@ -111,8 +111,9 @@
     <Compile Include="Controllers\Admin\PraktikantItemModel.cs" />
     <Compile Include="Controllers\Account\AccountController.cs" />
     <Compile Include="Controllers\Admin\AdminController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Public\HomeController.cs" />
     <Compile Include="Controllers\Account\Models\RegistrierungModel2Entity.cs" />
+    <Compile Include="Controllers\Public\InformationModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -207,6 +208,9 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="Views\Shared\_Layout.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Home\Navigation_und_buttons.cshtml">
       <SubType>Code</SubType>
     </Content>
     <None Include="Web.config">

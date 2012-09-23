@@ -1,4 +1,5 @@
-﻿@{
+﻿@model InformationModel
+@{
     ViewBag.Title = "Informationen";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -175,7 +176,7 @@
         <td class="rechts stichpunkt">
             <ol>
                 <li>
-                    В феврале – марте месяце будет проходить <b>заключительное собеседование</b> на практику в вашем ВУЗе. Дата проведения будет заранее сообщена.</br>
+                    В феврале – марте месяце будет проходить <b>заключительное собеседование</b> на практику в вашем ВУЗе. Дата проведения будет заранее сообщена.<br>
                     Результаты заключительного собеседования, будут известны после сравнения участников из всех ВУЗов участвующих в отборочном туре.
                 </li>
             </ol>
@@ -358,7 +359,7 @@
             <ol>
                 <li>
                     Наличие прав на управление автомобилем или трактором, повышает ваши шансы пройти собеседование, а также  расширяет круг работ, которые вы можете выполнять во время практики, но не является требованием для участия в программе.
-                    </br> Для студентов механического факультета наличие водительского удостоверения категории ВС или категории В и прав на трактор, является обязательным.
+                    <br> Для студентов механического факультета наличие водительского удостоверения категории ВС или категории В и прав на трактор, является обязательным.
                 </li>
             </ol>
         </td>
@@ -451,36 +452,47 @@
 	</tr>
 </table>
 <table class="button_mit_erklaerung">
-	<tr>
-	    <td class="links">
-		    <p>
-		    <a class="btn btn-large btn-apollogruen" href='@Url.Action("Index", "Home")' style="width:170px"><i class="icon-chevron-left icon-white"></i> Zurück | Назад</a>
-		    </p>
-	    </td>
-	    <td class="rechts">
-		    <p>Zur Startseite der Online-Bewerbung<br>На главную страницу электронной регистрации</p>
-	    </td>
-	</tr>
-    <tr>
-	    <td class="links">
-		    <p>
-		    <a class="btn btn-large btn-apollogruen" href='@Url.Action("Dashboard", "Account")' style="width:170px"><i class="icon-chevron-left icon-white"></i> Zurück | Назад</a>
-		    </p>
-	    </td>
-	    <td class="rechts">
-		    <p>Zum persönlichen Bereich<br>На персональную страницу</p>
-	    </td>
-	</tr>
-    <tr>
-	    <td class="links">
-		    <p>
-		    <a class="btn btn-large btn-apollogruen" href='@Url.Action("Registrierung", "Account")' style="width:170px"><i class="icon-chevron-left icon-white"></i> Zurück | Назад</a>
-		    </p>
-	    </td>
-	    <td class="rechts">
-		    <p>Zur Registrierung<br>К регистрации</p>
-	    </td>
-	</tr>
-    <span class="temp">Hier jeweils nur den passenden Button einblenden</span>
+    
+    @if(Model.ZurueckStartseite)
+    {
+        <tr>
+            <td class="links">
+                <p>
+                    <a class="btn btn-large btn-apollogruen" href='@Url.Action("Index", "Home")' style="width:170px"><i class="icon-chevron-left icon-white"></i> Zurück | Назад</a>
+                </p>
+            </td>
+            <td class="rechts">
+                <p>Zur Startseite der Online-Bewerbung<br>На главную страницу электронной регистрации</p>
+            </td>
+        </tr>        
+    }
+
+    @if(Model.ZurueckPersoenlicherBereich)
+    {
+        <tr>
+            <td class="links">
+                <p>
+                    <a class="btn btn-large btn-apollogruen" href='@Url.Action("Dashboard", "Account")' style="width:170px"><i class="icon-chevron-left icon-white"></i> Zurück | Назад</a>
+                </p>
+            </td>
+            <td class="rechts">
+                <p>Zum persönlichen Bereich<br>На персональную страницу</p>
+            </td>
+        </tr>
+    }
+
+    @if(Model.ZurueckRegistrierung)
+    {
+        <tr>
+            <td class="links">
+                <p>
+                    <a class="btn btn-large btn-apollogruen" href='@Url.Action("Registrierung", "Account")' style="width: 170px"><i class="icon-chevron-left icon-white"></i> Zurück | Назад</a>
+                </p>
+            </td>
+            <td class="rechts">
+                <p>Zur Registrierung<br>К регистрации</p>
+            </td>
+        </tr>
+    }
 </table>
 
