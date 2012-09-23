@@ -8,7 +8,7 @@
 {    
     <div class="alert alert-error fade in hide" id="invalidInputMsg">
         <a class="close" data-dismiss="alert" href="#">×</a>
-        Bitte die Eingaben vervollständigen/korrigieren. | Übersetzung
+        Bitte die Eingaben vervollständigen/korrigieren. | Пожалуйста дополните/измените данные.
     </div>
     
     <table class="textlinksrechts">
@@ -51,17 +51,17 @@
             <div class="control-group">
                 <label class="control-label">Familienname | Фамилия:</label>
                 <div class="controls">
-                    @Html.TextBoxFor(x => x.Familienname, new {@placeholder = "LATEINISCH [nur Übersetzung]", @class = "formular"})
+                    @Html.TextBoxFor(x => x.Familienname, new {@placeholder = "латинскими буквами", @class = "formular"})
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Familienname)</span>
-                     <span class="help-inline alphabet">LAT Übersetzung</span>
+                     <span class="help-inline alphabet">латинскими буквами</span>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Vorname | Имя:</label>
                 <div class="controls">
-                    @Html.TextBoxFor(x => x.Vorname, new {@placeholder = "LATEINISCH [nur Übersetzung]", @class = "formular"})
+                    @Html.TextBoxFor(x => x.Vorname, new {@placeholder = "латинскими буквами", @class = "formular"})
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Vorname)</span>
-                    <span class="help-inline alphabet">LAT Übersetzung</span>
+                    <span class="help-inline alphabet">латинскими буквами</span>
                 </div>
             </div>
             <div class="control-group">
@@ -110,17 +110,17 @@
             <div class="control-group">
                 <label class="control-label">Fakultät | Факультет:</label>
                 <div class="controls zweisprachig">
-                    @Html.TextBoxFor(x => x.Fakultaet, new {@class = "formular", @placeholder = "KYRILLISCH [nur Übersetzung]"})
+                    @Html.TextBoxFor(x => x.Fakultaet, new {@class = "formular", @placeholder = "по-русски"})
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Fakultaet)</span>
-                    <span class="help-inline alphabet">KY Übersetzung</span>
+                    <span class="help-inline alphabet">по-русски</span>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Spezialisierung | Специальность:</label>
                 <div class="controls zweisprachig">
-                    @Html.TextBoxFor(x => x.Studienfach, new {@class = "formular", @placeholder = "KYRILLISCH [nur Übersetzung]"})
+                    @Html.TextBoxFor(x => x.Studienfach, new {@class = "formular", @placeholder = "по-русски"})
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Studienfach)</span>
-                    <span class="help-inline alphabet">KY Übersetzung</span>
+                    <span class="help-inline alphabet">по-русски</span>
                 </div>
             </div>
             <div class="control-group">
@@ -136,7 +136,7 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">Handelt es sich um einen verkürzten Studiengang (z.B. nach Technikum)? | Вы учитесь по сокращенной форме (например после техникума)?<i>Übersetzung</i>:</label>
+                <label class="control-label">Handelt es sich um einen verkürzten Studiengang (z.B. nach Technikum)? | Вы учитесь по сокращенной форме (например после техникума)?</label>
                 <div class="controls">
                     <label class="radio inline">
                         @Html.RadioButton("rdoVerkürzterStudiengang", Model.VerkürzterStudiengang)
@@ -225,8 +225,8 @@
             <div class="control-group">
                 <label class="control-label">Wenn ja, mit welchem Programm? | Если да, то в какой программе?:</label>
                 <div class="controls zweisprachig">
-                    @Html.TextBoxFor(x => x.BereitsAufenthaltProgramm, new {@class = "formular", @placeholder = "KYRILLISCH [nur Übersetzung]"})
-                    <span class="help-inline alphabet">KY Übersetzung</span>
+                    @Html.TextBoxFor(x => x.BereitsAufenthaltProgramm, new {@class = "formular", @placeholder = "по-русски"})
+                    <span class="help-inline alphabet">по-русски</span>
                 </div>
             </div>
             <div class="control-group">
@@ -235,10 +235,10 @@
                     @Html.TextAreaFor(x => x.BereitsAufenthaltKommentar, 
                                              new{
                                                     @class = "input-xlarge", 
-                                                    @placeholder = "KYRILLISCH [nur Übersetzung]", 
+                                                    @placeholder = "по-русски", 
                                                     @style = "height: 180px; height:100px;"
                                                 })
-                    <span class="help-inline alphabet">KY Übersetzung</span>
+                    <span class="help-inline alphabet">по-русски</span>
                 </div>
             </div>
             <div class="control-group">

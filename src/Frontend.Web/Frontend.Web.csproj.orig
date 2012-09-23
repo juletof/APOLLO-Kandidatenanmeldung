@@ -273,10 +273,11 @@
     <Content Include="Views\Account\LogOff.cshtml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <None Include="Properties\PublishProfiles\local-debug.pubxml" />
-  </ItemGroup>
-  <ItemGroup>
+=======
     <Content Include="Views\Home\Information_Praktikum.cshtml" />
+>>>>>>> 1bbf52a5d385cb3af327ada0dacc55fd256396e8
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
