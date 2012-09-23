@@ -42,7 +42,7 @@ namespace Frontend.Web.Controllers
             var kandidat = _registrieren.Run(RegistrierungModel2Entity.Run(model));
 
             _sessionUser.Login(kandidat);
-            return View("Dashboard", new DashboardModel(kandidat));
+            return Redirect("Dashboard/anmeldungErfolgreich");
         }
 
         public ActionResult Login(){ return View(new LoginModel());}
@@ -57,7 +57,7 @@ namespace Frontend.Web.Controllers
             if (loginResult.Success)
             {
                 _sessionUser.Login(loginResult.Kandidat);
-                return RedirectToAction("Dashboard");
+                return Redirect("Dashboard");
             }
             
             loginModel.Message = new ErrorMessage("Die Anmeldedaten sind nicht korrekt");
@@ -75,6 +75,19 @@ namespace Frontend.Web.Controllers
         {
             return View(new DashboardModel(_sessionUser.Kandidat));
         }
+
+        [AuthorizedOnly][HttpGet]
+        public ActionResult Dashboard(string id)
+        {
+            var dashboardModel = new DashboardModel(_sessionUser.Kandidat);
+            if (id == "anmeldungErfolgreich"){
+                dashboardModel.ZeigeRegistrierungErfolgreich = true;
+            }
+
+            return View(dashboardModel);
+        }
+
+        
 
         [AuthorizedOnly]
         public ActionResult Anmeldung()

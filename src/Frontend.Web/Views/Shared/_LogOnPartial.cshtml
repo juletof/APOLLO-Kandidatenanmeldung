@@ -5,8 +5,10 @@
 }
 
 @if(userSession.IsLoggedIn) {
-    <text>Привет <strong>@userSession.Kandidat.GetVollerNameKY()</strong>!
-    [ @Html.ActionLink("Abmelden | Выйти", "LogOff", "Account") ]</text>
+    <text>
+        <a href="/Account/Dashboard">Привет <strong>@userSession.Kandidat.GetVollerNameKY()</strong></a>!
+        [ @Html.ActionLink("Abmelden | Выйти", "LogOff", "Account") ]
+    </text>
 }
 else {
     @:[ @Html.ActionLink("Anmelden | Войти", "Login", "Account") ]

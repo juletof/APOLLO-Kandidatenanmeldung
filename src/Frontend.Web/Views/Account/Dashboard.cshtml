@@ -6,11 +6,13 @@
 }
 
 <table class="textlinksrechts">
-    <div class="alert alert-success fade in" id="invalidInputMsg">
-        <a class="close" data-dismiss="alert" href="#">×</a>
-        Vielen Dank für Ihre Registrierung. Sie erhalten eine Bestätigungsemails an <b>.....</b>
-        <br /> Большое спасибо за регистрацию. Подтверждение регистрации вы получите на емайл адрес...
-    </div>
+    @if(Model.ZeigeRegistrierungErfolgreich){
+        <div class="alert alert-success fade in" id="invalidInputMsg">
+            <a class="close" data-dismiss="alert" href="#">×</a>
+            Vielen Dank für Ihre Registrierung. Sie erhalten eine Bestätigungsemails an <b>@Model.Email</b>
+            <br /> Большое спасибо за регистрацию. Подтверждение регистрации вы получите на емайл адрес <b>@Model.Email</b>
+        </div>
+    }
     <tr class="erstezeile alleinestehend">
         <td class="links"><h2>Persönlicher Bereich</h2></td>
         <td class="rechts"><h2>Персональная страница</h2></td>
@@ -155,7 +157,7 @@
         <td class="links">Hier finden Sie 
         <a href='@Url.Action("Information/vonPersoenlicherBereich", "Home")'>allgemeine Informationen</a> 
         zum Auswahlverfahren (Ablauf, Teilnahmebedingungen, wichtige Hinweise).</td>
-        <td class="rechts">Здесь вы найдете <a href='@Url.Action("Information", "Home")'>общую информацию</a> по отбору (план, условия участия, важные указания).</td>
+        <td class="rechts">Здесь вы найдете <a href='@Url.Action("Information/vonPersoenlicherBereich", "Home")'>общую информацию</a> по отбору (план, условия участия, важные указания).</td>
     </tr>
     
 </table>

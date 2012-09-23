@@ -9,6 +9,7 @@ public class DashboardModel
 {
     public string VollerNameKY;
     public string Email;
+    public bool ZeigeRegistrierungErfolgreich;
 
     public KandidatStatus KandidatStatus;
 
