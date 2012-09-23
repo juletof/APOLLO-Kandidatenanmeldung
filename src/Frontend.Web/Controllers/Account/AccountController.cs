@@ -6,16 +6,19 @@ namespace Frontend.Web.Controllers
     public class AccountController : Controller
     {
         private readonly Registrieren _registrieren;
+        private readonly Anmelden _anmelden;
         private readonly KandidatRepository _praktikanteRepo;
         private readonly IsEmailAddressInUse _emailAddressInUse;
         private readonly SessionUser _sessionUser;
 
         public AccountController(Registrieren registrieren, 
+                                 Anmelden anmelden,
                                  KandidatRepository praktikanteRepo, 
                                  IsEmailAddressInUse emailAddressInUse, 
                                  SessionUser sessionUser)
         {
             _registrieren = registrieren;
+            _anmelden = anmelden;
             _praktikanteRepo = praktikanteRepo;
             _emailAddressInUse = emailAddressInUse;
             _sessionUser = sessionUser;
@@ -87,18 +90,19 @@ namespace Frontend.Web.Controllers
             return View(dashboardModel);
         }
 
-        
-
         [AuthorizedOnly]
         public ActionResult Anmeldung()
         {
-            return View(new AnmeldungModel());
+            return View(new AnmeldungModel(_sessionUser.Kandidat));
         }
 
         [HttpPost]
         [AuthorizedOnly]
         public ActionResult Anmeldung(AnmeldungModel model)
         {
+            var kandidat = AnmeldungModelFillFromUi.Run(model, _sessionUser.Kandidat);
+            _anmelden.Run(kandidat);
+
             return View(model);
         }
 

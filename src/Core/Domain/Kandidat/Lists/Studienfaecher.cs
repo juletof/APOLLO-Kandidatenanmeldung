@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace ApolloDb
 {
@@ -9,8 +7,15 @@ namespace ApolloDb
     {
         public Studienfaecher()
         {
-            _items.Add(new ListItem(1, deutsch: "Studienfach-1", russisch: "Studienfache-KY-1"));
-            _items.Add(new ListItem(2, deutsch: "Studienfach-2", russisch: "Studienfach-KY-2"));
+            Add(1, "Pflanzenbau", "Агрономия");
+            Add(2, "Veterinärmedizin", "Ветернарная медицина");
+            Add(3, "Bodenkataster", "Земельный кадастр");
+            Add(4, "Tierhaltung", "Зоотехния");
+            Add(5, "Mechanisierung", "Механизация");
+            Add(6, "Verarbeitung", "Переработка");
+            Add(7, "Ökonomie", "Экономика и бухгалтерия");
+            Add(8, "Elektrifizierung", "Электрификация");
+            Add(9, "sonstige", "другое");
         }
     }
 }

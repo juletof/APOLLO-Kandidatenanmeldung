@@ -15,16 +15,44 @@ public class AnmeldungModel
         AngestrebterAbschlussOps = new Abschluesse().ToSelectItems();
     }
 
-    [Required(ErrorMessage = "* Pflichtfeld")]
+    public AnmeldungModel(Kandidat kandidat)
+    {
+        UniOps = new Universitaeten().ToSelectItems(kandidat.Hochschule);
+        StudienfachOps = new Studienfaecher().ToSelectItems(kandidat.Studienfach);
+        StudienJahrOps = new Studienjahr().ToSelectItems(kandidat.PraktikumsJahr);
+        AngestrebterAbschlussOps = new Abschluesse().ToSelectItems(kandidat.AngestrebterAbschluss);
+
+        Familienname = kandidat.Familienname;
+        Vorname = kandidat.Vorname;
+        if (kandidat.Geburtsdatum != null)
+        Geburtsdatum = ((DateTime)kandidat.Geburtsdatum).ToString("dd-MM-yyyy");
+        Inlandspass = kandidat.NummerInlandspass;
+        Mobilfunknummer = kandidat.Mobilnummer;
+
+        Fakultaet = kandidat.Fakultät;  
+        Studienfach = kandidat.Spezialisierung;
+        VerkürzterStudiengang = kandidat.VerkürzterStudiengang;
+        Deutschkentnisse = kandidat.Deutschkentnisse;
+        DeutschkentnisseDurchSchule = kandidat.DeutschkentnisseDurchSchule;
+        DeutschkentnisseDurchUni = kandidat.DeutschkentnisseDurchUni;
+        DeutschkentnisseDurchSonstige = kandidat.DeutschkentnisseDurchSonstige;
+
+        BereitsAufenthalt = kandidat.FruehererAufenthalt;
+
+        BereitsAufenthaltProgramm = kandidat.FruehererAufenthaltProgramm;
+        Kommentar = kandidat.Kommentar;
+    }
+    
+    [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     public string Familienname { get; set; }
 
-    [Required(ErrorMessage = "* Pflichtfeld")]
+    [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     public string Vorname { get; set; }
 
-    [Required(ErrorMessage = "* Pflichtfeld")]
+    [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     public string Geburtsdatum{ get; set; }
 
-    [Required(ErrorMessage = "* Pflichtfeld")]
+    [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     public string Inlandspass { get; set; }
 
     public string Mobilfunknummer { get; set; }
@@ -32,34 +60,33 @@ public class AnmeldungModel
     public string UniVal { get; set; }
     public IList<SelectListItem> UniOps;
 
-    [Required(ErrorMessage = "* Pflichtfeld")]
+    [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     public string Fakultaet { get; set; }
 
-    [Required(ErrorMessage = "* Pflichtfeld")]
+    [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     public string Studienfach { get; set; }
 
     public IList<SelectListItem> StudienfachOps;
     public string StudienfachVal { get; set; }
 
     public IEnumerable<SelectListItem> StudienJahrOps;
-    public object StudienJahrVal { get; set; }
+    public string StudienJahrVal { get; set; }
 
-    [Required(ErrorMessage = "* Pflichtfeld")]
+    [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     public bool VerkürzterStudiengang { get; set; }
 
     public string AngestrebterAbschlussVal { get; set; }
     public IEnumerable<SelectListItem> AngestrebterAbschlussOps;
 
-    [Required(ErrorMessage = "* Pflichtfeld")]
+    [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     public bool Deutschkentnisse { get; set; }
 
     public bool DeutschkentnisseDurchSchule { get; set; }
     public bool DeutschkentnisseDurchUni { get; set; }
     public bool DeutschkentnisseDurchSonstige { get; set; }
 
-    [Required(ErrorMessage = "* Pflichtfeld")]
     public bool BereitsAufenthalt { get; set; }
 
     public string BereitsAufenthaltProgramm { get; set; }
-    public string BereitsAufenthaltKommentar { get; set; }
+    public string Kommentar { get; set; }
 }

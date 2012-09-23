@@ -139,11 +139,11 @@
                 <label class="control-label">Handelt es sich um einen verkürzten Studiengang (z.B. nach Technikum)? | Вы учитесь по сокращенной форме (например после техникума)?</label>
                 <div class="controls">
                     <label class="radio inline">
-                        @Html.RadioButton("rdoVerkürzterStudiengang", Model.VerkürzterStudiengang)
+                        @Html.RadioButtonFor(m => m.VerkürzterStudiengang, true)
                         Ja | Да
                     </label>
                     <label class="radio inline">
-                        @Html.RadioButton("rdoVerkürzterStudiengang", Model.VerkürzterStudiengang, true)
+                        @Html.RadioButtonFor(m => m.VerkürzterStudiengang, false)
                         Nein | Нет</label>
                 </div>
             </div>
@@ -171,10 +171,10 @@
                 <label class="control-label">Verfügen Sie bereits über Deutschkenntnisse? | Обладаете ли вы знаниями немецкого языка?:</label>
                 <div class="controls">
                     <label class="radio inline">
-                        @Html.RadioButton("rdoBereitsDeutschkentnisse", Model.Deutschkentnisse)
+                        @Html.RadioButtonFor(m => m.Deutschkentnisse, true)
                         Ja | Да</label>
                     <label class="radio inline">
-                        @Html.RadioButton("rdoBereitsDeutschkentnisse", Model.Deutschkentnisse, true)
+                        @Html.RadioButtonFor(m => Model.Deutschkentnisse, false)
                         Nein | Нет</label>
                 </div>
             </div>
@@ -212,13 +212,12 @@
             <div class="control-group">
                 <label class="control-label">Haben Sie sich bereits im Rahmen eines Austauschprogramms in einem deutschsprachigen Land aufgehalten? | Принимали ли вы участие в программах обмена практикантами в немецкоговорящих странах?:</label>
                 <div class="controls">
-                    <label class="radio inline">
-                        @Html.RadioButton("rdoBereitsAufenthalt", Model.BereitsAufenthalt)
-                        <input type="radio" name="temp1">
+                    <label class="radio inline" style="white-space: nowrap">
+                        @Html.RadioButtonFor(m => m.BereitsAufenthalt, true)
                         Ja | Да
                     </label>
-                    <label class="radio inline">
-                        @Html.RadioButton("rdoBereitsAufenthalt", Model.BereitsAufenthalt, true)
+                    <label class="radio inline" style="white-space: nowrap">
+                        @Html.RadioButtonFor(m => m.BereitsAufenthalt, false)
                         Nein | Нет</label>
                 </div>
             </div>
@@ -232,7 +231,7 @@
             <div class="control-group">
                 <label class="control-label">Kommentare (optional)| Замечания, если есть (по всем разделам):</label>
                 <div class="controls">
-                    @Html.TextAreaFor(x => x.BereitsAufenthaltKommentar, 
+                    @Html.TextAreaFor(x => x.Kommentar, 
                                              new{
                                                     @class = "input-xlarge", 
                                                     @placeholder = "по-русски", 

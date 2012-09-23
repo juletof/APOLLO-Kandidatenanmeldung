@@ -15,25 +15,25 @@ public class RegistrierungModel
     public string AnredeVal { get; set;  }
     public IList<SelectListItem> AnredeOpts;
 
-    [Required(ErrorMessage = "* Pflichtfeld")]
+    [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     public string FamiliennameKY { get; set; }
 
-    [Required(ErrorMessage = "* Pflichtfeld")]
+    [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     public string VornameKY { get; set; }
 
-    [Required(ErrorMessage = "* Pflichtfeld")]
+    [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     public string VatersnameKY { get; set; }
 
-    [Required(ErrorMessage = "* Pflichtfeld")]
+    [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     [RegularExpression(Regexes.Email, ErrorMessage = "Bitte geben Sie eine gültige Emailadresse an.")]
     public string Emailadresse { get; set; }
 
-    [Required(ErrorMessage = "* Pflichtfeld")]
+    [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     public string Passwort { get; set; }
 
-    [BooleanRequiredToBeTrueAttribute(ErrorMessage = "* Pflichtfeld")]
+    [BooleanRequiredToBeTrueAttribute(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     public bool AcceptTerms { get; set; }
 
-    [BooleanRequiredToBeTrueAttribute(ErrorMessage = "* Pflichtfeld")]
+    [BooleanRequiredToBeTrueAttribute(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     public bool ReadInformation { get; set; }
 }

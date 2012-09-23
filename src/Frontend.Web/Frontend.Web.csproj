@@ -103,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\Account\Models\AnmeldungModel.cs" />
+    <Compile Include="Controllers\Account\Models\AnmeldungModelFillFromUi.cs" />
     <Compile Include="Controllers\Account\Models\BenutzerDatenModel.cs" />
     <Compile Include="Controllers\Account\Models\DashboardModel.cs" />
     <Compile Include="Controllers\Account\Models\LoginModel.cs" />
