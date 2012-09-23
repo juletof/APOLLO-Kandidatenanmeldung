@@ -50,6 +50,7 @@ public class AnmeldungModel
     public string Vorname { get; set; }
 
     [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
+    [RegularExpression(@"[0-3][0-9]-[0-1][0-9]-[1-9][0-9][0-9][0-9]", ErrorMessage = "Format: dd-mm-yyyy | Формат: дд-мм-гггг")]
     public string Geburtsdatum{ get; set; }
 
     [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]

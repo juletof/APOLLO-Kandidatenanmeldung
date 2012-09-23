@@ -88,7 +88,7 @@
             <div class="control-group">
                 <label class="control-label">Geburtsdatum | Дата рождения:</label>
                 <div class="controls">
-                    @Html.TextBoxFor(x => x.Geburtsdatum, new {@placeholder = ""})
+                    @Html.TextBoxFor(x => x.Geburtsdatum, new {@placeholder = "", @style="width:100px;"})
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Geburtsdatum)</span>
                     <span class="help-block">Format: dd-mm-yyyy | Формат: дд-мм-гггг</span>
                 </div>
