@@ -46,7 +46,7 @@ namespace Frontend.Web.Controllers
             var kandidat = _registrieren.Run(RegistrierungModel2Entity.Run(model));
 
             _sessionUser.Login(kandidat);
-            return Redirect("Dashboard/anmeldungErfolgreich");
+            return Redirect("Dashboard/registrierungErfolgreich");
         }
 
         public ActionResult Login(){ return View(new LoginModel());}
@@ -84,10 +84,13 @@ namespace Frontend.Web.Controllers
         public ActionResult Dashboard(string id)
         {
             var dashboardModel = new DashboardModel(_sessionUser.GetKandidat());
-            if (id == "anmeldungErfolgreich"){
+            if (id == "registrierungErfolgreich")
                 dashboardModel.ZeigeRegistrierungErfolgreich = true;
-            }
-
+            
+            if (id == "anmeldungErfolgreich")
+                dashboardModel.Message = new SuccessMessage("Danke, Sie haben alle erforderlichen Daten für die Anmeldung eingegeben. Wir werden Sie bald nach Bewerbungsschluss per Email benachrichtigen, ob Sie zum Auswahlgespräch zugelassen sind. <br><br>" +
+                                   "Спасибо, вы задали все неодходимые данные для регистрации. Вскоре после окончания срока подачи заявлений мы сообщим вам, по емайлу допущены ли вы к участию в первом собеседовании.");
+            
             return View(dashboardModel);
         }
 
@@ -112,11 +115,7 @@ namespace Frontend.Web.Controllers
             }
 
             _anmelden.Run(AnmeldungModelFillFromUi.Run(model, _sessionUser.GetKandidat()));
-
-            model.Message = new SuccessMessage("Danke, Sie haben alle erforderlichen Daten für die Anmeldung eingegeben. Wir werden Sie bald nach Bewerbungsschluss per Email benachrichtigen, ob Sie zum Auswahlgespräch zugelassen sind. <br><br>" + 
-                                               "Спасибо, вы задали все неодходимые данные для регистрации. Вскоре после окончания срока подачи заявлений мы сообщим вам, по емайлу допущены ли вы к участию в первом собеседовании.");
-
-            return View(model);
+            return Redirect("Dashboard/anmeldungErfolgreich");
         }
 
         [AuthorizedOnly]

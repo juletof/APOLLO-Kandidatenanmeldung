@@ -7,6 +7,8 @@ using ApolloDb;
 
 public class DashboardModel
 {
+    public Message Message;
+
     public string VollerNameKY;
     public string Email;
     public bool ZeigeRegistrierungErfolgreich;
