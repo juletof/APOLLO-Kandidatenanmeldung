@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using ApolloDb;
 
 namespace Frontend.Web.Controllers
@@ -102,6 +103,13 @@ namespace Frontend.Web.Controllers
         {
             if (!ModelState.IsValid)
                 return View(model);
+
+            DateTime outParseTest;
+            if (!DateTime.TryParse(model.Geburtsdatum, out outParseTest))
+            {
+                model.Message = new ErrorMessage("Das Geburtstdatum kann nicht verarbeitet werden. Bitte achten Sie auf das Eingabeformat: Format: dd-mm-yyyy | Формат: дд-мм-гггг");
+                return View(model);
+            }
 
             _anmelden.Run(AnmeldungModelFillFromUi.Run(model, _sessionUser.GetKandidat()));
 
