@@ -8,6 +8,7 @@ using ApolloDb;
 using Autofac;
 using Autofac.Integration.Mvc;
 using HibernatingRhinos.Profiler.Appender.NHibernate;
+using Gibraltar.Agent;
 
 namespace Frontend.Web
 {
@@ -34,6 +35,9 @@ namespace Frontend.Web
 
         protected void Application_Start()
         {
+            Log.StartSession();
+            Log.MessageAlert += Log_MessageAlert;
+
             InitializeAutofac();
             AreaRegistration.RegisterAllAreas();
 
@@ -43,6 +47,15 @@ namespace Frontend.Web
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+        }
+
+        void Log_MessageAlert(object sender, LogMessageAlertEventArgs e)
+        {
+            if (e.TopSeverity <= LogMessageSeverity.Error) //numeric values DROP for more severe enum values
+            {
+                e.SendSession = true;
+                e.MinimumDelay = new TimeSpan(0, 5, 0); //5 minutes
+            }
         }
 
         private static void InitializeAutofac()

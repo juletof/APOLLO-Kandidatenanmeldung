@@ -56,6 +56,15 @@
     <Reference Include="FluentNHibernate">
       <HintPath>..\packages\FluentNHibernate.1.3.0.733\lib\FluentNHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="Gibraltar.Agent">
+      <HintPath>..\packages\Gibraltar.Agent.3.0.3.1115\lib\4.0\Gibraltar.Agent.dll</HintPath>
+    </Reference>
+    <Reference Include="Gibraltar.Agent.Web">
+      <HintPath>..\packages\Gibraltar.Agent.Web.3.0.3.1115\lib\Gibraltar.Agent.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Gibraltar.Packager.NET40">
+      <HintPath>..\packages\Gibraltar.Agent.3.0.3.1115\lib\4.0\Gibraltar.Packager.NET40.exe</HintPath>
+    </Reference>
     <Reference Include="HibernatingRhinos.Profiler.Appender.v4.0, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0774796e73ebf640, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\NHibernateProfiler\HibernatingRhinos.Profiler.Appender.v4.0.dll</HintPath>

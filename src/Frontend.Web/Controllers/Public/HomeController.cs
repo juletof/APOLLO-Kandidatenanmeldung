@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using ApolloDb;
 
 namespace Frontend.Web.Controllers
@@ -8,6 +9,11 @@ namespace Frontend.Web.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public EmptyResult ThrowEx()
+        {
+            throw new Exception("Test exception");
         }
 
         public ActionResult Information()
