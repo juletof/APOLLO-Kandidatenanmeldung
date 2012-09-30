@@ -110,7 +110,7 @@ namespace Frontend.Web.Controllers
             DateTime outParseTest;
             if (!DateTime.TryParse(model.Geburtsdatum, out outParseTest))
             {
-                model.Message = new ErrorMessage("Das Geburtstdatum kann nicht verarbeitet werden. Bitte achten Sie auf das Eingabeformat: Format: dd-mm-yyyy | Формат: дд-мм-гггг");
+                model.Message = new ErrorMessage("Das Geburtstdatum kann nicht verarbeitet werden. Bitte achten Sie auf das Eingabeformat: dd-mm-yyyy | Übersetzung Формат: дд-мм-гггг");
                 return View(model);
             }
 
