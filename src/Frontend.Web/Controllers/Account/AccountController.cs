@@ -64,7 +64,7 @@ namespace Frontend.Web.Controllers
                 return Redirect("Dashboard");
             }
             
-            loginModel.Message = new ErrorMessage("Die Anmeldedaten sind nicht korrekt");
+            loginModel.Message = new ErrorMessage("Die Anmeldedaten sind nicht korrekt. | Übersetzung");
             return View(loginModel);
         }
 
@@ -131,7 +131,7 @@ namespace Frontend.Web.Controllers
                 return View(model);
 
             _kandidatRepository.Update(BenutzerDatenModellFillFromUi.Run(model, _sessionUser.GetKandidat()));
-            model.Message = new SuccessMessage("Die Daten wurden gespeichert | Uebersetzung");
+            model.Message = new SuccessMessage("Die Daten wurden gespeichert | Übersetzung");
 
             return View(model);
         }
@@ -146,9 +146,9 @@ namespace Frontend.Web.Controllers
         {
             var result = Sl.Resolve<PasswortVergessen>().Run(model.Emailadresse);
             if(result.DieEmailExisitertNicht)
-                model.Message = new ErrorMessage("Die Email exisistert nicht");
+                model.Message = new ErrorMessage("Diese Email-Adresse ist nicht im System registriert. | Übersetzung");
             else if(result.Success)
-                model.Message = new SuccessMessage("Eine Benachrichtigung wird verschickt.");
+                model.Message = new SuccessMessage("Eine Benachrichtigung wird verschickt. | Übersetzung");
 
             return View(model);
         }
@@ -174,7 +174,7 @@ namespace Frontend.Web.Controllers
                                        "Вы успешно изменили пароль");
             }
             else
-                passwortAendernModel.Message = new ErrorMessage("Das alte Passwort ist nicht korrekt.");
+                passwortAendernModel.Message = new ErrorMessage("Das alte Passwort ist nicht korrekt. | Übersetzung");
 
             return View(passwortAendernModel);
         }

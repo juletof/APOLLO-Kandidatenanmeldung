@@ -36,8 +36,8 @@
     </table>
     <table class="textlinksrechts">
         <tr>
-            <td class="links">Falls Sie Ihr Passwort vergessen haben, können Sie sich ein neues an die von Ihnen angegebene Email-Adresse schicken lassen. Danach können Sie Ihr temporäres Passwort ändern.</td>
-            <td class="rechts">Если вы забыли пароль, вы можете получить новый на емайл адрес заданный при регистрации. Потом вы можете изменить пароль.</td>
+            <td class="links"><p>Falls Sie Ihr Passwort vergessen haben, können Sie sich an die von Ihnen angegebene Email-Adresse einen Link schicken lassen, über den Sie sich ein neues Passwort setzen können.</p></td>
+            <td class="rechts"><p>Если вы забыли пароль, вы можете получить Übersetzung на емайл адрес заданный при регистрации. <b>Потом вы можете изменить пароль</b>.</p></td>
         </tr>
     </table>
     @Html.Message(Model.Message)
@@ -50,10 +50,10 @@
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Emailadresse)</span>
                 </div>
                 <div class="controls">
-                    <button class="btn btn-apollogruen button_rechts_mit_erklaerung" style="margin-left: 0px; margin-top: 20px;">Jetzt neues Passwort anfordern | Запросить новый пароль</button>
+                    <button class="btn btn-apollogruen button_rechts_mit_erklaerung" style="margin-left: 0px; margin-top: 20px;">Link anfordern | Запросить ...</button>
                 </div>
                 <div class="controls">
-                    <a href="@Url.Action("Login", "Account")" class="btn button_rechts_mit_erklaerung" style="margin-left: 0px; margin-top: 10px;">abbrechen | Отменить</a>
+                    <a href="@Url.Action("Login", "Account")" class="btn button_rechts_mit_erklaerung" style="margin-left: 0px; margin-top: 10px;">Abbrechen | Отменить</a>
                 </div>
             </div>
         </div>

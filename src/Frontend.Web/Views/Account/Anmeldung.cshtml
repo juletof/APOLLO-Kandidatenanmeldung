@@ -92,7 +92,7 @@
             <div class="control-group">
                 <label class="control-label">Geburtsdatum | Дата рождения:</label>
                 <div class="controls">
-                    @Html.TextBoxFor(x => x.Geburtsdatum, new {@placeholder = "", @style="width:100px;"})
+                    @Html.TextBoxFor(x => x.Geburtsdatum, new { @placeholder = "дд-мм-гггг", @style = "width:100px;" })
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Geburtsdatum)</span>
                     <span class="help-block">Format: dd-mm-yyyy | Формат: дд-мм-гггг</span>
                 </div>
@@ -107,7 +107,7 @@
             </div>
             <div class="control-group">
                 <label class="control-label">Mobilfunknummer (freiwillige Angabe)| Номер мобильного телефона (по желанию):</label>
-                <div class="controls">
+                <div class="controls mehrzeilig">
                     @Html.TextBoxFor(x => x.Mobilfunknummer, new {@class = "formular"})
                 </div>
             </div>
@@ -129,7 +129,7 @@
             <div class="control-group">
                 <label class="control-label">Hochschule | ВУЗ:</label>
                 <div class="controls">
-                    @Html.DropDownListFor(x => Model.UniVal, Model.UniOps, new { @style = "width: 300px" })
+                    @Html.DropDownListFor(x => Model.UniVal, Model.UniOps, new { @style = "width: 304px" })
                 </div>
             </div>
             <div class="control-group">
@@ -151,13 +151,13 @@
             <div class="control-group">
                 <label class="control-label">Welche der folgenden Bezeichnungen beschreibt Ihr Studienfach am besten? | Какое из предложенных обозначений подходит больше всего для вашей специальности?</label>
                 <div class="controls mehrzeilig">
-                    @Html.DropDownListFor(x => Model.StudienfachVal, Model.StudienfachOps, new { @style = "width: 300px" })
+                    @Html.DropDownListFor(x => Model.StudienfachVal, Model.StudienfachOps, new { @style = "width: 304px" })
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Am Ende welchen Studienjahrs befinden Sie sich zum Zeitpunkt des angestrebten Praktikums? | На каком курсе вы учитесь?:</label>
                 <div class="controls mehrzeilig">
-                    @Html.DropDownListFor(x => Model.StudienJahrVal, Model.StudienJahrOps)
+                    @Html.DropDownListFor(x => Model.StudienJahrVal, Model.StudienJahrOps, new { @style = "width: 304px" })
                 </div>
             </div>
             <div class="control-group">
@@ -174,8 +174,8 @@
             </div>
             <div class="control-group">
                 <label class="control-label">Welchen Abschluss streben Sie derzeit an? | Какой академический титул вы получите по окончанию обучения?:</label>
-                <div class="controls">
-                    @Html.DropDownListFor(x => Model.AngestrebterAbschlussVal, Model.AngestrebterAbschlussOps)
+                <div class="controls mehrzeilig">
+                    @Html.DropDownListFor(x => Model.AngestrebterAbschlussVal, Model.AngestrebterAbschlussOps, new { @style = "width: 304px" })
                 </div>
             </div>
         </div>
@@ -248,7 +248,7 @@
             </div>
             <div class="control-group">
                 <label class="control-label">Wenn ja, mit welchem Programm? | Если да, то в какой программе?:</label>
-                <div class="controls zweisprachig">
+                <div class="controls mehrzeilig">
                     @Html.TextBoxFor(x => x.BereitsAufenthaltProgramm, new {@class = "formular", @placeholder = "по-русски"})
                     <span class="help-inline alphabet">по-русски</span>
                 </div>
@@ -267,7 +267,7 @@
             </div>
             <div class="control-group">
                 <div class="controls">
-                    <label class="checkbox">
+                    <label class="checkbox" style="text-align:justify;">
                         @Html.CheckBoxFor(x => x.AcceptTerms, new {@class = "checkbox mehrzeilig"})
                         <span class="errorAnotation">@Html.ValidationMessageFor(x => x.AcceptTerms)</span>
                         Hiermit bewerbe ich mich für das Auswahlverfahren der APOLLO e.V. 
@@ -279,8 +279,8 @@
             </div>
             <div class="control-group">
                 <div class="form-actions">
-                    <button type="submit" class="btn btn-apollogruen">Eingaben absenden | Отправить</button>
-                    <br /><a class="btn" href='@Url.Action("Dashboard","Account")'>abbrechen (ohne speichern) | сбросить (без сохранения)</a>
+                    <button type="submit" class="btn btn-block btn-apollogruen" style="margin-bottom:0px;">Eingaben absenden | Отправить</button>
+                    <a class="btn btn-block" href='@Url.Action("Dashboard","Account")'>abbrechen (ohne speichern) | сбросить (без сохранения)</a>
                 </div>
             </div>
         </div>

@@ -679,8 +679,9 @@ legend.rechts {
 
 /*Farbschatten von Eingabefeld im Fokus:*/
 /*hellgrün:*/
-input:focus,
-textarea:focus {
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
   border-color: rgba(153, 204, 51, 0.8);
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(153, 204, 51, 0.6);
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(153, 204, 51, 0.6);
@@ -920,8 +921,15 @@ width: 290px;
 margin-bottom: 5px;
 }
 
-input[type="checkbox"].mehrzeilig {
+input[type="checkbox"].mehrzeilig,
+input[type="text"].mehrzeilig,
+ {
 float: left;
+}
+
+div.mehrzeilig span.help-inline {
+ margin-left: 308px;
+ margin-top: 15px;   
 }
 
 label.mehrzeilig {
@@ -939,7 +947,8 @@ padding-bottom: 0px;
 /*Hilfe Formular*/
 
 .help-block, .help-inline {
-color: #253D19;   
+color: #253D19;
+font-size: 10px;
 }
 
 .form-horizontal .help-block {
@@ -958,9 +967,15 @@ position: relative;
 }
 
 div.mehrzeilig select {
-width:300px;
+width:290px;
 position:absolute;
-bottom:8px
+bottom:8px;
+}
+
+div.mehrzeilig input {
+width:290px;
+position:absolute;
+bottom:8px;
 }
 
 /*
@@ -1155,3 +1170,22 @@ div.impressum a {
     margin-top:-30px;
 }
   
+.nav1 li a {
+	float:none;
+}
+
+#ueberschrift_online-bewerbung {
+color:#99CC33;
+}
+
+#ueberschrift_online-bewerbung:hover {
+    color:#FFCC00;
+}
+
+input, button, select, textarea, a.btn {
+    font-family: Verdana, Arial, Sans-Serif;
+}
+
+span.fake {
+ font-size: 12px;   
+}

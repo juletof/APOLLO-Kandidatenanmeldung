@@ -227,6 +227,8 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="Views\Home\passwort_reset.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Home\Kontakt.cshtml" />
     <None Include="Web.config">
       <SubType>Designer</SubType>
     </None>

@@ -65,5 +65,15 @@ namespace Frontend.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Kontakt()
+        {
+            return View();
+        }
+
+        public ActionResult Test()
+        {
+            return View();
+        }
     }
 }
