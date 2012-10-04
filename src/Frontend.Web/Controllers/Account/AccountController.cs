@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Web.Mvc;
 using ApolloDb;
 
@@ -90,6 +91,10 @@ namespace Frontend.Web.Controllers
             if (id == "anmeldungErfolgreich")
                 dashboardModel.Message = new SuccessMessage("Danke, Sie haben alle erforderlichen Daten für die Anmeldung eingegeben. Wir werden Sie bald nach Bewerbungsschluss per Email benachrichtigen, ob Sie zum Auswahlgespräch zugelassen sind. <br><br>" +
                                    "Спасибо, вы задали все неодходимые данные для регистрации. Вскоре после окончания срока подачи заявлений мы сообщим вам, по емайлу допущены ли вы к участию в первом собеседовании.");
+
+            if (id == "passwortGeaendert")
+                dashboardModel.Message = new SuccessMessage("Sie haben Ihr Passwort erfolgreich geändert. | " +
+                       "Вы успешно изменили пароль");
             
             return View(dashboardModel);
         }
@@ -108,7 +113,7 @@ namespace Frontend.Web.Controllers
                 return View(model);
 
             DateTime outParseTest;
-            if (!DateTime.TryParse(model.Geburtsdatum, out outParseTest))
+            if (!DateTime.TryParse(model.Geburtsdatum, CultureInfo.GetCultureInfo("de-DE"), DateTimeStyles.None,  out outParseTest))
             {
                 model.Message = new ErrorMessage("Das Geburtstdatum kann nicht verarbeitet werden. Bitte achten Sie auf das Eingabeformat: dd-mm-yyyy | Übersetzung Формат: дд-мм-гггг");
                 return View(model);
@@ -169,12 +174,10 @@ namespace Frontend.Web.Controllers
             {
                 kandidat.Passwort = HashPassword.Run(passwortAendernModel.NeuesPasswort1);
                 _kandidatRepository.Update(kandidat);
-                passwortAendernModel.Message =
-                    new SuccessMessage("Sie haben Ihr Passwort erfolgreich geändert. | " +
-                                       "Вы успешно изменили пароль");
+                return Redirect("/Account/Dashboard/passwortGeaendert");
             }
-            else
-                passwortAendernModel.Message = new ErrorMessage("Das alte Passwort ist nicht korrekt. | Übersetzung");
+            
+            passwortAendernModel.Message = new ErrorMessage("Das alte Passwort ist nicht korrekt. | Übersetzung");
 
             return View(passwortAendernModel);
         }

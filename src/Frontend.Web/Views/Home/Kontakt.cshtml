@@ -1,56 +1,86 @@
-﻿@{
+﻿@using ApolloDb
+@model KontaktModel
+@{
     ViewBag.Title = "Kontakt";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script type="text/javascript">
+    
+    $(function () {
+        $("#form").submit(function () {
+
+            if (!$(this).valid()) {
+                $("#invalidInputMsg").show(400);
+            }
+            else {
+                $("#invalidInputMsg").hide(300);
+            }
+        });
+    });
+</script>
+
 
 <table class="textlinksrechts"> 
-	<tr class="erstezeile alleinestehend">
-	    <td class="links">
-	        <h2>Kontaktformular</h2>
-	    </td>
-	    <td class="rechts">
-	        <h2>Übersetzung</h2>
-	    </td>
-	</tr>
+    <tr class="erstezeile alleinestehend">
+        <td class="links">
+            <h2>Kontaktformular</h2>
+        </td>
+        <td class="rechts">
+            <h2>Übersetzung</h2>
+        </td>
+    </tr>
 </table>
-<table class="textlinksrechts">
-    <tr class="erstezeile">
-	    <td class="links">
-	       <p>
-           Falls Sie Fragen, Probleme oder Anregungen haben, 
-           senden Sie uns bitte eine Nachricht (gern auch auf russisch). 
-           Wir melden uns so bald wie möglich bei Ihnen zurück.<br>
-           <b>Da wir noch in der Testphase sind, sind wir für Hinweise sehr dankbar,
-           falls etwas auf der Seite nicht richtig funktioniert oder etwas nicht 
-           verständlich ist.
-           Helfen Sie uns die Seite zu verbessern!</b>
-           </p>
-	    </td>
-	    <td class="rechts">
-	       Übersetzung
-	    </td>
-	</tr>
-</table>
-<table class="textlinksrechts">
-    <div class="form-horizontal">
-        <div class="control-group">
-            <label class="control-label">Ihre Nachricht an uns | Übersetzung:</label>
-            <div class="controls">
-                <textarea rows="7" type="x-large" style="width: 350px;"></textarea>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
+{
+    @Html.Message(Model.Message)
+
+    <div class="alert alert-error fade in hide" id="invalidInputMsg">
+        <a class="close" data-dismiss="alert" href="#">×</a>
+        Bitte die Eingaben vervollständigen/korrigieren. | Пожалуйста дополните/измените данные.
+    </div>    
+
+    <table class="textlinksrechts">
+        <tr class="erstezeile">
+            <td class="links">
+                <p>
+                    Falls Sie Fragen, Probleme oder Anregungen haben, 
+                    senden Sie uns bitte eine Nachricht (gern auch auf russisch). 
+                    Wir melden uns so bald wie möglich bei Ihnen zurück.<br>
+                    <b>Da wir noch in der Testphase sind, sind wir für Hinweise sehr dankbar,
+                        falls etwas auf der Seite nicht richtig funktioniert oder etwas nicht 
+                        verständlich ist.
+                        Helfen Sie uns die Seite zu verbessern!</b>
+                </p>
+            </td>
+            <td class="rechts">
+                Übersetzung
+            </td>
+        </tr>
+    </table>
+    <table class="textlinksrechts">
+        <div class="form-horizontal">
+            <div class="control-group">
+                <label class="control-label">Ihre Nachricht an uns | Übersetzung:</label>
+                <div class="controls">
+                    @Html.TextAreaFor(x => x.Text, new{ @class = "formular",  @style = "width: 350px; height:220px;" })
+                    <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Text)</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Ihre Email-Adresse | Übersetzung:</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.Email, new {@style = "width: 350px;"})
+                    <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Email)</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-apollogruen" style="width: 250px;">Nachricht absenden | Отправить</button>
+                    <a class="btn" href="#" onclick="history.go(-1);return false;" style="width: 228px;">Abbrechen | Сбросить</a>
+                </div>
             </div>
         </div>
-        <div class="control-group">
-            <label class="control-label">Ihre Email-Adresse | Übersetzung:</label>
-            <div class="controls">
-                <input class="formular" type="text" style="width: 350px;">
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="form-actions">
-                <button type="submit" class="btn btn-apollogruen" style="width: 250px;">Nachricht absenden | Отправить</button>
-                <a class="btn" href="#" onclick="history.go(-1);return false;" style="width: 228px;">Abbrechen | Сбросить</a>
-            </div>
-        </div>
-    </div>
-</table>
+    </table>
+}

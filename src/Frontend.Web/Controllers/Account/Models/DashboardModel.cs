@@ -9,7 +9,10 @@ public class DashboardModel
 {
     public Message Message;
 
-    public string VollerNameKY;
+    public string VornameKY;
+    public string NachnameKY;
+
+    public string Nachname_Vorname_Vatersname;
     public string Email;
     public bool ZeigeRegistrierungErfolgreich;
 
@@ -17,7 +20,11 @@ public class DashboardModel
 
     public DashboardModel(Kandidat kandidat)
     {
-        VollerNameKY = kandidat.GetVollerNameKY();
+        VornameKY = kandidat.VornameKY;
+        NachnameKY = kandidat.FamiliennameKY;
+
+        Nachname_Vorname_Vatersname = kandidat.FamiliennameKY + " " + kandidat.VornameKY + " " + kandidat.VatersnameKY;
+
         Email = kandidat.EmailAdresse;
         KandidatStatus = kandidat.Status;
     }

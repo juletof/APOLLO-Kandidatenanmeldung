@@ -126,6 +126,7 @@
     <Compile Include="Controllers\Public\HomeController.cs" />
     <Compile Include="Controllers\Account\Models\RegistrierungModel2Entity.cs" />
     <Compile Include="Controllers\Public\Models\InformationModel.cs" />
+    <Compile Include="Controllers\Public\Models\KontaktModel.cs" />
     <Compile Include="Controllers\Public\Models\PasswortResetModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

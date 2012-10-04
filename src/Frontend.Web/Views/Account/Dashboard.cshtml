@@ -24,12 +24,12 @@
 <table class="textlinksrechts">
     <tr>
         <td class="links">
-            <p>Hallo <b>Vorname Name</b>,
+            <p>Hallo <b>@Model.VornameKY @Model.NachnameKY</b>,
             <br /><br />in diesem Bereich können Sie Ihre Benutzerdaten verwalten, die für die Anmeldung zum Auswahlverfahren erforderlichen Daten eingeben und den derzeitigen Status Ihrer Bewerbung einsehen.
             </p>
         </td>
         <td class="rechts">
-            <p>Привет <b>Vorname Name</b>,
+            <p>Привет <b>@Model.VornameKY @Model.NachnameKY</b>,
             <br /><br />Здесь вы можете управлять своими личными данными, заполнить заявление на участие в отборе, а также узнать статус вашего заявления на участие.
             </p>
         </td>
@@ -46,7 +46,7 @@
          <div class="control-group" style="margin-bottom:0px;">
             <label class="control-label"><b>Name </b>| <b>Имя</b>:</label>
             <div class="controls">
-                <span class="help-inline fake" style="padding-top: 4px;">VollerNameKY</span>
+                <span class="help-inline fake" style="padding-top: 4px;">@Model.Nachname_Vorname_Vatersname</span>
             </div>
         </div>
         <div class="control-group" style="margin-bottom:0px;">

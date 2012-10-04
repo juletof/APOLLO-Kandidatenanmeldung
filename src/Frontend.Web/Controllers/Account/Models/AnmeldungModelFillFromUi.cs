@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 
@@ -11,7 +12,7 @@ namespace ApolloDb
         {
             kandidat.Familienname = anmeldungModel.Familienname;
             kandidat.Vorname = anmeldungModel.Vorname;
-            kandidat.Geburtsdatum = DateTime.Parse(anmeldungModel.Geburtsdatum);
+            kandidat.Geburtsdatum = DateTime.Parse(anmeldungModel.Geburtsdatum, CultureInfo.GetCultureInfo("de-DE"));
             kandidat.NummerInlandspass = anmeldungModel.Inlandspass;
             kandidat.Mobilnummer = anmeldungModel.Mobilfunknummer;
             kandidat.Hochschule = Convert.ToInt32(anmeldungModel.UniVal);

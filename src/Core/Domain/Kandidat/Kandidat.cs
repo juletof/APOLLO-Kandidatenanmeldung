@@ -49,12 +49,12 @@ namespace ApolloDb
 
         public virtual string GetVollerName()
         {
-            return Vorname + " " + Vatersname + " " + Familienname;
+            return Vorname + " " + Familienname;
         }
 
         public virtual string GetVollerNameKY()
         {
-            return FamiliennameKY + "  " + VornameKY + " " + VatersnameKY;
+            return VornameKY + " " + FamiliennameKY;
         }
         public virtual string GetAlter()
         {
