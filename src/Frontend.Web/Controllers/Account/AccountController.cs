@@ -65,7 +65,7 @@ namespace Frontend.Web.Controllers
                 return Redirect("Dashboard");
             }
             
-            loginModel.Message = new ErrorMessage("Die Anmeldedaten sind nicht korrekt. | Пожалуйста, проверьте правильность написания логина и пароля");
+            loginModel.Message = new ErrorMessage("Die Anmeldedaten sind nicht korrekt. | Пожалуйста, проверьте правильность написания логина и пароля.");
             return View(loginModel);
         }
 
@@ -115,7 +115,7 @@ namespace Frontend.Web.Controllers
             DateTime outParseTest;
             if (!DateTime.TryParse(model.Geburtsdatum, CultureInfo.GetCultureInfo("de-DE"), DateTimeStyles.None,  out outParseTest))
             {
-                model.Message = new ErrorMessage("Das Geburtstdatum kann nicht verarbeitet werden. Bitte achten Sie auf das Eingabeformat: dd-mm-yyyy | Указанная Вами дата рождения неправильна. Пожалуйста обратите внимание на формат: дд-мм-гггг");
+                model.Message = new ErrorMessage("Das Geburtstdatum kann nicht verarbeitet werden. Bitte achten Sie auf das Eingabeformat: dd-mm-yyyy | Указанная Вами дата рождения неправильна. Пожалуйста обратите внимание на формат: дд-мм-гггг.");
                 return View(model);
             }
 
@@ -177,7 +177,7 @@ namespace Frontend.Web.Controllers
                 return Redirect("/Account/Dashboard/passwortGeaendert");
             }
             
-            passwortAendernModel.Message = new ErrorMessage("Das alte Passwort ist nicht korrekt. | Ваш старый пароль, который Вы ввели, неправильный");
+            passwortAendernModel.Message = new ErrorMessage("Das alte Passwort ist nicht korrekt. | Ваш старый пароль, который Вы ввели, неправильный.");
 
             return View(passwortAendernModel);
         }

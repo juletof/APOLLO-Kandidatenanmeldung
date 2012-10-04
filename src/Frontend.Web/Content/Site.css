@@ -1189,3 +1189,17 @@ input, button, select, textarea, a.btn {
 span.fake {
  font-size: 12px;   
 }
+
+/*Internet-Explorer*/
+
+div.controls {
+width: 400px;
+}
+
+div.form-actions {
+    width:400px;
+    }
+    
+input.checkbox {
+    padding-left: 0px;
+    }
