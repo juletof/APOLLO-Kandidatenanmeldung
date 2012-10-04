@@ -37,7 +37,7 @@
     <table class="textlinksrechts">
         <tr>
             <td class="links"><p>Falls Sie Ihr Passwort vergessen haben, können Sie sich an die von Ihnen angegebene Email-Adresse einen Link schicken lassen, über den Sie sich ein neues Passwort setzen können.</p></td>
-            <td class="rechts"><p>Если вы забыли пароль, вы можете получить Übersetzung на емайл адрес заданный при регистрации. <b>Потом вы можете изменить пароль</b>.</p></td>
+            <td class="rechts"><p>Если Вы забыли свой пароль, мы пришлём на указанный Вами электронный адрес ссылку, по которой Вы сможете изменить его.</p></td>
         </tr>
     </table>
     @Html.Message(Model.Message)
@@ -46,14 +46,14 @@
             <div class="control-group" style="margin-bottom: 0px;">
                 <label class="control-label">Ihre Emailadresse | Ваш емайл адрес:</label>
                 <div class="controls">
-                    @Html.TextBoxFor(x => x.Emailadresse)
+                    @Html.TextBoxFor(x => x.Emailadresse, new {@style = "width: 226px;"})
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Emailadresse)</span>
                 </div>
                 <div class="controls">
-                    <button class="btn btn-apollogruen button_rechts_mit_erklaerung" style="margin-left: 0px; margin-top: 20px;">Link anfordern | Запросить ...</button>
+                    <button class="btn btn-apollogruen button_rechts_mit_erklaerung" style="margin-left: 0px; margin-top: 20px; width:240px;">Link anfordern | Запросить ссылку</button>
                 </div>
                 <div class="controls">
-                    <a href="@Url.Action("Login", "Account")" class="btn button_rechts_mit_erklaerung" style="margin-left: 0px; margin-top: 10px;">Abbrechen | Отменить</a>
+                    <a href="@Url.Action("Login", "Account")" class="btn button_rechts_mit_erklaerung" style="margin-left: 0px; margin-top: 10px; width:218px;">Abbrechen | Отменить</a>
                 </div>
             </div>
         </div>

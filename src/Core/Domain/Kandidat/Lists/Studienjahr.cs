@@ -4,9 +4,9 @@
     {
         public Studienjahr()
         {
-            Add(1, "3 курс", "3. Studienjahr");
-            Add(2, "4 курс", "4. Studienjahr");
-            Add(3, "другое (аспиранты, магистры, после техникума)", "sonstige (Aspiranten, Magister, nach Technikum)");
+            Add(1, "3. Studienjahr", "3 курс");
+            Add(2, "4. Studienjahr", "4 курс");
+            Add(3, "sonstige (Aspiranten, Magister, nach Technikum)", "другое (аспиранты, магистры, после техникума)");
         }
     }
 }

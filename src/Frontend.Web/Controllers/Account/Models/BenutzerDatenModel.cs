@@ -34,6 +34,6 @@ public class BenutzerDatenModel
     public string VatersnameKY { get; set; }
 
     [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
-    [RegularExpression(Regexes.Email, ErrorMessage = "Bitte geben Sie eine gültige Emailadresse an. | Übersetzung")]
+    [RegularExpression(Regexes.Email, ErrorMessage = "Bitte geben Sie eine gültige Emailadresse an. | Пожалуйста введите правильный электронный адрес.")]
     public string Emailadresse { get; set; }
 }

@@ -27,7 +27,7 @@
             <h2>Kontaktformular</h2>
         </td>
         <td class="rechts">
-            <h2>Übersetzung</h2>
+            <h2>Контактный формуляр</h2>
         </td>
     </tr>
 </table>
@@ -55,21 +55,22 @@
                 </p>
             </td>
             <td class="rechts">
-                Übersetzung
+                <p>Если у Вас появятся вопросы, проблемы или пожелания, пришлите нам сообщение (можно на русском). Мы свяжемся с Вами.
+                <br /><b>Так как наша страница находится в стадии разработки, то мы будем Вам очень признательны за Ваши комментарии и подсказки, если что-то не работает или непонятно. Помогите нам усовершенствовать эту страницу!</b></p>
             </td>
         </tr>
     </table>
     <table class="textlinksrechts">
         <div class="form-horizontal">
             <div class="control-group">
-                <label class="control-label">Ihre Nachricht an uns | Übersetzung:</label>
+                <label class="control-label">Ihre Nachricht an uns | Ваше сообщение:</label>
                 <div class="controls">
                     @Html.TextAreaFor(x => x.Text, new{ @class = "formular",  @style = "width: 350px; height:220px;" })
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Text)</span>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">Ihre Email-Adresse | Übersetzung:</label>
+                <label class="control-label">Ihre Email-Adresse | Ваш электронный адрес:</label>
                 <div class="controls">
                     @Html.TextBoxFor(x => x.Email, new {@style = "width: 350px;"})
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Email)</span>

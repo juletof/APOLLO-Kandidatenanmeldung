@@ -6,8 +6,8 @@ namespace ApolloDb
     {
         public Message Message;
 
-        [Required(ErrorMessage = "* Bitte geben Sie eine Emailadresse ein. | Übersetzung")]
-        [RegularExpression(Regexes.Email, ErrorMessage = "Bitte geben Sie eine gültige Emailadresse an. | Übersetzung")]
+        [Required(ErrorMessage = "* Bitte geben Sie eine Emailadresse ein. | Пожалуйста введите свой электронный адрес.")]
+        [RegularExpression(Regexes.Email, ErrorMessage = "Bitte geben Sie eine gültige Emailadresse an. | Пожалуйста введите правильный электронный адрес.")]
         public string Emailadresse { get; set; }
 
     }

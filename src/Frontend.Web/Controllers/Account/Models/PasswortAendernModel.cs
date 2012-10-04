@@ -14,6 +14,6 @@ public class PasswortAendernModel
     public string NeuesPasswort1 { get; set; }
     
     [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
-    [Compare("NeuesPasswort1", ErrorMessage = "Die Passwörter stimmen nicht über ein. | Übersetzung")]
+    [Compare("NeuesPasswort1", ErrorMessage = "Die Passwörter stimmen nicht über ein. | Введённые Вами пароли не совпадают.")]
     public string NeuesPasswort2 { get; set; }
 }

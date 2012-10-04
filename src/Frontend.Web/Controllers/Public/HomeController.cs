@@ -80,7 +80,7 @@ namespace Frontend.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                kontaktModel.Message = new ErrorMessage("Die Eingaben sind nicht vollständig. | Übersetzung");
+                kontaktModel.Message = new ErrorMessage("Die Eingaben sind nicht vollständig. | Вы ввели не все требуемые данные.");
                 return View(kontaktModel);
             }
 
@@ -90,7 +90,7 @@ namespace Frontend.Web.Controllers
             mailMessage.Body = "VON: " + kontaktModel.Email + Environment.NewLine + Environment.NewLine + kontaktModel.Text;
             Sl.Resolve<SendMailMessage>().Run(mailMessage);
 
-            kontaktModel.Message = new SuccessMessage("Vielen Dank! Die Nachricht wurde übermittelt. | Übersetzung");
+            kontaktModel.Message = new SuccessMessage("Vielen Dank! Die Nachricht wurde übermittelt. | Спасибо! Ваше сообщение было успешно отправлено.");
             return View(kontaktModel);
         }
 

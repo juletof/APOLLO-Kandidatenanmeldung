@@ -40,7 +40,7 @@ namespace Frontend.Web.Controllers
 
             if(_emailAddressInUse.Yes(model.Emailadresse))
             {
-                model.Message = new ErrorMessage("Die Emailadresse ist bereits in Verwendung | Uebersetzung");
+                model.Message = new ErrorMessage("Die Emailadresse ist bereits in Verwendung | Этот электронный адрес уже используется другим пользователем.");
                 return View(model);
             }
 
@@ -65,7 +65,7 @@ namespace Frontend.Web.Controllers
                 return Redirect("Dashboard");
             }
             
-            loginModel.Message = new ErrorMessage("Die Anmeldedaten sind nicht korrekt. | Übersetzung");
+            loginModel.Message = new ErrorMessage("Die Anmeldedaten sind nicht korrekt. | Пожалуйста, проверьте правильность написания логина и пароля");
             return View(loginModel);
         }
 
@@ -115,7 +115,7 @@ namespace Frontend.Web.Controllers
             DateTime outParseTest;
             if (!DateTime.TryParse(model.Geburtsdatum, CultureInfo.GetCultureInfo("de-DE"), DateTimeStyles.None,  out outParseTest))
             {
-                model.Message = new ErrorMessage("Das Geburtstdatum kann nicht verarbeitet werden. Bitte achten Sie auf das Eingabeformat: dd-mm-yyyy | Übersetzung Формат: дд-мм-гггг");
+                model.Message = new ErrorMessage("Das Geburtstdatum kann nicht verarbeitet werden. Bitte achten Sie auf das Eingabeformat: dd-mm-yyyy | Указанная Вами дата рождения неправильна. Пожалуйста обратите внимание на формат: дд-мм-гггг");
                 return View(model);
             }
 
@@ -136,7 +136,7 @@ namespace Frontend.Web.Controllers
                 return View(model);
 
             _kandidatRepository.Update(BenutzerDatenModellFillFromUi.Run(model, _sessionUser.GetKandidat()));
-            model.Message = new SuccessMessage("Die Daten wurden gespeichert | Übersetzung");
+            model.Message = new SuccessMessage("Die Daten wurden gespeichert | Данные были удачно сохранены.");
 
             return View(model);
         }
@@ -151,9 +151,9 @@ namespace Frontend.Web.Controllers
         {
             var result = Sl.Resolve<PasswortVergessen>().Run(model.Emailadresse);
             if(result.DieEmailExisitertNicht)
-                model.Message = new ErrorMessage("Diese Email-Adresse ist nicht im System registriert. | Übersetzung");
+                model.Message = new ErrorMessage("Diese Email-Adresse ist nicht im System registriert. | Этот электронный адрес не зарегистрирован в системе.");
             else if(result.Success)
-                model.Message = new SuccessMessage("Eine Benachrichtigung wird verschickt. | Übersetzung");
+                model.Message = new SuccessMessage("Eine Benachrichtigung wird verschickt. | Вам было отправлено сообщение на указанный электронный адрес.");
 
             return View(model);
         }
@@ -177,7 +177,7 @@ namespace Frontend.Web.Controllers
                 return Redirect("/Account/Dashboard/passwortGeaendert");
             }
             
-            passwortAendernModel.Message = new ErrorMessage("Das alte Passwort ist nicht korrekt. | Übersetzung");
+            passwortAendernModel.Message = new ErrorMessage("Das alte Passwort ist nicht korrekt. | Ваш старый пароль, который Вы ввели, неправильный");
 
             return View(passwortAendernModel);
         }
