@@ -76,7 +76,7 @@
             <div class="control-group">
                 <label class="control-label">Familienname | Фамилия:</label>
                 <div class="controls">
-                    @Html.TextBoxFor(x => x.Familienname, new {@placeholder = "латинскими буквами", @class = "formular"})
+                    @Html.TextBoxFor(x => x.Familienname, new { @placeholder = "латинскими буквами", @class = "formular" })
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Familienname)</span>
                      <span class="help-inline alphabet">латинскими буквами</span>
                 </div>
@@ -84,7 +84,7 @@
             <div class="control-group">
                 <label class="control-label">Vorname | Имя:</label>
                 <div class="controls">
-                    @Html.TextBoxFor(x => x.Vorname, new {@placeholder = "латинскими буквами", @class = "formular"})
+                    @Html.TextBoxFor(x => x.Vorname, new { @placeholder = "латинскими буквами", @class = "formular" })
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Vorname)</span>
                     <span class="help-inline alphabet">латинскими буквами</span>
                 </div>
@@ -100,7 +100,7 @@
             <div class="control-group">
                 <label class="control-label">Nummer des Inlandspasses | Номер российского пасспорта</label>
                 <div class="controls zweisprachig">
-                    @Html.TextBoxFor(x => x.Inlandspass, new {@class = "formular"})
+                    @Html.TextBoxFor(x => x.Inlandspass, new { @class = "formular" })
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Inlandspass)</span>
                     <span class="help-block">Beispiel: 12 34 567890 | Пример: 12 34 567890</span>
                 </div>
@@ -108,7 +108,86 @@
             <div class="control-group">
                 <label class="control-label">Mobilfunknummer (freiwillige Angabe)| Номер мобильного телефона (по желанию):</label>
                 <div class="controls mehrzeilig">
-                    @Html.TextBoxFor(x => x.Mobilfunknummer, new {@class = "formular"})
+                    @Html.TextBoxFor(x => x.Mobilfunknummer, new { @class = "formular" })
+                </div>
+            </div>
+        </div>
+    </table>
+    <table class="textlinksrechts admin">
+                <h3 class="admin" style="text-align:center;">Admin</h3>
+    </table>
+    <table class="textlinksrechts admin">
+        <div class="form-horizontal admin">
+            <div class="control-group">
+                <label class="control-label">ID:</label>
+                <div class="controls">
+                    <p class="nurtext">Wert</p>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Alter:</label>
+                <div class="controls">
+                    <p class="nurtext">Wert</p>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Status:</label>
+                <div class="controls">
+                    <select>
+                        <option>0 - ausgeschlossen</option>
+                        <option>1 - registriert</option>
+                        <option>2 - angemeldet</option>
+                        <option>3 - zugelassen</option>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Registriert am:</label>
+                <div class="controls">
+                    <p class="nurtext">Wert</p>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Anmeldung am:</label>
+                <div class="controls">
+                    <p class="nurtext">Wert</p>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Zugelassen am:</label>
+                <div class="controls">
+                    <p class="nurtext">Wert</p>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Warnung:</label>
+                <div class="controls">
+                <p class="nurtext">wenn Studienfach "sonstige" > "Studienfach", 
+                wenn bereits Aufenthalt > "früherer Aufenthalt", 
+                wenn Alter kleiner 18/größer 24 > "Alter", 
+                wenn Abschluss "sonstige">"Abschluss", 
+                wenn Studienjahr "sonstige" > "Studienjahr"</p>
+                </div>
+            </div>
+            <div class="control-group" style="margin-bottom:0px;">
+                <label class="control-label">Kommentar Apollo:</label>
+                <div class="controls">
+                    @Html.TextAreaFor(x => x.Kommentar,
+                                             new
+                                             {
+                                                 @class = "input-xlarge",
+                                                 @style = "height: 180px; height:100px;"
+                                             })
+                </div>
+            </div>
+        </div>
+    </table>
+    <table class="textlinksrechts">
+        <div class="form-horizontal">
+            <div class="control-group">
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-apollogruen" style="width:200px;">Ändern</button><br />
+                    <a class="btn" href='@Url.Action("Index", "Admin")'>abbrechen (ohne speichern)</a>
                 </div>
             </div>
         </div>
@@ -135,7 +214,7 @@
             <div class="control-group">
                 <label class="control-label">Fakultät | Факультет:</label>
                 <div class="controls zweisprachig">
-                    @Html.TextBoxFor(x => x.Fakultaet, new {@class = "formular", @placeholder = "по-русски"})
+                    @Html.TextBoxFor(x => x.Fakultaet, new { @class = "formular", @placeholder = "по-русски" })
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Fakultaet)</span>
                     <span class="help-inline alphabet">по-русски</span>
                 </div>
@@ -143,7 +222,7 @@
             <div class="control-group">
                 <label class="control-label">Spezialisierung | Специальность:</label>
                 <div class="controls zweisprachig">
-                    @Html.TextBoxFor(x => x.Studienfach, new {@class = "formular", @placeholder = "по-русски"})
+                    @Html.TextBoxFor(x => x.Studienfach, new { @class = "formular", @placeholder = "по-русски" })
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Studienfach)</span>
                     <span class="help-inline alphabet">по-русски</span>
                 </div>
@@ -249,26 +328,27 @@
             <div class="control-group">
                 <label class="control-label">Wenn ja, mit welchem Programm? | Если да, то в какой программе?:</label>
                 <div class="controls mehrzeilig">
-                    @Html.TextBoxFor(x => x.BereitsAufenthaltProgramm, new {@class = "formular", @placeholder = "по-русски"})
+                    @Html.TextBoxFor(x => x.BereitsAufenthaltProgramm, new { @class = "formular", @placeholder = "по-русски" })
                     <span class="help-inline alphabet">по-русски</span>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Kommentare (optional)| Замечания, если есть (по всем разделам):</label>
                 <div class="controls">
-                    @Html.TextAreaFor(x => x.Kommentar, 
-                                             new{
-                                                    @class = "input-xlarge", 
-                                                    @placeholder = "по-русски", 
-                                                    @style = "height: 180px; height:100px;"
-                                                })
+                    @Html.TextAreaFor(x => x.Kommentar,
+                                             new
+                                             {
+                                                 @class = "input-xlarge",
+                                                 @placeholder = "по-русски",
+                                                 @style = "height: 180px; height:100px;"
+                                             })
                     <span class="help-inline alphabet">по-русски</span>
                 </div>
             </div>
             <div class="control-group">
                 <div class="controls">
                     <label class="checkbox" style="text-align:justify;">
-                        @Html.CheckBoxFor(x => x.AcceptTerms, new {@class = "checkbox mehrzeilig"})
+                        @Html.CheckBoxFor(x => x.AcceptTerms, new { @class = "checkbox mehrzeilig" })
                         <span class="errorAnotation">@Html.ValidationMessageFor(x => x.AcceptTerms)</span>
                         Hiermit bewerbe ich mich für das Auswahlverfahren der APOLLO e.V. 
                         Ich versichere, dass ich alle Angaben wahrheitsgemäß gemacht habe.
@@ -277,10 +357,14 @@
                     </label>
                 </div>
             </div>
+        </div>
+    </table>
+    <table class="textlinksrechts">
+        <div class="form-horizontal">
             <div class="control-group">
                 <div class="form-actions">
                     <button type="submit" class="btn btn-block btn-apollogruen" style="margin-bottom:0px;">Eingaben absenden | Отправить</button>
-                    <a class="btn btn-block" href='@Url.Action("Dashboard","Account")'>abbrechen (ohne speichern) | сбросить (без сохранения)</a>
+                    <a class="btn btn-block" href='@Url.Action("Dashboard", "Account")'>abbrechen (ohne speichern) | сбросить (без сохранения)</a>
                 </div>
             </div>
         </div>
