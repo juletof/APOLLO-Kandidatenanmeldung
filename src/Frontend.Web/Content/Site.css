@@ -903,7 +903,6 @@ margin-top: -15px;
 
 .nav-tabs > li > a {
 padding: 5px;
-line-height: 1em;
 text-align: center;
 }
 
@@ -977,6 +976,12 @@ width:290px;
 position:absolute;
 bottom:8px;
 }
+
+/*Text statt Formularfeld*/
+
+div.controls .nurtext {
+    margin-top:0px;
+    }
 
 /*
 .form-horizontal .control-label {
@@ -1203,3 +1208,12 @@ div.form-actions {
 input.checkbox {
     padding-left: 0px;
     }
+    
+/*Admin*/
+.admin {
+color: #B71C00;
+}
+
+.admin div, .admin legend,.admin label,.admin h3 {
+color: #B71C00;
+}
