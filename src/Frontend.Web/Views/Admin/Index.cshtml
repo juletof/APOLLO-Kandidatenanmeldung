@@ -3,9 +3,33 @@
     ViewBag.Title = "Verwaltung_Kandidaten";
 }
 
+<script type="text/javascript">
 
-<div style="margin-right: 20px; margin-bottom: 20px">
-    <h2>Verwaltung</h2>
+    $(function () {
+        // $('#Datensatz_loeschen').modal(options)
+    });
+
+    $(function () {
+        // $('#Kandidat_zulassen').modal(options)
+    });
+
+    $(function () {
+        // $('#Kandidat_ausschliessen').modal(options)
+    });
+
+    $(function () {
+        // $('#Kommentar_Kandidat').modal(options)
+    });
+
+    $(function () {
+        // $('#Kommentar_Apollo').modal(options)
+    });
+
+</script>
+
+
+<div style="margin-right: 20px; margin-bottom: 0px; margin-top:0px;">
+    <h2 style="margin-bottom: 0px; margin-top:0px; line-height:auto;">Verwaltung</h2>
 </div>
 
 <div class="inhalt_ebene2">				
@@ -15,7 +39,7 @@
 	    </div>
 					
 	    <div class="control-group" style="margin-bottom: 5px">
-		    <div class="controls">
+		    <div class="controls"; style="width:840px;">
                 <label class="checkbox inline">
                     <input type="checkbox">0 - ausgeschieden</input>
                 </label>
@@ -38,36 +62,61 @@
 </div>
 
 <div class="tabbable" style="margin-left: 180px; margin-top: 3px; margin-bottom: 15px;">
-<ul class="nav nav-tabs" style="margin-bottom: 0px;">
-	<li class=""><a href="#tab1" data-toggle="tab">Universität</a></li>
-	<li class="active"><a href="#tab2" data-toggle="tab">Freitextsuche</a></li>
-</ul>
-<div class="tab-content" style="padding-top: 5px;">
-	<div class="tab-pane" id="tab1">
-	<div class="control-group" style="margin-bottom: 0px">
-		<div class="controls">
-			<select  style="margin-bottom: 5px">
-				<option>alle Universitaeten</option>
-				<option>Brjansk</option>
-				<option>Saratov</option>
-				<option>Ufa</option>
-				<option>...</option>
-			</select>
-		</div>
-	</div>
-	</div>
-	<div class="tab-pane active" id="tab2">
-	<div class="control-group" style="margin-bottom: 0px">
-		<div class="controls">
-			<input type="text" placeholder="Freitextsuche" style="margin-bottom: 5px;">
-			<button class="btn" style="vertical-align: top">
-			<i class="icon-search"></i>
-			</button>
-		</div>
-	</div>
-	</div>
+    <ul class="nav nav-tabs">
+	    <li class=""><a href="#tab1" data-toggle="tab">Universität</a></li>
+	    <li class="active"><a href="#tab2" data-toggle="tab">Freitextsuche</a></li>
+        <li class=""><a href="#tab3" data-toggle="tab">Datum</a></li>
+        <li class=""><a href="#tab4" data-toggle="tab">Filter entfernen</a></li>
+    </ul>
+    <div class="tab-content" style="padding-top: 5px; overflow:hidden;">
+	    <div class="tab-pane" id="tab1">
+	        <div class="control-group" style="margin-bottom: 0px">
+		        <div class="controls">
+                    <div class="input-append" style="margin-bottom:0px;">
+			            <select  style="margin-bottom: 5px">
+				            <option>alle Universitäten</option>
+				            <option>Brjansk</option>
+				            <option>Saratov</option>
+				            <option>Ufa</option>
+				            <option>...</option>
+			            </select>
+                        <button class="btn" title="Filtern"><i class="icon-filter"></i></button>
+                    </div>
+		        </div>
+	        </div>
+	    </div>
+	    <div class="tab-pane active" id="tab2">
+	        <div class="control-group" style="margin-bottom: 0px">
+		        <div class="controls">
+			        <div class="input-append" style="margin-bottom:0px;">
+                        <input type="text" style="margin-bottom: 5px;">
+			            <button class="btn" style="vertical-align: top" title="Suchen">
+			            <i class="icon-search"></i>
+			            </button>
+                    </div>
+		        </div>
+	        </div>
+	    </div>
+        <div class="tab-pane" id="tab3">
+	        <div class="control-group" style="margin-bottom: 0px">
+		        <form class="form-inline" style="margin-bottom:0px;">
+			        Aktueller Status zugewiesen zwischen <input type="text" placeholder="dd.mm.yyyy" style="margin-bottom: 5px; width:80px;"> und <input type="text" placeholder="dd.mm.yyyy" style="margin-bottom: 5px; width:80px;"> 
+			        <button class="btn" style="vertical-align: top" title="Filtern">
+			        <i class="icon-filter"></i>
+			        </button>
+                </form>
+		    </div>
+	    </div>
+        <div class="tab-pane" id="tab4">
+	        <div class="control-group" style="margin-bottom: 0px">
+                <form class="form-inline" style="margin-bottom:0px; height:35px;">
+		        Der aktuelle Filter wurde entfernt.
+                </form>
+		    </div>
+	    </div>
+    </div>
 </div>
-</div>
+
 
 <div style="margin-top:5px; margin-bottom: 5px;">
 
@@ -87,20 +136,21 @@
     <a class="btn" href="#">auswählen...</a>
     <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
     <ul class="dropdown-menu">
+        <li><a href="#">alle auf dieser Seite</a></li>
         <li><a href="#">alle mit den aktuellen Filtern</a></li>
-        <li><a href="#">alle (auf dieser Seite)</a></li>
 	    <li><a href="#">keine</a></li>
     </ul>
 </div>
 
 <div class="btn-group">
-    <a class="btn btn-apollogruen" href="#">x ausgewählte Datensätze...</a>
+    <a class="btn btn-apollogruen" href="#">Aktion: ausgewählte...</a>
     <a class="btn btn-apollogruen dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
     <ul class="dropdown-menu">
         <li><a href="#">Kandidaten zulassen</a></li>
-	    <li><a href="#">alle Daten exportieren</a></li>
+        <li><a href="#">Kandidaten ausschließen</a></li>
+        <li><a href="#">Datensätze löschen</a></li>
+	    <li><a href="#">Datensätze exportieren</a></li>
 	    <li><a href="#">Email-Adressen exportieren</a></li>
-	    <li><a href="#">...</a></li>
     </ul>
 </div>
 </div>
@@ -115,7 +165,7 @@
             <th width="15%">Studium</th>
             <th width="20%">Daten und Kontakt</th>
             <th width="15%">Status</th>
-            <th width="15%"></th>
+            <th width="15%">Infos</th>
         </tr>
     </thead>
     <tbody style="background-color: #CFE69E">
@@ -156,14 +206,22 @@
                 </td>
                 <td style="line-height: 13px;">
                     <span class="klein">Aktueller Status seit: 01.10.12</span><br />
-                    <span class="klein">Warnung: keine</span>
+                    <span class="klein">Warnung: <span class="warnung">Alter</span>
+                    <br /><a href="#" style="color:#568B3B;" title="Könnte man hier so den Kommentar anzeigen?">Kommentar Kandidat</a>
+                    <br /><a href="#" style="color:#568B3B;" title="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
+                            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.                          Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. At vero eos et accusam et justo duo dolores et ea rebum.">
+                            Kommentar Apollo
+                          </a>
+                      </span>
                 </td>
             </tr>
         }
 
         <tr>
             <td class="checkbox">
-                <i class="icon-bell icon-white" style="background-color:#FFBB22;"></i>
+                <i class="icon-bell icon-white" style="background-color:#B71C00;"></i>
                 <input type="checkbox">
             </td>
             <td>
@@ -183,15 +241,60 @@
             <td>
                 <p>
                     <span class="klein">
-                        miroschnikova_anastasiya@mail.ru<br/>
+                        miroschnikova_ansatasiya@mail.ru<br/>
                         Mob. +79876...
+                    </span>
+                </p>
+                <p><a href="#" target="_blank"><i class="icon-list-alt"><span class="aktion"><nobr>zum kompletten Datensatz</nobr></span></i></a></p>
+                <p><a href="#Datensatz_loeschen" role="button" data-toggle="modal"><i class="icon-trash"><span class="warnung"><nobr>Datensatz löschen</nobr></span></i></a></p>
+            </td>
+            <td>
+                <b>2 - <span class="klein">Daten vollständig</span></b>
+                <p><a href="#Kandidat_zulassen" role="button" data-toggle="modal"><i class="icon-ok"><span class="aktion"><nobr>jetzt zulassen</nobr></span></i></a></p>
+                <p><a href="#" target="_blank"><i class="icon-pencil"><span class="warnung"><nobr>Status ändern</nobr></span></i></a></p>
+                <p><a href="#Kandidat_ausschliessen" role="button" data-toggle="modal"><i class="icon-remove"><span class="warnung"><nobr>jetzt ausschließen</nobr></span></i></a></p>
+            </td>
+            <td style="line-height: 13px;">
+                <span class="klein">Aktueller Status seit: 24.09.12</span>
+                 
+                <br /><span class="klein">Warnung: <span class="warnung">Alter</span>
+                          <br /><a href="#Kommentar_Kandidat" role="button" data-toggle="modal" style="color:#568B3B;" title="Könnte man hier so den Kommentar anzeigen?">Kommentar Kandidat</a>
+                          <br /><a href="#Kommentar_Apollo" role="button" data-toggle="modal" style="color:#568B3B;">Kommentar Apollo</a>
+                      </span>
+            </td>
+        </tr>
+         <tr>
+            <td class="checkbox">
+                <i class="icon-time icon-white" style="background-color:#FFBB22;"></i>
+
+                <input type="checkbox">
+            </td>
+            <td>
+                <b></b>
+                <br>
+                <span class="klein">Иванов, Иван Иванович <br />
+                    </span>
+                <br />
+            </td>
+
+            <td><b></b></td>
+            <td><b></b>
+                <br />
+                <b></b><br />
+                
+            </td>
+            <td>
+                <p>
+                    <span class="klein">
+                        vanya91@rambler.ru<br/>
+                        
                     </span>
                 </p>
                 <p><a href="#" target="_blank"><i class="icon-list-alt"><span class="aktion"><nobr>zum kompletten Datensatz</nobr></span></i></a></p>
                 <p><a href="#" target="_blank"><i class="icon-trash"><span class="warnung"><nobr>Datensatz löschen</nobr></span></i></a></p>
             </td>
             <td>
-                <b>2 - <span class="klein">Daten vollständig</span></b>
+                <b>1 - <span class="klein">registriert</span></b>
                 <p><a href="#" target="_blank"><i class="icon-ok"><span class="aktion"><nobr>jetzt zulassen</nobr></span></i></a></p>
                 <p><a href="#" target="_blank"><i class="icon-pencil"><span class="warnung"><nobr>Status ändern</nobr></span></i></a></p>
                 <p><a href="#" target="_blank"><i class="icon-remove"><span class="warnung"><nobr>jetzt ausschließen</nobr></span></i></a></p>
@@ -207,7 +310,7 @@
         </tr>
          <tr>
             <td class="checkbox">
-                <i class="icon-bell icon-white" style="background-color:#FFBB22;"></i>
+                <i class="icon-remove icon-white" style="background-color:black;"></i>
                 <input type="checkbox">
             </td>
             <td>
@@ -227,7 +330,7 @@
             <td>
                 <p>
                     <span class="klein">
-                        miroschnikova_anastasiya@mail.ru<br/>
+                        miroschnikova_ansatasiya@mail.ru<br/>
                         Mob. +79876...
                     </span>
                 </p>
@@ -235,51 +338,7 @@
                 <p><a href="#" target="_blank"><i class="icon-trash"><span class="warnung"><nobr>Datensatz löschen</nobr></span></i></a></p>
             </td>
             <td>
-                <b>2 - <span class="klein">Daten vollständig</span></b>
-                <p><a href="#" target="_blank"><i class="icon-ok"><span class="aktion"><nobr>jetzt zulassen</nobr></span></i></a></p>
-                <p><a href="#" target="_blank"><i class="icon-pencil"><span class="warnung"><nobr>Status ändern</nobr></span></i></a></p>
-                <p><a href="#" target="_blank"><i class="icon-remove"><span class="warnung"><nobr>jetzt ausschließen</nobr></span></i></a></p>
-            </td>
-            <td style="line-height: 13px;">
-                <span class="klein">Aktueller Status seit: 24.09.12</span>
-                 
-                <br /><span class="klein">Warnung: <span class="warnung">Alter</span>
-                          <br /><a href="#" style="color:#568B3B;" title="Könnte man hier so den Kommentar anzeigen?">Kommentar Kandidat</a>
-                          <br /><a href="#" style="color:#568B3B;">Kommentar Apollo</a>
-                      </span>
-            </td>
-        </tr>
-         <tr>
-            <td class="checkbox">
-                <i class="icon-bell icon-white" style="background-color:#FFBB22;"></i>
-                <input type="checkbox">
-            </td>
-            <td>
-                <b>Ivanov, Ivan</b>
-                <br>
-                <span class="klein">(Иванов, Иван Иванович) <br />
-                    Geb. 25.06.1991 (22 Jahre)</span>
-                <br />
-            </td>
-
-            <td><b>Stavropol</b></td>
-            <td><b>Mechanisierung</b>
-                <br />
-                <b>4. Kurs</b><br />
-                Diplom
-            </td>
-            <td>
-                <p>
-                    <span class="klein">
-                        miroschnikova_anastasiya@mail.ru<br/>
-                        Mob. +79876...
-                    </span>
-                </p>
-                <p><a href="#" target="_blank"><i class="icon-list-alt"><span class="aktion"><nobr>zum kompletten Datensatz</nobr></span></i></a></p>
-                <p><a href="#" target="_blank"><i class="icon-trash"><span class="warnung"><nobr>Datensatz löschen</nobr></span></i></a></p>
-            </td>
-            <td>
-                <b>2 - <span class="klein">Daten vollständig</span></b>
+                <b>0 - <span class="klein">ausgeschlossen</span></b>
                 <p><a href="#" target="_blank"><i class="icon-ok"><span class="aktion"><nobr>jetzt zulassen</nobr></span></i></a></p>
                 <p><a href="#" target="_blank"><i class="icon-pencil"><span class="warnung"><nobr>Status ändern</nobr></span></i></a></p>
                 <p><a href="#" target="_blank"><i class="icon-remove"><span class="warnung"><nobr>jetzt ausschließen</nobr></span></i></a></p>
@@ -296,6 +355,78 @@
     </tbody>
 </table>
 
-<i class="icon-ok icon-white" style="background-color:#568B3B;"></i><i class="icon-minus icon-white" style="background-color:#FFBB22;"></i><i class="icon-bell icon-white" style="background-color:#FFBB22;"></i><i class="icon-remove icon-white" style="background-color:#B71C00;"></i><br>
-<i class="icon-ok icon-white" style="background-color:#568B3B;"></i><i class="icon-minus icon-white" style="background-color:#FFBB22;"></i><i class="icon-bell icon-white" style="background-color:#B71C00;"></i><i class="icon-remove icon-white" style="background-color:black;"></i>
+<i class="icon-ok icon-white" style="background-color:#568B3B;"></i> Kandidat zugelassen<br />
+<i class="icon-time icon-white" style="background-color:#FFBB22;"></i> Aktion Kandidat abwarten<br />
+<i class="icon-bell icon-white" style="background-color:#B71C00;"></i> Aktion Apollo erforderlich<br />
+<i class="icon-remove icon-white" style="background-color:black;"></i> Kandidat ausgeschieden<br>
 
+<!--Modals-->
+
+<div class="modal hide fade" id="Datensatz_loeschen" tabindex="-1" role="dialog" aria-labelledby="Datensatz_loeschenLabel" aria-hidden="false" style="overflow:hidden;">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="Datensatz_loeschenLabel">Datensatz löschen</h3>
+  </div>
+  <div class="modal-body" style="max-height:200px;overflow:auto;">
+    <p>Möchten Sie wirklich den Datensatz XXX (unwiderruflich?) löschen?</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Abbrechen</button>
+    <button class="btn btn-danger btn-primary">Ja, löschen</button>
+  </div>
+</div>
+
+<div class="modal hide fade" id="Kandidat_zulassen" tabindex="-1" role="dialog" aria-labelledby="Kandidat_zulassenLabel" aria-hidden="false" style="overflow:hidden;">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="Kandidat_zulassenLabel">Kandidat zulassen</h3>
+  </div>
+  <div class="modal-body" style="max-height:200px;overflow:auto;">
+    <p>Möchten Sie den Kandidat XXX jetzt zulassen?</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Abbrechen</button>
+    <button class="btn btn-apollogruen btn-primary">Ja, zulassen</button>
+  </div>
+</div>
+
+<div class="modal hide fade" id="Kandidat_ausschliessen" tabindex="-1" role="dialog" aria-labelledby="Kandidat_ausschliessenLabel" aria-hidden="false" style="overflow:hidden;">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="Kandidat_ausschliessenLabel">Kandidat ausschließen</h3>
+  </div>
+  <div class="modal-body" style="max-height:200px;overflow:auto;">
+    <p>Möchten Sie den Kandidat XXX wirklich ausschließen?</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Abbrechen</button>
+    <button class="btn btn-danger btn-primary">Ja, ausschließen</button>
+  </div>
+</div>
+
+<div class="modal hide fade" id="Kommentar_Kandidat" tabindex="-1" role="dialog" aria-labelledby="Kommentar_KandidatLabel" aria-hidden="false" style="overflow:hidden;">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="Kommentar_KandidatLabel">Kommentar Kandidat</h3>
+  </div>
+  <div class="modal-body" style="max-height:200px;overflow:auto;">
+    <p>Kommentar</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Schließen</button>
+  </div>
+</div>
+
+<div class="modal hide fade" id="Kommentar_Apollo" tabindex="-1" role="dialog" aria-labelledby="Kommentar_ApolloLabel" aria-hidden="false" style="overflow:hidden;">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="Kommentar_ApolloLabel">Kommentar Apollo</h3>
+  </div>
+  <div class="modal-body" style="max-height:200px;overflow:auto;">
+    <p>Kommentar</p>
+  </div>
+  <div class="modal-footer">
+    <a class="btn" href='@Url.Action("Anmeldung", "Account")'>Kommentar bearbeiten</a>
+    <button class="btn btn-apollogruen" data-dismiss="modal" aria-hidden="true">Schließen</button>
+  </div>
+</div>
