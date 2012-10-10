@@ -1,6 +1,6 @@
 ﻿@model PraktikantenModel
 @{
-    ViewBag.Title = "Verwaltung_Kandidaten";
+    ViewBag.Title = "Verwaltung Kandidaten";
 }
 
 <script type="text/javascript">
@@ -25,6 +25,7 @@
         // $('#Kommentar_Apollo').modal(options)
     });
 
+
 </script>
 
 
@@ -35,7 +36,7 @@
 <div class="inhalt_ebene2">				
     <div>
 	    <div style="float: left; margin-right: 10px; margin-bottom:10px; padding-top: 5px;">
-		    <b>Kandidaten anzeigen mit Status:</b>
+		    Kandidaten anzeigen mit Status:
 	    </div>
 					
 	    <div class="control-group" style="margin-bottom: 5px">
@@ -57,43 +58,32 @@
     </div>
 </div>
 			
-<div style="float: left; padding-top: 8px;">
-    <b>Datensätze filtern nach:</b>
-</div>
 
-<div class="tabbable" style="margin-left: 180px; margin-top: 3px; margin-bottom: 15px;">
-    <ul class="nav nav-tabs">
+
+<div class="tabbable" style="margin-top: 3px; margin-bottom: 15px; width:500px;float:left;">
+    <ul class="nav nav-tabs" style="border-bottom-color: 99CC33;">
 	    <li class=""><a href="#tab1" data-toggle="tab">Universität</a></li>
 	    <li class="active"><a href="#tab2" data-toggle="tab">Freitextsuche</a></li>
         <li class=""><a href="#tab3" data-toggle="tab">Datum</a></li>
-        <li class=""><a href="#tab4" data-toggle="tab">Filter entfernen</a></li>
     </ul>
-    <div class="tab-content" style="padding-top: 5px; overflow:hidden;">
+    <div class="tab-content" style="padding-top: 5px; padding-left: 5px; overflow:hidden; background-color:#CFE69E;border-color:#99CC33;border-style:solid;border-width:1px;border-top-color:transparent;">
 	    <div class="tab-pane" id="tab1">
 	        <div class="control-group" style="margin-bottom: 0px">
 		        <div class="controls">
-                    <div class="input-append" style="margin-bottom:0px;">
-			            <select  style="margin-bottom: 5px">
-				            <option>alle Universitäten</option>
-				            <option>Brjansk</option>
-				            <option>Saratov</option>
-				            <option>Ufa</option>
-				            <option>...</option>
-			            </select>
-                        <button class="btn" title="Filtern"><i class="icon-filter"></i></button>
-                    </div>
+			        <select  style="margin-bottom: 5px">
+				        <option>alle Universitäten</option>
+				        <option>Brjansk</option>
+				        <option>Saratov</option>
+				        <option>Ufa</option>
+				        <option>...</option>
+			        </select>
 		        </div>
 	        </div>
 	    </div>
 	    <div class="tab-pane active" id="tab2">
 	        <div class="control-group" style="margin-bottom: 0px">
 		        <div class="controls">
-			        <div class="input-append" style="margin-bottom:0px;">
-                        <input type="text" style="margin-bottom: 5px;">
-			            <button class="btn" style="vertical-align: top" title="Suchen">
-			            <i class="icon-search"></i>
-			            </button>
-                    </div>
+                    <input type="text" style="margin-bottom: 5px;">
 		        </div>
 	        </div>
 	    </div>
@@ -101,16 +91,6 @@
 	        <div class="control-group" style="margin-bottom: 0px">
 		        <form class="form-inline" style="margin-bottom:0px;">
 			        Aktueller Status zugewiesen zwischen <input type="text" placeholder="dd.mm.yyyy" style="margin-bottom: 5px; width:80px;"> und <input type="text" placeholder="dd.mm.yyyy" style="margin-bottom: 5px; width:80px;"> 
-			        <button class="btn" style="vertical-align: top" title="Filtern">
-			        <i class="icon-filter"></i>
-			        </button>
-                </form>
-		    </div>
-	    </div>
-        <div class="tab-pane" id="tab4">
-	        <div class="control-group" style="margin-bottom: 0px">
-                <form class="form-inline" style="margin-bottom:0px; height:35px;">
-		        Der aktuelle Filter wurde entfernt.
                 </form>
 		    </div>
 	    </div>
@@ -118,42 +98,48 @@
 </div>
 
 
+
+<div style="margin-top:40px; margin-left:515px;">
+      <a class="btn" title="gewählte Filter anwenden"><i class="icon-filter"></i></a>
+      <a class="btn" title="alle Filter entfernen"><i class="icon-remove"></i></a>
+</div>
+
+
 <div style="margin-top:5px; margin-bottom: 5px;">
 
-<p  style="float: left; margin-right: 10px; margin-top:5px;"><b>Datensätze 1-50 von 188</b></p>
+    <div class="btn-group" style="float: left; margin-right: 10px;">
+      <a class="btn" href="#"><i class="icon-list-alt"></i></a>
+      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="#">alle auswählen</a></li>
+        <li><a href="#">keinen auswählen</a></li>
+      </ul>
+    </div>
 
-<div class="btn-toolbar">
+    <div class="btn-group" style="float:left; margin-right:10px;">
+        <a class="btn btn-apollogruen" href="#">Aktion: xx ausgewählte...</a>
+        <a class="btn btn-apollogruen dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li><a href="#">Kandidaten zulassen</a></li>
+            <li><a href="#">Kandidaten ausschließen</a></li>
+            <li><a href="#">Datensätze löschen</a></li>
+	        <li><a href="#">Datensätze exportieren</a></li>
+	        <li><a href="#">Email-Adressen exportieren</a></li>
+        </ul>
+    </div>
 
-<div class="btn-group">
-    <button class="btn">&#171;</button>
-    <button class="btn disabled">1</button>
-    <button class="btn">2</button>
-    <button class="btn">3</button>
-    <button class="btn">&#187;</button>
-</div>
+    <div class="btn-group" style="float:right;">
+        <button class="btn">&#171;</button>
+        <button class="btn disabled">1</button>
+        <button class="btn">2</button>
+        <button class="btn">3</button>
+        <button class="btn">&#187;</button>
+    </div>
 
-<div class="btn-group">
-    <a class="btn" href="#">auswählen...</a>
-    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
-    <ul class="dropdown-menu">
-        <li><a href="#">alle auf dieser Seite</a></li>
-        <li><a href="#">alle mit den aktuellen Filtern</a></li>
-	    <li><a href="#">keine</a></li>
-    </ul>
-</div>
+    <div style="float: right;"><p style="margin-right: 10px; margin-top:5px;"><b>Datensätze 1-50 von 188</b></p></div>
 
-<div class="btn-group">
-    <a class="btn btn-apollogruen" href="#">Aktion: ausgewählte...</a>
-    <a class="btn btn-apollogruen dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
-    <ul class="dropdown-menu">
-        <li><a href="#">Kandidaten zulassen</a></li>
-        <li><a href="#">Kandidaten ausschließen</a></li>
-        <li><a href="#">Datensätze löschen</a></li>
-	    <li><a href="#">Datensätze exportieren</a></li>
-	    <li><a href="#">Email-Adressen exportieren</a></li>
-    </ul>
-</div>
-</div>
+        
+   
 </div>
 
 <table width="100%" class="tabelle-kandidaten table table-striped">
