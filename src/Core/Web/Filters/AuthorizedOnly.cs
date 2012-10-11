@@ -1,5 +1,4 @@
-﻿using System;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
 
 namespace ApolloDb
@@ -10,7 +9,7 @@ namespace ApolloDb
         {
             var sessionUser = Sl.Resolve<SessionUser>();
             if (!sessionUser.IsLoggedIn)
-                HttpContext.Current.Response.Redirect("/Account/LogOff", true);
+                filterContext.Result = new RedirectResult("/Account/LogOff");
 
             base.OnActionExecuting(filterContext);
         }
