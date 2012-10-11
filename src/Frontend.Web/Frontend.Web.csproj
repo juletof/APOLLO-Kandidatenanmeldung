@@ -120,8 +120,8 @@
     <Compile Include="Controllers\Account\Models\PasswortAendernModel.cs" />
     <Compile Include="Controllers\Account\Models\PasswortVergessenModel.cs" />
     <Compile Include="Controllers\Admin\Model\LoginModelAdmin.cs" />
-    <Compile Include="Controllers\Admin\Model\PraktikantenModel.cs" />
-    <Compile Include="Controllers\Admin\Model\PraktikantItemModel.cs" />
+    <Compile Include="Controllers\Admin\Model\KandidatenModel.cs" />
+    <Compile Include="Controllers\Admin\Model\KandidatItemModel.cs" />
     <Compile Include="Controllers\Account\AccountController.cs" />
     <Compile Include="Controllers\Admin\AdminController.cs" />
     <Compile Include="Controllers\Public\HomeController.cs" />

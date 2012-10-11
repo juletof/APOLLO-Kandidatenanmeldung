@@ -1,4 +1,6 @@
-﻿public class PraktikantItemModel
+﻿using ApolloDb;
+
+public class KandidatItemModel
 {
     public int Id;
     public string VollerName;
@@ -10,4 +12,10 @@
 
     public string Email;
     public string Mobilnummer;
+
+    public string Kurs;
+
+    public string Abschluss;
+
+    public KandidatStatus Status;
 }

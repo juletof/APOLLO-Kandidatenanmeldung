@@ -96,6 +96,7 @@
     <Compile Include="Domain\Kandidat\PasswortVergessen\PasswortVergessen.cs" />
     <Compile Include="Domain\Kandidat\PasswortVergessen\PasswortVergessenResult.cs" />
     <Compile Include="Domain\Kandidat\PasswortVergessen\Token\PasswortVergessenTokenMap.cs" />
+    <Compile Include="Domain\Kandidat\Persistence\KandidatSearchSpec.cs" />
     <Compile Include="Domain\Kandidat\Registrieren\HashPassword.cs" />
     <Compile Include="Domain\Kandidat\Registrieren\Login.cs" />
     <Compile Include="Domain\Kandidat\Registrieren\LoginResult.cs" />

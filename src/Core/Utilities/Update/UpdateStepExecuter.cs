@@ -31,10 +31,10 @@ namespace ApolloDb.Updates
                 UpdateToVs001.Run();
             }
 
-            var dbSettings = _dbSettingsRepository.Get();
+            var appVersion = _dbSettingsRepository.GetAppVersion();
 
             foreach (var dictionaryItem in _actions)
-                if (dbSettings.AppVersion < dictionaryItem.Key)
+                if (appVersion < dictionaryItem.Key)
                 {
                     Log.TraceInformation(String.Format("update to {0} - START", dictionaryItem.Key));
                     dictionaryItem.Value();

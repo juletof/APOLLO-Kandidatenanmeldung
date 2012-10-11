@@ -32,10 +32,24 @@ namespace Frontend.Web.Controllers
         }
 
 
+        [AuthorizedAdminOnly] [HttpPost]
+        public ActionResult Index(KandidatenModel kandidatenModel)
+        {
+            var searchSpec = new KandidatSearchSpec();
+
+            if (kandidatenModel.FilterZugelassen) searchSpec.Filter.Stati.Add(KandidatStatus.Zugelassen);
+            if (kandidatenModel.FilterRegistriert) searchSpec.Filter.Stati.Add(KandidatStatus.Registriert);
+            if (kandidatenModel.FilterDatenVollständig) searchSpec.Filter.Stati.Add(KandidatStatus.AnmeldungVollstaendig);
+            searchSpec.Filter.Stati.Add(KandidatStatus.NichtDefiniert);
+
+            kandidatenModel.SetKandidaten(_kandidatRepo.GetBy(searchSpec));
+            return View(kandidatenModel);
+        }
+
         [AuthorizedAdminOnly]
         public ActionResult Index()
         {
-            return View(new PraktikantenModel(_kandidatRepo.GetAll()));
+            return View(new KandidatenModel(_kandidatRepo.GetAll()));
         }
     }
 }

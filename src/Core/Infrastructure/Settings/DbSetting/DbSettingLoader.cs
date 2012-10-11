@@ -1,4 +1,5 @@
-﻿using NHibernate;
+﻿using System;
+using NHibernate;
 using Seedworks.Lib.Persistence;
 
 namespace ApolloDb.Infrastructure
@@ -17,10 +18,25 @@ namespace ApolloDb.Infrastructure
 
         public void UpdateAppVersion(int newAppVersion)
         {
+            if(newAppVersion == 2)
+            {
+                base.Create(new DbSettings {AppVersion = newAppVersion});
+                return;
+            }
+
             var dbSettings = Get();
             dbSettings.AppVersion = newAppVersion;
             base.Update(dbSettings);
             base.Flush();
+        }
+
+        public int GetAppVersion()
+        {
+            var sqlResult = _session.CreateSQLQuery("select AppVersion from Setting").UniqueResult();
+            if (sqlResult == null)
+                return 0;
+
+            return Convert.ToInt32(sqlResult);
         }
     }
 }

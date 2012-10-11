@@ -113,85 +113,91 @@
             </div>
         </div>
     </table>
+    
+    if(@Model.IsAdmin)
+    {
     <table class="textlinksrechts admin">
-                <h3 class="admin" style="text-align:center;">Admin</h3>
+        <h3 class="admin" style="text-align:center;">Admin</h3>
     </table>
-    <table class="textlinksrechts admin">
-        <div class="form-horizontal admin">
-            <div class="control-group">
-                <label class="control-label">ID:</label>
-                <div class="controls">
-                    <p class="nurtext">Wert</p>
+        <table class="textlinksrechts admin">
+            <div class="form-horizontal admin">
+                <div class="control-group">
+                    <label class="control-label">ID:</label>
+                    <div class="controls">
+                        <p class="nurtext">Wert</p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Alter:</label>
+                    <div class="controls">
+                        <p class="nurtext">Wert</p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Status:</label>
+                    <div class="controls">
+                        <select>
+                            <option>0 - ausgeschlossen</option>
+                            <option>1 - registriert</option>
+                            <option>2 - angemeldet</option>
+                            <option>3 - zugelassen</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Registriert am:</label>
+                    <div class="controls">
+                        <p class="nurtext">Wert</p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Anmeldung am:</label>
+                    <div class="controls">
+                        <p class="nurtext">Wert</p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Zugelassen am:</label>
+                    <div class="controls">
+                        <p class="nurtext">Wert</p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Warnung:</label>
+                    <div class="controls">
+                        <p class="nurtext">wenn Studienfach "sonstige" > "Studienfach", 
+                            wenn bereits Aufenthalt > "früherer Aufenthalt", 
+                            wenn Alter kleiner 18/größer 24 > "Alter", 
+                            wenn Abschluss "sonstige">"Abschluss", 
+                            wenn Studienjahr "sonstige" > "Studienjahr"</p>
+                    </div>
+                </div>
+                <div class="control-group" style="margin-bottom:0px;">
+                    <label class="control-label">Kommentar Apollo:</label>
+                    <div class="controls">
+                        @Html.TextAreaFor(x => x.Kommentar,
+                                          new
+                                              {
+                                                  @class = "input-xlarge",
+                                                  @style = "height: 180px; height:100px;"
+                                              })
+                    </div>
                 </div>
             </div>
-            <div class="control-group">
-                <label class="control-label">Alter:</label>
-                <div class="controls">
-                    <p class="nurtext">Wert</p>
+        </table>
+    
+        <table class="textlinksrechts">
+            <div class="form-horizontal">
+                <div class="control-group">
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-apollogruen" style="width:200px;">Ändern</button><br />
+                        <a class="btn" href='@Url.Action("Index", "Admin")'>abbrechen (ohne speichern)</a>
+                    </div>
                 </div>
             </div>
-            <div class="control-group">
-                <label class="control-label">Status:</label>
-                <div class="controls">
-                    <select>
-                        <option>0 - ausgeschlossen</option>
-                        <option>1 - registriert</option>
-                        <option>2 - angemeldet</option>
-                        <option>3 - zugelassen</option>
-                    </select>
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label">Registriert am:</label>
-                <div class="controls">
-                    <p class="nurtext">Wert</p>
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label">Anmeldung am:</label>
-                <div class="controls">
-                    <p class="nurtext">Wert</p>
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label">Zugelassen am:</label>
-                <div class="controls">
-                    <p class="nurtext">Wert</p>
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label">Warnung:</label>
-                <div class="controls">
-                <p class="nurtext">wenn Studienfach "sonstige" > "Studienfach", 
-                wenn bereits Aufenthalt > "früherer Aufenthalt", 
-                wenn Alter kleiner 18/größer 24 > "Alter", 
-                wenn Abschluss "sonstige">"Abschluss", 
-                wenn Studienjahr "sonstige" > "Studienjahr"</p>
-                </div>
-            </div>
-            <div class="control-group" style="margin-bottom:0px;">
-                <label class="control-label">Kommentar Apollo:</label>
-                <div class="controls">
-                    @Html.TextAreaFor(x => x.Kommentar,
-                                             new
-                                             {
-                                                 @class = "input-xlarge",
-                                                 @style = "height: 180px; height:100px;"
-                                             })
-                </div>
-            </div>
-        </div>
-    </table>
-    <table class="textlinksrechts">
-        <div class="form-horizontal">
-            <div class="control-group">
-                <div class="form-actions">
-                    <button type="submit" class="btn btn-apollogruen" style="width:200px;">Ändern</button><br />
-                    <a class="btn" href='@Url.Action("Index", "Admin")'>abbrechen (ohne speichern)</a>
-                </div>
-            </div>
-        </div>
-    </table>
+        </table>
+    }
+    
     <table class="textlinksrechts">
         <tr class="erstezeile alleinestehend">
             <td class="links">

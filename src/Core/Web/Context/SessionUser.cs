@@ -18,7 +18,7 @@ namespace ApolloDb
             private set { Data["isLoggedInKandidat"] = value; }
         }
 
-        public bool IsLoggedAdmin
+        public bool IsLoggedInAdmin
         {
             get { return Data.Get("isLoggedAdmin", false); }
             private set { Data["isLoggedAdmin"] = value; }
@@ -27,7 +27,7 @@ namespace ApolloDb
         public int KandidatId
         {
             get { return (int) Data.Get("kandidatId"); }
-            private set { Data["kandidatId"] = value; }
+            set { Data["kandidatId"] = value; }
         }
 
         public Kandidat GetKandidat()
@@ -43,18 +43,18 @@ namespace ApolloDb
 
         public void LoginAsAdmin()
         {
-            IsLoggedAdmin = true;
+            IsLoggedInAdmin = true;
         }
 
         public void Logout()
         {
             IsLoggedInKandidat = false;
+            IsLoggedInAdmin = false;
             KandidatId = -1;
         }
 
-        public void LogoutAdmin()
-        {
-            IsLoggedAdmin = false;
+        public void LogoutAdmin(){
+            Logout();
         }
 
     }

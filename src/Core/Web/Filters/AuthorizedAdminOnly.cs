@@ -7,7 +7,7 @@ namespace ApolloDb
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             var sessionUser = Sl.Resolve<SessionUser>();
-            if (!sessionUser.IsLoggedAdmin)
+            if (!sessionUser.IsLoggedInAdmin)
                 filterContext.Result = new RedirectResult("/Admin/Login");
 
             base.OnActionExecuting(filterContext);

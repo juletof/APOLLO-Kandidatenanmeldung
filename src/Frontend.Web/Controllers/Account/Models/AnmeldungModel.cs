@@ -15,7 +15,7 @@ public class AnmeldungModel
         AngestrebterAbschlussOps = new Abschluesse().ToSelectItems();
     }
 
-    public AnmeldungModel(Kandidat kandidat)
+    public AnmeldungModel(Kandidat kandidat, SessionUser sessionUser)
     {
         UniOps = new Universitaeten().ToSelectItems(kandidat.Hochschule);
         StudienfachOps = new Studienfaecher().ToSelectItems(kandidat.Studienfach);
@@ -41,9 +41,13 @@ public class AnmeldungModel
 
         BereitsAufenthaltProgramm = kandidat.FruehererAufenthaltProgramm;
         Kommentar = kandidat.Kommentar;
+
+        IsAdmin = sessionUser.IsLoggedInAdmin;
     }
 
     public Message Message;
+
+    public bool IsAdmin { get; set; }
     
     [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     public string Familienname { get; set; }

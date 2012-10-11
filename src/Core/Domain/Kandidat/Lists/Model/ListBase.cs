@@ -24,9 +24,23 @@ namespace ApolloDb
             return ToSelectItems(-1);
         }
 
-        public void Add(int index, string de, string ru)
+        protected void Add(int index, string de, string ru)
         {
             _items.Add(new ListItem(index, deutsch: de, russisch: ru));
+        }
+
+        public ListItem ById(int itemId)
+        {
+            return _items.ToList().Find(x => x.Key == itemId);
+        }
+
+        public string GermanLabel(int itemId, string emptyLabel)
+        {
+            var result = ById(itemId);
+            if (result == null)
+                return emptyLabel;
+
+            return result.Deutsch;
         }
     }
 }

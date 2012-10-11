@@ -99,10 +99,14 @@ namespace Frontend.Web.Controllers
             return View(dashboardModel);
         }
 
-        [AuthorizedKandidatOnly]
-        public ActionResult Anmeldung()
+        [AuthorizedKandidatOnly][HttpGet]
+        public ActionResult Anmeldung(string id)
         {
-            return View(new AnmeldungModel(_sessionUser.GetKandidat()));
+            if(_sessionUser.IsLoggedInAdmin)
+                if(!String.IsNullOrEmpty(id))
+                    _sessionUser.KandidatId = Convert.ToInt32(id);
+
+            return View(new AnmeldungModel(_sessionUser.GetKandidat(), _sessionUser));
         }
 
 
