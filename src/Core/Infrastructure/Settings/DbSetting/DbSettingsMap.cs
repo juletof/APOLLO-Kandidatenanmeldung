@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FluentNHibernate.Mapping;
+﻿using FluentNHibernate.Mapping;
 
 namespace ApolloDb.Infrastructure
 {
@@ -13,6 +9,8 @@ namespace ApolloDb.Infrastructure
             Table("Setting");
             Id(x => x.Id);
             Map(x => x.AppVersion);
+            Map(x => x.AdminUsername);
+            Map(x => x.AdminPassword);
             Map(x => x.DateCreated);
             Map(x => x.DateModified);
         }

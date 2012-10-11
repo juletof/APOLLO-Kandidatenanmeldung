@@ -119,8 +119,9 @@
     <Compile Include="Controllers\Account\Models\LoginModel.cs" />
     <Compile Include="Controllers\Account\Models\PasswortAendernModel.cs" />
     <Compile Include="Controllers\Account\Models\PasswortVergessenModel.cs" />
-    <Compile Include="Controllers\Admin\PraktikantenModel.cs" />
-    <Compile Include="Controllers\Admin\PraktikantItemModel.cs" />
+    <Compile Include="Controllers\Admin\Model\LoginModelAdmin.cs" />
+    <Compile Include="Controllers\Admin\Model\PraktikantenModel.cs" />
+    <Compile Include="Controllers\Admin\Model\PraktikantItemModel.cs" />
     <Compile Include="Controllers\Account\AccountController.cs" />
     <Compile Include="Controllers\Admin\AdminController.cs" />
     <Compile Include="Controllers\Public\HomeController.cs" />
@@ -230,6 +231,7 @@
     <Content Include="Views\Home\passwort_reset.cshtml" />
     <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\Home\Kontakt.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
     <None Include="Web.config">
       <SubType>Designer</SubType>
     </None>

@@ -1,0 +1,61 @@
+﻿@using ApolloDb
+@model LoginModelAdmin
+@{
+    ViewBag.Title = "Login";
+}
+
+<script type="text/javascript">
+    
+    $(function () {
+        $("#form").submit(function () {
+
+            if (!$(this).valid()) {
+                $("#invalidInputMsg").show(400);
+            }
+            else {
+                $("#invalidInputMsg").hide(300);
+            }
+        });
+    });
+    
+</script>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form", @class="form-horizontal" })) {
+	<fieldset>
+        <table class="textlinksrechts"> 
+            <tr class="erstezeile alleinestehend">
+                <td class="links"><h2>Login</h2></td>
+                <td class="rechts"><h2>Вход</h2></td>
+            </tr>
+        </table>
+
+        <div class="alert alert-error fade in hide" id="invalidInputMsg" style="margin-left:430px; width: 255px;">
+            <a class="close" data-dismiss="alert" href="#">×</a>
+            Bitte Eingaben vervollständigen.
+        </div>
+        
+        @Html.Message(Model.Message, "margin-left:430px; width:255px;")
+
+        <table class="textlinksrechts"> 
+            <div class="form-hoizontal"  style="margin-top:40px;">
+                <div class="control-group">
+			        <label class="control-label" for="benutzername">Nutzername</label>
+                    <div class="controls">
+                        <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Nutzername)</span>
+                        @Html.TextBoxFor(x => x.Nutzername, new {@style = "width:290px"})
+                    </div>
+		        </div>
+		        <div class="control-group" style="margin-bottom:0px;">
+			        <label class="control-label" for="password">Passwort</label>
+                    <div class="controls">
+                        <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Password)</span>
+                        @Html.PasswordFor(x => x.Password, new {@style = "width:290px"})<br />
+                    </div>
+		        </div>
+		        <div class="form-actions" style="margin-bottom:0px;">
+			            <button type="submit" class="btn btn-primary btn-apollogruen" style="width:304px; margin-bottom:0px;">Anmelden</button>
+		        </div>
+            </div>
+        </table>
+	</fieldset>	
+}

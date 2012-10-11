@@ -41,10 +41,21 @@ namespace ApolloDb
             KandidatId = kandidat.Id;
         }
 
+        public void LoginAsAdmin()
+        {
+            IsLoggedAdmin = true;
+        }
+
         public void Logout()
         {
             IsLoggedInKandidat = false;
             KandidatId = -1;
         }
+
+        public void LogoutAdmin()
+        {
+            IsLoggedAdmin = false;
+        }
+
     }
 }

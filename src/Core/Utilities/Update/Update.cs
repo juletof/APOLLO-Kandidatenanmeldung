@@ -13,6 +13,7 @@ namespace ApolloDb.Updates
         public void Run()
         {
             _updateStepExecuter
+                .Add(2, UpdateToVs002.Run)
                 .Run();
         }
 

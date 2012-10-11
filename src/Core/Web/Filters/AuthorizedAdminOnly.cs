@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace ApolloDb
 {
@@ -8,8 +7,8 @@ namespace ApolloDb
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             var sessionUser = Sl.Resolve<SessionUser>();
-            if (!sessionUser.IsLoggedInKandidat)
-                filterContext.Result = new RedirectResult("/Account/LogOff");
+            if (!sessionUser.IsLoggedAdmin)
+                filterContext.Result = new RedirectResult("/Admin/Login");
 
             base.OnActionExecuting(filterContext);
         }
