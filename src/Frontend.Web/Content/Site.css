@@ -895,7 +895,7 @@ margin-top: -15px;
 .nav-tabs > .active > a,
 .nav-tabs > .active > a:hover {
   color: #555555;
-  background-color: #99CC33;
+  background-color: #CFE69E;
   border: 1px solid #ddd;
   border-bottom-color: transparent;
   cursor: default;
@@ -907,8 +907,19 @@ text-align: center;
 }
 
 ul.nav-tabs {
-margin-bottom: 5px;
+margin-bottom: 0px;
+border-bottom-color: #99CC33;
 }
+
+.nav-tabs > .active > a, .nav-tabs > .active > a:hover {
+border-color: #99CC33;
+border-bottom-color: transparent;
+}
+
+.nav-tabs > a:hover {
+border-bottom-color: #99CC33;
+}
+
 
 /*Formular*/
 
