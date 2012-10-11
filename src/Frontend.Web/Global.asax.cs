@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using ApolloDb;
+using ApolloDb.Updates;
 using Autofac;
 using Autofac.Integration.Mvc;
 using HibernatingRhinos.Profiler.Appender.NHibernate;
@@ -44,6 +42,8 @@ namespace Frontend.Web
 #if DEBUG
             NHibernateProfiler.Initialize();
 #endif
+
+            Sl.Resolve<Update>().Run();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);

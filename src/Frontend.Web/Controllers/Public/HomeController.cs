@@ -69,7 +69,7 @@ namespace Frontend.Web.Controllers
         public ActionResult Kontakt()
         {
             var session = Sl.Resolve<SessionUser>();
-            if (session.IsLoggedIn)
+            if (session.IsLoggedInKandidat)
                 return View(new KontaktModel {Email = session.GetKandidat().EmailAdresse});
 
             return View(new KontaktModel());

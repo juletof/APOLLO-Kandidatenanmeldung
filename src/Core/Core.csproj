@@ -43,6 +43,9 @@
     <Reference Include="FluentNHibernate">
       <HintPath>..\packages\FluentNHibernate.1.3.0.733\lib\FluentNHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="Gibraltar.Agent">
+      <HintPath>..\Frontend.Web\bin\Gibraltar.Agent.dll</HintPath>
+    </Reference>
     <Reference Include="HibernatingRhinos.Profiler.Appender.v4.0">
       <HintPath>..\packages\NHibernateProfiler\HibernatingRhinos.Profiler.Appender.v4.0.dll</HintPath>
     </Reference>
@@ -103,17 +106,27 @@
     <Compile Include="Infrastructure\IoC\AutofacCoreModule.cs" />
     <Compile Include="Infrastructure\IoC\IRegisterAsInstancePerLifetime.cs" />
     <Compile Include="Infrastructure\IoC\ServiceLocator.cs" />
+    <Compile Include="Infrastructure\Persistence\ExecuteSqlFile.cs" />
+    <Compile Include="Infrastructure\Persistence\Schema\DoesTableExist.cs" />
     <Compile Include="Infrastructure\Persistence\Session\EnumConvention.cs" />
     <Compile Include="Infrastructure\Persistence\Session\SessionFactory.cs" />
     <Compile Include="Infrastructure\Persistence\Session\SessionManager.cs" />
     <Compile Include="Infrastructure\Regexes.cs" />
+    <Compile Include="Infrastructure\Settings\DbSetting\DbSettingLoader.cs" />
+    <Compile Include="Infrastructure\Settings\DbSetting\DbSettings.cs" />
+    <Compile Include="Infrastructure\Settings\DbSetting\DbSettingsMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Infrastructure\Settings\GetConnectionString.cs" />
-    <Compile Include="Infrastructure\Settings\GetOverwrittenConnectionString.cs" />
-    <Compile Include="Infrastructure\Settings\GetOverwrittenConnectionStringResult.cs" />
+    <Compile Include="Infrastructure\Settings\ConnectionString\GetConnectionString.cs" />
+    <Compile Include="Infrastructure\Settings\ConnectionString\GetOverwrittenConnectionString.cs" />
+    <Compile Include="Infrastructure\Settings\ConnectionString\GetOverwrittenConnectionStringResult.cs" />
+    <Compile Include="Utilities\Update\Scripts\ScriptPath.cs" />
+    <Compile Include="Utilities\Update\Steps\UpdateToVs001.cs" />
+    <Compile Include="Utilities\Update\Update.cs" />
+    <Compile Include="Utilities\Update\UpdateStepExecuter.cs" />
     <Compile Include="Web\Context\SessionUser.cs" />
     <Compile Include="Infrastructure\Email\SendMailMessage.cs" />
-    <Compile Include="Web\Filters\AuthorizedOnly.cs" />
+    <Compile Include="Web\Filters\AuthorizedKandidatOnly.cs" />
+    <Compile Include="Web\Filters\AuthorizedAdminOnly.cs" />
     <Compile Include="Web\Message\Message.cs" />
     <Compile Include="Web\Message\MessageHtml.cs" />
     <Compile Include="Web\Message\MessageType.cs" />
@@ -123,7 +136,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Utilities\Update\Scripts\001-create-setting-tbl.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

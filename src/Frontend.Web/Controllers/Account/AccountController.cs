@@ -75,13 +75,13 @@ namespace Frontend.Web.Controllers
             return View();
         }
 
-        [AuthorizedOnly]
+        [AuthorizedKandidatOnly]
         public ActionResult Dashboard()
         {
             return View(new DashboardModel(_sessionUser.GetKandidat()));
         }
 
-        [AuthorizedOnly][HttpGet]
+        [AuthorizedKandidatOnly][HttpGet]
         public ActionResult Dashboard(string id)
         {
             var dashboardModel = new DashboardModel(_sessionUser.GetKandidat());
@@ -99,14 +99,14 @@ namespace Frontend.Web.Controllers
             return View(dashboardModel);
         }
 
-        [AuthorizedOnly]
+        [AuthorizedKandidatOnly]
         public ActionResult Anmeldung()
         {
             return View(new AnmeldungModel(_sessionUser.GetKandidat()));
         }
 
 
-        [AuthorizedOnly] [HttpPost]
+        [AuthorizedKandidatOnly] [HttpPost]
         public ActionResult Anmeldung(AnmeldungModel model)
         {
             if (!ModelState.IsValid)
@@ -123,13 +123,13 @@ namespace Frontend.Web.Controllers
             return Redirect("Dashboard/anmeldungErfolgreich");
         }
 
-        [AuthorizedOnly]
+        [AuthorizedKandidatOnly]
         public ActionResult Benutzerdaten()
         {
             return View(new BenutzerDatenModel(_sessionUser.GetKandidat()));
         }
 
-        [AuthorizedOnly] [HttpPost]
+        [AuthorizedKandidatOnly] [HttpPost]
         public ActionResult Benutzerdaten(BenutzerDatenModel model)
         {
             if (!ModelState.IsValid)
@@ -158,13 +158,13 @@ namespace Frontend.Web.Controllers
             return View(model);
         }
 
-        [AuthorizedOnly]
+        [AuthorizedKandidatOnly]
         public ActionResult Passwort_aendern()
         {
             return View(new PasswortAendernModel());
         }
 
-        [AuthorizedOnly] [HttpPost]
+        [AuthorizedKandidatOnly] [HttpPost]
         public ActionResult Passwort_aendern(PasswortAendernModel passwortAendernModel)
         {
             var kandidat = _sessionUser.GetKandidat();

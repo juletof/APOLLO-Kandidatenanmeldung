@@ -12,10 +12,16 @@ namespace ApolloDb
             _kandidatRepository = kandidatRepository;
         }
 
-        public bool IsLoggedIn
+        public bool IsLoggedInKandidat
         {
-            get { return Data.Get("isLoggedIn", false); }
-            private set { Data["isLoggedIn"] = value; }
+            get { return Data.Get("isLoggedInKandidat", false); }
+            private set { Data["isLoggedInKandidat"] = value; }
+        }
+
+        public bool IsLoggedAdmin
+        {
+            get { return Data.Get("isLoggedAdmin", false); }
+            private set { Data["isLoggedAdmin"] = value; }
         }
 
         public int KandidatId
@@ -31,13 +37,13 @@ namespace ApolloDb
 
         public void Login(Kandidat kandidat)
         {
-            IsLoggedIn = true;
+            IsLoggedInKandidat = true;
             KandidatId = kandidat.Id;
         }
 
         public void Logout()
         {
-            IsLoggedIn = false;
+            IsLoggedInKandidat = false;
             KandidatId = -1;
         }
     }
