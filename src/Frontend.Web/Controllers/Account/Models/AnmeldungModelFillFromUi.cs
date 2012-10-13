@@ -29,6 +29,7 @@ namespace ApolloDb
             kandidat.FruehererAufenthalt = anmeldungModel.BereitsAufenthalt;
             kandidat.FruehererAufenthaltProgramm = anmeldungModel.BereitsAufenthaltProgramm;
             kandidat.Kommentar = anmeldungModel.Kommentar;
+            kandidat.KommentarApollo = anmeldungModel.KommentarApollo;
 
             return kandidat;
         }

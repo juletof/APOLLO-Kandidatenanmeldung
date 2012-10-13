@@ -124,7 +124,7 @@ namespace Frontend.Web.Controllers
             }
 
             _anmelden.Run(AnmeldungModelFillFromUi.Run(model, _sessionUser.GetKandidat()));
-            return Redirect("Dashboard/anmeldungErfolgreich");
+            return Redirect("/Account/Dashboard/anmeldungErfolgreich");
         }
 
         [AuthorizedKandidatOnly]

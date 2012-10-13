@@ -26,7 +26,7 @@
 
 </script>
 
-@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
+@using (Html.BeginForm("Anmeldung", "Account", FormMethod.Post, new { id = "form" }))
 {
     @Html.Message(Model.Message)
     
@@ -175,7 +175,7 @@
                 <div class="control-group" style="margin-bottom:0px;">
                     <label class="control-label">Kommentar Apollo:</label>
                     <div class="controls">
-                        @Html.TextAreaFor(x => x.Kommentar,
+                        @Html.TextAreaFor(x => x.KommentarApollo,
                                           new
                                               {
                                                   @class = "input-xlarge",

@@ -41,6 +41,7 @@ public class AnmeldungModel
 
         BereitsAufenthaltProgramm = kandidat.FruehererAufenthaltProgramm;
         Kommentar = kandidat.Kommentar;
+        KommentarApollo = kandidat.KommentarApollo;
 
         IsAdmin = sessionUser.IsLoggedInAdmin;
     }
@@ -96,6 +97,7 @@ public class AnmeldungModel
 
     public string BereitsAufenthaltProgramm { get; set; }
     public string Kommentar { get; set; }
+    public string KommentarApollo { get; set; }
 
     [BooleanRequiredToBeTrueAttribute(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     public bool AcceptTerms { get; set; }

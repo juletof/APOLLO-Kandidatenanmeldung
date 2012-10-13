@@ -22,4 +22,8 @@ public class KandidatItemModel
     public string StatusHistorie;
 
     public bool AltersWarnung;
+
+    public string KommentarKandidat;
+    public string KommentarApollo;
+
 }

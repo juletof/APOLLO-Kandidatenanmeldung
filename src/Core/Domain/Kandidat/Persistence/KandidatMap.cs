@@ -39,6 +39,7 @@ namespace ApolloDb
             Map(x => x.FruehererAufenthalt);
             Map(x => x.FruehererAufenthaltProgramm);
             Map(x => x.Kommentar).CustomSqlType("NVARCHAR(max)");
+            Map(x => x.KommentarApollo).CustomSqlType("NVARCHAR(max)");
 
             Map(x => x.Status);
 

@@ -39,6 +39,7 @@ namespace ApolloDb
         public virtual string FruehererAufenthaltProgramm { get; set; }
 
         public virtual string Kommentar { get; set; }
+        public virtual string KommentarApollo { get; set; }
 
         public virtual KandidatStatus Status { get; set; }
 
