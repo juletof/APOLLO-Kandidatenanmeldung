@@ -18,4 +18,6 @@ public class KandidatItemModel
     public string Abschluss;
 
     public KandidatStatus Status;
+    public string StatusSeit;
+    public string StatusHistorie;
 }

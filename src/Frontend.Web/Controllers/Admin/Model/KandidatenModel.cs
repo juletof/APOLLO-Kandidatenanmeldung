@@ -34,6 +34,8 @@ public class KandidatenModel
         var studienJahre = new Studienjahr();
         var abschluesse = new Abschluesse();
 
+        var allStatusWechsel = Sl.Resolve<StatuswechselRepository>().GetAll();
+
         FilterUniOps = unis.ToSelectItems();
 
         Items = kandidaten.Select(item => new KandidatItemModel
@@ -50,7 +52,28 @@ public class KandidatenModel
                 Abschluss = abschluesse.GermanLabel(item.AngestrebterAbschluss, ""),
                 Kurs = studienJahre.GermanLabel(item.PraktikumsJahr, ""),
                 Mobilnummer = item.Mobilnummer,
-                Status = item.Status
+                Status = item.Status,
+                StatusSeit = allStatusWechsel
+                                .Where(x => x.KandidatId == item.Id)
+                                .OrderByDescending(x => x.DateCreated)
+                                .First().Zeitpunkt.ToString("dd.MM.yyy HH:mm:ss"),
+                StatusHistorie = allStatusWechsel
+                                    .Where(x => x.KandidatId == item.Id)
+                                    .OrderByDescending(x => x.DateCreated)
+                                    .Select(x => NiceLabel(x.Status) + ": " + x.Zeitpunkt.ToString("dd.MM.yyy HH:mm:ss"))
+                                    .Aggregate((x,y) => x + "<br/>" + y)
             }).ToList();
+    }
+
+    private string NiceLabel(KandidatStatus status)
+    {
+        if (status == KandidatStatus.Registriert)
+            return "Registriert";
+        if (status == KandidatStatus.AnmeldungVollstaendig)
+            return "Vollständig";
+        if (status == KandidatStatus.Zugelassen)
+            return "Zugelassen";
+
+        return "Unbekannter Status";
     }
 }
