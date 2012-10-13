@@ -55,11 +55,11 @@ public class KandidatenModel
                 Status = item.Status,
                 StatusSeit = allStatusWechsel
                                 .Where(x => x.KandidatId == item.Id)
-                                .OrderByDescending(x => x.DateCreated)
+                                .OrderByDescending(x => x.Zeitpunkt)
                                 .First().Zeitpunkt.ToString("dd.MM.yyy HH:mm:ss"),
                 StatusHistorie = allStatusWechsel
                                     .Where(x => x.KandidatId == item.Id)
-                                    .OrderByDescending(x => x.DateCreated)
+                                    .OrderByDescending(x => x.Zeitpunkt)
                                     .Select(x => NiceLabel(x.Status) + ": " + x.Zeitpunkt.ToString("dd.MM.yyy HH:mm:ss"))
                                     .Aggregate((x,y) => x + "<br/>" + y)
             }).ToList();

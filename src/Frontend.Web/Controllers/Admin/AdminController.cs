@@ -15,13 +15,16 @@ namespace Frontend.Web.Controllers
             _sessionUser = sessionUser;
         }
 
-        public ActionResult Login() { return View(new LoginModelAdmin()); }
+        public ActionResult Login()
+        {
+            return View(new LoginModelAdmin());
+        }
 
         [HttpPost]
         public ActionResult Login(LoginModelAdmin loginModelAdmin)
         {
 
-            if(Sl.Resolve<SindAdminZugangsdatenGueltig>().Ja(loginModelAdmin.Nutzername, loginModelAdmin.Password))
+            if (Sl.Resolve<SindAdminZugangsdatenGueltig>().Ja(loginModelAdmin.Nutzername, loginModelAdmin.Password))
             {
                 _sessionUser.LoginAsAdmin();
                 return new RedirectResult("/Admin/");
@@ -32,7 +35,8 @@ namespace Frontend.Web.Controllers
         }
 
 
-        [AuthorizedAdminOnly] [HttpPost]
+        [AuthorizedAdminOnly]
+        [HttpPost]
         public ActionResult Index(KandidatenModel kandidatenModel)
         {
             var searchSpec = new KandidatSearchSpec();
@@ -49,7 +53,18 @@ namespace Frontend.Web.Controllers
         [AuthorizedAdminOnly]
         public ActionResult Index()
         {
-            return View(new KandidatenModel(_kandidatRepo.GetAll()));
+            var kandidatenModel = new KandidatenModel(_kandidatRepo.GetAll());
+            kandidatenModel.FilterZugelassen = true;
+            kandidatenModel.FilterRegistriert = true;
+            kandidatenModel.FilterDatenVollständig = true;
+
+            return View(kandidatenModel);
+        }
+
+        [HttpPost]
+        public void KandidatLoeschen(int id)
+        {
+            Sl.Resolve<KandidatLoeschen>().Run(id);
         }
     }
 }

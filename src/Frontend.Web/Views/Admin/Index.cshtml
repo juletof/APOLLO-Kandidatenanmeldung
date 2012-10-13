@@ -6,14 +6,41 @@
 
 <script type="text/javascript">
 
+    var rowToDelete;
+
     $(function () {
-        $('a').tooltip({placement:"right"});
-        // $('#Datensatz_loeschen').modal(options)
+        $('a').tooltip({ placement: "right" });
+
+        $(".datenSatzLoeschen").click(function () {
+            var rowClosest = $(this).closest(".k-row");
+            rowToDelete = rowClosest;
+
+            $("#Datensatz_loeschen").attr("data-kandidatId", rowClosest.attr("data-kandidatId"));
+            $("#kandidatNameToDelete").html(rowClosest.attr("data-kandidatName"));
+
+            $('#Datensatz_loeschen').modal();
+        });
+
+        $("#deleteKandidat").click(function () {
+            $.ajax({
+                type: 'POST',
+                url: "/Admin/KandidatLoeschen/" + $("#Datensatz_loeschen").attr("data-kandidatId"),
+                cache: false,
+                success: function (result) {
+                    $('#Datensatz_loeschen').modal('hide');
+                    rowToDelete.hide(200);
+                }
+            });
+            return false;
+        });
+
         // $('#Kandidat_zulassen').modal(options)
         // $('#Kandidat_ausschliessen').modal(options)
         // $('#Kommentar_Kandidat').modal(options)
         // $('#Kommentar_Apollo').modal(options)
     });
+    
+    
 
 </script>
 
@@ -21,12 +48,12 @@
     .tooltip-inner {
         text-align: left;
     }
+
+    .k-row{/*used as jquery selector*/} 
 </style>
 
 @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
 {
-
-
     <div style="margin-right: 20px; margin-bottom: 0px; margin-top:0px;">
         <h2 style="margin-bottom: 0px; margin-top:0px; line-height:auto;">Verwaltung</h2>
     </div>
@@ -146,21 +173,19 @@
         
             @foreach (var item in Model.Items)
             {
-                <tr>
+                <tr class="k-row" data-kandidatId="@item.Id" data-kandidatName="@item.VollerName">
                     <td class="checkbox">
-                        @if (item.Status == KandidatStatus.Registriert)
-                        {
+                        @if (item.Status == KandidatStatus.Registriert){
                             <i class="icon-time icon-white" style="background-color: #FFBB22;"></i>
                         }
 
-                        @if (item.Status == KandidatStatus.AnmeldungVollstaendig)
-                        {
+                        @if (item.Status == KandidatStatus.AnmeldungVollstaendig){
                             <i class="icon-ok icon-white" style="background-color:#568B3B;"></i>
                         }
                         <input type="checkbox">
                     </td>
                     <td>
-                        <b>@item.VollerName</b><br>
+                        <b class="vollerName">@item.VollerName</b><br>
                         <span class="klein">@item.VollerNameKY <br />Geb. @item.Geburtstag </span><br /> 
                         <span class="klein">ID @item.Id</span>
                     </td>
@@ -179,7 +204,7 @@
                             </span>
                         </p>
                         <p><a href="/Account/Anmeldung/@item.Id" target="_blank"><i class="icon-list-alt"><span class="aktion"><nobr>zum kompletten Datensatz</nobr></span></i></a></p>
-                        <p><a href="#" target="_blank"><i class="icon-trash"><span class="warnung"><nobr>Datensatz löschen</nobr></span></i></a></p>
+                        <p><a href="#" class="datenSatzLoeschen"><i class="icon-trash"><span class="warnung"><nobr>Datensatz löschen</nobr></span></i></a></p>
                     </td>
                     <td>
                         <b>3 - <span class="klein">zugelassen</span></b>
@@ -351,72 +376,73 @@
 
     <!--Modals-->
 
-    <div class="modal hide fade" id="Datensatz_loeschen" tabindex="-1" role="dialog" aria-labelledby="Datensatz_loeschenLabel" aria-hidden="false" style="overflow:hidden;">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="Datensatz_loeschenLabel">Datensatz löschen</h3>
-      </div>
-      <div class="modal-body" style="max-height:200px;overflow:auto;">
-        <p>Möchten Sie wirklich den Datensatz XXX (unwiderruflich?) löschen?</p>
-      </div>
-      <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Abbrechen</button>
-        <button class="btn btn-danger btn-primary">Ja, löschen</button>
-      </div>
+    <div class="modal hide fade" id="Datensatz_loeschen" tabindex="-1" role="dialog" data-kandidatId="-1"
+        aria-labelledby="Datensatz_loeschenLabel" aria-hidden="false" style="overflow:hidden;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="Datensatz_loeschenLabel">Datensatz löschen</h3>
+        </div>
+        <div class="modal-body" style="max-height:200px;overflow:auto;">
+            <p>Möchten Sie wirklich den Datensatz für Kandidat "<b><span id="kandidatNameToDelete"></span></b>" unwiderruflich löschen?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Abbrechen</button>
+            <button class="btn btn-danger btn-primary" id="deleteKandidat">Ja, löschen</button>
+        </div>
     </div>
 
     <div class="modal hide fade" id="Kandidat_zulassen" tabindex="-1" role="dialog" aria-labelledby="Kandidat_zulassenLabel" aria-hidden="false" style="overflow:hidden;">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="Kandidat_zulassenLabel">Kandidat zulassen</h3>
-      </div>
-      <div class="modal-body" style="max-height:200px;overflow:auto;">
-        <p>Möchten Sie den Kandidat XXX jetzt zulassen?</p>
-      </div>
-      <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Abbrechen</button>
-        <button class="btn btn-apollogruen btn-primary">Ja, zulassen</button>
-      </div>
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="Kandidat_zulassenLabel">Kandidat zulassen</h3>
+        </div>
+        <div class="modal-body" style="max-height:200px;overflow:auto;">
+            <p>Möchten Sie den Kandidat XXX jetzt zulassen?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Abbrechen</button>
+            <button class="btn btn-apollogruen btn-primary">Ja, zulassen</button>
+        </div>
     </div>
 
     <div class="modal hide fade" id="Kandidat_ausschliessen" tabindex="-1" role="dialog" aria-labelledby="Kandidat_ausschliessenLabel" aria-hidden="false" style="overflow:hidden;">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="Kandidat_ausschliessenLabel">Kandidat ausschließen</h3>
-      </div>
-      <div class="modal-body" style="max-height:200px;overflow:auto;">
-        <p>Möchten Sie den Kandidat XXX wirklich ausschließen?</p>
-      </div>
-      <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Abbrechen</button>
-        <button class="btn btn-danger btn-primary">Ja, ausschließen</button>
-      </div>
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="Kandidat_ausschliessenLabel">Kandidat ausschließen</h3>
+        </div>
+        <div class="modal-body" style="max-height:200px;overflow:auto;">
+            <p>Möchten Sie den Kandidat XXX wirklich ausschließen?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Abbrechen</button>
+            <button class="btn btn-danger btn-primary">Ja, ausschließen</button>
+        </div>
     </div>
 
     <div class="modal hide fade" id="Kommentar_Kandidat" tabindex="-1" role="dialog" aria-labelledby="Kommentar_KandidatLabel" aria-hidden="false" style="overflow:hidden;">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="Kommentar_KandidatLabel">Kommentar Kandidat</h3>
-      </div>
-      <div class="modal-body" style="max-height:200px;overflow:auto;">
-        <p>Kommentar</p>
-      </div>
-      <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Schließen</button>
-      </div>
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="Kommentar_KandidatLabel">Kommentar Kandidat</h3>
+        </div>
+        <div class="modal-body" style="max-height:200px;overflow:auto;">
+            <p>Kommentar</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Schließen</button>
+        </div>
     </div>
 
     <div class="modal hide fade" id="Kommentar_Apollo" tabindex="-1" role="dialog" aria-labelledby="Kommentar_ApolloLabel" aria-hidden="false" style="overflow:hidden;">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="Kommentar_ApolloLabel">Kommentar Apollo</h3>
-      </div>
-      <div class="modal-body" style="max-height:200px;overflow:auto;">
-        <p>Kommentar</p>
-      </div>
-      <div class="modal-footer">
-        <a class="btn" href='@Url.Action("Anmeldung", "Account")'>Kommentar bearbeiten</a>
-        <button class="btn btn-apollogruen" data-dismiss="modal" aria-hidden="true">Schließen</button>
-      </div>
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="Kommentar_ApolloLabel">Kommentar Apollo</h3>
+        </div>
+        <div class="modal-body" style="max-height:200px;overflow:auto;">
+            <p>Kommentar</p>
+        </div>
+        <div class="modal-footer">
+            <a class="btn" href='@Url.Action("Anmeldung", "Account")'>Kommentar bearbeiten</a>
+            <button class="btn btn-apollogruen" data-dismiss="modal" aria-hidden="true">Schließen</button>
+        </div>
     </div>    
 }
