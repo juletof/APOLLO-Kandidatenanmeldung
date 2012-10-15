@@ -62,6 +62,7 @@ public class KandidatenModel
                                     .OrderByDescending(x => x.Zeitpunkt)
                                     .Select(x => NiceLabel(x.Status) + ": " + x.Zeitpunkt.ToString("dd.MM.yyy HH:mm:ss"))
                                     .Aggregate((x,y) => x + "<br/>" + y),
+                StatusText = NiceLabel(item.Status),
                 AltersWarnung = item.GetAlter() != "" && Convert.ToInt32(item.GetAlter()) < 20, 
                 KommentarApollo = item.KommentarApollo,
                 KommentarKandidat = item.Kommentar

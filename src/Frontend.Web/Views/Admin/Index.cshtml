@@ -6,17 +6,16 @@
 
 <script type="text/javascript">
 
-    var rowToDelete;
+    var rowToChange;
 
     $(function () {
         $('a').tooltip({ placement: "right" });
 
         $(".datenSatzLoeschen").click(function () {
-            var rowClosest = $(this).closest(".k-row");
-            rowToDelete = rowClosest;
+            rowToChange = $(this).closest(".k-row");
 
-            $("#Datensatz_loeschen").attr("data-kandidatId", rowClosest.attr("data-kandidatId"));
-            $("#kandidatNameToDelete").html(rowClosest.attr("data-kandidatName"));
+            $("#Datensatz_loeschen").attr("data-kandidatId", rowToChange.attr("data-kandidatId"));
+            $("#kandidatNameToDelete").html(rowToChange.attr("data-kandidatName"));
 
             $('#Datensatz_loeschen').modal();
         });
@@ -28,19 +27,41 @@
                 cache: false,
                 success: function (result) {
                     $('#Datensatz_loeschen').modal('hide');
-                    rowToDelete.hide(200);
+                    rowToChange.hide(200);
                 }
             });
             return false;
         });
 
-        // $('#Kandidat_zulassen').modal(options)
-        // $('#Kandidat_ausschliessen').modal(options)
+        $(".jetztAuschliessen").click(function () {
+            rowToChange = $(this).closest(".k-row");
+            $("#Kandidat_ausschliessen").attr("data-kandidatId", rowToChange.attr("data-kandidatId"));
+            $("#kandidatNameAusschliessen").html(rowToChange.attr("data-kandidatName"));
+
+            $('#Kandidat_ausschliessen').modal();
+        });
+
+        $("#btnJetztAusschliessen").click(function() {
+            rowToChange.find("td.tdStatus").find("b.status").html("Ausgeschlossen");
+            return false;
+        });
+        
+        $(".jetztZulassen").click(function () {
+            rowToChange = $(this).closest(".k-row");
+            $("#Kandidat_zulassen").attr("data-kandidatId", rowToChange.attr("data-kandidatId"));
+            $("#kandidatNameZulassen").html(rowToChange.attr("data-kandidatName"));
+            
+            $('#Kandidat_zulassen').modal();
+        });
+        
+        $("#btnJetztZulassen").click(function () {
+            rowToChange.find("td.tdStatus").find("b.status").html("Zugelassen");
+            return false;
+        });
+        
         // $('#Kommentar_Kandidat').modal(options)
         // $('#Kommentar_Apollo').modal(options)
     });
-    
-    
 
 </script>
 
@@ -50,6 +71,10 @@
     }
 
     .k-row{/*used as jquery selector*/} 
+    .jetztAuschliessen{/*used as jquery selector*/}
+    .jetztZulassen{/*used as jquery selector*/}
+    .status{/*used as jquery selector*/}
+    .tdStatus{/*used as jquery selector*/}
 </style>
 
 @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
@@ -206,10 +231,10 @@
                         <p><a href="/Account/Anmeldung/@item.Id" target="_blank"><i class="icon-list-alt"><span class="aktion"><nobr>zum kompletten Datensatz</nobr></span></i></a></p>
                         <p><a href="#" class="datenSatzLoeschen"><i class="icon-trash"><span class="warnung"><nobr>Datensatz löschen</nobr></span></i></a></p>
                     </td>
-                    <td>
-                        <b>3 - <span class="klein">zugelassen</span></b>
-                        <p><a href="#" target="_blank"><i class="icon-pencil"><span class="warnung"><nobr>Status ändern</nobr></span></i></a></p>
-                        <p><a href="#" target="_blank"><i class="icon-remove"><span class="warnung"><nobr>jetzt ausschließen</nobr></span></i></a></p>
+                    <td class="tdStatus">
+                        <b class="status">@item.StatusText</b>
+                        <p><a href="#" class="jetztZulassen"><i class="icon-pencil"><span class="warnung"><nobr>jetzt zulassen</nobr></span></i></a></p>
+                        <p><a href="#" class="jetztAuschliessen"><i class="icon-remove"><span class="warnung"><nobr>jetzt ausschließen</nobr></span></i></a></p>
              
                     </td>
                     <td style="line-height: 13px;">
@@ -374,7 +399,7 @@
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h3 id="Datensatz_loeschenLabel">Datensatz löschen</h3>
         </div>
-        <div class="modal-body" style="max-height:200px;overflow:auto;">
+        <div class="modal-body" style="max-height:200px;overflow:hidden;">
             <p>Möchten Sie wirklich den Datensatz für Kandidat "<b><span id="kandidatNameToDelete"></span></b>" unwiderruflich löschen?</p>
         </div>
         <div class="modal-footer">
@@ -383,31 +408,33 @@
         </div>
     </div>
 
-    <div class="modal hide fade" id="Kandidat_zulassen" tabindex="-1" role="dialog" aria-labelledby="Kandidat_zulassenLabel" aria-hidden="false" style="overflow:hidden;">
+    <div class="modal hide" id="Kandidat_zulassen" tabindex="-1" role="dialog" data-kandidatId="-1"
+        aria-labelledby="Kandidat_zulassenLabel" aria-hidden="false" style="overflow:hidden;">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h3 id="Kandidat_zulassenLabel">Kandidat zulassen</h3>
         </div>
-        <div class="modal-body" style="max-height:200px;overflow:auto;">
-            <p>Möchten Sie den Kandidat XXX jetzt zulassen?</p>
+        <div class="modal-body" style="max-height:200px;overflow:hidden;">
+            <p>Möchten Sie den Kandidat "<b><span id="kandidatNameZulassen"></span></b>" jetzt zulassen?</p>
         </div>
         <div class="modal-footer">
             <button class="btn" data-dismiss="modal" aria-hidden="true">Abbrechen</button>
-            <button class="btn btn-apollogruen btn-primary">Ja, zulassen</button>
+            <button class="btn btn-apollogruen btn-primary" id="btnJetztZulassen">Ja, zulassen</button>
         </div>
     </div>
 
-    <div class="modal hide fade" id="Kandidat_ausschliessen" tabindex="-1" role="dialog" aria-labelledby="Kandidat_ausschliessenLabel" aria-hidden="false" style="overflow:hidden;">
+    <div class="modal hide" id="Kandidat_ausschliessen" tabindex="-1" role="dialog" data-kandidatId="-1"
+        aria-labelledby="Kandidat_ausschliessenLabel" aria-hidden="false" style="overflow:hidden;">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h3 id="Kandidat_ausschliessenLabel">Kandidat ausschließen</h3>
         </div>
-        <div class="modal-body" style="max-height:200px;overflow:auto;">
-            <p>Möchten Sie den Kandidat XXX wirklich ausschließen?</p>
+        <div class="modal-body" style="max-height:200px;overflow:hidden;">
+            <p>Möchten Sie den Kandidat "<b><span id="kandidatNameAusschliessen"></span></b>" wirklich ausschließen?</p>
         </div>
         <div class="modal-footer">
             <button class="btn" data-dismiss="modal" aria-hidden="true">Abbrechen</button>
-            <button class="btn btn-danger btn-primary">Ja, ausschließen</button>
+            <button class="btn btn-danger btn-primary" id="btnJetztAusschliessen">Ja, ausschließen</button>
         </div>
     </div>
 

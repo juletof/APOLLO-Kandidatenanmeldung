@@ -20,6 +20,7 @@ public class KandidatItemModel
     public KandidatStatus Status;
     public string StatusSeit;
     public string StatusHistorie;
+    public string StatusText;
 
     public bool AltersWarnung;
 
