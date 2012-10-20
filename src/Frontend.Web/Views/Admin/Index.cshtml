@@ -79,72 +79,52 @@
 
 @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
 {
-    <div style="margin-right: 20px; margin-bottom: 0px; margin-top:0px;">
-        <h2 style="margin-bottom: 0px; margin-top:0px; line-height:auto;">Verwaltung</h2>
-    </div>
 
-    <div class="inhalt_ebene2">				
-        <div>
-	        <div style="float: left; margin-right: 10px; margin-bottom:10px; padding-top: 5px;">
-		        Kandidaten anzeigen mit Status:
-	        </div>
-					
-	        <div class="control-group" style="margin-bottom: 5px">
-		        <div class="controls" style="width:840px;">
-                    <label class="checkbox inline">
-                        @Html.CheckBoxFor(m => m.FilterAusgeschieden)
-                        0 - ausgeschieden
-                    </label>
-                    <label class="checkbox inline">
-                        @Html.CheckBoxFor(m => m.FilterRegistriert)
-                        1 - registriert
-                    </label>
-                    <label class="checkbox inline">
-                        @Html.CheckBoxFor(m => m.FilterDatenVollständig)
-                        2 - Daten vollständig
-			        </label>
-                    <label class="checkbox inline">
-                        @Html.CheckBoxFor(m => m.FilterZugelassen)
-                        3 - zugelassen
-			        </label>
-		        </div>
-	        </div>
-        </div>
-    </div>
+    <div style="padding-bottom:10px;">				
+        <div>		
+            <div style="margin-bottom: 5px; float:left; margin-left: 6px;" >
+                <label class="checkbox inline">
+                    @Html.CheckBoxFor(m => m.FilterAusgeschieden)
+                    (75) ausgeschieden 
+                </label>
+                <br />
+                <label class="checkbox inline">
+                    @Html.CheckBoxFor(m => m.FilterRegistriert)
+                    (14) registriert 
+                </label>
+                <br />
+                <label class="checkbox inline">
+                    @Html.CheckBoxFor(m => m.FilterDatenVollständig)
+                    (17) Daten vollständig
+                </label>
+                <br />
+                <label class="checkbox inline">
+                    @Html.CheckBoxFor(m => m.FilterZugelassen)
+                    (16) zugelassen
+                </label>
+            </div>
 
-    <div class="tabbable" style="margin-top: 3px; margin-bottom: 15px; width:500px;float:left;">
-        <ul class="nav nav-tabs" style="border-bottom-color: 99CC33;">
-            <li class=""><a href="#tab1" data-toggle="tab">Universität</a></li>
-            <li class="active"><a href="#tab2" data-toggle="tab">Freitextsuche</a></li>
-            <li class=""><a href="#tab3" data-toggle="tab">Datum</a></li>
-        </ul>
-        <div class="tab-content" style="padding-top: 5px; padding-left: 5px; overflow:hidden; background-color:#CFE69E;border-color:#99CC33;border-style:solid;border-width:1px;border-top-color:transparent;">
-            <div class="tab-pane" id="tab1">
-                <div class="control-group" style="margin-bottom: 0px">
-                    <div class="controls">
-                        @Html.DropDownListFor(x => Model.FilterUniVal, Model.FilterUniOps, new { @style = "margin-bottom: 5px; width: 454px"  })
-                    </div>
+            <div style="float:left; padding-left:30px;">
+                <div>
+                    <label style="width: 60px; display: inline-block;">Unis:</label> 
+                    @Html.DropDownListFor(x => Model.FilterUniVal, Model.FilterUniOps, new { @style = "margin-bottom: 5px; width: 424px"  }) 
                 </div>
+                <div>
+                    <label style="width: 60px; display: inline-block;">Freitext:</label>
+                    <input type="text" style="margin-bottom: 5px; width: 410px"> 
+                </div>
+
+                Status zugewiesen zwischen <input type="text" placeholder="dd.mm.yyyy" style="margin-bottom: 5px; width:80px;"> und <input type="text" placeholder="dd.mm.yyyy" style="margin-bottom: 5px; width:80px;"> 
             </div>
-            <div class="tab-pane active" id="tab2">
-                <div class="control-group" style="margin-bottom: 0px">
-                    <div class="controls">
-                        <input type="text" style="margin-bottom: 5px;">
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane" id="tab3">
-                <div class="control-group" style="margin-bottom: 0px">
-                    Aktueller Status zugewiesen zwischen <input type="text" placeholder="dd.mm.yyyy" style="margin-bottom: 5px; width:80px;"> und <input type="text" placeholder="dd.mm.yyyy" style="margin-bottom: 5px; width:80px;"> 
-                </div>
+                
+            <div style="float: right; padding-top:70px;">
+                <button type="submit" class="btn" title="gewählte Filter anwenden"><i class="icon-filter"></i> Filtern</button>
+                <a class="btn" title="alle Filter entfernen"><i class="icon-remove"></i></a>                    
+                    
             </div>
         </div>
     </div>
-    
-    <div style="margin-top:40px; margin-left:515px;">
-        <button type="submit" class="btn" title="gewählte Filter anwenden"><i class="icon-filter"></i></button>
-        <a class="btn" title="alle Filter entfernen"><i class="icon-remove"></i></a>
-    </div>
+       
 
     <div style="margin-top:5px; margin-bottom: 5px;">
 
@@ -169,13 +149,6 @@
             </ul>
         </div>
 
-        <div class="btn-group" style="float:right;">
-            <button class="btn">&#171;</button>
-            <button class="btn disabled">1</button>
-            <button class="btn">2</button>
-            <button class="btn">3</button>
-            <button class="btn">&#187;</button>
-        </div>
 
         <div style="float: right;"><p style="margin-right: 10px; margin-top:5px;"><b>Datensätze 1-@Model.Items.Count von @Model.Items.Count</b></p></div>
    
