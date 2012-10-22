@@ -12,31 +12,44 @@ public class KandidatenModel
     public bool FilterDatenVollständig { get; set; }
     public bool FilterZugelassen { get; set; }
 
+    public string FilterFreiText { get; set; }
+
     public string FilterUniVal { get; set; }
+
+    public int AnzahlAusgeschieden { get; set; }
+    public int AnzahlRegistriert { get; set; }
+    public int AnzahlDatenVollständig { get; set; }
+    public int AnzahlZugelassen { get; set; }
+
     public IList<SelectListItem> FilterUniOps;
 
     public IList<KandidatItemModel> Items;
 
-    public KandidatenModel()
-    {
-        FilterUniOps = new Universitaeten().ToSelectItems();
-    }
+    public KandidatenModel(){}
 
-    public KandidatenModel(IEnumerable<Kandidat> kandidaten)
+    public void SetKandidaten(IEnumerable<Kandidat> kandidaten, StatusStatistikLadenResult statusStatistik)
     {
-        SetKandidaten(kandidaten);
-    }
+        AnzahlAusgeschieden = statusStatistik.Ausgeschieden;
+        AnzahlRegistriert = statusStatistik.Registriert;
+        AnzahlDatenVollständig = statusStatistik.AnmeldungVollstaendig;
+        AnzahlZugelassen = statusStatistik.Zugelassen;
 
-    public void SetKandidaten(IEnumerable<Kandidat> kandidaten)
-    {
         var unis = new Universitaeten();
         var faecher = new Studienfaecher();
         var studienJahre = new Studienjahr();
         var abschluesse = new Abschluesse();
 
         var allStatusWechsel = Sl.Resolve<StatuswechselRepository>().GetAll();
-
-        FilterUniOps = unis.ToSelectItems();
+        var uniStatistiken =  Sl.Resolve<UniStatistikLaden>().Run();
+       
+        FilterUniOps = new List<SelectListItem>();
+        FilterUniOps.Add(new SelectListItem{Text = "Alle", Value = "-1"});
+        foreach(var uni in unis.GetItems())
+            FilterUniOps.Add(
+                new SelectListItem{
+                    Text = uni.Deutsch + " (gesamt:" + uniStatistiken.GetUniCount(uni.Key) + ")",
+                    Value = uni.Key.ToString()}
+            );
 
         Items = kandidaten.Select(item => new KandidatItemModel
             {

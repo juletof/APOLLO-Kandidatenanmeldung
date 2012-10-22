@@ -106,6 +106,10 @@
     <Compile Include="Domain\Kandidat\Persistence\KandidatRepository.cs" />
     <Compile Include="Domain\Kandidat\Kandidat.cs" />
     <Compile Include="Domain\Kandidat\KandidatStatus.cs" />
+    <Compile Include="Domain\Kandidat\Statitisk\StatusStatistikLadenResult.cs" />
+    <Compile Include="Domain\Kandidat\Statitisk\StatusStatistikLaden.cs" />
+    <Compile Include="Domain\Kandidat\Statitisk\UniStatistikLaden.cs" />
+    <Compile Include="Domain\Kandidat\Statitisk\UniStatistikLadenResult.cs" />
     <Compile Include="Domain\Kandidat\Statuswechsel\Ops\StatuswechselInitialisieren.cs" />
     <Compile Include="Domain\Kandidat\Statuswechsel\Ops\StatuswechselSpeichern.cs" />
     <Compile Include="Domain\Kandidat\Statuswechsel\Persistence\StatuswechselRepository.cs" />

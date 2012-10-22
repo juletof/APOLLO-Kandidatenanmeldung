@@ -26,56 +26,53 @@
 
 <body data-spy="scroll" data-target=".subnav" data-offset="50">
 
-    <div class="page-container">
-        <div class="header">
-		    <div class="header-top">
-			    <a class="sitelogo" href="http://www.apollo-online.de/" title="APOLLO-Homepage | Сайт APOLLO"></a>
-			    <div class="sitename" style="margin-top:10px; width: 450px; z-index: 5">
-			        <h1 style="font-size:24px; margin: 0px; width: 250px;"><a href="http://www.apollo-online.de/" title="APOLLO-Homepage | Сайт APOLLO">Apollo e.V.</a></h1>
-			        <h2 style="line-height:1.2em; font-size: 10px;">
-                    Arbeitsgemeinschaft für Projekte in Oekologie, Landwirtschaft <br>
-			        und Landesentwicklung in Osteuropa e.V.</h2>
-                    <h2 style="font-size:18px;"><a id="ueberschrift_online-bewerbung" href='@Url.Action("Index", "Home")'>
-                    Online-Bewerbung | Онлайн подача заявлений</a></h2>
-		        </div>
-                <div class="nav1" style="margin-top:35px;">
-                    <ul style="text-align:right; margin-left:30px; padding-right:5px;">
-                        <li style="white-space:nowrap;">
-                            <a href='@Url.Action("Dashboard", "Account")' 
-                            style="font-size: 12px; line-height:120%;">Pers. Bereich | Персональная страница</a>
-                        </li>
-                        <li style="white-space:nowrap;">
-                            <a href='@Url.Action("Kontakt", "Home")' 
-                            style="font-size: 12px; line-height:120%;">Hilfe/Kontakt | Помощь/Контакт</a>
-                        </li>
-                        <li style="white-space:nowrap;">
-                            <a href="http://www.apollo-online.de/" 
-                            style="font-size: 12px; line-height:120%;">APOLLO-Homepage | Сайт APOLLO</a>
-                        </li>																		
-                        <li>
-                            <a href="http://www.apollo-online.de/index.php?id=203" 
-                            style="font-size: 12px; line-height:120%;">Impressum | Выходные данные</a>
-                        </li>																		
-                     </ul>
-                 </div>
-                 <div id="logindisplay">
-                        @Html.Partial("_LogOnPartial")
-                 </div>
-	        </div>
-        </div>
-	
-	    <div class="main-content" style="color:#253D19">
-		    <div>
-		        @RenderBody()
-		    </div>   
+<div class="page-container">
+    <div class="header">
+		<div class="header-top">
+			<a class="sitelogo" href="http://www.apollo-online.de/" title="APOLLO-Homepage | Сайт APOLLO"></a>
+			<div class="sitename" style="margin-top:10px; width: 450px; z-index: 5">
+			    <h1 style="font-size:24px; margin: 0px; width: 250px;"><a href="http://www.apollo-online.de/" title="APOLLO-Homepage | Сайт APOLLO">Apollo e.V.</a></h1>
+			    <h2 style="line-height:1.2em; font-size: 10px;">
+                Arbeitsgemeinschaft für Projekte in Oekologie, Landwirtschaft <br>
+			    und Landesentwicklung in Osteuropa e.V.</h2>
+                <h2 style="font-size:18px;"><a id="ueberschrift_online-bewerbung" href='@Url.Action("Index", "Home")'>
+                Online-Bewerbung | Онлайн подача заявлений</a></h2>
+		    </div>
+            <div class="nav1" style="margin-top:35px;">
+                <ul style="text-align:right; margin-left:30px; padding-right:5px;">
+                    <li style="white-space:nowrap;">
+                        <a href='@Url.Action("Dashboard", "Account")' 
+                        style="font-size: 12px; line-height:120%;">Pers. Bereich | Персональная страница</a>
+                    </li>
+                    <li style="white-space:nowrap;">
+                        <a href='@Url.Action("Kontakt", "Home")' 
+                        style="font-size: 12px; line-height:120%;">Hilfe/Kontakt | Помощь/Контакт</a>
+                    </li>
+                    <li style="white-space:nowrap;">
+                        <a href="http://www.apollo-online.de/" 
+                        style="font-size: 12px; line-height:120%;">APOLLO-Homepage | Сайт APOLLO</a>
+                    </li>																		
+                    <li>
+                        <a href="http://www.apollo-online.de/index.php?id=203" 
+                        style="font-size: 12px; line-height:120%;">Impressum | Выходные данные</a>
+                    </li>																		
+                    </ul>
+                </div>
+                <div id="logindisplay">
+                    @Html.Partial("_LogOnPartial")
+                </div>
 	    </div>
-
-        <div class="footer">
-            <p>© 2012 Apollo e.V.</p>
-            </div>
-        </div>
-        
     </div>
- 
+	
+	<div class="main-content" style="color:#253D19">
+		<div>
+		    @RenderBody()
+		</div>   
+	</div>
+
+    <div class="footer">
+        <p>© 2012 Apollo e.V.</p>
+        </div>
+    </div> 
 </body>
 </html>

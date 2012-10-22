@@ -24,6 +24,10 @@ namespace ApolloDb
             return ToSelectItems(-1);
         }
 
+        public IEnumerable<ListItem> GetItems(){
+            return _items;
+        }
+
         protected void Add(int index, string de, string ru)
         {
             _items.Add(new ListItem(index, deutsch: de, russisch: ru));

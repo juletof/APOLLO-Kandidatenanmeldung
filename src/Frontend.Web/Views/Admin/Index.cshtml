@@ -59,6 +59,10 @@
             return false;
         });
         
+        $(".ckbCheck,#ddlUnis").change(function () {
+            $("#btnSubmit").click();
+        });
+        
         // $('#Kommentar_Kandidat').modal(options)
         // $('#Kommentar_Apollo').modal(options)
     });
@@ -66,15 +70,14 @@
 </script>
 
 <style>
-    .tooltip-inner {
-        text-align: left;
-    }
+    .tooltip-inner { text-align: left; }
 
     .k-row{/*used as jquery selector*/} 
     .jetztAuschliessen{/*used as jquery selector*/}
     .jetztZulassen{/*used as jquery selector*/}
     .status{/*used as jquery selector*/}
     .tdStatus{/*used as jquery selector*/}
+    .ckbCheck{/*used as jquery selector*/}
 </style>
 
 @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
@@ -84,43 +87,44 @@
         <div>		
             <div style="margin-bottom: 5px; float:left; margin-left: 6px;" >
                 <label class="checkbox inline">
-                    @Html.CheckBoxFor(m => m.FilterAusgeschieden)
-                    (75) ausgeschieden 
+                    @Html.CheckBoxFor(m => m.FilterAusgeschieden, new {@class="ckbCheck"})
+                    (@Model.AnzahlAusgeschieden) ausgeschieden 
                 </label>
                 <br />
                 <label class="checkbox inline">
-                    @Html.CheckBoxFor(m => m.FilterRegistriert)
-                    (14) registriert 
+                    @Html.CheckBoxFor(m => m.FilterRegistriert, new {@class="ckbCheck"})
+                    (@Model.AnzahlRegistriert) registriert 
                 </label>
                 <br />
                 <label class="checkbox inline">
-                    @Html.CheckBoxFor(m => m.FilterDatenVollständig)
-                    (17) Daten vollständig
+                    @Html.CheckBoxFor(m => m.FilterDatenVollständig, new {@class="ckbCheck"})
+                    (@Model.AnzahlDatenVollständig) Daten vollständig
                 </label>
                 <br />
                 <label class="checkbox inline">
-                    @Html.CheckBoxFor(m => m.FilterZugelassen)
-                    (16) zugelassen
+                    @Html.CheckBoxFor(m => m.FilterZugelassen, new {@class="ckbCheck"})
+                    (@Model.AnzahlZugelassen) zugelassen
                 </label>
             </div>
 
             <div style="float:left; padding-left:30px;">
                 <div>
                     <label style="width: 60px; display: inline-block;">Unis:</label> 
-                    @Html.DropDownListFor(x => Model.FilterUniVal, Model.FilterUniOps, new { @style = "margin-bottom: 5px; width: 424px"  }) 
+                    @Html.DropDownListFor(x => Model.FilterUniVal, Model.FilterUniOps, 
+                        new { @style = "margin-bottom: 5px; width: 424px", id = "ddlUnis"  }) 
                 </div>
                 <div>
                     <label style="width: 60px; display: inline-block;">Freitext:</label>
-                    <input type="text" style="margin-bottom: 5px; width: 410px"> 
+                    @Html.TextBoxFor(x => x.FilterFreiText, new {style = "margin-bottom: 5px; width: 410px"})
                 </div>
-
-                Status zugewiesen zwischen <input type="text" placeholder="dd.mm.yyyy" style="margin-bottom: 5px; width:80px;"> und <input type="text" placeholder="dd.mm.yyyy" style="margin-bottom: 5px; width:80px;"> 
+                Status zugewiesen zwischen 
+                <input type="text" placeholder="dd.mm.yyyy" style="margin-bottom: 5px; width:80px;" disabled="disabled"> und 
+                <input type="text" placeholder="dd.mm.yyyy" style="margin-bottom: 5px; width:80px;" disabled="disabled"> 
             </div>
                 
             <div style="float: right; padding-top:70px;">
-                <button type="submit" class="btn" title="gewählte Filter anwenden"><i class="icon-filter"></i> Filtern</button>
-                <a class="btn" title="alle Filter entfernen"><i class="icon-remove"></i></a>                    
-                    
+                <button type="submit" class="btn" title="gewählte Filter anwenden" id="btnSubmit"><i class="icon-filter"></i> Filtern</button>
+                <a class="btn" title="alle Filter entfernen" href="@Url.Action("ResetFilter", "Admin")"><i class="icon-remove"></i></a>                    
             </div>
         </div>
     </div>

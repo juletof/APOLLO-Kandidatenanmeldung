@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using ApolloDb;
 using ApolloDb.Infrastructure;
 
@@ -37,28 +38,46 @@ namespace Frontend.Web.Controllers
 
         [AuthorizedAdminOnly]
         [HttpPost]
-        public ActionResult Index(KandidatenModel kandidatenModel)
+        public ActionResult Index(KandidatenModel model)
         {
             var searchSpec = new KandidatSearchSpec();
 
-            if (kandidatenModel.FilterZugelassen) searchSpec.Filter.Stati.Add(KandidatStatus.Zugelassen);
-            if (kandidatenModel.FilterRegistriert) searchSpec.Filter.Stati.Add(KandidatStatus.Registriert);
-            if (kandidatenModel.FilterDatenVollständig) searchSpec.Filter.Stati.Add(KandidatStatus.AnmeldungVollstaendig);
+            if (model.FilterZugelassen) searchSpec.Filter.Stati.Add(KandidatStatus.Zugelassen);
+            if (model.FilterRegistriert) searchSpec.Filter.Stati.Add(KandidatStatus.Registriert);
+            if (model.FilterDatenVollständig) searchSpec.Filter.Stati.Add(KandidatStatus.AnmeldungVollstaendig);
             searchSpec.Filter.Stati.Add(KandidatStatus.NichtDefiniert);
 
-            kandidatenModel.SetKandidaten(_kandidatRepo.GetBy(searchSpec));
-            return View(kandidatenModel);
+            if (model.FilterUniVal == null || model.FilterUniVal == "-1")
+                searchSpec.Filter.Uni.Reset();
+            else
+                searchSpec.Filter.Uni.EqualTo(model.FilterUniVal);
+
+            if (String.IsNullOrEmpty(model.FilterFreiText))
+                searchSpec.Filter.TextSearch.Clear();
+            else
+                searchSpec.Filter.TextSearch.AddTerms(model.FilterFreiText);
+            
+            model.SetKandidaten(
+                _kandidatRepo.GetBy(searchSpec),
+                Sl.Resolve<StatusStatistikLaden>().Run(Convert.ToInt32(model.FilterUniVal))
+            );
+            return View(model);
+        }
+
+        [AuthorizedAdminOnly]
+        public ActionResult ResetFilter(){
+            return RedirectToAction("Index");
         }
 
         [AuthorizedAdminOnly]
         public ActionResult Index()
         {
-            var kandidatenModel = new KandidatenModel(_kandidatRepo.GetAll());
+            var kandidatenModel = new KandidatenModel();
             kandidatenModel.FilterZugelassen = true;
             kandidatenModel.FilterRegistriert = true;
             kandidatenModel.FilterDatenVollständig = true;
 
-            return View(kandidatenModel);
+            return Index(kandidatenModel);
         }
 
         [HttpPost]
