@@ -42,7 +42,19 @@
         });
 
         $("#btnJetztAusschliessen").click(function() {
-            rowToChange.find("td.tdStatus").find("b.status").html("Ausgeschlossen");
+            $.ajax({
+                type: 'POST',
+                url: "/Admin/KandidatAusschliessen/" + $("#Kandidat_ausschliessen").attr("data-kandidatId"),
+                cache: false,
+                success: function (result) {
+                    $('#Kandidat_ausschliessen').modal('hide');
+                    var status = rowToChange.find("td.tdStatus").find("b.status");
+                    status.html("Ausgeschlossen");
+                    status.animate({ backgroundColor: 'red' }, 600);
+                    status.animate({ backgroundColor: 'transparent' }, 200);
+                }
+            });
+
             return false;
         });
         
@@ -55,7 +67,19 @@
         });
         
         $("#btnJetztZulassen").click(function () {
-            rowToChange.find("td.tdStatus").find("b.status").html("Zugelassen");
+            $.ajax({
+                type: 'POST',
+                url: "/Admin/KandidatZulassen/" + $("#Kandidat_zulassen").attr("data-kandidatId"),
+                cache: false,
+                success: function (result) {
+                    $('#Kandidat_zulassen').modal('hide');
+                    var status = rowToChange.find("td.tdStatus").find("b.status");
+                    status.html("Zugelassen");
+                    status.animate({ backgroundColor: '#ADFF2F' }, 600);
+                    status.animate({ backgroundColor: 'transparent' }, 200);
+                }
+            });
+
             return false;
         });
         
@@ -142,17 +166,16 @@
         </div>
 
         <div class="btn-group" style="float:left; margin-right:10px;">
-            <a class="btn btn-apollogruen" href="#">Aktion: xx ausgewählte...</a>
+            <a class="btn btn-apollogruen" href="#">Aktion: 0 ausgewählte..</a>
             <a class="btn btn-apollogruen dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
             <ul class="dropdown-menu">
-                <li><a href="#">Kandidaten zulassen</a></li>
-                <li><a href="#">Kandidaten ausschließen</a></li>
-                <li><a href="#">Datensätze löschen</a></li>
-                <li><a href="#">Datensätze exportieren</a></li>
-                <li><a href="#">Email-Adressen exportieren</a></li>
+                <li><a href="#">..Kandidaten zulassen</a></li>
+                <li><a href="#">..Kandidaten ausschließen</a></li>
+                <li><a href="#">..Datensätze löschen</a></li>
+                <li><a href="#">..Datensätze exportieren</a></li>
+                <li><a href="#">..Email-Adressen exportieren</a></li>
             </ul>
         </div>
-
 
         <div style="float: right;"><p style="margin-right: 10px; margin-top:5px;"><b>Datensätze 1-@Model.Items.Count von @Model.Items.Count</b></p></div>
    
@@ -210,8 +233,13 @@
                     </td>
                     <td class="tdStatus">
                         <b class="status">@item.StatusText</b>
-                        <p><a href="#" class="jetztZulassen"><i class="icon-pencil"><span class="warnung"><nobr>jetzt zulassen</nobr></span></i></a></p>
-                        <p><a href="#" class="jetztAuschliessen"><i class="icon-remove"><span class="warnung"><nobr>jetzt ausschließen</nobr></span></i></a></p>
+                        @if(item.Status != KandidatStatus.Zugelassen){
+                            <p><a href="#" class="jetztZulassen"><i class="icon-pencil"><span class="warnung"><nobr>jetzt zulassen</nobr></span></i></a></p>
+                        }
+                        
+                        @if(item.Status != KandidatStatus.Ausgeschieden){
+                            <p><a href="#" class="jetztAuschliessen"><i class="icon-remove"><span class="warnung"><nobr>jetzt ausschließen</nobr></span></i></a></p>
+                        }
              
                     </td>
                     <td style="line-height: 13px;">

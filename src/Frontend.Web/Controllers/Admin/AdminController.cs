@@ -80,10 +80,19 @@ namespace Frontend.Web.Controllers
             return Index(kandidatenModel);
         }
 
-        [HttpPost]
-        public void KandidatLoeschen(int id)
-        {
+        [AuthorizedAdminOnly][HttpPost]
+        public void KandidatLoeschen(int id){
             Sl.Resolve<KandidatLoeschen>().Run(id);
+        }
+
+        [AuthorizedAdminOnly][HttpPost]
+        public void KandidatAusschliessen(int id){
+            Sl.Resolve<KandidatAusschliessen>().Run(id);
+        }
+
+        [AuthorizedAdminOnly][HttpPost]
+        public void KandidatZulassen(int id){
+            Sl.Resolve<KandidatZulassen>().Run(id);
         }
     }
 }

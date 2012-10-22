@@ -5,21 +5,21 @@ using System.Text;
 
 namespace ApolloDb
 {
-    public class StatuswechselSpeichern : IRegisterAsInstancePerLifetime
+    public class StatuswechselLog : IRegisterAsInstancePerLifetime
     {
         private readonly StatuswechselRepository _statuswechselRepository;
 
-        public StatuswechselSpeichern(StatuswechselRepository statuswechselRepository){
+        public StatuswechselLog(StatuswechselRepository statuswechselRepository){
             _statuswechselRepository = statuswechselRepository;
         }
 
-        public void Run(int kandidatId, KandidatStatus kandidatStatus)
+        public void Run(int kandidatId, KandidatStatus neuerStatus)
         {
             _statuswechselRepository.Create(
                 new Statuswechsel
                     {
                         KandidatId = kandidatId,
-                        Status = kandidatStatus,
+                        Status = neuerStatus,
                         Zeitpunkt = DateTime.Now
                     });
         }

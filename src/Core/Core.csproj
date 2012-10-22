@@ -87,8 +87,11 @@
     <Compile Include="Domain\Kandidat\Lists\Studienfaecher.cs" />
     <Compile Include="Domain\Kandidat\Lists\Studienjahr.cs" />
     <Compile Include="Domain\Kandidat\Lists\Universitaeten.cs" />
+    <Compile Include="Domain\Kandidat\Ops\KandidatZulassen.cs" />
     <Compile Include="Domain\Kandidat\Ops\IsEmailAddressInUse.cs" />
+    <Compile Include="Domain\Kandidat\Ops\KandidatAusschliessen.cs" />
     <Compile Include="Domain\Kandidat\Ops\KandidatLoeschen.cs" />
+    <Compile Include="Domain\Kandidat\Ops\Statuswechseln.cs" />
     <Compile Include="Domain\Kandidat\PasswortVergessen\PasswortReset.cs" />
     <Compile Include="Domain\Kandidat\PasswortVergessen\PasswortResetVorbereiten.cs" />
     <Compile Include="Domain\Kandidat\PasswortVergessen\PasswortResetVorbereitenResult.cs" />
@@ -111,7 +114,7 @@
     <Compile Include="Domain\Kandidat\Statitisk\UniStatistikLaden.cs" />
     <Compile Include="Domain\Kandidat\Statitisk\UniStatistikLadenResult.cs" />
     <Compile Include="Domain\Kandidat\Statuswechsel\Ops\StatuswechselInitialisieren.cs" />
-    <Compile Include="Domain\Kandidat\Statuswechsel\Ops\StatuswechselSpeichern.cs" />
+    <Compile Include="Domain\Kandidat\Statuswechsel\Ops\StatuswechselLog.cs" />
     <Compile Include="Domain\Kandidat\Statuswechsel\Persistence\StatuswechselRepository.cs" />
     <Compile Include="Domain\Kandidat\Statuswechsel\Statuswechsel.cs" />
     <Compile Include="Domain\Kandidat\Statuswechsel\Persistence\StatuswechselMap.cs" />

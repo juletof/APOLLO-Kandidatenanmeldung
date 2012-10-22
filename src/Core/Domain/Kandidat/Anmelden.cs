@@ -3,20 +3,20 @@
     public class Anmelden : IRegisterAsInstancePerLifetime
     {
         private readonly KandidatRepository _kandidatRepository;
-        private readonly StatuswechselSpeichern _statuswechselSpeichern;
+        private readonly StatuswechselLog _statuswechselLog;
 
         public Anmelden(KandidatRepository kandidatRepository, 
-                        StatuswechselSpeichern statuswechselSpeichern)
+                        StatuswechselLog statuswechselLog)
         {
             _kandidatRepository = kandidatRepository;
-            _statuswechselSpeichern = statuswechselSpeichern;
+            _statuswechselLog = statuswechselLog;
         }
 
         public void Run(Kandidat kandidat)
         {
             kandidat.Status = KandidatStatus.AnmeldungVollstaendig;
             
-            _statuswechselSpeichern.Run(kandidat.Id, kandidat.Status);
+            _statuswechselLog.Run(kandidat.Id, kandidat.Status);
             _kandidatRepository.Update(kandidat);
         }
     }

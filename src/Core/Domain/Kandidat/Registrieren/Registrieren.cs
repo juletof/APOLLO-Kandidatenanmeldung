@@ -6,15 +6,15 @@ namespace ApolloDb
     {
         private readonly KandidatRepository _kandidatRepository;
         private readonly SendMailMessage _sendMailMessage;
-        private readonly StatuswechselSpeichern _statuswechselSpeichern;
+        private readonly StatuswechselLog _statuswechselLog;
 
         public Registrieren(KandidatRepository kandidatRepository, 
                             SendMailMessage sendMailMessage, 
-                            StatuswechselSpeichern statuswechselSpeichern)
+                            StatuswechselLog statuswechselLog)
         {
             _kandidatRepository = kandidatRepository;
             _sendMailMessage = sendMailMessage;
-            _statuswechselSpeichern = statuswechselSpeichern;
+            _statuswechselLog = statuswechselLog;
         }
 
         public Kandidat Run(Kandidat kandidat)
@@ -24,7 +24,7 @@ namespace ApolloDb
             kandidat.Status = KandidatStatus.Registriert;
             _kandidatRepository.Create(kandidat);
 
-            _statuswechselSpeichern.Run(kandidat.Id, kandidat.Status);
+            _statuswechselLog.Run(kandidat.Id, kandidat.Status);
 
             return kandidat;
         }
