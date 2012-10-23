@@ -7,6 +7,7 @@
 <script type="text/javascript">
 
     var rowToChange;
+    var selectedKandidaten = new Array();
 
     $(function () {
         $('a').tooltip({ placement: "right" });
@@ -86,11 +87,30 @@
         $(".ckbCheck,#ddlUnis").change(function () {
             $("#btnSubmit").click();
         });
-        
-        // $('#Kommentar_Kandidat').modal(options)
-        // $('#Kommentar_Apollo').modal(options)
-    });
 
+
+        $(".ckbSelectKandidat").change(function () {
+
+            var kandidatId = $(this).closest(".k-row").attr("data-kandidatId");
+            if ($(this).is(':checked')) {
+                selectedKandidaten.push(kandidatId);
+            }else{
+                selectedKandidaten = jQuery.grep(selectedKandidaten, function (value) {
+                    console.log(kandidatId);
+                    return value != kandidatId;
+                });
+            }
+
+            $("#countAusgewaehlte").html(selectedKandidaten.length);
+        });
+        
+        $("ddlCommands").change(function ()
+        {
+            alert($(this).selectedValue);
+        });
+        
+    });
+    
 </script>
 
 <style>
@@ -166,9 +186,9 @@
         </div>
 
         <div class="btn-group" style="float:left; margin-right:10px;">
-            <a class="btn btn-apollogruen" href="#">Aktion: 0 ausgewählte..</a>
+            <a class="btn btn-apollogruen" href="#">Aktion: <span id="countAusgewaehlte">0</span> ausgewählte..</a>
             <a class="btn btn-apollogruen dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" id="ddlCommands">
                 <li><a href="#">..Kandidaten zulassen</a></li>
                 <li><a href="#">..Kandidaten ausschließen</a></li>
                 <li><a href="#">..Datensätze löschen</a></li>
@@ -207,7 +227,7 @@
                         @if (item.Status == KandidatStatus.AnmeldungVollstaendig){
                             <i class="icon-ok icon-white" style="background-color:#568B3B;"></i>
                         }
-                        <input type="checkbox">
+                        <input type="checkbox" class="ckbSelectKandidat">
                     </td>
                     <td>
                         <b class="vollerName">@item.VollerName</b><br>
