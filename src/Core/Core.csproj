@@ -87,11 +87,12 @@
     <Compile Include="Domain\Kandidat\Lists\Studienfaecher.cs" />
     <Compile Include="Domain\Kandidat\Lists\Studienjahr.cs" />
     <Compile Include="Domain\Kandidat\Lists\Universitaeten.cs" />
+    <Compile Include="Domain\Kandidat\Ops\Kandidat2CsvLine.cs" />
     <Compile Include="Domain\Kandidat\Ops\KandidatZulassen.cs" />
     <Compile Include="Domain\Kandidat\Ops\IsEmailAddressInUse.cs" />
     <Compile Include="Domain\Kandidat\Ops\KandidatAusschliessen.cs" />
     <Compile Include="Domain\Kandidat\Ops\KandidatLoeschen.cs" />
-    <Compile Include="Domain\Kandidat\Ops\Statuswechseln.cs" />
+    <Compile Include="Domain\Kandidat\Statuswechsel\Ops\Statuswechseln.cs" />
     <Compile Include="Domain\Kandidat\PasswortVergessen\PasswortReset.cs" />
     <Compile Include="Domain\Kandidat\PasswortVergessen\PasswortResetVorbereiten.cs" />
     <Compile Include="Domain\Kandidat\PasswortVergessen\PasswortResetVorbereitenResult.cs" />

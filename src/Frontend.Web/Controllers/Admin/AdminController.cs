@@ -1,19 +1,19 @@
 ﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using ApolloDb;
-using ApolloDb.Infrastructure;
 
 namespace Frontend.Web.Controllers
 {
     public class AdminController : Controller
     {
-        private readonly KandidatRepository _kandidatRepo;
         private readonly SessionUser _sessionUser;
+        private readonly KandidatRepository _kandidatRepo;
 
-        public AdminController(KandidatRepository kandidatRepo, SessionUser sessionUser)
+        public AdminController(SessionUser sessionUser, KandidatRepository kandidatRepo)
         {
-            _kandidatRepo = kandidatRepo;
             _sessionUser = sessionUser;
+            _kandidatRepo = kandidatRepo;
         }
 
         public ActionResult Login()
@@ -35,33 +35,33 @@ namespace Frontend.Web.Controllers
             return View(loginModelAdmin);
         }
 
-
         [AuthorizedAdminOnly]
         [HttpPost]
         public ActionResult Index(KandidatenModel model)
         {
-            var searchSpec = new KandidatSearchSpec();
+            if (model.CommandName == "kandidatenExportieren")
+            {
+                return new ContentResult()
+                {
+                    Content = _kandidatRepo.GetByIds(IndexAction.GetIds(model.CommandParams).ToArray())
+                                           .Select(Kandidat2CsvLine.Run)
+                                           .Aggregate((a, b) => a + Environment.NewLine + b),
+                    ContentType = "text/csv"
+                };                
+            }
 
-            if (model.FilterZugelassen) searchSpec.Filter.Stati.Add(KandidatStatus.Zugelassen);
-            if (model.FilterRegistriert) searchSpec.Filter.Stati.Add(KandidatStatus.Registriert);
-            if (model.FilterDatenVollständig) searchSpec.Filter.Stati.Add(KandidatStatus.AnmeldungVollstaendig);
-            searchSpec.Filter.Stati.Add(KandidatStatus.NichtDefiniert);
+            if (model.CommandName == "kandidatenEmailsExportieren")
+            {
+                return new ContentResult()
+                {
+                    Content = _kandidatRepo.GetByIds(IndexAction.GetIds(model.CommandParams).ToArray())
+                                           .Select(k => k.EmailAdresse)
+                                           .Aggregate((a, b) => a + Environment.NewLine + b),
+                    ContentType = "text/csv"
+                };                
+            }
 
-            if (model.FilterUniVal == null || model.FilterUniVal == "-1")
-                searchSpec.Filter.Uni.Reset();
-            else
-                searchSpec.Filter.Uni.EqualTo(model.FilterUniVal);
-
-            if (String.IsNullOrEmpty(model.FilterFreiText))
-                searchSpec.Filter.TextSearch.Clear();
-            else
-                searchSpec.Filter.TextSearch.AddTerms(model.FilterFreiText);
-            
-            model.SetKandidaten(
-                _kandidatRepo.GetBy(searchSpec),
-                Sl.Resolve<StatusStatistikLaden>().Run(Convert.ToInt32(model.FilterUniVal))
-            );
-            return View(model);
+            return View(Sl.Resolve<IndexAction>().Run(model));
         }
 
         [AuthorizedAdminOnly]

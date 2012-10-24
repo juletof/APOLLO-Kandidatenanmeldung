@@ -64,5 +64,6 @@ namespace ApolloDb
 
             return Math.Round((DateTime.Now - ((DateTime) Geburtsdatum)).TotalDays/365,0).ToString();
         }
+
     }
 }

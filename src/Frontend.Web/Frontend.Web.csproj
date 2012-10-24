@@ -119,6 +119,7 @@
     <Compile Include="Controllers\Account\Models\LoginModel.cs" />
     <Compile Include="Controllers\Account\Models\PasswortAendernModel.cs" />
     <Compile Include="Controllers\Account\Models\PasswortVergessenModel.cs" />
+    <Compile Include="Controllers\Admin\Actions\IndexAction.cs" />
     <Compile Include="Controllers\Admin\Model\LoginModelAdmin.cs" />
     <Compile Include="Controllers\Admin\Model\KandidatenModel.cs" />
     <Compile Include="Controllers\Admin\Model\KandidatItemModel.cs" />

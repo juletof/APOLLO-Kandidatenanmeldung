@@ -21,6 +21,11 @@ public class KandidatenModel
     public int AnzahlDatenVollständig { get; set; }
     public int AnzahlZugelassen { get; set; }
 
+    public string CommandName { get; set; }
+    public string CommandParams { get; set; }
+
+    public Message Message;
+
     public IList<SelectListItem> FilterUniOps;
 
     public IList<KandidatItemModel> Items;

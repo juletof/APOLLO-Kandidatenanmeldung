@@ -34,7 +34,7 @@
             return false;
         });
 
-        $(".jetztAuschliessen").click(function () {
+        $(".jetztAusschliessen").click(function () {
             rowToChange = $(this).closest(".k-row");
             $("#Kandidat_ausschliessen").attr("data-kandidatId", rowToChange.attr("data-kandidatId"));
             $("#kandidatNameAusschliessen").html(rowToChange.attr("data-kandidatName"));
@@ -88,7 +88,6 @@
             $("#btnSubmit").click();
         });
 
-
         $(".ckbSelectKandidat").change(function () {
 
             var kandidatId = $(this).closest(".k-row").attr("data-kandidatId");
@@ -103,13 +102,42 @@
 
             $("#countAusgewaehlte").html(selectedKandidaten.length);
         });
-        
-        $("ddlCommands").change(function ()
-        {
-            alert($(this).selectedValue);
+
+        $("#aKandidatenZulassen").click(function () {
+            ExecuteCommand("kandidatenZulassen");
+        });
+
+        $("#aKandidatenAusschliessen").click(function () {
+            ExecuteCommand("kandidatenAusschliessen");
         });
         
+        $("#aKandidatenLoeschen").click(function () {
+            $("#kandidatToDeleteCount").html(selectedKandidaten.length);
+            $('#Datensaetze_loeschen').modal();
+        });
+
+        $("#deleteKandidaten").click(function () {
+            ExecuteCommand("kandidatenLoeschen");
+        });
+        
+        $("#aKandidatenExportieren").click(function () {
+            $("#form").attr("target", "_blank");
+            ExecuteCommand("kandidatenExportieren");
+            $("#form").attr("target", "");
+        });
+        
+        $("#aKandidatenEmailsExportieren").click(function () {
+            $("#form").attr("target", "_blank");
+            ExecuteCommand("kandidatenEmailsExportieren");
+            $("#form").attr("target", "");
+        });
     });
+    
+    function ExecuteCommand(commandName) {
+        $("#hddCmdName").val(commandName);
+        $("#hddCmdParams").val(selectedKandidaten);
+        $("#form").submit();
+    }
     
 </script>
 
@@ -117,7 +145,7 @@
     .tooltip-inner { text-align: left; }
 
     .k-row{/*used as jquery selector*/} 
-    .jetztAuschliessen{/*used as jquery selector*/}
+    .jetztAusschliessen{/*used as jquery selector*/}
     .jetztZulassen{/*used as jquery selector*/}
     .status{/*used as jquery selector*/}
     .tdStatus{/*used as jquery selector*/}
@@ -126,6 +154,9 @@
 
 @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
 {
+    
+    @Html.HiddenFor(x => x.CommandName, new { id = "hddCmdName" })
+    @Html.HiddenFor(x => x.CommandParams, new { id = "hddCmdParams" })
 
     <div style="padding-bottom:10px;">				
         <div>		
@@ -155,7 +186,7 @@
                 <div>
                     <label style="width: 60px; display: inline-block;">Unis:</label> 
                     @Html.DropDownListFor(x => Model.FilterUniVal, Model.FilterUniOps, 
-                        new { @style = "margin-bottom: 5px; width: 424px", id = "ddlUnis"  }) 
+                                          new { @style = "margin-bottom: 5px; width: 424px", id = "ddlUnis"  }) 
                 </div>
                 <div>
                     <label style="width: 60px; display: inline-block;">Freitext:</label>
@@ -172,7 +203,8 @@
             </div>
         </div>
     </div>
-       
+
+    @Html.Message(Model.Message)   
 
     <div style="margin-top:5px; margin-bottom: 5px;">
 
@@ -189,11 +221,11 @@
             <a class="btn btn-apollogruen" href="#">Aktion: <span id="countAusgewaehlte">0</span> ausgewählte..</a>
             <a class="btn btn-apollogruen dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
             <ul class="dropdown-menu" id="ddlCommands">
-                <li><a href="#">..Kandidaten zulassen</a></li>
-                <li><a href="#">..Kandidaten ausschließen</a></li>
-                <li><a href="#">..Datensätze löschen</a></li>
-                <li><a href="#">..Datensätze exportieren</a></li>
-                <li><a href="#">..Email-Adressen exportieren</a></li>
+                <li><a href="#" id="aKandidatenZulassen">..Kandidaten zulassen</a></li>
+                <li><a href="#" id="aKandidatenAusschliessen">..Kandidaten ausschließen</a></li>
+                <li><a href="#" id="aKandidatenLoeschen">..Datensätze löschen</a></li>
+                <li><a href="#" id="aKandidatenExportieren">..Datensätze exportieren</a></li>
+                <li><a href="#" id="aKandidatenEmailsExportieren">..Email-Adressen exportieren</a></li>
             </ul>
         </div>
 
@@ -258,7 +290,7 @@
                         }
                         
                         @if(item.Status != KandidatStatus.Ausgeschieden){
-                            <p><a href="#" class="jetztAuschliessen"><i class="icon-remove"><span class="warnung"><nobr>jetzt ausschließen</nobr></span></i></a></p>
+                            <p><a href="#" class="jetztAusschliessen"><i class="icon-remove"><span class="warnung"><nobr>jetzt ausschließen</nobr></span></i></a></p>
                         }
              
                     </td>
@@ -417,9 +449,8 @@
     </div>
 
     <!--Modals-->
-
     <div class="modal hide fade" id="Datensatz_loeschen" tabindex="-1" role="dialog" data-kandidatId="-1"
-        aria-labelledby="Datensatz_loeschenLabel" aria-hidden="false" style="overflow:hidden;">
+         aria-labelledby="Datensatz_loeschenLabel" aria-hidden="false" style="overflow:hidden;">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h3 id="Datensatz_loeschenLabel">Datensatz löschen</h3>
@@ -432,6 +463,21 @@
             <button class="btn btn-danger btn-primary" id="deleteKandidat">Ja, löschen</button>
         </div>
     </div>
+    
+    <div class="modal hide fade" id="Datensaetze_loeschen" tabindex="-1" role="dialog" data-kandidatId="-1"
+        aria-labelledby="Datensatz_loeschenLabel" aria-hidden="false" style="overflow:hidden;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="Datensaetze_loeschenLabel">Datensatz löschen</h3>
+        </div>
+        <div class="modal-body" style="max-height:200px;overflow:hidden;">
+            <p>Möchten Sie wirklich <b><span id="kandidatToDeleteCount"></span></b> Kandidaten unwiderruflich löschen?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Abbrechen</button>
+            <button class="btn btn-danger btn-primary" id="deleteKandidaten">Ja, löschen</button>
+        </div>
+    </div>    
 
     <div class="modal hide" id="Kandidat_zulassen" tabindex="-1" role="dialog" data-kandidatId="-1"
         aria-labelledby="Kandidat_zulassenLabel" aria-hidden="false" style="overflow:hidden;">
