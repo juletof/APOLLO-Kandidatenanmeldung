@@ -95,13 +95,23 @@
                 selectedKandidaten.push(kandidatId);
             }else{
                 selectedKandidaten = jQuery.grep(selectedKandidaten, function (value) {
-                    console.log(kandidatId);
                     return value != kandidatId;
                 });
             }
 
             $("#countAusgewaehlte").html(selectedKandidaten.length);
         });
+
+        $("#alleAuswaehlen").click(function () {
+            $(".ckbSelectKandidat").attr("checked", true);
+            $(".ckbSelectKandidat").trigger("change");
+        });
+        
+        $("#keinenAuswaehlen").click(function () {
+            $(".ckbSelectKandidat").attr("checked", false);
+            $(".ckbSelectKandidat").trigger("change");
+        });
+
 
         $("#aKandidatenZulassen").click(function () {
             ExecuteCommand("kandidatenZulassen");
@@ -212,8 +222,8 @@
             <a class="btn" href="#"><i class="icon-list-alt"></i></a>
             <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
             <ul class="dropdown-menu">
-                <li><a href="#">alle auswählen</a></li>
-                <li><a href="#">keinen auswählen</a></li>
+                <li><a href="#" id="alleAuswaehlen">alle auswählen</a></li>
+                <li><a href="#" id="keinenAuswaehlen">keinen auswählen</a></li>
             </ul>
         </div>
 
