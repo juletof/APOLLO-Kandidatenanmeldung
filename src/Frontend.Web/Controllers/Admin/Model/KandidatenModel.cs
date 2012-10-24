@@ -95,6 +95,8 @@ public class KandidatenModel
             return "Vollständig";
         if (status == KandidatStatus.Zugelassen)
             return "Zugelassen";
+        if (status == KandidatStatus.Ausgeschieden)
+            return "Ausgeschieden";
 
         return "Unbekannter Status";
     }
