@@ -10,6 +10,14 @@
         [ @Html.ActionLink("Abmelden | Выйти", "LogOff", "Account") ]
     </text>
 }
+@if(userSession.IsLoggedInAdmin)
+{
+    <text>
+        <a href="/Admin/" style="z-index: 1000">Привет Admin</a>!
+        [ @Html.ActionLink("Abmelden | Выйти", "LogOff", "Account") ]
+    </text>    
+}
+
 else {
     @:[ @Html.ActionLink("Anmelden | Войти", "Login", "Account") ]
 }

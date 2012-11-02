@@ -15,7 +15,7 @@ namespace ApolloDb
             var settings = _settingsRepository.Get();
 
             if (string.IsNullOrEmpty(settings.AdminPassword) || string.IsNullOrEmpty(settings.AdminUsername.Trim()))
-                return userName == "123" && password == "123";
+                return userName == settings.AdminUsername && password == settings.AdminPassword;
 
             return
                 settings.AdminPassword.Trim() == password.Trim() &&

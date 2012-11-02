@@ -41,18 +41,21 @@ namespace Frontend.Web.Controllers
         {
             if (model.CommandName == "kandidatenExportieren")
             {
-                return new ContentResult()
+                var result = Kandidat2CsvLine.RunFirstLine() + Environment.NewLine;
+                result += _kandidatRepo.GetByIds(IndexAction.GetIds(model.CommandParams).ToArray())
+                                       .Select(Kandidat2CsvLine.Run)
+                                       .Aggregate((a, b) => a + Environment.NewLine + b);
+
+                return new ContentResult
                 {
-                    Content = _kandidatRepo.GetByIds(IndexAction.GetIds(model.CommandParams).ToArray())
-                                           .Select(Kandidat2CsvLine.Run)
-                                           .Aggregate((a, b) => a + Environment.NewLine + b),
+                    Content  = result,
                     ContentType = "text/csv"
                 };                
             }
 
             if (model.CommandName == "kandidatenEmailsExportieren")
             {
-                return new ContentResult()
+                return new ContentResult
                 {
                     Content = _kandidatRepo.GetByIds(IndexAction.GetIds(model.CommandParams).ToArray())
                                            .Select(k => k.EmailAdresse)

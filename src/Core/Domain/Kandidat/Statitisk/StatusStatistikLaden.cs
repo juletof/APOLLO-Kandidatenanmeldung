@@ -14,6 +14,8 @@ namespace ApolloDb
 
         public StatusStatistikLadenResult Run(int uniId)
         {
+            _session.Flush();
+
             var query = _session.QueryOver<Kandidat>()
                 .Select(
                     Projections.Group<Kandidat>(k => k.Status),

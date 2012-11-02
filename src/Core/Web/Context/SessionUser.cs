@@ -53,9 +53,5 @@ namespace ApolloDb
             KandidatId = -1;
         }
 
-        public void LogoutAdmin(){
-            Logout();
-        }
-
     }
 }

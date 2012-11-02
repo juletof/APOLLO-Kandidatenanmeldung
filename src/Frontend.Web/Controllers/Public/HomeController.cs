@@ -39,8 +39,9 @@ namespace Frontend.Web.Controllers
         {
             var result = Sl.Resolve<PasswortResetVorbereiten>().Run(id);
             var model = new PasswortResetModel {TokenFound = result.Success, Token = id};
+
             if(!result.Success)
-                model.Message = new ErrorMessage("Kein Token gefunden.");
+                model.Message = new ErrorMessage("Der Link ist leider ungültig.");
 
             return View(model);
         }
@@ -63,7 +64,7 @@ namespace Frontend.Web.Controllers
 
         public ActionResult Information_Praktikum()
         {
-            return View();
+            return File("/Informacija_o_praktike.pdf", "application/pdf", "Informacija_o_praktike.pdf");
         }
 
         public ActionResult Kontakt()

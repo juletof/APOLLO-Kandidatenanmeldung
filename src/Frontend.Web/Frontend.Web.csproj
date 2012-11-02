@@ -237,6 +237,7 @@
     <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\Home\Kontakt.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Informacija_o_praktike.pdf" />
     <None Include="Web.config">
       <SubType>Designer</SubType>
     </None>
