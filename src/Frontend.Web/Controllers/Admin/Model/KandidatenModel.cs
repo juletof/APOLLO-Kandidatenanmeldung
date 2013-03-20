@@ -11,6 +11,9 @@ public class KandidatenModel
     public bool FilterRegistriert { get; set; }
     public bool FilterDatenVollständig { get; set; }
     public bool FilterZugelassen { get; set; }
+    public bool FilterAuswahlBestanden1 { get; set; }
+    public bool FilterAuswahlBestanden2 { get; set; }
+    public bool FilterReserve { get; set; }
 
     public string FilterFreiText { get; set; }
 
@@ -20,6 +23,9 @@ public class KandidatenModel
     public int AnzahlRegistriert { get; set; }
     public int AnzahlDatenVollständig { get; set; }
     public int AnzahlZugelassen { get; set; }
+    public int AnzahlAuswahlBestanden1 { get; set; }
+    public int AnzahlAuswahlBestanden2 { get; set; }
+    public int AnzahlReserve { get; set; }
 
     public string CommandName { get; set; }
     public string CommandParams { get; set; }
@@ -38,6 +44,9 @@ public class KandidatenModel
         AnzahlRegistriert = statusStatistik.Registriert;
         AnzahlDatenVollständig = statusStatistik.AnmeldungVollstaendig;
         AnzahlZugelassen = statusStatistik.Zugelassen;
+        AnzahlAuswahlBestanden1 = statusStatistik.Auswahl1;
+        AnzahlAuswahlBestanden2 = statusStatistik.Auswahl2;
+        AnzahlReserve = statusStatistik.Reserve;
 
         var unis = new Universitaeten();
         var faecher = new Studienfaecher();
@@ -97,6 +106,12 @@ public class KandidatenModel
             return "Zugelassen";
         if (status == KandidatStatus.Ausgeschieden)
             return "Ausgeschieden";
+        if (status == KandidatStatus.Auswahl1)
+            return "Auswahl 1 best.";
+        if (status == KandidatStatus.Auswahl2)
+            return "Auswahl 2 best.";
+        if (status == KandidatStatus.Reserve)
+            return "Reserve";
 
         return "Unbekannter Status";
     }

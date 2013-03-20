@@ -97,5 +97,19 @@ namespace Frontend.Web.Controllers
         public void KandidatZulassen(int id){
             Sl.Resolve<KandidatZulassen>().Run(id);
         }
+
+        [AuthorizedAdminOnly]
+        [HttpPost]
+        public void KandidatStatuswechsel(string neuerStatus, int kandidatId)
+        {
+            if(neuerStatus == "auswahl1")
+                Sl.Resolve<ZurAuswahl1>().Run(kandidatId);
+
+            if (neuerStatus == "auswahl2")
+                Sl.Resolve<ZurAuswahl2>().Run(kandidatId);
+
+            if (neuerStatus == "reserve")
+                Sl.Resolve<ZurReserve>().Run(kandidatId);
+        }
     }
 }

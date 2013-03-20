@@ -87,6 +87,9 @@
     <Compile Include="Domain\Kandidat\Lists\Studienfaecher.cs" />
     <Compile Include="Domain\Kandidat\Lists\Studienjahr.cs" />
     <Compile Include="Domain\Kandidat\Lists\Universitaeten.cs" />
+    <Compile Include="Domain\Kandidat\Ops\ZurReserve.cs" />
+    <Compile Include="Domain\Kandidat\Ops\ZurAuswahl2.cs" />
+    <Compile Include="Domain\Kandidat\Ops\ZurAuswahl1.cs" />
     <Compile Include="Domain\Kandidat\Ops\Kandidat2CsvLine.cs" />
     <Compile Include="Domain\Kandidat\Ops\KandidatZulassen.cs" />
     <Compile Include="Domain\Kandidat\Ops\IsEmailAddressInUse.cs" />

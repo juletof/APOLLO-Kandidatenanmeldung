@@ -28,6 +28,10 @@ namespace ApolloDb
             if (model.FilterRegistriert) searchSpec.Filter.Stati.Add(KandidatStatus.Registriert);
             if (model.FilterDatenVollständig) searchSpec.Filter.Stati.Add(KandidatStatus.AnmeldungVollstaendig);
             if (model.FilterAusgeschieden) searchSpec.Filter.Stati.Add(KandidatStatus.Ausgeschieden);
+            if (model.FilterAuswahlBestanden1) searchSpec.Filter.Stati.Add(KandidatStatus.Auswahl1);
+            if (model.FilterAuswahlBestanden2) searchSpec.Filter.Stati.Add(KandidatStatus.Auswahl2);
+            if (model.FilterReserve) searchSpec.Filter.Stati.Add(KandidatStatus.Reserve);
+
             searchSpec.Filter.Stati.Add(KandidatStatus.NichtDefiniert);
 
             if (model.FilterUniVal == null || model.FilterUniVal == "-1")

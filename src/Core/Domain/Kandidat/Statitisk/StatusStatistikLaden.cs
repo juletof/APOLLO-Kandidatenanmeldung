@@ -49,6 +49,21 @@ namespace ApolloDb
                     result.Ausgeschieden = Convert.ToInt32(dbResult[1]);
                     continue;
                 }
+                
+                if (((KandidatStatus)dbResult[0]) == KandidatStatus.Auswahl1){
+                    result.Auswahl1= Convert.ToInt32(dbResult[1]);
+                    continue;
+                }
+
+                if (((KandidatStatus)dbResult[0]) == KandidatStatus.Auswahl2){
+                    result.Auswahl2 = Convert.ToInt32(dbResult[1]);
+                    continue;
+                }
+                
+                if (((KandidatStatus)dbResult[0]) == KandidatStatus.Reserve){
+                    result.Reserve = Convert.ToInt32(dbResult[1]);
+                    continue;
+                }
             }
 
             return result;

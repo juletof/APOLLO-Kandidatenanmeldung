@@ -66,7 +66,7 @@
             
             $('#Kandidat_zulassen').modal();
         });
-        
+
         $("#btnJetztZulassen").click(function () {
             $.ajax({
                 type: 'POST',
@@ -80,9 +80,42 @@
                     status.animate({ backgroundColor: 'transparent' }, 200);
                 }
             });
-
             return false;
         });
+        
+        $(".jetztZurAuswahl1").click(function () {
+            rowToChange = $(this).closest(".k-row");
+            statusWechsel("auswahl1", "Auswahl 1 best.", rowToChange.attr("data-kandidatId"));
+            return false;
+        });
+        
+        $(".jetztZurAuswahl2").click(function () {
+            rowToChange = $(this).closest(".k-row");
+            statusWechsel("auswahl2", "Auswahl 2 best.", rowToChange.attr("data-kandidatId"));
+            return false;
+        });
+        
+        $(".jetztZurReserve").click(function () {
+            rowToChange = $(this).closest(".k-row");
+            statusWechsel("reserve", "Reserve", rowToChange.attr("data-kandidatId"));
+            return false;
+        });
+        
+        function statusWechsel(newStatus, newStatusdisplayName, kandidatId) {
+            $.ajax({
+                type: 'POST',
+                url: "/Admin/KandidatStatuswechsel/" + newStatus + "/" + kandidatId,
+                cache: false,
+                success: function (result) {
+                    var status = rowToChange.find("td.tdStatus").find("b.status");
+                    status.html(newStatusdisplayName);
+                    status.animate({ backgroundColor: '#ADFF2F' }, 600);
+                    status.animate({ backgroundColor: 'transparent' }, 200);
+                }
+            });
+            return false;
+        }
+
         
         $(".ckbCheck,#ddlUnis").change(function () {
             $("#btnSubmit").click();
@@ -153,6 +186,10 @@
 
 <style>
     .tooltip-inner { text-align: left; }
+    .filterCheckbox { line-height: 10px; min-height: 10px; padding-top: 0px;font-size: 10px;position: relative; }
+    .filterCheckbox input[type="radio"], input[type="checkbox"]{ margin-top: 0px;}
+
+    .tdStatus p{ margin-top: 0px;line-height: 15px;}
 
     .k-row{/*used as jquery selector*/} 
     .jetztAusschliessen{/*used as jquery selector*/}
@@ -171,24 +208,39 @@
     <div style="padding-bottom:10px;">				
         <div>		
             <div style="margin-bottom: 5px; float:left; margin-left: 6px;" >
-                <label class="checkbox inline">
+                <label class="checkbox inline filterCheckbox">
                     @Html.CheckBoxFor(m => m.FilterAusgeschieden, new {@class="ckbCheck"})
                     (@Model.AnzahlAusgeschieden) ausgeschieden 
                 </label>
                 <br />
-                <label class="checkbox inline">
+                <label class="checkbox inline filterCheckbox">
                     @Html.CheckBoxFor(m => m.FilterRegistriert, new {@class="ckbCheck"})
                     (@Model.AnzahlRegistriert) registriert 
                 </label>
                 <br />
-                <label class="checkbox inline">
+                <label class="checkbox inline filterCheckbox">
                     @Html.CheckBoxFor(m => m.FilterDatenVollständig, new {@class="ckbCheck"})
                     (@Model.AnzahlDatenVollständig) Daten vollständig
                 </label>
                 <br />
-                <label class="checkbox inline">
+                <label class="checkbox inline filterCheckbox">
                     @Html.CheckBoxFor(m => m.FilterZugelassen, new {@class="ckbCheck"})
                     (@Model.AnzahlZugelassen) zugelassen
+                </label>
+                <br />
+                <label class="checkbox inline filterCheckbox">
+                    @Html.CheckBoxFor(m => m.FilterAuswahlBestanden1, new {@class="ckbCheck"})
+                    (@Model.AnzahlAuswahlBestanden1) Auswahl-1 bestanden
+                </label>
+                <br />
+                <label class="checkbox inline filterCheckbox">
+                    @Html.CheckBoxFor(m => m.FilterAuswahlBestanden2, new {@class="ckbCheck"})
+                    (@Model.AnzahlAuswahlBestanden2) Auswahl-2 bestanden
+                </label>
+                <br />
+                <label class="checkbox inline filterCheckbox">
+                    @Html.CheckBoxFor(m => m.FilterReserve, new {@class="ckbCheck"})
+                    (@Model.AnzahlReserve) Reserve
                 </label>
             </div>
 
@@ -301,6 +353,18 @@
                         
                         @if(item.Status != KandidatStatus.Ausgeschieden){
                             <p><a href="#" class="jetztAusschliessen"><i class="icon-remove"><span class="warnung"><nobr>jetzt ausschließen</nobr></span></i></a></p>
+                        }
+
+                        @if(item.Status != KandidatStatus.Auswahl1){
+                            <p><a href="#" class="jetztZurAuswahl1"><i class="icon-pencil"><span class="warnung"><nobr>Auswahl 1 bestanden</nobr></span></i></a></p>
+                        }
+                        
+                        @if(item.Status != KandidatStatus.Auswahl2){
+                            <p><a href="#" class="jetztZurAuswahl2"><i class="icon-pencil"><span class="warnung"><nobr>Auswahl 2 bestanden</nobr></span></i></a></p>
+                        }
+                        
+                        @if(item.Status != KandidatStatus.Reserve){
+                            <p><a href="#" class="jetztZurReserve"><i class="icon-pencil"><span class="warnung"><nobr>zur Reserve</nobr></span></i></a></p>
                         }
              
                     </td>
@@ -505,7 +569,7 @@
     </div>
 
     <div class="modal hide" id="Kandidat_ausschliessen" tabindex="-1" role="dialog" data-kandidatId="-1"
-        aria-labelledby="Kandidat_ausschliessenLabel" aria-hidden="false" style="overflow:hidden;">
+         aria-labelledby="Kandidat_ausschliessenLabel" aria-hidden="false" style="overflow:hidden;">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h3 id="Kandidat_ausschliessenLabel">Kandidat ausschließen</h3>
