@@ -57,7 +57,7 @@ namespace ApolloDb
                    k.Fakultät + ";" +
                    new Studienfaecher().GermanLabel(k.Studienfach, "") + ";" +
                    k.Spezialisierung + ";" +
-                   new Studienjahr().GermanLabel(k.PraktikumsJahr, "") + ";" +
+                   k.PraktikumsJahr + ";" +
                    k.VerkürzterStudiengang + ";" +
                    new Abschluesse().GermanLabel(k.AngestrebterAbschluss, "") + ";" +
                    k.Deutschkentnisse + ";" +
@@ -76,7 +76,7 @@ namespace ApolloDb
             if (geburtsdatum == null)
                 return "";
 
-            return ((DateTime)geburtsdatum).ToString("MM.dd.yyy");
+            return ((DateTime)geburtsdatum).ToString("dd.MM.yyy");
         }
     }
 
