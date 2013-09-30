@@ -42,7 +42,7 @@
       <HintPath>..\packages\FluentNHibernate.1.3.0.733\lib\FluentNHibernate.dll</HintPath>
     </Reference>
     <Reference Include="Gibraltar.Agent">
-      <HintPath>..\Frontend.Web\bin\Gibraltar.Agent.dll</HintPath>
+      <HintPath>..\packages\Gibraltar.Agent.3.5.4.1559\lib\4.0\Gibraltar.Agent.dll</HintPath>
     </Reference>
     <Reference Include="HibernatingRhinos.Profiler.Appender.v4.0">
       <HintPath>..\packages\NHibernateProfiler\HibernatingRhinos.Profiler.Appender.v4.0.dll</HintPath>
@@ -156,6 +156,7 @@
     <Compile Include="Web\Validation\CheckboxTrueRequired.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
