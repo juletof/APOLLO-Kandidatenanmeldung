@@ -5,7 +5,7 @@ namespace ApolloDb
 {
     public class Kandidat : DomainEntity
     {
-        public virtual int PraktikumsJahr { get; set; }
+        public virtual int Studienjahr { get; set; }
         public virtual int Geschlecht { get; set; }
 
         public virtual string Familienname { get; set; }
@@ -44,7 +44,7 @@ namespace ApolloDb
 
         public Kandidat()
         {
-            PraktikumsJahr = 2013;
+            Studienjahr = 2013;
         }
 
         public virtual string GetVollerName()

@@ -19,7 +19,7 @@ namespace ApolloDb
             kandidat.Fakultät = anmeldungModel.Fakultaet;
             kandidat.Spezialisierung = anmeldungModel.Studienfach;
             kandidat.Studienfach = Convert.ToInt32(anmeldungModel.StudienfachVal);
-            kandidat.PraktikumsJahr = Convert.ToInt32(anmeldungModel.StudienJahrVal);
+            kandidat.Studienjahr = Convert.ToInt32(anmeldungModel.StudienJahrVal);
             kandidat.VerkürzterStudiengang = anmeldungModel.VerkürzterStudiengang;
             kandidat.AngestrebterAbschluss = Convert.ToInt32(anmeldungModel.AngestrebterAbschlussVal);
             kandidat.Deutschkentnisse = anmeldungModel.Deutschkentnisse;

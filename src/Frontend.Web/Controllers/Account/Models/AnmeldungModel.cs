@@ -19,7 +19,7 @@ public class AnmeldungModel
     {
         UniOps = new Universitaeten().ToSelectItems(kandidat.Hochschule);
         StudienfachOps = new Studienfaecher().ToSelectItems(kandidat.Studienfach);
-        StudienJahrOps = new Studienjahr().ToSelectItems(kandidat.PraktikumsJahr);
+        StudienJahrOps = new Studienjahr().ToSelectItems(kandidat.Studienjahr);
         AngestrebterAbschlussOps = new Abschluesse().ToSelectItems(kandidat.AngestrebterAbschluss);
 
         Familienname = kandidat.Familienname;

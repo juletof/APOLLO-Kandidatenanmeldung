@@ -57,7 +57,7 @@ namespace ApolloDb
                    k.Fakultät + ";" +
                    new Studienfaecher().GermanLabel(k.Studienfach, "") + ";" +
                    k.Spezialisierung + ";" +
-                   k.PraktikumsJahr + ";" +
+                   new Studienjahr().GermanLabel(k.Studienjahr, "") + ";" +
                    k.VerkürzterStudiengang + ";" +
                    new Abschluesse().GermanLabel(k.AngestrebterAbschluss, "") + ";" +
                    k.Deutschkentnisse + ";" +

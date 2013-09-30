@@ -8,7 +8,7 @@ namespace ApolloDb
         {
             Id(x => x.Id);
 
-            Map(x => x.PraktikumsJahr);
+            Map(x => x.Studienjahr);
             Map(x => x.Geschlecht);
             Map(x => x.Familienname);
             Map(x => x.FamiliennameKY);

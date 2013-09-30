@@ -77,7 +77,7 @@ public class KandidatenModel
                 Hochschule = unis.GermanLabel(item.Hochschule, ""),
                 Studienfach = faecher.GermanLabel(item.Studienfach, ""),
                 Abschluss = abschluesse.GermanLabel(item.AngestrebterAbschluss, ""),
-                Studienjahr = studienJahre.GermanLabel(item.PraktikumsJahr, ""),
+                Studienjahr = studienJahre.GermanLabel(item.Studienjahr, ""),
                 Mobilnummer = item.Mobilnummer,
                 Status = item.Status,
                 StatusSeit = allStatusWechsel
