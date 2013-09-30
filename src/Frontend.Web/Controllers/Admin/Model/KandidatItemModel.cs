@@ -13,7 +13,7 @@ public class KandidatItemModel
     public string Email;
     public string Mobilnummer;
 
-    public string Kurs;
+    public string Studienjahr;
 
     public string Abschluss;
 

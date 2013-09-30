@@ -27,7 +27,7 @@ namespace ApolloDb
             Map(x => x.Fakultät);
             Map(x => x.Studienfach);
             Map(x => x.Spezialisierung);
-            Map(x => x.Kurs);
+
             Map(x => x.VerkürzterStudiengang);
             Map(x => x.AngestrebterAbschluss);
             

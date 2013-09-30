@@ -16,6 +16,7 @@ namespace ApolloDb.Updates
                 .Add(2, UpdateToVs002.Run)
                 .Add(3, UpdateToVs003.Run)
                 .Add(4, UpdateToVs004.Run)
+                .Add(5, UpdateToVs005.Run)
                 .Run();
         }
 

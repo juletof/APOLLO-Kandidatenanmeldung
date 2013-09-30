@@ -25,8 +25,7 @@ namespace ApolloDb
         public virtual string Fakultät { get; set; }
         public virtual int Studienfach { get; set; }
         public virtual string Spezialisierung { get; set; }
-        /// <summary>Studienjahr</summary>
-        public virtual int Kurs { get; set; }
+
         public virtual bool VerkürzterStudiengang { get; set; }
         public virtual int AngestrebterAbschluss { get; set; }
 
