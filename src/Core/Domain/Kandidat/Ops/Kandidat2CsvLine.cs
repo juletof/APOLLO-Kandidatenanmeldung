@@ -2,7 +2,6 @@
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
-using ApolloDb.Domain.Kandidat.Lists;
 
 namespace ApolloDb
 {

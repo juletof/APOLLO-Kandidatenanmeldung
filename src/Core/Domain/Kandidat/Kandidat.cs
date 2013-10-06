@@ -45,7 +45,7 @@ namespace ApolloDb
 
         public Kandidat()
         {
-            Praktikumsjahr = 2014;
+            Praktikumsjahr = Consts.LaufendesPraktikumsjahr;
         }
         
         public virtual string GetVollerName()

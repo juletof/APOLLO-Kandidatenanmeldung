@@ -34,6 +34,11 @@ namespace ApolloDb
 
             searchSpec.Filter.Stati.Add(KandidatStatus.NichtDefiniert);
 
+            if (model.FilterPraktikumsjahrVal == null || model.FilterPraktikumsjahrVal == "-1")
+                searchSpec.Filter.Praktikumsjahr.Reset();
+            else
+                searchSpec.Filter.Praktikumsjahr.EqualTo(model.FilterPraktikumsjahrVal);
+
             if (model.FilterUniVal == null || model.FilterUniVal == "-1")
                 searchSpec.Filter.Uni.Reset();
             else

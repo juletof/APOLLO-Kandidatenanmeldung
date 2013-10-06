@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using ApolloDb;
-using ApolloDb.Domain.Kandidat.Lists;
 
 public class KandidatenModel
 {
+    public IList<SelectListItem> FilterPraktikumsjahrOps;
+    public string FilterPraktikumsjahrVal { get; set; }
+    
     public bool FilterAusgeschieden { get; set; }
     public bool FilterRegistriert { get; set; }
     public bool FilterDatenVollständig { get; set; }
@@ -17,6 +19,7 @@ public class KandidatenModel
 
     public string FilterFreiText { get; set; }
 
+    public IList<SelectListItem> FilterUniOps;
     public string FilterUniVal { get; set; }
 
     public int AnzahlAusgeschieden { get; set; }
@@ -32,11 +35,12 @@ public class KandidatenModel
 
     public Message Message;
 
-    public IList<SelectListItem> FilterUniOps;
-
     public IList<KandidatItemModel> Items;
 
-    public KandidatenModel(){}
+    public KandidatenModel()
+    {
+        FilterPraktikumsjahrVal = Consts.LaufendesPraktikumsjahr.ToString();
+    }
 
     public void SetKandidaten(IEnumerable<Kandidat> kandidaten, StatusStatistikLadenResult statusStatistik)
     {
@@ -55,7 +59,12 @@ public class KandidatenModel
 
         var allStatusWechsel = Sl.Resolve<StatuswechselRepository>().GetAll();
         var uniStatistiken =  Sl.Resolve<UniStatistikLaden>().Run();
-       
+
+        FilterPraktikumsjahrOps = new List<SelectListItem>();
+        for (int i = Consts.LaufendesPraktikumsjahr; i >= Consts.ErstesPraktikumsjahr; i--)
+            FilterPraktikumsjahrOps.Add(new SelectListItem { Text = i.ToString()});
+        FilterPraktikumsjahrOps.Add(new SelectListItem { Text = "Alle", Value = "-1" });
+
         FilterUniOps = new List<SelectListItem>();
         FilterUniOps.Add(new SelectListItem{Text = "Alle", Value = "-1"});
         foreach(var uni in unis.GetItems())

@@ -1,4 +1,4 @@
-﻿namespace ApolloDb.Domain.Kandidat.Lists
+﻿namespace ApolloDb
 {
     public class Studienjahr : ListBase
     {

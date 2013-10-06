@@ -8,12 +8,15 @@ namespace ApolloDb
 
     public class KandidatFilter : ConditionContainer
     {
+        public ConditionInteger Praktikumsjahr;
+
         public ConditionDisjunction<KandidatStatus> Stati;
         public ConditionInteger Uni;
         public ConditionTextSearch TextSearch;
 
         public KandidatFilter()
         {
+            Praktikumsjahr = new ConditionInteger(this, "Praktikumsjahr");
             Stati = new ConditionDisjunction<KandidatStatus>(this, "Status");
             Uni = new ConditionInteger(this, "Hochschule");
             TextSearch = new ConditionTextSearch(this, "Familienname", "FamiliennameKY", "Vorname", "VornameKY",
