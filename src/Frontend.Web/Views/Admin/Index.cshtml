@@ -121,6 +121,16 @@
             $("#btnSubmit").click();
         });
 
+        $("#selectAllFilters").click(function() {
+            $(".ckbCheck").attr("checked", "checked");
+            $("#btnSubmit").click();
+        });
+        
+        $("#deselectAllFilters").click(function () {
+            $(".ckbCheck").removeAttr("checked");
+            $("#btnSubmit").click();
+        });
+
         $(".ckbSelectKandidat").change(function () {
 
             var kandidatId = $(this).closest(".k-row").attr("data-kandidatId");
@@ -242,6 +252,9 @@
                     @Html.CheckBoxFor(m => m.FilterReserve, new {@class="ckbCheck"})
                     (@Model.AnzahlReserve) Reserve
                 </label>
+                <br />
+                <a id="selectAllFilters">alles auswählen</a>
+                <a id="deselectAllFilters" >nichts auswählen</a>
             </div>
 
             <div style="float:left; padding-left:30px;">
