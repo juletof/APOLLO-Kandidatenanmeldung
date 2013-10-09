@@ -12,7 +12,7 @@ namespace ApolloDb
             _session = session;
         }
 
-        public StatusStatistikLadenResult Run(int uniId)
+        public StatusStatistikLadenResult Run(int uniId, int praktikumsJahr)
         {
             _session.Flush();
 
@@ -24,6 +24,10 @@ namespace ApolloDb
 
             if (uniId > 0)
                 query.Where(k => k.Hochschule == uniId);
+            
+            if (praktikumsJahr > 0)
+                query.Where(k => k.Praktikumsjahr == praktikumsJahr);
+
 
             var dbResults = query.List<object[]>();
 

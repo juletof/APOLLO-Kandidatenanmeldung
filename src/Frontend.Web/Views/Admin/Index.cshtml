@@ -218,11 +218,7 @@
     <div style="padding-bottom:10px;">				
         <div>		
             <div style="margin-bottom: 5px; float:left; margin-left: 6px;" >
-                <label class="checkbox inline filterCheckbox">
-                    @Html.CheckBoxFor(m => m.FilterAusgeschieden, new {@class="ckbCheck"})
-                    (@Model.AnzahlAusgeschieden) ausgeschieden 
-                </label>
-                <br />
+                
                 <label class="checkbox inline filterCheckbox">
                     @Html.CheckBoxFor(m => m.FilterRegistriert, new {@class="ckbCheck"})
                     (@Model.AnzahlRegistriert) registriert 
@@ -251,6 +247,11 @@
                 <label class="checkbox inline filterCheckbox">
                     @Html.CheckBoxFor(m => m.FilterReserve, new {@class="ckbCheck"})
                     (@Model.AnzahlReserve) Reserve
+                </label>
+                <br />
+                <label class="checkbox inline filterCheckbox">
+                    @Html.CheckBoxFor(m => m.FilterAusgeschieden, new {@class="ckbCheck"})
+                    (@Model.AnzahlAusgeschieden) ausgeschieden 
                 </label>
                 <br />
                 <a id="selectAllFilters">alles auswählen</a>

@@ -60,7 +60,7 @@ namespace ApolloDb
             
             model.SetKandidaten(
                 _kandidatRepo.GetBy(searchSpec),
-                Sl.Resolve<StatusStatistikLaden>().Run(Convert.ToInt32(model.FilterUniVal))
+                Sl.Resolve<StatusStatistikLaden>().Run(Convert.ToInt32(model.FilterUniVal), Convert.ToInt32(model.FilterPraktikumsjahrVal))
                 );
             
             return model;
