@@ -41,7 +41,7 @@ namespace ApolloDb
 
         public static string Run(Kandidat k)
         {
-            return Sanitize(k.Geschlecht) + ";" +
+            return Sanitize(new AnredeWerte().GermanLabel(k.Geschlecht, "")) + ";" +
                    Sanitize(k.Familienname) + ";" +
                    Sanitize(k.FamiliennameKY) + ";" +
                    Sanitize(k.Vorname) + ";" +
@@ -92,6 +92,10 @@ namespace ApolloDb
         {
             if (fieldValue == null)
                 return "";
+
+            fieldValue = fieldValue.Replace("\r\n", " ");
+            fieldValue = fieldValue.Replace("\n", " ");
+            fieldValue = fieldValue.Replace("\r", " ");
 
             return fieldValue.Replace(";", ",");
         }

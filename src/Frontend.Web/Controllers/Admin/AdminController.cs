@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 using System.Web.Mvc;
 using ApolloDb;
 
@@ -35,6 +36,7 @@ namespace Frontend.Web.Controllers
             return View(loginModelAdmin);
         }
 
+
         [AuthorizedAdminOnly]
         [HttpPost]
         public ActionResult Index(KandidatenModel model)
@@ -46,22 +48,17 @@ namespace Frontend.Web.Controllers
                                        .Select(Kandidat2CsvLine.Run)
                                        .Aggregate((a, b) => a + Environment.NewLine + b);
 
-                return new ContentResult
-                {
-                    Content  = result,
-                    ContentType = "text/csv",
-                };                
+                return File(Encoding.UTF8.GetBytes(result), "text/csv", "KandiDaten.csv");
+
             }
 
             if (model.CommandName == "kandidatenEmailsExportieren")
             {
-                return new ContentResult
-                {
-                    Content = _kandidatRepo.GetByIds(IndexAction.GetIds(model.CommandParams).ToArray())
-                                           .Select(k => k.EmailAdresse)
-                                           .Aggregate((a, b) => a + Environment.NewLine + b),
-                    ContentType = "text/csv"
-                };                
+                var result = _kandidatRepo.GetByIds(IndexAction.GetIds(model.CommandParams).ToArray())
+                    .Select(k => k.EmailAdresse)
+                    .Aggregate((a, b) => a + Environment.NewLine + b);
+
+                return File(Encoding.UTF8.GetBytes(result), "text/csv", "KandiMails.csv");        
             }
 
             return View(Sl.Resolve<IndexAction>().Run(model));
