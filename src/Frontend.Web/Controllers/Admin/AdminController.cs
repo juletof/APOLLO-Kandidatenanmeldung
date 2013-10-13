@@ -49,7 +49,7 @@ namespace Frontend.Web.Controllers
                 return new ContentResult
                 {
                     Content  = result,
-                    ContentType = "text/csv"
+                    ContentType = "text/csv",
                 };                
             }
 
