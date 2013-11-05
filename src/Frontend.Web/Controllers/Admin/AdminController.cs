@@ -44,12 +44,16 @@ namespace Frontend.Web.Controllers
             if (model.CommandName == "kandidatenExportieren")
             {
                 var result = Kandidat2CsvLine.RunFirstLine() + Environment.NewLine;
-                result += _kandidatRepo.GetByIds(IndexAction.GetIds(model.CommandParams).ToArray())
-                                       .Select(Kandidat2CsvLine.Run)
-                                       .Aggregate((a, b) => a + Environment.NewLine + b);
+
+                var lines = _kandidatRepo.GetByIds(IndexAction.GetIds(model.CommandParams).ToArray())
+                                         .Select(k => Kandidat2CsvLine.Run(k));
+                if (lines.Count() > 0)
+                    result += lines.Aggregate((a, b) => a + Environment.NewLine + b);
+                else
+                    result += "--- Sie haben keinen Kandidaten aus der Liste ausgewählt (Checkbox links neben dem Kandidaten). ---";
 
                 return File(Encoding.UTF8.GetBytes(result), "text/csv", "KandiDaten.csv");
-
+                
             }
 
             if (model.CommandName == "kandidatenEmailsExportieren")

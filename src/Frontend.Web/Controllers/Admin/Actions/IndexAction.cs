@@ -103,6 +103,9 @@ namespace ApolloDb
 
         public static IEnumerable<int> GetIds(string csvId)
         {
+            if (string.IsNullOrEmpty(csvId))
+                return new List<int>(){-1}; 
+            
             return csvId.Split(',')
                         .Select(x => Convert.ToInt32(x));
         }

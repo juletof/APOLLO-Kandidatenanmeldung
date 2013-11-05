@@ -58,7 +58,7 @@ public class KandidatenModel
         var abschluesse = new Abschluesse();
 
         var allStatusWechsel = Sl.Resolve<StatuswechselRepository>().GetAll();
-        var uniStatistiken =  Sl.Resolve<UniStatistikLaden>().Run();
+        var uniStatistiken =  Sl.Resolve<UniStatistikLaden>().Run(Convert.ToInt32(FilterPraktikumsjahrVal));
 
         FilterPraktikumsjahrOps = new List<SelectListItem>();
         for (int i = Consts.LaufendesPraktikumsjahr; i >= Consts.ErstesPraktikumsjahr; i--)

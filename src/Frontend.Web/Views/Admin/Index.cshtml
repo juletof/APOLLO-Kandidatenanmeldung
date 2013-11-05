@@ -120,6 +120,10 @@
         $(".ckbCheck,#ddlUnis").change(function () {
             $("#btnSubmit").click();
         });
+        
+        $("select").change(function () {
+            document.forms[0].submit();
+        });
 
         $("#selectAllFilters").click(function() {
             $(".ckbCheck").attr("checked", "checked");
@@ -215,6 +219,7 @@
     @Html.HiddenFor(x => x.CommandName, new { id = "hddCmdName" })
     @Html.HiddenFor(x => x.CommandParams, new { id = "hddCmdParams" })
 
+    <h1>@Request.Form["FilterFreiText"]</h1>
     <div style="padding-bottom:10px;">				
         <div>		
             <div style="margin-bottom: 5px; float:left; margin-left: 6px;" >

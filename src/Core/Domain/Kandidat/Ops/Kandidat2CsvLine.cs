@@ -43,8 +43,8 @@ namespace ApolloDb
         {
             return Sanitize(new AnredeWerte().GermanLabel(k.Geschlecht, "")) + ";" +
                    Sanitize(k.Familienname) + ";" +
-                   Sanitize(k.FamiliennameKY) + ";" +
                    Sanitize(k.Vorname) + ";" +
+                   Sanitize(k.FamiliennameKY) + ";" +
                    Sanitize(k.VornameKY) + ";" +
                    Sanitize(k.VatersnameKY) + ";" +
                    Sanitize(k.EmailAdresse) + ";" +

@@ -4,7 +4,7 @@ namespace ApolloDb
 {
     public class UniStatistikLadenResult
     {
-        public Dictionary<int, int> _uniCounts = new Dictionary<int, int>();
+        private readonly Dictionary<int, int> _uniCounts = new Dictionary<int, int>();
 
         public void Add(int uniId, int uniCount){
             _uniCounts.Add(uniId, uniCount);

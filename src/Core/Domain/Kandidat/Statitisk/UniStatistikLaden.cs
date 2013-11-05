@@ -12,10 +12,14 @@ namespace ApolloDb
             _session = session;
         }
 
-        public UniStatistikLadenResult Run()
+        public UniStatistikLadenResult Run(int praktikumsjahr)
         {
-            var dbResults = _session.QueryOver<Kandidat>()
-                .Select(
+            var query = _session.QueryOver<Kandidat>();
+
+            if (praktikumsjahr != -1)
+                query = query.Where(k => k.Praktikumsjahr == praktikumsjahr);
+
+            var dbResults = query.Select(
                     Projections.Group<Kandidat>(k => k.Hochschule),
                     Projections.Count<Kandidat>(k => k.Hochschule)
                 ).List<object[]>();
