@@ -10,17 +10,18 @@ namespace ApolloDb
 
         public static string RunFirstLine()
         {
-            return "Geschlecht" + ";" +
+            return "ID" + ";" +
+                   "Status" + ";" +
+                   "Geschlecht" + ";" +
                    "Familienname" + ";" +
-                   "FamiliennamKY" + ";" +
                    "Vorname" + ";" +
+                   "FamiliennamKY" + ";" +
                    "VornameKY" + ";" +
                    "VatersnameKY" + ";" +
                    "EmailAdresse" + ";" +
                    "Mobilnummer" + ";" +
                    "Geburtsdatum" + ";" +
                    "Alter" + ";" +
-                   "NummerInlandspass" + ";" +
                    "Uni" + ";" +
                    "Fakultät" + ";" +
                    "Studienfach" + ";" +
@@ -28,20 +29,23 @@ namespace ApolloDb
                    "Studienjahr" + ";" +
                    "VerkürzterStudiengang" + ";" +
                    "AngestrebterAbschluss" + ";" +
+                   "Nr. Inlandspass" + ";" +
                    "Deutschkentnisse" + ";" +
                    "DeutschkentnisseDurchSchule" + ";" +
                    "DeutschkentnisseDurchUni" + ";" +
                    "DeutschkentnisseDurchSonstige" + ";" +
                    "FruehererAufenthalt" + ";" +
                    "FruehererAufenthaltProgramm" + ";" +
-                   "Kommentar" + ";" +
-                   "KommentarApollo" + ";" +
-                   "Status";
+                   "Kommentar Kandidat" + ";" +
+                   "Kommentar Apollo";
+
         }
 
         public static string Run(Kandidat k)
         {
-            return Sanitize(new AnredeWerte().GermanLabel(k.Geschlecht, "")) + ";" +
+            return Sanitize(k.Id) + ";" +
+                   Sanitize(k.Status.ToString()) + ";" +
+                   Sanitize(new AnredeWerte().GermanLabel(k.Geschlecht, "")) + ";" +
                    Sanitize(k.Familienname) + ";" +
                    Sanitize(k.Vorname) + ";" +
                    Sanitize(k.FamiliennameKY) + ";" +
@@ -51,7 +55,7 @@ namespace ApolloDb
                    Sanitize(k.Mobilnummer) + ";" +
                    Sanitize(GetGeburtsdatum(k.Geburtsdatum)) + ";" +
                    Sanitize(k.GetAlter()) + ";" +
-                   Sanitize(k.NummerInlandspass) + ";" +
+                   
                    Sanitize(new Universitaeten().GermanLabel(k.Hochschule, "")) + ";" +
                    Sanitize(k.Fakultät) + ";" +
                    Sanitize(new Studienfaecher().GermanLabel(k.Studienfach, "")) + ";" +
@@ -59,6 +63,7 @@ namespace ApolloDb
                    Sanitize(new Studienjahr().GermanLabel(k.Studienjahr, "")) + ";" +
                    Sanitize(k.VerkürzterStudiengang) + ";" +
                    Sanitize(new Abschluesse().GermanLabel(k.AngestrebterAbschluss, "")) + ";" +
+                   Sanitize(k.NummerInlandspass) + ";" +
                    Sanitize(k.Deutschkentnisse) + ";" +
                    Sanitize(k.DeutschkentnisseDurchSchule) + ";" +
                    Sanitize(k.DeutschkentnisseDurchUni) + ";" +
@@ -66,8 +71,8 @@ namespace ApolloDb
                    Sanitize(k.FruehererAufenthalt) + ";" +
                    Sanitize(k.FruehererAufenthaltProgramm) + ";" +
                    Sanitize(k.Kommentar) + ";" +
-                   Sanitize(k.KommentarApollo) + ";" +
-                   Sanitize(k.Status.ToString());
+                   Sanitize(k.KommentarApollo);
+
         }
 
         private static string GetGeburtsdatum(DateTime? geburtsdatum)
@@ -80,7 +85,10 @@ namespace ApolloDb
 
         private static string Sanitize(bool fieldValue)
         {
-            return fieldValue.ToString();
+            if (fieldValue)
+                return "ja";
+
+            return "";
         }
 
         private static string Sanitize(int fieldValue)

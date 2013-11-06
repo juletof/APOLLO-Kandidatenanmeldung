@@ -1,4 +1,5 @@
-﻿using NHibernate;
+﻿using System.Collections.Generic;
+using NHibernate;
 using Seedworks.Lib.Persistence;
 
 namespace ApolloDb
@@ -12,6 +13,12 @@ namespace ApolloDb
             return _session.QueryOver<Kandidat>()
                            .Where(k => k.EmailAdresse == emailAdresse)
                            .SingleOrDefault<Kandidat>();
+        }
+
+        public void Update(IList<Kandidat> kandis)
+        {
+            foreach (var kandidat in kandis)
+                Update(kandidat);
         }
     }
 }

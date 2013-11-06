@@ -88,6 +88,7 @@
     <Compile Include="Domain\Kandidat\Lists\Studienfaecher.cs" />
     <Compile Include="Domain\Kandidat\Lists\Studienjahr.cs" />
     <Compile Include="Domain\Kandidat\Lists\Universitaeten.cs" />
+    <Compile Include="Domain\Kandidat\Ops\NamensBereiniger.cs" />
     <Compile Include="Domain\Kandidat\Ops\ZurReserve.cs" />
     <Compile Include="Domain\Kandidat\Ops\ZurAuswahl2.cs" />
     <Compile Include="Domain\Kandidat\Ops\ZurAuswahl1.cs" />
@@ -140,6 +141,7 @@
     <Compile Include="Infrastructure\Settings\ConnectionString\GetOverwrittenConnectionString.cs" />
     <Compile Include="Infrastructure\Settings\ConnectionString\GetOverwrittenConnectionStringResult.cs" />
     <Compile Include="Utilities\Update\Scripts\ScriptPath.cs" />
+    <Compile Include="Utilities\Update\Steps\UpdateToVs008.cs" />
     <Compile Include="Utilities\Update\Steps\UpdateToVs007.cs" />
     <Compile Include="Utilities\Update\Steps\UpdateToVs006.cs" />
     <Compile Include="Utilities\Update\Steps\UpdateToVs005.cs" />
