@@ -656,6 +656,10 @@ a.btn {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+button.btn.button-mit-link a {color: black;}
+
+button.btn.button-mit-link a:hover {text-decoration: none;} 
+
 /*Hintergrund für Submit-Button entfernen:*/
 
 .form-actions {
@@ -1060,6 +1064,15 @@ margin: 0px;
 .table-striped tbody tr:nth-child(odd) th {
   background-color: #F0ECCD;
 }
+
+.de-select-all {margin-top: 5px;}
+
+.de-select-all a {
+    display: block;
+    font-size: 10px;
+}
+
+
 
 /*Breite Textfeld*/
 

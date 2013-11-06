@@ -12,7 +12,9 @@ namespace ApolloDb
         {
             return "ID" + ";" +
                    "Status" + ";" +
-                   "Geschlecht" + ";" +
+                   "Kommentar Kandidat" + ";" +
+                   "Kommentar Apollo" + ";" +
+                   "Anrede" + ";" +
                    "Familienname" + ";" +
                    "Vorname" + ";" +
                    "FamiliennamKY" + ";" +
@@ -35,9 +37,7 @@ namespace ApolloDb
                    "DeutschkentnisseDurchUni" + ";" +
                    "DeutschkentnisseDurchSonstige" + ";" +
                    "FruehererAufenthalt" + ";" +
-                   "FruehererAufenthaltProgramm" + ";" +
-                   "Kommentar Kandidat" + ";" +
-                   "Kommentar Apollo";
+                   "FruehererAufenthaltProgramm";
 
         }
 
@@ -45,6 +45,8 @@ namespace ApolloDb
         {
             return Sanitize(k.Id) + ";" +
                    Sanitize(k.Status.ToString()) + ";" +
+                   Sanitize(k.Kommentar) + ";" +
+                   Sanitize(k.KommentarApollo) + ";" +
                    Sanitize(new AnredeWerte().GermanLabel(k.Geschlecht, "")) + ";" +
                    Sanitize(k.Familienname) + ";" +
                    Sanitize(k.Vorname) + ";" +
@@ -55,7 +57,6 @@ namespace ApolloDb
                    Sanitize(k.Mobilnummer) + ";" +
                    Sanitize(GetGeburtsdatum(k.Geburtsdatum)) + ";" +
                    Sanitize(k.GetAlter()) + ";" +
-                   
                    Sanitize(new Universitaeten().GermanLabel(k.Hochschule, "")) + ";" +
                    Sanitize(k.Fakultät) + ";" +
                    Sanitize(new Studienfaecher().GermanLabel(k.Studienfach, "")) + ";" +
@@ -69,9 +70,8 @@ namespace ApolloDb
                    Sanitize(k.DeutschkentnisseDurchUni) + ";" +
                    Sanitize(k.DeutschkentnisseDurchSonstige) + ";" +
                    Sanitize(k.FruehererAufenthalt) + ";" +
-                   Sanitize(k.FruehererAufenthaltProgramm) + ";" +
-                   Sanitize(k.Kommentar) + ";" +
-                   Sanitize(k.KommentarApollo);
+                   Sanitize(k.FruehererAufenthaltProgramm);
+                   
 
         }
 
