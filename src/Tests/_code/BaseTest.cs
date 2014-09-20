@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using HibernatingRhinos.Profiler.Appender.NHibernate;
+//using HibernatingRhinos.Profiler.Appender.NHibernate;
 using NUnit.Framework;
 
 namespace ApolloDb.Tests
@@ -12,7 +12,7 @@ namespace ApolloDb.Tests
         static BaseTest()
         {
 #if DEBUG
-            NHibernateProfiler.Initialize();
+            //NHibernateProfiler.Initialize();
 #endif
         }
 
