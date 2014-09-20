@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Linq;
 
@@ -8,29 +9,33 @@ namespace ApolloDb
     {
         protected IList<ListItem> _items = new List<ListItem>();
 
-        public IList<SelectListItem> ToSelectItems(int studienfach)
+        public IList<SelectListItem> ToSelectItems(int selectedItem, bool onlyActive = false)
         {
+            Func<ListItem, bool> isSelectedItem = li => li.Key == selectedItem;
+
             return 
-                _items.Select(x => new SelectListItem
+                _items
+                .Where(x => !onlyActive || x.IstAktiv || isSelectedItem(x))
+                .Select(x => new SelectListItem
                     {
-                        Selected = x.Key == studienfach,
+                        Selected = isSelectedItem(x),
                         Text = x.Deutsch + " | " + x.Russisch,
                         Value = x.Key.ToString()
                     }).ToList();
         }
 
-        public IList<SelectListItem> ToSelectItems()
+        public IList<SelectListItem> ToSelectItems(bool onlyActive = false)
         {
-            return ToSelectItems(-1);
+            return ToSelectItems(-1, onlyActive);
         }
 
         public IEnumerable<ListItem> GetItems(){
             return _items;
         }
 
-        protected void Add(int index, string de, string ru)
+        protected void Add(int index, string de, string ru, bool istAktiv = true)
         {
-            _items.Add(new ListItem(index, deutsch: de, russisch: ru));
+            _items.Add(new ListItem(index, deutsch: de, russisch: ru, istAktiv: istAktiv));
         }
 
         public ListItem ById(int itemId)

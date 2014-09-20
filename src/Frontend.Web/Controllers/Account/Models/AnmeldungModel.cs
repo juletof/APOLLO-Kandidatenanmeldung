@@ -8,7 +8,7 @@ public class AnmeldungModel
 {
     public AnmeldungModel()
     {
-        UniOps = new Universitaeten().ToSelectItems();
+        UniOps = new Universitaeten().ToSelectItems(onlyActive: true);
         StudienfachOps = new Studienfaecher().ToSelectItems();
         StudienJahrOps = new Studienjahr().ToSelectItems();
         AngestrebterAbschlussOps = new Abschluesse().ToSelectItems();
@@ -16,7 +16,7 @@ public class AnmeldungModel
 
     public AnmeldungModel(Kandidat kandidat, SessionUser sessionUser)
     {
-        UniOps = new Universitaeten().ToSelectItems(kandidat.Hochschule);
+        UniOps = new Universitaeten().ToSelectItems(kandidat.Hochschule, onlyActive: true);
         StudienfachOps = new Studienfaecher().ToSelectItems(kandidat.Studienfach);
         StudienJahrOps = new Studienjahr().ToSelectItems(kandidat.Studienjahr);
         AngestrebterAbschlussOps = new Abschluesse().ToSelectItems(kandidat.AngestrebterAbschluss);
