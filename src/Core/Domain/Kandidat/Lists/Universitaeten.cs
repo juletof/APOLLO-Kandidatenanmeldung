@@ -1,4 +1,6 @@
-﻿namespace ApolloDb
+﻿using System.Linq;
+
+namespace ApolloDb
 {
     public class Universitaeten : ListBase
     {
@@ -16,6 +18,24 @@
             Add(10,"Saratov","Саратовский государственный аграрный университет им. Н.И. Вавилова");
             Add(11,"Smolensk","Смоленская государственная сельскохозяйственная академия");
             Add(12,"Stavropol", "Ставропольский государственный аграрный университет");
+        }
+
+        public static string ToHtmlList(bool russian = false, bool onlyActive = true)
+        {
+            var listInner = russian ?
+                            new Universitaeten().Items
+                                .Where(x => !onlyActive || x.IstAktiv)
+                                .Select(x => x.Russisch)
+                                //.Aggregate((a, b) => a + "</br>" + b);
+                                .Aggregate((a, b) => a + "</li><li>" + b) :
+                            new Universitaeten().Items
+                                .Where(x => !onlyActive || x.IstAktiv)
+                                .Select(x => x.Deutsch)
+                                //.Aggregate((a, b) => a + "</br>" + b);
+                                .Aggregate((a, b) => a + "</li><li>" + b);
+            
+            return "<ul><li>" + listInner + "</li></ul>";
+
         }
     }
 }

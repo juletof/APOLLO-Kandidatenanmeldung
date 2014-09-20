@@ -7,6 +7,7 @@ namespace ApolloDb
 {
     public class ListBase
     {
+        public IList<ListItem> Items { get { return this._items; }}
         protected IList<ListItem> _items = new List<ListItem>();
 
         public IList<SelectListItem> ToSelectItems(int selectedItem, bool onlyActive = false)
