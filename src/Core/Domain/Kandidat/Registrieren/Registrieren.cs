@@ -38,7 +38,7 @@ namespace ApolloDb
 
 Вы успешно прошли регистрацию для электронной подачи заявлений.
 
-Для допуска к участию в собеседовании, внесите все необходимые данные в заявление на участие до 31 октября 2013 года.
+Для допуска к участию в собеседовании, внесите все необходимые данные в заявление на участие до 09 ноября 2014 года.
 
 Чтобы войти в систему, перейдите по ссылке: bewerbung.apollo-online.de/account/login.
 
@@ -54,7 +54,7 @@ Guten Tag,
 
 sie haben sich erfolgreich für die APOLLO-Online-Anmeldung registriert.
 
-Bitte geben Sie bis zum 31. Oktober 2013 die erforderlichen Daten für die Anmeldung zum Auswahlverfahren ein, falls Sie es noch nicht getan haben.
+Bitte geben Sie bis zum 09. November 2014 die erforderlichen Daten für die Anmeldung zum Auswahlverfahren ein, falls Sie es noch nicht getan haben.
 
 Loggen Sie sich dazu auf folgender Seite mit Ihrer Email-Adresse ein: http://bewerbung.apollo-online.de/account/login.
 
