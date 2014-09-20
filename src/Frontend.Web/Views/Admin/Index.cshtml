@@ -117,13 +117,10 @@
         }
 
         
-        $(".ckbCheck,#ddlUnis").change(function () {
+        $(".ckbCheck, #ddlPraktikumsjahr, #ddlUnis").change(function () {
             $("#btnSubmit").click();
         });
         
-        $("select").change(function () {
-            document.forms[0].submit();
-        });
 
         $("#selectAllFilters").click(function() {
             $(".ckbCheck").attr("checked", "checked");
