@@ -70,7 +70,7 @@ public class KandidatenModel
         foreach(var uni in unis.GetItems())
             FilterUniOps.Add(
                 new SelectListItem{
-                    Text = uni.Deutsch + " (gesamt:" + uniStatistiken.GetUniCount(uni.Key) + ")",
+                    Text = uni.Deutsch + (uni.IstAktiv ? "" : " --inaktiv--") + " (gesamt:" + uniStatistiken.GetUniCount(uni.Key) + ")",
                     Value = uni.Key.ToString()}
             );
 
