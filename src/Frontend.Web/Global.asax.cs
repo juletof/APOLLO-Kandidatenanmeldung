@@ -5,7 +5,7 @@ using ApolloDb;
 using ApolloDb.Updates;
 using Autofac;
 using Autofac.Integration.Mvc;
-using HibernatingRhinos.Profiler.Appender.NHibernate;
+//using HibernatingRhinos.Profiler.Appender.NHibernate;
 using Gibraltar.Agent;
 
 namespace Frontend.Web
@@ -37,7 +37,7 @@ namespace Frontend.Web
             AreaRegistration.RegisterAllAreas();
 
 #if DEBUG
-            NHibernateProfiler.Initialize();
+            //NHibernateProfiler.Initialize();
 #endif
 
             Sl.Resolve<Update>().Run();
