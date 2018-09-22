@@ -8,6 +8,6 @@ namespace ApolloDb
     public class Consts
     {
         public const int ErstesPraktikumsjahr = 2013;
-        public const int LaufendesPraktikumsjahr = 2018;
+        public const int LaufendesPraktikumsjahr = 2019;
     }
 }
