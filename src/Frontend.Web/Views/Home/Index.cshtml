@@ -1,45 +1,45 @@
-﻿@{
+﻿@using ApolloDb
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<table class="textlinksrechts"> 
-	<tr class="erstezeile alleinestehend">
-	    <td class="links">
-	        <h2>Online-Bewerbung</h2>
-	    </td>
-	    <td class="rechts">
-	        <h2>Система электронной подачи заявления</h2>
-	    </td>
-	</tr>
+<table class="textlinksrechts">
+    <tr class="erstezeile alleinestehend">
+        <td class="links">
+            <h2>Online-Bewerbung</h2>
+        </td>
+        <td class="rechts">
+            <h2>Система электронной подачи заявления</h2>
+        </td>
+    </tr>
 </table>
 <table class="textlinksrechts">
     <tr class="erstezeile">
-	    <td class="links">
-	       <p>
-           Herzlich willkommen zur elektronischen Anmeldung 
-           zum Auswahlverfahren 
-           für das Grundpraktikum der APOLLO e.V. 
-           für Studenten aus der Russischen Föderation.
-           <!--<br /><b>Da wir noch in der Testphase sind, sind wir für Hinweise sehr dankbar,
-                        falls etwas auf der Seite nicht richtig funktioniert oder etwas nicht 
-                        verständlich ist.
-                        Helfen Sie uns die Seite zu verbessern! </b> <a href="@Url.Action("Kontakt", "Home")">(Kontakt)</a>
-                        <br /><span style="color:#B71C00;"><b>Wir haben die Bewerbungsfrist bis zum 19. Oktober 2012 verlängert.</b></span>-->
-           </p>
-	    </td>
-	    <td class="rechts">
-	       <p>
-           Добро пожаловать в систему электронной подачи заявлений на участие в 
-           программе основной практики APOLLO в Германии для студентов из Российской Федерации.
-           <!--<br /><b>Так как наша страница находится в стадии разработки, то мы будем Вам очень признательны 
-           за Ваши комментарии и подсказки, если что-то не работает или непонятно. 
-           Помогите нам усовершенствовать эту страницу! </b><a href="@Url.Action("Kontakt", "Home")">(Контакт)</a>
-           <br /><span style="color:#B71C00;"><b>Мы продлили сроки регистрации на участие в собеседовании до 19 октября.</b></span>-->
-           </p>
-	    </td>
-	</tr>
-	<tr>
+        <td class="links">
+            <p>
+                Herzlich willkommen zur elektronischen Anmeldung
+                zum Auswahlverfahren
+                für das Grundpraktikum der APOLLO e.V.
+                für Studenten aus der Russischen Föderation.
+                <!--<br /><b>Da wir noch in der Testphase sind, sind wir für Hinweise sehr dankbar,
+                             falls etwas auf der Seite nicht richtig funktioniert oder etwas nicht
+                             verständlich ist.
+                             Helfen Sie uns die Seite zu verbessern! </b> <a href="@Url.Action("Kontakt", "Home")">(Kontakt)</a>
+                             <br /><span style="color:#B71C00;"><b>Wir haben die Bewerbungsfrist bis zum 19. Oktober 2012 verlängert.</b></span>-->
+            </p>
+        </td>
+        <td class="rechts">
+            <p>
+                Добро пожаловать в систему электронной подачи заявлений на участие в
+                программе основной практики APOLLO в Германии для студентов из Российской Федерации.
+                <!--<br /><b>Так как наша страница находится в стадии разработки, то мы будем Вам очень признательны
+                за Ваши комментарии и подсказки, если что-то не работает или непонятно.
+                Помогите нам усовершенствовать эту страницу! </b><a href="@Url.Action("Kontakt", "Home")">(Контакт)</a>
+                <br /><span style="color:#B71C00;"><b>Мы продлили сроки регистрации на участие в собеседовании до 19 октября.</b></span>-->
+            </p>
+        </td>
+    </tr>
+    <tr>
         <td class="links">
             <p style="font-weight: bold;">
                 <br />
@@ -49,75 +49,93 @@
                 sind ab sofort bis zum 4. November 2018 möglich.
 
                 @*Bewerbungen für das Programmjahr 2014 sind nicht mehr möglich.
-                Für den Praktikumszeitraum Juni-September 2015 werden die Auswahlen im November 2014 stattfinden.*@
+                    Für den Praktikumszeitraum Juni-September 2015 werden die Auswahlen im November 2014 stattfinden.*@
             </p>
         </td>
-	    <td class="rechts">
-	       <p style="font-weight: bold;">
-	           <br />
-               Подать заявку на участие в программе практики - 2019 (срок практики: с конца мая до конца сентября) можно уже с этой минуты до 4 ноября 2018г.
+        <td class="rechts">
+            <p style="font-weight: bold;">
+                <br />
+                Подать заявку на участие в программе практики - 2019 (срок практики: с конца мая до конца сентября) можно уже с этой минуты до 4 ноября 2018г.
 
-	           @*Приём заявок на участие в программе в 2014 году уже закончился. 
-    		   Отбор кандидатов на практику с июня по сентябрь 2015 года будет проводиться в ноябре 2014 г.*@
-           </p>
-	    </td>
-	</tr>
-</table>
-</br>
-<table class="textlinksrechts" style="margin-bottom: 20px;"> 
-	<tr class="erstezeile alleinestehend">
-	    <td class="links">
-	        <h3>Für neue Benutzer</h3>
-	    </td>
-	    <td class="rechts">
-	        <h3>Для нового пользователя</h3>
-	    </td>
-	</tr>
-</table>
-<table class="button_mit_erklaerung" style="margin-bottom: 50px;">
-    <tr>
-	    <td class="links">
-		    <p> Bitte lesen Sie zunächst unsere Informationen zum Auswahlverfahren | Пожалуйста сначала прочтите информацию о структуре отбора:</p>
-	    </td>
-	
-	    <td class="rechts button_rechts_mit_erklaerung">
-		    <a class="btn btn-large btn-apollogruen button_rechts_mit_erklaerung" href='@Url.Action("Information", "Home")' style="width:220px; margin-left: 0px">Informationen | Информация<i class="icon-chevron-right icon-white"></i></a>
-	    </td>
-    </tr>
-    <tr>
-	    <td class="links">
-		    <p>Anschließend können Sie sich hier registrieren:<br>Затем вы можете зарегистрироваться:</p>
-	    </td>
-	
-	    <td class="rechts">
-		    <p>
-		    <a class="btn btn-large btn-apollogruen button_rechts_mit_erklaerung" href='@Url.Action("Registrierung", "Account")' style="width:220px; margin-left: 0px">Registrierung | Регистрация<i class="icon-chevron-right icon-white"></i></a>
-		    </p>
-	    </td>
+                @*Приём заявок на участие в программе в 2014 году уже закончился.
+                    Отбор кандидатов на практику с июня по сентябрь 2015 года будет проводиться в ноябре 2014 г.*@
+            </p>
+        </td>
     </tr>
 </table>
-<table class="textlinksrechts"  style="margin-bottom: 20px;"> 
-	<tr class="erstezeile alleinestehend">
-	    <td class="links">
-	        <h3>Für bereits registrierte Benutzer</h3>
-	    </td>
-	    <td class="rechts">
-	        <h3>Для зарегистрированных пользователей</h3>
-	    </td>
-	</tr>
-</table>
-<table class="button_mit_erklaerung">
-    <tr>
-	    <td class="links">
-		    <p> Hier geht es zum persönlichen Bereich:<br>Переход к персональной странице:</p>
-	    </td>
-	
-	    <td class="rechts button_rechts_mit_erklaerung">
-        <p>
-		    <a class="btn btn-large btn-apollogruen button_rechts_mit_erklaerung" href='@Url.Action("Login", "Account")' style="width:220px; margin-left: 0px">Login | Войти<i class="icon-chevron-right icon-white"></i></a>
-        </p>
-	    </td>
-    </tr>
-</table>
-	
+<br />
+@{ var userSession = Sl.Resolve<SessionUser>(); }
+@if (userSession.IsLoggedInKandidat)
+{
+    <table class="button_mit_erklaerung" style="margin-bottom: 50px;">
+        <tr>
+            <td class="links">
+                <p> Informationen zum Auswahlverfahren<br/>Информация о структуре отбора:</p>
+            </td>
+
+            <td class="rechts button_rechts_mit_erklaerung">
+                <a class="btn btn-large btn-apollogruen button_rechts_mit_erklaerung" href='@Url.Action("Information", "Home")' style="width:280px; margin-left: 0px">Informationen | Информация<i class="icon-chevron-right icon-white"></i></a>
+            </td>
+        </tr>
+        <tr>
+            <td class="links">
+                <p> Hier geht es zum persönlichen Bereich:<br>Переход к персональной странице:</p>
+            </td>
+
+            <td class="rechts button_rechts_mit_erklaerung">
+                <p>
+                    <a class="btn btn-large btn-apollogruen button_rechts_mit_erklaerung" href='@Url.Action("Dashboard", "Account")' style="width:280px; margin-left: 0px">Pers. Bereich | Персональная страница<i class="icon-chevron-right icon-white"></i></a>
+                </p>
+            </td>
+        </tr>
+    </table>
+}
+else
+{
+    <table class="textlinksrechts" style="margin-bottom: 20px;">
+        <tr class="erstezeile alleinestehend">
+            <td class="links">
+                <h3>Für neue Benutzer</h3>
+            </td>
+            <td class="rechts">
+                <h3>Для нового пользователя</h3>
+            </td>
+        </tr>
+    </table>
+    <table class="button_mit_erklaerung" style="margin-bottom: 50px;">
+        <tr>
+            <td class="links">
+                <p> Bitte lesen Sie zunächst unsere Informationen zum Auswahlverfahren. Anschließend können Sie sich registrieren.<br />Пожалуйста сначала прочтите информацию о структуре отбора. Затем вы можете зарегистрироваться.</p>
+            </td>
+
+            <td class="rechts button_rechts_mit_erklaerung">
+                <a class="btn btn-large btn-apollogruen button_rechts_mit_erklaerung" href='@Url.Action("Information", "Home")' style="width:220px; margin-left: 0px">Informationen und Registrierung<i class="icon-chevron-right icon-white"></i> Информация и регистрация<i class="icon-chevron-right icon-white"></i></a>
+            </td>
+        </tr>
+    </table>
+    <table class="textlinksrechts" style="margin-bottom: 20px;">
+        <tr class="erstezeile alleinestehend">
+            <td class="links">
+                <h3>Für bereits registrierte Benutzer</h3>
+            </td>
+            <td class="rechts">
+                <h3>Для зарегистрированных пользователей</h3>
+            </td>
+        </tr>
+    </table>
+    <table class="button_mit_erklaerung">
+        <tr>
+            <td class="links">
+                <p> Hier geht es zum persönlichen Bereich:<br>Переход к персональной странице:</p>
+            </td>
+
+            <td class="rechts button_rechts_mit_erklaerung">
+                <p>
+                    <a class="btn btn-large btn-apollogruen button_rechts_mit_erklaerung" href='@Url.Action("Login", "Account")' style="width:220px; margin-left: 0px">Login | Войти<i class="icon-chevron-right icon-white"></i></a>
+                </p>
+            </td>
+        </tr>
+    </table>
+}
+
 

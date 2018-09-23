@@ -484,47 +484,79 @@
 </table>
 <table class="button_mit_erklaerung">
     
-    @if(Model.ZurueckStartseite)
+    @{ var userSession = Sl.Resolve<SessionUser>(); }
+    @if (!userSession.IsLoggedInKandidat && !Model.ZurueckRegistrierung)
     {
         <tr>
             <td class="links">
-                <p>
-                    <a class="btn btn-large btn-apollogruen" href='@Url.Action("Index", "Home")' style="width:170px"><i class="icon-chevron-left icon-white"></i> Zurück | Назад</a>
-                </p>
+                    
             </td>
             <td class="rechts">
-                <p>Zur Startseite der Online-Bewerbung<br>На главную страницу электронной регистрации</p>
-            </td>
-        </tr>        
-    }
-
-    @if(Model.ZurueckPersoenlicherBereich)
-    {
-        <tr>
-            <td class="links">
                 <p>
-                    <a class="btn btn-large btn-apollogruen" href='@Url.Action("Dashboard", "Account")' style="width:170px"><i class="icon-chevron-left icon-white"></i> Zurück | Назад</a>
+                    <a class="btn btn-large btn-apollogruen" href='@Url.Action("Registrierung", "Account")' style="width: 250px; margin-left: 0;">Zur Registrierung | К регистрации <i class="icon-chevron-right icon-white"></i></a>
                 </p>
-            </td>
-            <td class="rechts">
-                <p>Zum persönlichen Bereich<br>На персональную страницу</p>
             </td>
         </tr>
+        if (Model.ZurueckStartseite)
+        {
+            <tr>
+                <td class="links">
+                    
+                </td>
+                <td class="rechts">
+                    <p>
+                        <a class="" href='@Url.Action("Index", "Home")' style="width: 170px"> Zurück zur Startseite der Online-Bewerbung<br/>Назад на главную страницу электронной регистрации</a>
+                    </p>
+                </td>
+            </tr>
+        }
+    }
+    else
+    {
+        if (Model.ZurueckStartseite)
+         {
+             <tr>
+                 <td class="links">
+                     <p>
+                         <a class="btn btn-large btn-apollogruen" href='@Url.Action("Index", "Home")' style="width: 170px"><i class="icon-chevron-left icon-white"></i> Zurück | Назад</a>
+                     </p>
+                 </td>
+                 <td class="rechts">
+                     <p>Zur Startseite der Online-Bewerbung<br>На главную страницу электронной регистрации</p>
+                 </td>
+             </tr>
+         }
+
+        if (Model.ZurueckPersoenlicherBereich)
+         {
+             <tr>
+                 <td class="links">
+                     <p>
+                         <a class="btn btn-large btn-apollogruen" href='@Url.Action("Dashboard", "Account")' style="width: 170px"><i class="icon-chevron-left icon-white"></i> Zurück | Назад</a>
+                     </p>
+                 </td>
+                 <td class="rechts">
+                     <p>Zum persönlichen Bereich<br>На персональную страницу</p>
+                 </td>
+             </tr>
+         }
+
+        if (Model.ZurueckRegistrierung)
+         {
+             <tr>
+                 <td class="links">
+                     <p>
+                         <a class="btn btn-large btn-apollogruen" href='@Url.Action("Registrierung", "Account")' style="width: 170px"><i class="icon-chevron-left icon-white"></i> Zurück | Назад</a>
+                     </p>
+                 </td>
+                 <td class="rechts">
+                     <p>Zur Registrierung<br>К регистрации</p>
+                 </td>
+             </tr>
+         }
     }
 
-    @if(Model.ZurueckRegistrierung)
-    {
-        <tr>
-            <td class="links">
-                <p>
-                    <a class="btn btn-large btn-apollogruen" href='@Url.Action("Registrierung", "Account")' style="width: 170px"><i class="icon-chevron-left icon-white"></i> Zurück | Назад</a>
-                </p>
-            </td>
-            <td class="rechts">
-                <p>Zur Registrierung<br>К регистрации</p>
-            </td>
-        </tr>
-    }
+    
 </table>
 <script type="text/javascript">
     $(function () {
