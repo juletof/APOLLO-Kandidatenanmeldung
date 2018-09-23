@@ -27,7 +27,7 @@ public class AnmeldungModel
         Geburtsdatum = ((DateTime)kandidat.Geburtsdatum).ToString("dd-MM-yyyy");
         Inlandspass = kandidat.NummerInlandspass;
         Mobilfunknummer = kandidat.Mobilnummer;
-
+        Notfallkontakt = kandidat.Notfallkontakt;
         Fakultaet = kandidat.Fakultät;  
         Studienfach = kandidat.Spezialisierung;
         VerkürzterStudiengang = kandidat.VerkürzterStudiengang;
@@ -63,6 +63,9 @@ public class AnmeldungModel
     public string Inlandspass { get; set; }
 
     public string Mobilfunknummer { get; set; }
+
+    [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
+    public string Notfallkontakt { get; set; }
 
     public string UniVal { get; set; }
     public IList<SelectListItem> UniOps;
@@ -100,4 +103,7 @@ public class AnmeldungModel
 
     [BooleanRequiredToBeTrueAttribute(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     public bool AcceptTerms { get; set; }
+
+    [BooleanRequiredToBeTrueAttribute(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
+    public bool KenntnisnahmeDatenschutz { get; set; }
 }

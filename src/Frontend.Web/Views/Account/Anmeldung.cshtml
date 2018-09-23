@@ -111,6 +111,20 @@
                     @Html.TextBoxFor(x => x.Mobilfunknummer, new { @class = "formular" })
                 </div>
             </div>
+            <div class="control-group">
+                <label class="control-label">Kontakt im Notfall (Ansprechpartner, Adresse, Telefonnummer, Email)| :</label>
+                <div class="controls">
+                    @Html.TextAreaFor(x => x.Notfallkontakt,
+                        new
+                        {
+                            @class = "input-xlarge",
+                            @placeholder = "по-русски",
+                            @style = "height: 180px; height:100px;"
+                        })
+                    <span class="help-inline alphabet">по-русски</span>
+                    <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Notfallkontakt)</span>
+                </div>
+            </div>
         </div>
     </table>
     
@@ -328,7 +342,8 @@
                     </label>
                     <label class="radio inline" style="white-space: nowrap">
                         @Html.RadioButtonFor(m => m.BereitsAufenthalt, false)
-                        Nein | Нет</label>
+                        Nein | Нет
+                    </label>
                 </div>
             </div>
             <div class="control-group">
@@ -356,10 +371,27 @@
                     <label class="checkbox" style="text-align:justify;">
                         @Html.CheckBoxFor(x => x.AcceptTerms, new { @class = "checkbox mehrzeilig" })
                         <span class="errorAnotation">@Html.ValidationMessageFor(x => x.AcceptTerms)</span>
-                        Hiermit bewerbe ich mich für das Auswahlverfahren der APOLLO e.V. 
+                        Hiermit bewerbe ich mich für das Auswahlverfahren der APOLLO e.V.
                         Ich versichere, dass ich alle Angaben wahrheitsgemäß gemacht habe.
-                        <br>Я подаю заявление на участие в собеседовании программы APOLLO e.V. Я 
+                        <br>Я подаю заявление на участие в собеседовании программы APOLLO e.V. Я
                         подтверждаю что все данные заполненны мною честно и добросовестно.
+                    </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+
+                    <label class="checkbox" style="text-align: justify;">
+                        Die APOLLO e.V. erhebt personenbezogene Daten zum Zweck der Erfüllung ihrer satzungsgemäßen Aufgaben, der Mitgliederbetreuung sowie der Durchführung ihrer Programme. Sofern keine andere Einwilligung vorliegt, werden die Daten beim Austritt aus dem Verein, der Nichtteilnahme am Praktikantenprogramm oder nach dem Beenden der Teilnahme am Praktikantenprogramm gelöscht. Die angegebenen Notfallkontakte werden zum Ende eines jeden Programms gelöscht.
+                        Es besteht ein Auskunftsrecht im Rahmen der Regelungen der Datenschutz-Grundverordnung. Die Datenschutzerklärung der APOLLO e.V. kann <a href="http://www.apollo-online.de/index.php?s=impressum">hier</a> nachgelesen werden.<br />
+                        Ассоциация АПОЛЛО производит сбор персональных данных с целью выполнения предписанных уставом обязательств, а также реализации программы и оказания поддержки ее участников. При условии отстутствия какого-либо другого согласия, представленные данные будут удалены в случаях выхода из состава Ассоциации, непрохождения этапов отбора, а также завершения программы практики. Контакты для связи в экстренных случаях будут удалены по завершение программы.
+                        Право на получение персональных данных установлено Общим регламентом о защите персональных данных. С политикой конфиденциальности АПОЛЛО Вы можете ознакомиться <a href="http://www.apollo-online.de/index.php?s=impressum">здесь</a>.<br /><br />
+                        @Html.CheckBoxFor(x => x.KenntnisnahmeDatenschutz, new { @class = "checkbox mehrzeilig" })
+                        <span class="errorAnotation">@Html.ValidationMessageFor(x => x.KenntnisnahmeDatenschutz)</span>
+                        Hiermit willige ich ein, dass meine personenbezogene Daten von der APOLLO e.V. gespeichert und zur persönlichen Kontaktaufnahme sowie zur Vorbereitung auf die Auswahlgespräche verarbeitet werden dürfen. 
+                        Im Falle einer Zusage zu einem Praktikumsplatzes willige ich ein, dass meine Daten zur Kontaktaufnahme, Beantragung eines Visums, Beantragung einer Arbeitserlaubnis sowie zur Zuteilung zu einem Praktikumsbetrieb verarbeitet und im Rahmen des Programms weitergegeben werden dürfen.<br />
+                        Я согласен на сбор и хранение АПОЛЛО персональных данных, а также на их использование для установления личного контакта, как то для подготовки к собеседованию.
+                        В случае прохождения отбора на участие в программе практики я согласен на использование персональных данных для установления личного контакта, подачи документов на получение визы, подачи документов на получение разрешения на работу, равно как и для распределения на предприятие, а также на дальнейшую передачу данных в рамках программы практики.
                     </label>
                 </div>
             </div>

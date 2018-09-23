@@ -12,6 +12,7 @@ public class KandidatItemModel
 
     public string Email;
     public string Mobilnummer;
+    public string Notfallkontakt;
 
     public string Studienjahr;
 

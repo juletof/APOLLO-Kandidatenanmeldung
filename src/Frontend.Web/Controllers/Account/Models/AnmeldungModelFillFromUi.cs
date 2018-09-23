@@ -15,6 +15,7 @@ namespace ApolloDb
             kandidat.Geburtsdatum = DateTime.Parse(anmeldungModel.Geburtsdatum, CultureInfo.GetCultureInfo("de-DE"));
             kandidat.NummerInlandspass = anmeldungModel.Inlandspass;
             kandidat.Mobilnummer = anmeldungModel.Mobilfunknummer;
+            kandidat.Notfallkontakt = anmeldungModel.Notfallkontakt;
             kandidat.Hochschule = Convert.ToInt32(anmeldungModel.UniVal);
             kandidat.Fakultät = anmeldungModel.Fakultaet;
             kandidat.Spezialisierung = anmeldungModel.Studienfach;

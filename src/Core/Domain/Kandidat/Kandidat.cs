@@ -20,6 +20,8 @@ namespace ApolloDb
         public virtual string Passwort { get; set; }
 
         public virtual string Mobilnummer { get; set; }
+        public virtual string Notfallkontakt { get; set; }
+
         public virtual DateTime? Geburtsdatum { get; set; }
         public virtual string NummerInlandspass { get; set; }
         public virtual int Hochschule { get; set; }

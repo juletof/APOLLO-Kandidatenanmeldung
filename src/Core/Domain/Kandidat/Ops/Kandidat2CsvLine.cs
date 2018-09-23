@@ -22,6 +22,7 @@ namespace ApolloDb
                    "VatersnameKY" + ";" +
                    "EmailAdresse" + ";" +
                    "Mobilnummer" + ";" +
+                   "Notfallkontakt" + ";" +
                    "Geburtsdatum" + ";" +
                    "Alter" + ";" +
                    "Uni" + ";" +
@@ -55,6 +56,7 @@ namespace ApolloDb
                    Sanitize(k.VatersnameKY) + ";" +
                    Sanitize(k.EmailAdresse) + ";" +
                    Sanitize(k.Mobilnummer) + ";" +
+                   Sanitize(k.Notfallkontakt) + ";" +
                    Sanitize(GetGeburtsdatum(k.Geburtsdatum)) + ";" +
                    Sanitize(k.GetAlter()) + ";" +
                    Sanitize(new Universitaeten().GermanLabel(k.Hochschule, "")) + ";" +

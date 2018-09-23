@@ -88,6 +88,7 @@ public class KandidatenModel
                 Abschluss = abschluesse.GermanLabel(item.AngestrebterAbschluss, ""),
                 Studienjahr = studienJahre.GermanLabel(item.Studienjahr, ""),
                 Mobilnummer = item.Mobilnummer,
+                Notfallkontakt = item.Notfallkontakt,
                 Status = item.Status,
                 StatusSeit = allStatusWechsel
                                 .Where(x => x.KandidatId == item.Id)

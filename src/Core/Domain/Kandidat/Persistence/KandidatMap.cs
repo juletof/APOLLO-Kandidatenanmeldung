@@ -22,6 +22,7 @@ namespace ApolloDb
             Map(x => x.Passwort);
             
             Map(x => x.Mobilnummer);
+            Map(x => x.Notfallkontakt);
             Map(x => x.Geburtsdatum);
             Map(x => x.NummerInlandspass);
             Map(x => x.Hochschule);

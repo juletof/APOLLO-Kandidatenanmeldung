@@ -1153,7 +1153,7 @@ span.aktion
 }
 
 /*error*/
-input.input-validation-error {
+input.input-validation-error, textarea.input-validation-error {
     background-color: #F2DEDE;
     border-color: red;
 }
