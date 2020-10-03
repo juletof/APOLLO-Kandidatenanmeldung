@@ -27,6 +27,7 @@ namespace ApolloDb
             Add(12,"Stavropol", "Ставропольский государственный аграрный университет");
             Add(13,"Ekaterinburg", "Уральский государственный аграрный университет");
             Add(17, "Tscheljabinsk", "Южно-Уральский государственный аграрный университет (Челябинск)", istAktiv: false);
+            Add(22, "St. Petersburg", "Сант-Петербурский государственный аграрный университет");
         }
 
         public static string ToHtmlList(bool russian = false, bool onlyActive = true)
