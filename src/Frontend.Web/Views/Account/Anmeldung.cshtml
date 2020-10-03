@@ -78,7 +78,7 @@
                 <div class="controls">
                     @Html.TextBoxFor(x => x.Familienname, new { @placeholder = "латинскими буквами", @class = "formular" })
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Familienname)</span>
-                     <span class="help-inline alphabet">Напр. «Ivanov»</span>
+                    <span class="help-inline alphabet">Напр. «Ivanov»</span>
                 </div>
             </div>
             <div class="control-group">
@@ -103,6 +103,13 @@
                     @Html.TextBoxFor(x => x.Inlandspass, new { @class = "formular" })
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Inlandspass)</span>
                     <span class="help-block">Beispiel: 12 34 567890 | Пример: 12 34 567890</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Nummer Reisepass (falls vorhanden) | Серия и номер заграничного паспорта</label>
+                <div class="controls zweisprachig">
+                    @Html.TextBoxFor(x => x.Reisepass, new { @class = "formular" })
+                    <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Reisepass)</span>
                 </div>
             </div>
             <div class="control-group">

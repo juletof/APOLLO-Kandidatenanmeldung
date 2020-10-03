@@ -24,6 +24,7 @@ namespace ApolloDb
 
         public virtual DateTime? Geburtsdatum { get; set; }
         public virtual string NummerInlandspass { get; set; }
+        public virtual string NummerReisepass { get; set; }
         public virtual int Hochschule { get; set; }
         public virtual string Fakultät { get; set; }
         public virtual int Studienfach { get; set; }

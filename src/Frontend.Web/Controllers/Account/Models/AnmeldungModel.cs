@@ -26,6 +26,7 @@ public class AnmeldungModel
         if (kandidat.Geburtsdatum != null)
         Geburtsdatum = ((DateTime)kandidat.Geburtsdatum).ToString("dd-MM-yyyy");
         Inlandspass = kandidat.NummerInlandspass;
+        Reisepass = kandidat.NummerReisepass;
         Mobilfunknummer = kandidat.Mobilnummer;
         Notfallkontakt = kandidat.Notfallkontakt;
         Fakultaet = kandidat.Fakultät;  
@@ -61,6 +62,8 @@ public class AnmeldungModel
 
     [Required(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     public string Inlandspass { get; set; }
+    
+    public string Reisepass { get; set; }
 
     public string Mobilfunknummer { get; set; }
 

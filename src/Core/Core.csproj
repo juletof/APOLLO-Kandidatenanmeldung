@@ -167,6 +167,7 @@
     <Compile Include="Infrastructure\Settings\ConnectionString\GetOverwrittenConnectionString.cs" />
     <Compile Include="Infrastructure\Settings\ConnectionString\GetOverwrittenConnectionStringResult.cs" />
     <Compile Include="Utilities\Update\Scripts\ScriptPath.cs" />
+    <Compile Include="Utilities\Update\Steps\UpdateToVs010.cs" />
     <Compile Include="Utilities\Update\Steps\UpdateToVs009.cs" />
     <Compile Include="Utilities\Update\Steps\UpdateToVs008.cs" />
     <Compile Include="Utilities\Update\Steps\UpdateToVs007.cs" />
@@ -211,7 +212,10 @@
     <Content Include="Utilities\Update\Scripts\006-rename-praktikumsjahr-to-studienjahr.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Utilities\Update\Scripts\008-add-field-notfallkontakt.sql">
+    <Content Include="Utilities\Update\Scripts\008-add-field-notfallkontakt - Copy.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utilities\Update\Scripts\010-add-field-nummer-reisepass.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Utilities\Update\Scripts\007-add-field-praktikumsjahr.sql">
