@@ -46,6 +46,26 @@ namespace ApolloDb
 
             Map(x => x.Status);
 
+            Map(x => x.ErfahrungenLandwirtschaft );
+            Map(x => x.PraktikumDeutschland );
+            Map(x => x.FuehrerscheinPkw );
+            Map(x => x.FuehrerscheinTraktor );
+            Map(x => x.FuehrerscheinMaehdrescher );
+            Map(x => x.FuehrerscheinSonstige );
+            Map(x => x.WarumTeilnehmen );
+            Map(x => x.BetriebsTypMilchviehhaltung );
+            Map(x => x.BetriebsTypSchweinemast );
+            Map(x => x.BetriebsTypAckerbau );
+            Map(x => x.BetriebsTypGemüsebauObstbau );
+            Map(x => x.BetriebsTypWeinbau );
+            Map(x => x.BetriebsTypImkerei );
+            Map(x => x.BetriebsTypAndere );
+            Map(x => x.KoerperlichEinsatzfaehig );
+            Map(x => x.Raucher );
+            Map(x => x.KoerperlicheEinschraenkungen );
+            Map(x => x.IchEsseNicht );
+            Map(x => x.FuerArbeitskleidung );
+
             Map(x => x.DateModified);
             Map(x => x.DateCreated);
         }

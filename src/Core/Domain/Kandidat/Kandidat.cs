@@ -46,6 +46,26 @@ namespace ApolloDb
 
         public virtual KandidatStatus Status { get; set; }
 
+        public virtual string ErfahrungenLandwirtschaft { get; set; }
+        public virtual string PraktikumDeutschland { get; set; }
+        public virtual bool FuehrerscheinPkw { get; set; }
+        public virtual bool FuehrerscheinTraktor { get; set; }
+        public virtual bool FuehrerscheinMaehdrescher { get; set; }
+        public virtual bool FuehrerscheinSonstige { get; set; }
+        public virtual string WarumTeilnehmen { get; set; }
+        public virtual bool BetriebsTypMilchviehhaltung { get; set; }
+        public virtual bool BetriebsTypSchweinemast { get; set; }
+        public virtual bool BetriebsTypAckerbau { get; set; }
+        public virtual bool BetriebsTypGemüsebauObstbau { get; set; }
+        public virtual bool BetriebsTypWeinbau { get; set; }
+        public virtual bool BetriebsTypImkerei { get; set; }
+        public virtual string BetriebsTypAndere { get; set; }
+        public virtual bool KoerperlichEinsatzfaehig { get; set; }
+        public virtual bool Raucher { get; set; }
+        public virtual string KoerperlicheEinschraenkungen { get; set; }
+        public virtual string IchEsseNicht { get; set; }
+        public virtual string FuerArbeitskleidung { get; set; }
+
         public Kandidat()
         {
             Praktikumsjahr = Consts.LaufendesPraktikumsjahr;

@@ -45,6 +45,26 @@ public class AnmeldungModel
         Kommentar = kandidat.Kommentar;
         KommentarApollo = kandidat.KommentarApollo;
 
+        ErfahrungenLandwirtschaft = kandidat.ErfahrungenLandwirtschaft;
+        PraktikumDeutschland = kandidat.PraktikumDeutschland;
+        FuehrerscheinPkw = kandidat.FuehrerscheinPkw;
+        FuehrerscheinTraktor = kandidat.FuehrerscheinTraktor;
+        FuehrerscheinMaehdrescher = kandidat.FuehrerscheinMaehdrescher;
+        FuehrerscheinSonstige = kandidat.FuehrerscheinSonstige;
+        WarumTeilnehmen = kandidat.WarumTeilnehmen;
+        BetriebsTypMilchviehhaltung = kandidat.BetriebsTypMilchviehhaltung;
+        BetriebsTypSchweinemast = kandidat.BetriebsTypSchweinemast;
+        BetriebsTypAckerbau = kandidat.BetriebsTypAckerbau;
+        BetriebsTypGemüsebauObstbau = kandidat.BetriebsTypGemüsebauObstbau;
+        BetriebsTypWeinbau = kandidat.BetriebsTypWeinbau;
+        BetriebsTypImkerei = kandidat.BetriebsTypImkerei;
+        BetriebsTypAndere = kandidat.BetriebsTypAndere;
+        KoerperlichEinsatzfaehig = kandidat.KoerperlichEinsatzfaehig;
+        Raucher = kandidat.Raucher;
+        KoerperlicheEinschraenkungen = kandidat.KoerperlicheEinschraenkungen;
+        IchEsseNicht = kandidat.IchEsseNicht;
+        FuerArbeitskleidung = kandidat.FuerArbeitskleidung;
+
         IsAdmin = sessionUser.IsLoggedInAdmin;
 
         ImagePath = KandidatBild.Url(kandidat);

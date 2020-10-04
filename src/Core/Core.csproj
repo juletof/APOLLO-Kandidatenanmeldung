@@ -171,6 +171,7 @@
     <Compile Include="Infrastructure\Settings\ConnectionString\GetOverwrittenConnectionString.cs" />
     <Compile Include="Infrastructure\Settings\ConnectionString\GetOverwrittenConnectionStringResult.cs" />
     <Compile Include="Utilities\Update\Scripts\ScriptPath.cs" />
+    <Compile Include="Utilities\Update\Steps\UpdateToVs011.cs" />
     <Compile Include="Utilities\Update\Steps\UpdateToVs010.cs" />
     <Compile Include="Utilities\Update\Steps\UpdateToVs009.cs" />
     <Compile Include="Utilities\Update\Steps\UpdateToVs008.cs" />
@@ -217,6 +218,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Utilities\Update\Scripts\008-add-field-notfallkontakt - Copy.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utilities\Update\Scripts\011-add-multiple-fields.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Utilities\Update\Scripts\010-add-field-nummer-reisepass.sql">
