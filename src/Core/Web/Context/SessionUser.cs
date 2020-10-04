@@ -14,20 +14,20 @@ namespace ApolloDb
 
         public bool IsLoggedInKandidat
         {
-            get { return Data.Get("isLoggedInKandidat", false); }
-            private set { Data["isLoggedInKandidat"] = value; }
+            get => Data.Get("isLoggedInKandidat", false);
+            private set => Data["isLoggedInKandidat"] = value;
         }
 
         public bool IsLoggedInAdmin
         {
-            get { return Data.Get("isLoggedAdmin", false); }
-            private set { Data["isLoggedAdmin"] = value; }
+            get => Data.Get("isLoggedAdmin", false);
+            private set => Data["isLoggedAdmin"] = value;
         }
 
         public int KandidatId
         {
-            get { return (int) Data.Get("kandidatId"); }
-            set { Data["kandidatId"] = value; }
+            get => (int) Data.Get("kandidatId");
+            set => Data["kandidatId"] = value;
         }
 
         public Kandidat GetKandidat()

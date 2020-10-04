@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.IO;
+using System.Web;
 using System.Web.Mvc;
 using ApolloDb;
 using static System.String;
@@ -134,17 +135,22 @@ namespace Frontend.Web.Controllers
             var kandidat = _sessionUser.GetKandidat();
             _anmelden.Run(AnmeldungModelFillFromUi.Run(model, kandidat));
 
-            var file = model.Foto;
-
-            if (file != null && file.ContentLength > 0)
+            try
             {
-                var fileInfo = new FileInfo(file.FileName);
-                var path = Path.Combine(Server.MapPath("~/Images/"), kandidat.Id + fileInfo.Extension);
-                file.SaveAs(path);
+                var foto = model.Foto;
+                if (IstBefuellt(foto)) KandidatBild.Speichern(foto, kandidat);
+            }
+            catch (Exception e)
+            {
+#if DEBUG
+                throw e;
+#endif
             }
 
             return Redirect("/Account/Dashboard/anmeldungErfolgreich");
         }
+
+        private static bool IstBefuellt(HttpPostedFileBase foto) => foto != null && foto.ContentLength > 0;
 
         [AuthorizedKandidatOnly]
         public ActionResult Benutzerdaten()

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Web;
 using System.Web.Mvc;
 using ApolloDb;
@@ -45,6 +46,8 @@ public class AnmeldungModel
         KommentarApollo = kandidat.KommentarApollo;
 
         IsAdmin = sessionUser.IsLoggedInAdmin;
+
+        ImagePath = KandidatBild.Url(kandidat);
     }
 
     public Message Message;
@@ -131,4 +134,5 @@ public class AnmeldungModel
     public string IchEsseNicht { get; set; }
     public string FuerArbeitskleidung { get; set; }
     public HttpPostedFileBase Foto { get; set; }
+    public string ImagePath { get; set; } = "#";
 }

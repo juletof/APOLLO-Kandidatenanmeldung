@@ -110,6 +110,7 @@
     <Compile Include="Domain\AdminLogin\SindAdminZugangsdatenGueltig.cs" />
     <Compile Include="Domain\Consts.cs" />
     <Compile Include="Domain\Kandidat\Anmelden.cs" />
+    <Compile Include="Domain\Kandidat\Bild\KandidatBild.cs" />
     <Compile Include="Domain\Kandidat\Lists\Abschluesse.cs" />
     <Compile Include="Domain\Kandidat\Lists\AnredeWerte.cs" />
     <Compile Include="Domain\Kandidat\Lists\Model\ListBase.cs" />
