@@ -12,7 +12,7 @@ public class KandidatBild
         AlleLoeschen(kandidat);
 
         var fileInfo = new FileInfo(foto.FileName);
-        var path = Path.Combine(_imagePath, kandidat.Id + fileInfo.Extension);
+        var path = Path.Combine(_imagePath, $"{kandidat.Id}-{kandidat.Familienname}-{kandidat.Vorname}{fileInfo.Extension}");
         foto.SaveAs(path);
     }
 
