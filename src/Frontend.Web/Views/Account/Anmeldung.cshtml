@@ -17,6 +17,22 @@
                 $("#invalidInputMsg").hide(300);
             }
         });
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+    
+                reader.onload = function(e) {
+                    $('#imagePreview').attr('src', e.target.result);
+                }
+    
+                reader.readAsDataURL(input.files[0]); // convert to base64 string
+            }
+        }
+
+        $("#imageInput").change(function() {
+            readURL(this);
+        });
     });
     
     jQuery.validator.addMethod("checkrequired", function (value, element, param) {
@@ -26,7 +42,7 @@
 
 </script>
 
-@using (Html.BeginForm("Anmeldung", "Account", FormMethod.Post, new { id = "form" }))
+@using (Html.BeginForm("Anmeldung", "Account", FormMethod.Post, new { id = "form", enctype = "multipart/form-data" }))
 {
     @Html.Message(Model.Message)
     
@@ -132,6 +148,13 @@
                     <span class="errorAnotation">@Html.ValidationMessageFor(x => x.Notfallkontakt)</span>
                 </div>
             </div>
+            <div class="control-group">
+                <label class="control-label">Foto| Фото</label>
+                <div class="controls">
+                    <input type='file' id="imageInput" name="Foto" />
+                    <img id="imagePreview" src="#" alt="" width="305" />
+                </div>
+            </div>
         </div>
     </table>
     
@@ -142,7 +165,7 @@
     </table>
         <table class="textlinksrechts admin">
             <div class="form-horizontal admin">
-                <div class="control-group">
+                @*<div class="control-group">
                     <label class="control-label">ID:</label>
                     <div class="controls">
                         <p class="nurtext">Wert</p>
@@ -192,7 +215,7 @@
                             wenn Abschluss "sonstige">"Abschluss", 
                             wenn Studienjahr "sonstige" > "Studienjahr"</p>
                     </div>
-                </div>
+                </div>*@
                 <div class="control-group" style="margin-bottom:0px;">
                     <label class="control-label">Kommentar Apollo:</label>
                     <div class="controls">
@@ -361,6 +384,172 @@
                 </div>
             </div>
             <div class="control-group">
+                <label class="control-label">Есть ли у Вас практический опыт работы в сельском хозяйстве (заполните таблицу)?/ Haben Sie praktische Erfahrungen in der Landwirtschaft gesammelt?</label>
+                <div class="controls">
+                    @Html.TextAreaFor(x => x.ErfahrungenLandwirtschaft,
+                        new
+                        {
+                            @class = "input-xlarge",
+                            @placeholder = "по-русски",
+                            @style = "height: 180px; height:60px;"
+                        })
+                    <span class="help-inline alphabet">по-русски</span>
+                    <span class="help-block">
+                        Praktikumszeitraum / Время практики<br />
+                        Betrieb / Хозяйство<br />
+                        Arbeitsbereiche / Выполняемая работа
+                    </span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Проходили ли Вы уже практику в Германии или другой стране? Где и когда?/ Haben Sie schon ein Praktikum in Deutschland oder anderen Staaten absolviert? Wo und Wann?</label>
+                <div class="controls">
+                    @Html.TextAreaFor(x => x.PraktikumDeutschland,
+                        new
+                        {
+                            @class = "input-xlarge",
+                            @placeholder = "по-русски",
+                            @style = "height: 180px; height:60px;"
+                        })
+                    <span class="help-inline alphabet">по-русски</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Есть ли у Вас водительское удостоверение? Если да, то какое и на какой транспорт?/ Haben Sie einen Führerschein, wenn ja welchen?</label>
+                <div class="controls">
+                    <label class="checkbox">
+                        @Html.CheckBoxFor(x => x.FuehrerscheinPkw)
+                        PKW | Машина
+                    </label>
+                    <label class="checkbox">
+                        @Html.CheckBoxFor(x => x.FuehrerscheinTraktor)
+                        Traktor | трактор
+                    </label>
+                    <label class="checkbox">
+                        @Html.CheckBoxFor(x => x.FuehrerscheinMaehdrescher)
+                        Mähdrescher | Комбайн
+                    </label>
+                    <label class="checkbox">
+                        @Html.CheckBoxFor(x => x.FuehrerscheinSonstige)
+                        Sonstige | Другое
+                    </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Почему Вы хотите пройти практику в Германии?/ Warum wollen Sie an dem Praktikum in Deutschland teilnehmen?</label>
+                <div class="controls">
+                    @Html.TextAreaFor(x => x.WarumTeilnehmen,
+                        new
+                        {
+                            @class = "input-xlarge",
+                            @placeholder = "по-русски",
+                            @style = "height: 180px; height:60px;"
+                        })
+                    <span class="help-inline alphabet">по-русски</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">В каком хозяйстве и каких областях сельскохозяйственного производства Вы хотели бы работать во время практики?/ In welchem Betriebstyp möchten Sie Ihr Praktikum absolvieren?</label>
+                <div class="controls">
+                    <label class="checkbox">
+                        @Html.CheckBoxFor(x => x.BetriebsTypMilchviehhaltung)
+                        Milchviehhaltung | Производство молока
+                    </label>
+                    <label class="checkbox">
+                        @Html.CheckBoxFor(x => x.BetriebsTypSchweinemast)
+                        Schweinemast | Свиноводство
+                    </label>
+                    <label class="checkbox">
+                        @Html.CheckBoxFor(x => x.BetriebsTypAckerbau)
+                        Ackerbau | Земледелие
+                    </label>
+                    <label class="checkbox">
+                        @Html.CheckBoxFor(x => x.BetriebsTypGemüsebauObstbau)
+                        Gemüsebau, Obstbau | Овощеводство, плодоводство
+                    </label>
+                    <label class="checkbox">
+                        @Html.CheckBoxFor(x => x.BetriebsTypWeinbau)
+                        Weinbau | Виноградарство
+                    </label>
+                    <label class="checkbox">
+                        @Html.CheckBoxFor(x => x.BetriebsTypImkerei)
+                        Imkerei | пчеловодство
+                    </label>
+                </div>
+                <div class="controls mehrzeilig" style="margin-top: 15px;">
+                    @Html.TextBoxFor(x => x.BetriebsTypAndere, new { @class = "formular", @placeholder = "Другое" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Ich bin körperlich voll einsatzfähig. / К физическому труду и нагрузкам полностью готов(а). </label>
+                <div class="controls">
+                    <label class="radio inline" style="white-space: nowrap">
+                        @Html.RadioButtonFor(m => m.KoerperlichEinsatzfaehig, true)
+                        Ja | Да
+                    </label>
+                    <label class="radio inline" style="white-space: nowrap">
+                        @Html.RadioButtonFor(m => m.KoerperlichEinsatzfaehig, false)
+                        Nein | Нет
+                    </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Haben sie körperlichen Einschränkungen (chronische Krankheit, Allergie etc.)? / Имеются следующие физические ограничения (например, хронические заболевания, аллергии, проблемы с позвоночником и т.д.)?</label>
+                <div class="controls">
+                    @Html.TextAreaFor(x => x.KoerperlicheEinschraenkungen,
+                        new
+                        {
+                            @class = "input-xlarge",
+                            @placeholder = "по-русски",
+                            @style = "height: 180px; height:60px;"
+                        })
+                    <span class="help-inline alphabet">по-русски</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Rauchen Sie? / Курите ли Вы? </label>
+                <div class="controls">
+                    <label class="radio inline" style="white-space: nowrap">
+                        @Html.RadioButtonFor(m => m.Raucher, true)
+                        Ja | Да
+                    </label>
+                    <label class="radio inline" style="white-space: nowrap">
+                        @Html.RadioButtonFor(m => m.Raucher, false)
+                        Nein | Нет
+                    </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Ich esse nicht? / В пищу я категорически не употребляю?</label>
+                <div class="controls">
+                    @Html.TextAreaFor(x => x.IchEsseNicht,
+                        new
+                        {
+                            @class = "input-xlarge",
+                            @placeholder = "по-русски",
+                            @style = "height: 180px; height:60px;"
+                        })
+                    <span class="help-inline alphabet">по-русски</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Für die Arbeitskleidung: / Мерки для рабочей одежды:</label>
+                <div class="controls">
+                    @Html.TextAreaFor(x => x.FuerArbeitskleidung,
+                        new
+                        {
+                            @class = "input-xlarge",
+                            @placeholder = "Рост / Размер обуви / Размер одежды",
+                            @style = "height: 180px; height:60px;"
+                        })
+                    <span class="help-inline alphabet">по-русски</span>
+                    <span class="help-block">
+                        Рост / Размер обуви / Размер одежды<br />
+                        Größe / Schuhgröße / Konfektionsgröße
+                    </span>
+                </div>
+            </div>
+            <div class="control-group">
                 <label class="control-label">Kommentare (optional)| Замечания, если есть (по всем разделам):</label>
                 <div class="controls">
                     @Html.TextAreaFor(x => x.Kommentar,
@@ -395,7 +584,7 @@
                         Право на получение персональных данных установлено Общим регламентом о защите персональных данных. С политикой конфиденциальности АПОЛЛО Вы можете ознакомиться <a href="http://www.apollo-online.de/index.php?s=impressum">здесь</a>.<br /><br />
                         @Html.CheckBoxFor(x => x.KenntnisnahmeDatenschutz, new { @class = "checkbox mehrzeilig" })
                         <span class="errorAnotation">@Html.ValidationMessageFor(x => x.KenntnisnahmeDatenschutz)</span>
-                        Hiermit willige ich ein, dass meine personenbezogene Daten von der APOLLO e.V. gespeichert und zur persönlichen Kontaktaufnahme sowie zur Vorbereitung auf die Auswahlgespräche verarbeitet werden dürfen. 
+                        Hiermit willige ich ein, dass meine personenbezogene Daten von der APOLLO e.V. gespeichert und zur persönlichen Kontaktaufnahme sowie zur Vorbereitung auf die Auswahlgespräche verarbeitet werden dürfen.
                         Im Falle einer Zusage zu einem Praktikumsplatzes willige ich ein, dass meine Daten zur Kontaktaufnahme, Beantragung eines Visums, Beantragung einer Arbeitserlaubnis sowie zur Zuteilung zu einem Praktikumsbetrieb verarbeitet und im Rahmen des Programms weitergegeben werden dürfen.<br />
                         Я согласен на сбор и хранение АПОЛЛО персональных данных, а также на их использование для установления личного контакта, как то для подготовки к собеседованию.
                         В случае прохождения отбора на участие в программе практики я согласен на использование персональных данных для установления личного контакта, подачи документов на получение визы, подачи документов на получение разрешения на работу, равно как и для распределения на предприятие, а также на дальнейшую передачу данных в рамках программы практики.

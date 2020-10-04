@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 using System.Web.Mvc;
 using ApolloDb;
 
@@ -109,4 +110,25 @@ public class AnmeldungModel
 
     [BooleanRequiredToBeTrueAttribute(ErrorMessage = "* Pflichtfeld | Обязательное поле")]
     public bool KenntnisnahmeDatenschutz { get; set; }
+
+    public string ErfahrungenLandwirtschaft { get; set; }
+    public string PraktikumDeutschland { get; set; }
+    public bool FuehrerscheinPkw { get; set; }
+    public bool FuehrerscheinTraktor { get; set; }
+    public bool FuehrerscheinMaehdrescher { get; set; }
+    public bool FuehrerscheinSonstige { get; set; }
+    public string WarumTeilnehmen { get; set; }
+    public bool BetriebsTypMilchviehhaltung { get; set; }
+    public bool BetriebsTypSchweinemast { get; set; }
+    public bool BetriebsTypAckerbau { get; set; }
+    public bool BetriebsTypGemüsebauObstbau { get; set; }
+    public bool BetriebsTypWeinbau { get; set; }
+    public bool BetriebsTypImkerei { get; set; }
+    public string BetriebsTypAndere { get; set; }
+    public bool KoerperlichEinsatzfaehig { get; set; }
+    public bool Raucher { get; set; }
+    public string KoerperlicheEinschraenkungen { get; set; }
+    public string IchEsseNicht { get; set; }
+    public string FuerArbeitskleidung { get; set; }
+    public HttpPostedFileBase Foto { get; set; }
 }
