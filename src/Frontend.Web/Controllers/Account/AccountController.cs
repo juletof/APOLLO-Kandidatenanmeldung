@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Globalization;
+using System.IO;
 using System.Web.Mvc;
 using ApolloDb;
+using static System.String;
 
 namespace Frontend.Web.Controllers
 {
@@ -110,7 +112,7 @@ namespace Frontend.Web.Controllers
         public ActionResult Anmeldung(string id)
         {
             if(_sessionUser.IsLoggedInAdmin)
-                if(!String.IsNullOrEmpty(id))
+                if(!IsNullOrEmpty(id))
                     _sessionUser.KandidatId = Convert.ToInt32(id);
 
             return View(new AnmeldungModel(_sessionUser.GetKandidat(), _sessionUser));
@@ -123,14 +125,24 @@ namespace Frontend.Web.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            DateTime outParseTest;
-            if (!DateTime.TryParse(model.Geburtsdatum, CultureInfo.GetCultureInfo("de-DE"), DateTimeStyles.None,  out outParseTest))
+            if (!DateTime.TryParse(model.Geburtsdatum, CultureInfo.GetCultureInfo("de-DE"), DateTimeStyles.None,  out _))
             {
                 model.Message = new ErrorMessage("Das Geburtstdatum kann nicht verarbeitet werden. Bitte achten Sie auf das Eingabeformat: dd-mm-yyyy | Указанная Вами дата рождения неправильна. Пожалуйста обратите внимание на формат: дд-мм-гггг.");
                 return View(model);
             }
 
-            _anmelden.Run(AnmeldungModelFillFromUi.Run(model, _sessionUser.GetKandidat()));
+            var kandidat = _sessionUser.GetKandidat();
+            _anmelden.Run(AnmeldungModelFillFromUi.Run(model, kandidat));
+
+            var file = model.Foto;
+
+            if (file != null && file.ContentLength > 0)
+            {
+                var fileInfo = new FileInfo(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/Images/"), kandidat.Id + fileInfo.Extension);
+                file.SaveAs(path);
+            }
+
             return Redirect("/Account/Dashboard/anmeldungErfolgreich");
         }
 
