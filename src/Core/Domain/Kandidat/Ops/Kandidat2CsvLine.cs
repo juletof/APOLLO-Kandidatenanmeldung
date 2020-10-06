@@ -38,8 +38,28 @@ namespace ApolloDb
                    "DeutschkentnisseDurchUni" + ";" +
                    "DeutschkentnisseDurchSonstige" + ";" +
                    "FruehererAufenthalt" + ";" +
-                   "FruehererAufenthaltProgramm";
-
+                   "FruehererAufenthaltProgramm" + ";" +
+                   "ErfahrungenLandwirtschaft" + ";" +
+                   "PraktikumDeutschland" + ";" +
+                   "FuehrerscheinPkw" + ";" +
+                   "FuehrerscheinTraktor" + ";" +
+                   "FuehrerscheinMaehdrescher" + ";" +
+                   "FuehrerscheinSonstige" + ";" +
+                   "WarumTeilnehmen" + ";" +
+                   "BetriebsTypMilchviehhaltung" + ";" +
+                   "BetriebsTypSchweinemast" + ";" +
+                   "BetriebsTypAckerbau" + ";" +
+                   "BetriebsTypGemüsebauObstbau" + ";" +
+                   "BetriebsTypWeinbau" + ";" +
+                   "BetriebsTypImkerei" + ";" +
+                   "BetriebsTypAndere" + ";" +
+                   "KoerperlichEinsatzfaehig" + ";" +
+                   "Raucher" + ";" +
+                   "KoerperlicheEinschraenkungen" + ";" +
+                   "IchEsseNicht" + ";" +
+                   "Groesse" + ";" +
+                   "Schuhgroesse" + ";" +
+                   "Konfektionsgroesse" + ";";
         }
 
         public static string Run(Kandidat k)
@@ -72,9 +92,28 @@ namespace ApolloDb
                    Sanitize(k.DeutschkentnisseDurchUni) + ";" +
                    Sanitize(k.DeutschkentnisseDurchSonstige) + ";" +
                    Sanitize(k.FruehererAufenthalt) + ";" +
-                   Sanitize(k.FruehererAufenthaltProgramm);
-                   
-
+                   Sanitize(k.FruehererAufenthaltProgramm) + ";" +
+                   Sanitize(k.ErfahrungenLandwirtschaft) + ";" +
+                   Sanitize(k.PraktikumDeutschland) + ";" +
+                   Sanitize(k.FuehrerscheinPkw) + ";" +
+                   Sanitize(k.FuehrerscheinTraktor) + ";" +
+                   Sanitize(k.FuehrerscheinMaehdrescher) + ";" +
+                   Sanitize(k.FuehrerscheinSonstige) + ";" +
+                   Sanitize(k.WarumTeilnehmen) + ";" +
+                   Sanitize(k.BetriebsTypMilchviehhaltung) + ";" +
+                   Sanitize(k.BetriebsTypSchweinemast) + ";" +
+                   Sanitize(k.BetriebsTypAckerbau) + ";" +
+                   Sanitize(k.BetriebsTypGemüsebauObstbau) + ";" +
+                   Sanitize(k.BetriebsTypWeinbau) + ";" +
+                   Sanitize(k.BetriebsTypImkerei) + ";" +
+                   Sanitize(k.BetriebsTypAndere) + ";" +
+                   Sanitize(k.KoerperlichEinsatzfaehig) + ";" +
+                   Sanitize(k.Raucher) + ";" +
+                   Sanitize(k.KoerperlicheEinschraenkungen) + ";" +
+                   Sanitize(k.IchEsseNicht) + ";" +
+                   Sanitize(k.Groesse) + ";" +
+                   Sanitize(k.Schuhgroesse) + ";" +
+                   Sanitize(k.Konfektionsgroesse);
         }
 
         private static string GetGeburtsdatum(DateTime? geburtsdatum)
