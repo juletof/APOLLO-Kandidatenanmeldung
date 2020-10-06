@@ -62,11 +62,23 @@ namespace Frontend.Web.Controllers
                     .Select(k => k.EmailAdresse)
                     .Aggregate((a, b) => a + Environment.NewLine + b);
 
-                return File(Encoding.UTF8.GetBytes(result), "text/csv", "KandiMails.csv");        
+                return File(Encoding.UTF8.GetBytes(result), "text/csv", "KandiMails.csv");
             }
 
             return View(Sl.Resolve<IndexAction>().Run(model));
         }
+
+        [AuthorizedAdminOnly]
+        public ActionResult Bilder()
+        {
+            KandidatBild.BilderZippen();
+
+            return File(
+                KandidatBild.ZipFileFullPath,
+                "application/zip", KandidatBild.ZipFileName
+            );
+        }
+
 
         [AuthorizedAdminOnly]
         public ActionResult ResetFilter(){

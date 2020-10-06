@@ -278,9 +278,6 @@
                     @Html.TextBoxFor(x => x.FilterFreiText, new {style = "margin-bottom: 5px; width: 296px"})
                     <button type="submit" class="btn" title="Textsuche anwenden" id="btnSubmit" style="margin-top: -6px;"><i class="icon-search"></i></button>
                 </div>
-                @*Status zugewiesen zwischen 
-                <input type="text" placeholder="dd.mm.yyyy" style="margin-bottom: 5px; width:80px;" disabled="disabled"> und 
-                <input type="text" placeholder="dd.mm.yyyy" style="margin-bottom: 5px; width:80px;" disabled="disabled"> *@
             </div>
                 
             <div style="float: right; padding-top:70px;">
@@ -314,6 +311,8 @@
                 <li><a href="#" id="aKandidatenEmailsExportieren">..Email-Adressen exportieren</a></li>
             </ul>
         </div>
+        
+        <div style="float:left"><a href="/Admin/Bilder" style="display: block; padding-top: 4px;">&#x2193; Bilder</a></div>
 
         <div style="float: right;"><p style="margin-right: 10px; margin-top:5px;"><b>Datensätze 1-@Model.Items.Count von @Model.Items.Count</b></p></div>
    

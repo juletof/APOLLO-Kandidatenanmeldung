@@ -1,11 +1,17 @@
 ﻿using System.IO;
 using System.Web;
 using ApolloDb;
+using Ionic.Zip;
 using NHibernate.Util;
+
 
 public class KandidatBild
 {
     private static string _imagePath => HttpContext.Current.Server.MapPath("~/Images/");
+
+    public static string ZipFileName => "Bilder.zip";
+    public static string ZipFileFullPath => Path.Combine(_imagePath, ZipFileName);
+
 
     public static void Speichern(HttpPostedFileBase foto, Kandidat kandidat)
     {
@@ -22,6 +28,22 @@ public class KandidatBild
 
         foreach (var dir in dirs)
             File.Delete(dir);
+    }
+
+    public static void BilderZippen()
+    {
+        if (File.Exists(ZipFileFullPath))
+            File.Delete(ZipFileFullPath);
+
+        using (var zip = new ZipFile())
+        {
+            string[] dirs = Directory.GetFiles(_imagePath);
+
+            foreach (var dir in dirs)
+                zip.AddFile(dir, "Bilder");
+
+            zip.Save(ZipFileFullPath);
+        }
     }
 
     public static string Url(Kandidat kandidat)
