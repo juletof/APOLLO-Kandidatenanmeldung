@@ -63,7 +63,9 @@ public class AnmeldungModel
         Raucher = kandidat.Raucher;
         KoerperlicheEinschraenkungen = kandidat.KoerperlicheEinschraenkungen;
         IchEsseNicht = kandidat.IchEsseNicht;
-        FuerArbeitskleidung = kandidat.FuerArbeitskleidung;
+        Groesse = kandidat.Groesse;
+        Schuhgroesse = kandidat.Schuhgroesse;
+        Konfektionsgroesse = kandidat.Konfektionsgroesse;
 
         IsAdmin = sessionUser.IsLoggedInAdmin;
 
@@ -152,7 +154,9 @@ public class AnmeldungModel
     public bool Raucher { get; set; }
     public string KoerperlicheEinschraenkungen { get; set; }
     public string IchEsseNicht { get; set; }
-    public string FuerArbeitskleidung { get; set; }
+    public string Groesse { get; set; }
+    public string Schuhgroesse { get; set; }
+    public string Konfektionsgroesse { get; set; }
     public HttpPostedFileBase Foto { get; set; }
     public string ImagePath { get; set; } = "#";
 }

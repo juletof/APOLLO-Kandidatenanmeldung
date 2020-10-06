@@ -64,7 +64,9 @@ namespace ApolloDb
         public virtual bool Raucher { get; set; }
         public virtual string KoerperlicheEinschraenkungen { get; set; }
         public virtual string IchEsseNicht { get; set; }
-        public virtual string FuerArbeitskleidung { get; set; }
+        public virtual string Groesse { get; set; }
+        public virtual string Schuhgroesse { get; set; }
+        public virtual string Konfektionsgroesse { get; set; }
 
         public Kandidat()
         {

@@ -64,7 +64,9 @@ namespace ApolloDb
             Map(x => x.Raucher );
             Map(x => x.KoerperlicheEinschraenkungen );
             Map(x => x.IchEsseNicht );
-            Map(x => x.FuerArbeitskleidung );
+            Map(x => x.Groesse );
+            Map(x => x.Schuhgroesse);
+            Map(x => x.Konfektionsgroesse);
 
             Map(x => x.DateModified);
             Map(x => x.DateCreated);

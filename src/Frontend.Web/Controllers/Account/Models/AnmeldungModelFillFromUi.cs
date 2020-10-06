@@ -48,7 +48,10 @@ namespace ApolloDb
             kandidat.Raucher = anmeldungModel.Raucher;
             kandidat.KoerperlicheEinschraenkungen = anmeldungModel.KoerperlicheEinschraenkungen;
             kandidat.IchEsseNicht = anmeldungModel.IchEsseNicht;
-            kandidat.FuerArbeitskleidung = anmeldungModel.FuerArbeitskleidung;
+            
+            kandidat.Groesse = anmeldungModel.Groesse;
+            kandidat.Schuhgroesse = anmeldungModel.Schuhgroesse;
+            kandidat.Konfektionsgroesse = anmeldungModel.Konfektionsgroesse;
 
             return kandidat;
         }

@@ -533,20 +533,18 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">Für die Arbeitskleidung: / Мерки для рабочей одежды:</label>
-                <div class="controls">
-                    @Html.TextAreaFor(x => x.FuerArbeitskleidung,
-                        new
-                        {
-                            @class = "input-xlarge",
-                            @placeholder = "Рост / Размер обуви / Размер одежды",
-                            @style = "height: 180px; height:60px;"
-                        })
-                    <span class="help-inline alphabet">по-русски</span>
-                    <span class="help-block">
-                        Рост / Размер обуви / Размер одежды<br />
-                        Größe / Schuhgröße / Konfektionsgröße
-                    </span>
+                <label class="control-label">Für die Arbeitskleidung / Мерки для рабочей одежды:</label>
+                <div class="controls zweisprachig">
+                    @Html.TextBoxFor(x => x.Groesse, new { @class = "formular", @placeholder = "Größe / Рост" })
+                    <span class="help-inline alphabet">Рост</span>
+                </div>
+                <div class="controls zweisprachig">
+                    @Html.TextBoxFor(x => x.Schuhgroesse, new { @class = "formular", @placeholder = "Schuhgröße / Размер обуви" })
+                    <span class="help-inline alphabet">Размер обуви</span>
+                </div>
+                <div class="controls zweisprachig">
+                    @Html.TextBoxFor(x => x.Konfektionsgroesse, new { @class = "formular", @placeholder = "Konfektionsgröße / Размер одежды" })
+                    <span class="help-inline alphabet">Размер одежды</span>
                 </div>
             </div>
             <div class="control-group">
